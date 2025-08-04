@@ -1,4 +1,0 @@
-In table Prisoner_On_Job
-Do we set JobID and PrisonerID to primary keys or do they inherit from the relationship?
-
-Does Prisoner_On_Job get a 6th attribute of "AssignmentID" might help for future sorting/searching?
