@@ -1,26 +1,26 @@
 ﻿USE master;
 GO
 
-IF DB_ID('PrisonDB') IS NOT NULL		-- Check if the database exists before dropping it
+IF DB_ID('LockedIn') IS NOT NULL		-- Check if the database exists before dropping it
 BEGIN
-    ALTER DATABASE PrisonDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE; -- Set the database to single user mode to drop it
+    ALTER DATABASE LockedIn SET SINGLE_USER WITH ROLLBACK IMMEDIATE; -- Set the database to single user mode to drop it
 	--SINGLE_USER mode, meaning only one connection is allowed at a time
 	--WITH ROLLBACK IMMEDIATE will roll back any uncommitted transactions
-    DROP DATABASE PrisonDB;
+    DROP DATABASE LockedIn;
 END
 GO
 
 
 
 --Change file paths to your local github files
-CREATE DATABASE PrisonDB
-ON (NAME = PrisonDB_data, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\PrisonDB.mdf')
-LOG ON (NAME = PrisonDB_log, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\PrisonDB_log.ldf');
+CREATE DATABASE LockedIn
+ON (NAME = LockedInDB, 
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf')
+LOG ON (NAME = LockedInDB_log, 
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf');
 GO
 
-USE PrisonDB
+USE LockedIn
 GO
 
 CREATE TABLE Employer(
