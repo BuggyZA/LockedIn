@@ -9,15 +9,15 @@ BEGIN
     DROP DATABASE LockedIn;
 END
 GO
-
+--Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LockedIn;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
 
 
 --Change file paths to your local github files
 CREATE DATABASE LockedIn
 ON (NAME = LockedInDB, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf')
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB.mdf')
 LOG ON (NAME = LockedInDB_log, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf');
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB_log.ldf');
 GO
 
 USE LockedIn
