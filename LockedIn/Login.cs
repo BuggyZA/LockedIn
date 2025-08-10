@@ -21,5 +21,11 @@ namespace LockedIn
         {
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            frmPrisoner prisoner = new frmPrisoner();
+            prisoner.Show();
+        }
     }
 }
