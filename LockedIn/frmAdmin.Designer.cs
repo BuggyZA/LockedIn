@@ -88,7 +88,14 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.button17 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -98,16 +105,23 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.tpPSkills = new System.Windows.Forms.TabPage();
             this.tpPrisoner = new System.Windows.Forms.TabPage();
             this.tpReports = new System.Windows.Forms.TabPage();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.button20 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.button19 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -126,13 +140,19 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tpGuards.SuspendLayout();
             this.tpSkills.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -732,6 +752,8 @@
             // 
             // tpGuards
             // 
+            this.tpGuards.Controls.Add(this.panel27);
+            this.tpGuards.Controls.Add(this.panel21);
             this.tpGuards.Location = new System.Drawing.Point(4, 22);
             this.tpGuards.Name = "tpGuards";
             this.tpGuards.Size = new System.Drawing.Size(1272, 694);
@@ -805,6 +827,30 @@
             this.panel17.Size = new System.Drawing.Size(1238, 587);
             this.panel17.TabIndex = 0;
             // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button16.ForeColor = System.Drawing.Color.White;
+            this.button16.Location = new System.Drawing.Point(1163, 551);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(72, 33);
+            this.button16.TabIndex = 11;
+            this.button16.Text = "Back";
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(443, 375);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(389, 53);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "Save";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -819,6 +865,62 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(423, 211);
             this.panel20.TabIndex = 10;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel19.Controls.Add(this.button17);
+            this.panel19.Controls.Add(this.comboBox3);
+            this.panel19.Controls.Add(this.label14);
+            this.panel19.Controls.Add(this.label17);
+            this.panel19.Location = new System.Drawing.Point(46, 28);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(340, 168);
+            this.panel19.TabIndex = 1;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button17.ForeColor = System.Drawing.Color.White;
+            this.button17.Location = new System.Drawing.Point(25, 88);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(280, 53);
+            this.button17.TabIndex = 12;
+            this.button17.Text = "Next";
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(105, 46);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(200, 21);
+            this.comboBox3.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 3);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 27);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Skill Details";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label17.Location = new System.Drawing.Point(21, 42);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 23);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Skill Name:";
             // 
             // textBox5
             // 
@@ -917,50 +1019,6 @@
             this.button14.Text = "Add New Skill";
             this.button14.UseVisualStyleBackColor = false;
             // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel19.Controls.Add(this.button17);
-            this.panel19.Controls.Add(this.comboBox3);
-            this.panel19.Controls.Add(this.label14);
-            this.panel19.Controls.Add(this.label17);
-            this.panel19.Location = new System.Drawing.Point(46, 28);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(340, 168);
-            this.panel19.TabIndex = 1;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(105, 46);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(200, 21);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 3);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 27);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Skill Details";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.label17.Location = new System.Drawing.Point(21, 42);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 23);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Skill Name:";
-            // 
             // tpPSkills
             // 
             this.tpPSkills.Location = new System.Drawing.Point(4, 22);
@@ -989,41 +1047,163 @@
             this.tpReports.Text = "Request Reports";
             this.tpReports.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // panel21
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(443, 375);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(389, 53);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "Save";
-            this.button15.UseVisualStyleBackColor = false;
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Location = new System.Drawing.Point(2, 47);
+            this.panel21.Margin = new System.Windows.Forms.Padding(2);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(1280, 720);
+            this.panel21.TabIndex = 13;
             // 
-            // button16
+            // panel22
             // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(1163, 551);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(72, 33);
-            this.button16.TabIndex = 11;
-            this.button16.Text = "Back";
-            this.button16.UseVisualStyleBackColor = false;
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel22.Controls.Add(this.panel24);
+            this.panel22.Controls.Add(this.panel25);
+            this.panel22.Controls.Add(this.button18);
+            this.panel22.Location = new System.Drawing.Point(9, 18);
+            this.panel22.Margin = new System.Windows.Forms.Padding(2);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(1238, 587);
+            this.panel22.TabIndex = 0;
             // 
-            // button17
+            // button18
             // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(25, 88);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(280, 53);
-            this.button17.TabIndex = 12;
-            this.button17.Text = "Next";
-            this.button17.UseVisualStyleBackColor = false;
+            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button18.ForeColor = System.Drawing.Color.White;
+            this.button18.Location = new System.Drawing.Point(1163, 551);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(72, 33);
+            this.button18.TabIndex = 11;
+            this.button18.Text = "Back";
+            this.button18.UseVisualStyleBackColor = false;
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel25.Controls.Add(this.button20);
+            this.panel25.Controls.Add(this.comboBox4);
+            this.panel25.Controls.Add(this.label22);
+            this.panel25.Controls.Add(this.label23);
+            this.panel25.Location = new System.Drawing.Point(453, 152);
+            this.panel25.Margin = new System.Windows.Forms.Padding(2);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(340, 168);
+            this.panel25.TabIndex = 1;
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button20.ForeColor = System.Drawing.Color.White;
+            this.button20.Location = new System.Drawing.Point(25, 88);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(280, 53);
+            this.button20.TabIndex = 12;
+            this.button20.Text = "Next";
+            this.button20.UseVisualStyleBackColor = false;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(105, 46);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(200, 21);
+            this.comboBox4.TabIndex = 2;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 3);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(91, 27);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Job Details";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label23.Location = new System.Drawing.Point(21, 42);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(74, 23);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Job Name:";
+            // 
+            // panel27
+            // 
+            this.panel27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel27.Controls.Add(this.label27);
+            this.panel27.Location = new System.Drawing.Point(2, 2);
+            this.panel27.Margin = new System.Windows.Forms.Padding(2);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(1265, 45);
+            this.panel27.TabIndex = 14;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(0, 0);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(238, 39);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Assign Guads to Jobs";
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel24.Controls.Add(this.button19);
+            this.panel24.Controls.Add(this.label24);
+            this.panel24.Controls.Add(this.label25);
+            this.panel24.Location = new System.Drawing.Point(389, 155);
+            this.panel24.Margin = new System.Windows.Forms.Padding(2);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(449, 149);
+            this.panel24.TabIndex = 13;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 3);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(114, 27);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Guard Details:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label25.Location = new System.Drawing.Point(21, 42);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(415, 23);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "x Prisoners are assigned to {jobname}. Send y guards to job site";
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button19.ForeColor = System.Drawing.Color.White;
+            this.button19.Location = new System.Drawing.Point(366, 105);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(72, 33);
+            this.button19.TabIndex = 14;
+            this.button19.Text = "Close";
+            this.button19.UseVisualStyleBackColor = false;
             // 
             // frmAdmin
             // 
@@ -1061,6 +1241,7 @@
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tpGuards.ResumeLayout(false);
             this.tpSkills.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
@@ -1068,9 +1249,17 @@
             this.panel17.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
-            this.panel18.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1157,5 +1346,19 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
     }
 }
