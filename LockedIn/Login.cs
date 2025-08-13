@@ -21,5 +21,11 @@ namespace LockedIn
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmEmployer employer = new frmEmployer();
+            employer.Show();
+        }
     }
 }
