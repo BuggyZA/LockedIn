@@ -24,8 +24,25 @@ namespace LockedIn
 
         private void Login_Load(object sender, EventArgs e)
         {
-            frmPrisoner prisoner = new frmPrisoner();
-            prisoner.Show();
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frmAdmin adminForm = new frmAdmin();
+            adminForm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmEmployer employerForm = new frmEmployer();
+            employerForm.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmPrisoner prisonerForm = new frmPrisoner();
+            prisonerForm.Show();
         }
     }
 }
