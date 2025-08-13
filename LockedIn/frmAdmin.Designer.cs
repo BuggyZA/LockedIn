@@ -122,6 +122,22 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.button19 = new System.Windows.Forms.Button();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.monthCalendar3 = new System.Windows.Forms.MonthCalendar();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -148,11 +164,17 @@
             this.panel20.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.tpReports.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel24.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel32.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1040,6 +1062,8 @@
             // 
             // tpReports
             // 
+            this.tpReports.Controls.Add(this.panel26);
+            this.tpReports.Controls.Add(this.panel28);
             this.tpReports.Location = new System.Drawing.Point(4, 22);
             this.tpReports.Name = "tpReports";
             this.tpReports.Size = new System.Drawing.Size(1272, 694);
@@ -1205,6 +1229,184 @@
             this.button19.Text = "Close";
             this.button19.UseVisualStyleBackColor = false;
             // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel26.Controls.Add(this.label26);
+            this.panel26.Location = new System.Drawing.Point(2, 2);
+            this.panel26.Margin = new System.Windows.Forms.Padding(2);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(1265, 37);
+            this.panel26.TabIndex = 15;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(0, 0);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(172, 39);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Maintain Skills";
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.panel28.Controls.Add(this.panel29);
+            this.panel28.Location = new System.Drawing.Point(2, 43);
+            this.panel28.Margin = new System.Windows.Forms.Padding(2);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(1280, 637);
+            this.panel28.TabIndex = 14;
+            // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel29.Controls.Add(this.panel30);
+            this.panel29.Controls.Add(this.button21);
+            this.panel29.Controls.Add(this.panel32);
+            this.panel29.Location = new System.Drawing.Point(9, 18);
+            this.panel29.Margin = new System.Windows.Forms.Padding(2);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(1238, 587);
+            this.panel29.TabIndex = 0;
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button21.ForeColor = System.Drawing.Color.White;
+            this.button21.Location = new System.Drawing.Point(1163, 551);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(72, 33);
+            this.button21.TabIndex = 11;
+            this.button21.Text = "Back";
+            this.button21.UseVisualStyleBackColor = false;
+            // 
+            // panel32
+            // 
+            this.panel32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel32.Controls.Add(this.label28);
+            this.panel32.Controls.Add(this.button24);
+            this.panel32.Controls.Add(this.button25);
+            this.panel32.Location = new System.Drawing.Point(453, 66);
+            this.panel32.Margin = new System.Windows.Forms.Padding(2);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(344, 354);
+            this.panel32.TabIndex = 9;
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button24.ForeColor = System.Drawing.Color.White;
+            this.button24.Location = new System.Drawing.Point(44, 57);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(269, 108);
+            this.button24.TabIndex = 7;
+            this.button24.Text = "Jobs Completed Per Time Period";
+            this.button24.UseVisualStyleBackColor = false;
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button25.ForeColor = System.Drawing.Color.White;
+            this.button25.Location = new System.Drawing.Point(44, 209);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(269, 108);
+            this.button25.TabIndex = 5;
+            this.button25.Text = "Record of Prisoner per Time Period";
+            this.button25.UseVisualStyleBackColor = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(2, 0);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 27);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "Reports:";
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel30.Controls.Add(this.button23);
+            this.panel30.Controls.Add(this.button22);
+            this.panel30.Controls.Add(this.label30);
+            this.panel30.Controls.Add(this.monthCalendar3);
+            this.panel30.Controls.Add(this.label29);
+            this.panel30.Controls.Add(this.monthCalendar2);
+            this.panel30.Location = new System.Drawing.Point(295, 136);
+            this.panel30.Margin = new System.Windows.Forms.Padding(2);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(745, 217);
+            this.panel30.TabIndex = 12;
+            // 
+            // monthCalendar2
+            // 
+            this.monthCalendar2.Location = new System.Drawing.Point(109, 4);
+            this.monthCalendar2.Margin = new System.Windows.Forms.Padding(6);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(2, 4);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(90, 27);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Start Date:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(399, 3);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(79, 27);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "End Date:";
+            // 
+            // monthCalendar3
+            // 
+            this.monthCalendar3.Location = new System.Drawing.Point(504, 4);
+            this.monthCalendar3.Margin = new System.Windows.Forms.Padding(6);
+            this.monthCalendar3.Name = "monthCalendar3";
+            this.monthCalendar3.TabIndex = 10;
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button22.ForeColor = System.Drawing.Color.White;
+            this.button22.Location = new System.Drawing.Point(659, 175);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(72, 33);
+            this.button22.TabIndex = 13;
+            this.button22.Text = "Back";
+            this.button22.UseVisualStyleBackColor = false;
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button23.ForeColor = System.Drawing.Color.White;
+            this.button23.Location = new System.Drawing.Point(470, 175);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(183, 33);
+            this.button23.TabIndex = 14;
+            this.button23.Text = "Generate report";
+            this.button23.UseVisualStyleBackColor = false;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1252,6 +1454,7 @@
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
+            this.tpReports.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
@@ -1260,6 +1463,14 @@
             this.panel27.PerformLayout();
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            this.panel28.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
+            this.panel32.ResumeLayout(false);
+            this.panel32.PerformLayout();
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1360,5 +1571,21 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.MonthCalendar monthCalendar3;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.MonthCalendar monthCalendar2;
     }
 }
