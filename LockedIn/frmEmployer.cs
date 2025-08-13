@@ -16,5 +16,20 @@ namespace LockedIn
         {
             InitializeComponent();
         }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmpHeading_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
