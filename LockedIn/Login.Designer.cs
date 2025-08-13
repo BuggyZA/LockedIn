@@ -118,6 +118,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Employer";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -130,6 +131,7 @@
             this.button5.TabIndex = 1;
             this.button5.Text = "Administrator";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -142,6 +144,7 @@
             this.button6.TabIndex = 2;
             this.button6.Text = "Prisoner";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label2
             // 
