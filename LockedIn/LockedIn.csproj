@@ -107,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,6 +142,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LockedInDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Pictures\back-arrow.png" />
+    <Content Include="Pictures\profile-user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
