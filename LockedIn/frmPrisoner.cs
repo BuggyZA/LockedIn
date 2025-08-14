@@ -26,5 +26,9 @@ namespace LockedIn
         {
 
         }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }
