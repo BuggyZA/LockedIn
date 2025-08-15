@@ -226,7 +226,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -237,7 +236,6 @@
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.tpEmployer.SuspendLayout();
             this.tpCompleteJobs.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -612,7 +610,6 @@
             // 
             // tpEmployer
             // 
-            this.tpEmployer.Controls.Add(this.button42);
             this.tpEmployer.Location = new System.Drawing.Point(4, 25);
             this.tpEmployer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpEmployer.Name = "tpEmployer";
@@ -913,7 +910,7 @@
             // 
             this.panel34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.panel34.Controls.Add(this.panel35);
-            this.panel34.Location = new System.Drawing.Point(3, 53);
+            this.panel34.Location = new System.Drawing.Point(8, 61);
             this.panel34.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(1707, 766);
@@ -2521,19 +2518,6 @@
             this.button25.Text = "Record of Prisoner per Time Period";
             this.button25.UseVisualStyleBackColor = false;
             // 
-            // button42
-            // 
-            this.button42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button42.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button42.ForeColor = System.Drawing.Color.White;
-            this.button42.Location = new System.Drawing.Point(670, 362);
-            this.button42.Margin = new System.Windows.Forms.Padding(4);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(359, 133);
-            this.button42.TabIndex = 8;
-            this.button42.Text = "Add New Skill";
-            this.button42.UseVisualStyleBackColor = false;
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2559,7 +2543,6 @@
             this.panel14.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.tpEmployer.ResumeLayout(false);
             this.tpCompleteJobs.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -2841,6 +2824,5 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Button button40;
         private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button42;
     }
 }
