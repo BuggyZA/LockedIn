@@ -36,7 +36,7 @@ CREATE TABLE JOB(
 	JobLocation varchar(55),
 	StartDate datetime,
 	EndDate datetime,
-	GaurdsAssigned int,						--Added Gaurds assigned
+	PrisonersNeeded int,
 	Completed bit,
 	DurationPerDay time(0),
 
@@ -45,7 +45,7 @@ CREATE TABLE JOB(
 
 CREATE TABLE PRISONER(
 	PrisonerID int IDENTITY(1,1) PRIMARY KEY,
-	PrisonerNum char(10),				--varchar or char?
+	PrisonerNum char(10),			
 	LastName varchar(55),
 	FirstName varchar(55),
 	SA_ID varchar(13),
