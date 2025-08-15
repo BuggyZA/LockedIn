@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ashto\\Documents\\CMPG213\\",
+  "WorkspaceRootPath": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\CMPG213\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\janre\\documents\\github\\lockedin\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\ashto\\documents\\cmpg213\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\ashto\\documents\\cmpg213\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -22,35 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "frmEmployer.cs",
-              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmEmployer.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmEmployer.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
-              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmEmployer.cs",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmEmployer.cs",
               "RelativeToolTip": "LockedIn\\frmEmployer.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -61,9 +41,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "frmEmployer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmEmployer.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmEmployer.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
-              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmEmployer.cs [Design]",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmEmployer.cs [Design]",
               "RelativeToolTip": "LockedIn\\frmEmployer.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T06:32:04.311Z",
@@ -73,13 +53,12 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
               "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T13:24:05.575Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-08-13T13:24:05.575Z"
             }
           ]
         }
