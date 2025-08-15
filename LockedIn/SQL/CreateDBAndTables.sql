@@ -9,15 +9,13 @@ BEGIN
     DROP DATABASE LockedIn;
 END
 GO
---Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LockedIn;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
-
 
 --Change file paths to your local github files
 CREATE DATABASE LockedIn
 ON (NAME = LockedInDB, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB.mdf')
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedIn\LockedInDB.mdf')
 LOG ON (NAME = LockedInDB_log, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB_log.ldf');
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedIn\LockedInDB_log.ldf');
 GO
 
 USE LockedIn
@@ -38,6 +36,7 @@ CREATE TABLE JOB(
 	JobLocation varchar(55),
 	StartDate datetime,
 	EndDate datetime,
+	GaurdsAssigned int,						--Added Gaurds assigned
 	Completed bit,
 	DurationPerDay time(0),
 
@@ -46,6 +45,7 @@ CREATE TABLE JOB(
 
 CREATE TABLE PRISONER(
 	PrisonerID int IDENTITY(1,1) PRIMARY KEY,
+	PrisonerNum char(10),				--varchar or char?
 	LastName varchar(55),
 	FirstName varchar(55),
 	SA_ID varchar(13),
