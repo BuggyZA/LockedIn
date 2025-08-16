@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrisoner));
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
@@ -97,6 +100,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -115,6 +119,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button17 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tabPage5.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -138,17 +150,53 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.tabPage5.Controls.Add(this.panel16);
+            this.tabPage5.Controls.Add(this.panel12);
+            this.tabPage5.Location = new System.Drawing.Point(4, 32);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage5.Size = new System.Drawing.Size(1272, 694);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1272, 684);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel12.Controls.Add(this.richTextBox2);
+            this.panel12.Controls.Add(this.label24);
+            this.panel12.Controls.Add(this.button16);
+            this.panel12.Controls.Add(this.listView1);
+            this.panel12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel12.Location = new System.Drawing.Point(8, 6);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1240, 641);
+            this.panel12.TabIndex = 0;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.button16.Location = new System.Drawing.Point(857, 549);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(282, 82);
+            this.button16.TabIndex = 19;
+            this.button16.Text = "Apply";
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(24, 140);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(561, 350);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // tabPage4
             // 
@@ -156,10 +204,10 @@
             this.tabPage4.Controls.Add(this.panel13);
             this.tabPage4.Controls.Add(this.panel9);
             this.tabPage4.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage4.Size = new System.Drawing.Size(1272, 694);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1272, 684);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Apply For Jobs";
             // 
@@ -168,7 +216,7 @@
             this.panel13.BackColor = System.Drawing.Color.White;
             this.panel13.Controls.Add(this.button14);
             this.panel13.Location = new System.Drawing.Point(6, 6);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1246, 84);
             this.panel13.TabIndex = 1;
@@ -178,7 +226,7 @@
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.button14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button14.Location = new System.Drawing.Point(26, 15);
-            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button14.Margin = new System.Windows.Forms.Padding(2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(133, 54);
             this.button14.TabIndex = 0;
@@ -191,7 +239,7 @@
             this.panel9.Controls.Add(this.panel15);
             this.panel9.Controls.Add(this.panel14);
             this.panel9.Location = new System.Drawing.Point(6, 103);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1246, 548);
             this.panel9.TabIndex = 0;
@@ -201,7 +249,7 @@
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.panel15.Controls.Add(this.panel11);
             this.panel15.Location = new System.Drawing.Point(14, 292);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(1208, 240);
             this.panel15.TabIndex = 4;
@@ -215,7 +263,7 @@
             this.panel11.Controls.Add(this.label22);
             this.panel11.Controls.Add(this.label21);
             this.panel11.Location = new System.Drawing.Point(12, 13);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1172, 208);
             this.panel11.TabIndex = 1;
@@ -225,7 +273,7 @@
             this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.button15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button15.Location = new System.Drawing.Point(1006, 128);
-            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button15.Margin = new System.Windows.Forms.Padding(2);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(134, 53);
             this.button15.TabIndex = 1;
@@ -235,7 +283,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(494, 44);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(110, 30);
             this.textBox10.TabIndex = 8;
@@ -245,7 +293,7 @@
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 22;
             this.listBox3.Location = new System.Drawing.Point(176, 41);
-            this.listBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox3.Margin = new System.Windows.Forms.Padding(2);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(110, 136);
             this.listBox3.TabIndex = 7;
@@ -275,7 +323,7 @@
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.panel14.Controls.Add(this.panel10);
             this.panel14.Location = new System.Drawing.Point(14, 32);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(1208, 255);
             this.panel14.TabIndex = 3;
@@ -292,7 +340,7 @@
             this.panel10.Controls.Add(this.label23);
             this.panel10.Controls.Add(this.label19);
             this.panel10.Location = new System.Drawing.Point(12, 15);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1172, 222);
             this.panel10.TabIndex = 0;
@@ -300,7 +348,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(484, 99);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(257, 101);
             this.richTextBox1.TabIndex = 10;
@@ -319,7 +367,7 @@
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(484, 41);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(128, 30);
             this.textBox13.TabIndex = 8;
@@ -337,7 +385,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(158, 99);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(128, 30);
             this.textBox9.TabIndex = 6;
@@ -345,7 +393,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(158, 46);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(128, 30);
             this.textBox8.TabIndex = 5;
@@ -375,10 +423,10 @@
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1272, 694);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1272, 684);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Maintain Prisoners";
             // 
@@ -792,10 +840,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1272, 694);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1272, 684);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home Page";
             // 
@@ -823,6 +871,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel3.Controls.Add(this.listView2);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
@@ -835,6 +884,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1160, 440);
             this.panel3.TabIndex = 2;
+            // 
+            // listView2
+            // 
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(397, 0);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(121, 97);
+            this.listView2.TabIndex = 15;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // button4
             // 
@@ -1011,11 +1069,72 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1280, 720);
             this.tabControl1.TabIndex = 0;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel16.Controls.Add(this.label20);
+            this.panel16.Controls.Add(this.pictureBox5);
+            this.panel16.Controls.Add(this.button17);
+            this.panel16.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel16.Location = new System.Drawing.Point(6, 6);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1242, 75);
+            this.panel16.TabIndex = 2;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(1699, 86);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(159, 23);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "First + Last name";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(1751, 18);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.button17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.button17.Location = new System.Drawing.Point(3, 18);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(104, 43);
+            this.button17.TabIndex = 4;
+            this.button17.Text = "Back";
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(899, 103);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(141, 23);
+            this.label24.TabIndex = 20;
+            this.label24.Text = "Job Description";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(741, 140);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(461, 143);
+            this.richTextBox2.TabIndex = 21;
+            this.richTextBox2.Text = "";
             // 
             // frmPrisoner
             // 
@@ -1025,6 +1144,9 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmPrisoner";
             this.Text = "frmPrisoner";
+            this.tabPage5.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -1058,6 +1180,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1150,5 +1275,15 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label24;
     }
 }
