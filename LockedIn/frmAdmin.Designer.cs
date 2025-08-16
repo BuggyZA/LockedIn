@@ -74,7 +74,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtJobName = new System.Windows.Forms.TextBox();
+            this.txtCJJobName = new System.Windows.Forms.TextBox();
             this.cmbJobID = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,28 +88,28 @@
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.button35 = new System.Windows.Forms.Button();
+            this.btnRemoveSelSkill = new System.Windows.Forms.Button();
+            this.cbxSkillName = new System.Windows.Forms.ComboBox();
+            this.btnAddSkill = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstSkillsNeeded = new System.Windows.Forms.ListBox();
             this.label55 = new System.Windows.Forms.Label();
             this.panel39 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbJobCompleted = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.monthCalendar4 = new System.Windows.Forms.MonthCalendar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.calEndDate = new System.Windows.Forms.MonthCalendar();
+            this.nudDuration = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.monthCalendar5 = new System.Windows.Forms.MonthCalendar();
+            this.calStartDate = new System.Windows.Forms.MonthCalendar();
             this.panel40 = new System.Windows.Forms.Panel();
-            this.txtMJJobTitle = new System.Windows.Forms.TextBox();
+            this.txtMJJobName = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbJobLocation = new System.Windows.Forms.RichTextBox();
+            this.rtbJobDescription = new System.Windows.Forms.RichTextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.panel38 = new System.Windows.Forms.Panel();
             this.button30 = new System.Windows.Forms.Button();
@@ -122,7 +122,7 @@
             this.label37 = new System.Windows.Forms.Label();
             this.button32 = new System.Windows.Forms.Button();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpName = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.button28 = new System.Windows.Forms.Button();
@@ -132,15 +132,15 @@
             this.label27 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.button19 = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.button20 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.cbxJobName = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblGuardDetails = new System.Windows.Forms.Label();
             this.button18 = new System.Windows.Forms.Button();
             this.tpJSkills = new System.Windows.Forms.TabPage();
             this.panel42 = new System.Windows.Forms.Panel();
@@ -149,15 +149,15 @@
             this.panel44 = new System.Windows.Forms.Panel();
             this.panel45 = new System.Windows.Forms.Panel();
             this.label50 = new System.Windows.Forms.Label();
-            this.button36 = new System.Windows.Forms.Button();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.button37 = new System.Windows.Forms.Button();
+            this.btnASJRemoveSelSkill = new System.Windows.Forms.Button();
+            this.cbxASJSkillName = new System.Windows.Forms.ComboBox();
+            this.btnAddNewSkill = new System.Windows.Forms.Button();
             this.label47 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstCurrentNeededSkills = new System.Windows.Forms.ListBox();
             this.label49 = new System.Windows.Forms.Label();
             this.panel46 = new System.Windows.Forms.Panel();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.cbxASJJobName = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.button43 = new System.Windows.Forms.Button();
@@ -167,23 +167,23 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.button17 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMSSkillDesc = new System.Windows.Forms.TextBox();
+            this.txtMSSkillName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.btnMSNext = new System.Windows.Forms.Button();
+            this.cbxMSSkillName = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btnMSEditExisSkil = new System.Windows.Forms.Button();
+            this.btnMSDelExisSkill = new System.Windows.Forms.Button();
+            this.btnMSAddNewSkill = new System.Windows.Forms.Button();
             this.tpPSkills = new System.Windows.Forms.TabPage();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
@@ -299,7 +299,7 @@
             this.panel35.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel39.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
             this.panel40.SuspendLayout();
             this.panel38.SuspendLayout();
             this.panel36.SuspendLayout();
@@ -308,8 +308,8 @@
             this.panel27.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.tpJSkills.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
@@ -859,7 +859,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel4.Controls.Add(this.txtJobName);
+            this.panel4.Controls.Add(this.txtCJJobName);
             this.panel4.Controls.Add(this.cmbJobID);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label3);
@@ -870,14 +870,14 @@
             this.panel4.Size = new System.Drawing.Size(553, 200);
             this.panel4.TabIndex = 0;
             // 
-            // txtJobName
+            // txtCJJobName
             // 
-            this.txtJobName.Location = new System.Drawing.Point(128, 103);
-            this.txtJobName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtJobName.Name = "txtJobName";
-            this.txtJobName.Size = new System.Drawing.Size(271, 36);
-            this.txtJobName.TabIndex = 3;
-            this.txtJobName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtCJJobName.Location = new System.Drawing.Point(128, 103);
+            this.txtCJJobName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCJJobName.Name = "txtCJJobName";
+            this.txtCJJobName.Size = new System.Drawing.Size(271, 36);
+            this.txtCJJobName.TabIndex = 3;
+            this.txtCJJobName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cmbJobID
             // 
@@ -1000,12 +1000,12 @@
             // 
             this.panel41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel41.Controls.Add(this.label45);
-            this.panel41.Controls.Add(this.btnRemove);
-            this.panel41.Controls.Add(this.comboBox8);
-            this.panel41.Controls.Add(this.button35);
+            this.panel41.Controls.Add(this.btnRemoveSelSkill);
+            this.panel41.Controls.Add(this.cbxSkillName);
+            this.panel41.Controls.Add(this.btnAddSkill);
             this.panel41.Controls.Add(this.label48);
             this.panel41.Controls.Add(this.label54);
-            this.panel41.Controls.Add(this.listBox1);
+            this.panel41.Controls.Add(this.lstSkillsNeeded);
             this.panel41.Controls.Add(this.label55);
             this.panel41.Location = new System.Drawing.Point(691, 348);
             this.panel41.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1023,40 +1023,40 @@
             this.label45.TabIndex = 22;
             this.label45.Text = "Select a Skill to add:";
             // 
-            // btnRemove
+            // btnRemoveSelSkill
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(30, 242);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(348, 41);
-            this.btnRemove.TabIndex = 21;
-            this.btnRemove.Text = "Remove Selected Skill";
-            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemoveSelSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnRemoveSelSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnRemoveSelSkill.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveSelSkill.Location = new System.Drawing.Point(30, 242);
+            this.btnRemoveSelSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveSelSkill.Name = "btnRemoveSelSkill";
+            this.btnRemoveSelSkill.Size = new System.Drawing.Size(348, 41);
+            this.btnRemoveSelSkill.TabIndex = 21;
+            this.btnRemoveSelSkill.Text = "Remove Selected Skill";
+            this.btnRemoveSelSkill.UseVisualStyleBackColor = false;
             // 
-            // comboBox8
+            // cbxSkillName
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(572, 140);
-            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(265, 24);
-            this.comboBox8.TabIndex = 2;
+            this.cbxSkillName.FormattingEnabled = true;
+            this.cbxSkillName.Location = new System.Drawing.Point(572, 140);
+            this.cbxSkillName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxSkillName.Name = "cbxSkillName";
+            this.cbxSkillName.Size = new System.Drawing.Size(265, 24);
+            this.cbxSkillName.TabIndex = 2;
             // 
-            // button35
+            // btnAddSkill
             // 
-            this.button35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button35.ForeColor = System.Drawing.Color.White;
-            this.button35.Location = new System.Drawing.Point(466, 242);
-            this.button35.Margin = new System.Windows.Forms.Padding(4);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(373, 41);
-            this.button35.TabIndex = 20;
-            this.button35.Text = "Add New Skill";
-            this.button35.UseVisualStyleBackColor = false;
+            this.btnAddSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAddSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnAddSkill.ForeColor = System.Drawing.Color.White;
+            this.btnAddSkill.Location = new System.Drawing.Point(466, 242);
+            this.btnAddSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddSkill.Name = "btnAddSkill";
+            this.btnAddSkill.Size = new System.Drawing.Size(373, 41);
+            this.btnAddSkill.TabIndex = 20;
+            this.btnAddSkill.Text = "Add New Skill";
+            this.btnAddSkill.UseVisualStyleBackColor = false;
             // 
             // label48
             // 
@@ -1078,15 +1078,15 @@
             this.label54.TabIndex = 0;
             this.label54.Text = "Skill Name:";
             // 
-            // listBox1
+            // lstSkillsNeeded
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(30, 85);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(347, 148);
-            this.listBox1.TabIndex = 10;
+            this.lstSkillsNeeded.FormattingEnabled = true;
+            this.lstSkillsNeeded.ItemHeight = 16;
+            this.lstSkillsNeeded.Location = new System.Drawing.Point(30, 85);
+            this.lstSkillsNeeded.Margin = new System.Windows.Forms.Padding(4);
+            this.lstSkillsNeeded.Name = "lstSkillsNeeded";
+            this.lstSkillsNeeded.Size = new System.Drawing.Size(347, 148);
+            this.lstSkillsNeeded.TabIndex = 10;
             // 
             // label55
             // 
@@ -1101,30 +1101,30 @@
             // panel39
             // 
             this.panel39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel39.Controls.Add(this.checkBox1);
+            this.panel39.Controls.Add(this.cbJobCompleted);
             this.panel39.Controls.Add(this.label40);
-            this.panel39.Controls.Add(this.monthCalendar4);
-            this.panel39.Controls.Add(this.numericUpDown1);
+            this.panel39.Controls.Add(this.calEndDate);
+            this.panel39.Controls.Add(this.nudDuration);
             this.panel39.Controls.Add(this.label35);
             this.panel39.Controls.Add(this.label41);
-            this.panel39.Controls.Add(this.monthCalendar5);
+            this.panel39.Controls.Add(this.calStartDate);
             this.panel39.Location = new System.Drawing.Point(691, 20);
             this.panel39.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel39.Name = "panel39";
             this.panel39.Size = new System.Drawing.Size(852, 311);
             this.panel39.TabIndex = 17;
             // 
-            // checkBox1
+            // cbJobCompleted
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(456, 267);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(151, 33);
-            this.checkBox1.TabIndex = 14;
-            this.checkBox1.Text = "Job Completed";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbJobCompleted.AutoSize = true;
+            this.cbJobCompleted.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbJobCompleted.Location = new System.Drawing.Point(456, 267);
+            this.cbJobCompleted.Margin = new System.Windows.Forms.Padding(4);
+            this.cbJobCompleted.Name = "cbJobCompleted";
+            this.cbJobCompleted.Size = new System.Drawing.Size(151, 33);
+            this.cbJobCompleted.TabIndex = 14;
+            this.cbJobCompleted.Text = "Job Completed";
+            this.cbJobCompleted.UseVisualStyleBackColor = true;
             // 
             // label40
             // 
@@ -1136,22 +1136,22 @@
             this.label40.TabIndex = 11;
             this.label40.Text = "End Date:";
             // 
-            // monthCalendar4
+            // calEndDate
             // 
-            this.monthCalendar4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar4.Location = new System.Drawing.Point(456, 44);
-            this.monthCalendar4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.monthCalendar4.Name = "monthCalendar4";
-            this.monthCalendar4.TabIndex = 10;
+            this.calEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calEndDate.Location = new System.Drawing.Point(456, 44);
+            this.calEndDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.calEndDate.Name = "calEndDate";
+            this.calEndDate.TabIndex = 10;
             // 
-            // numericUpDown1
+            // nudDuration
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(237, 274);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 26);
-            this.numericUpDown1.TabIndex = 13;
+            this.nudDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDuration.Location = new System.Drawing.Point(237, 274);
+            this.nudDuration.Margin = new System.Windows.Forms.Padding(4);
+            this.nudDuration.Name = "nudDuration";
+            this.nudDuration.Size = new System.Drawing.Size(75, 26);
+            this.nudDuration.TabIndex = 13;
             // 
             // label35
             // 
@@ -1173,23 +1173,23 @@
             this.label41.TabIndex = 9;
             this.label41.Text = "Start Date:";
             // 
-            // monthCalendar5
+            // calStartDate
             // 
-            this.monthCalendar5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar5.Location = new System.Drawing.Point(9, 46);
-            this.monthCalendar5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.monthCalendar5.Name = "monthCalendar5";
-            this.monthCalendar5.TabIndex = 1;
+            this.calStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calStartDate.Location = new System.Drawing.Point(9, 46);
+            this.calStartDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.calStartDate.Name = "calStartDate";
+            this.calStartDate.TabIndex = 1;
             // 
             // panel40
             // 
             this.panel40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel40.Controls.Add(this.txtMJJobTitle);
+            this.panel40.Controls.Add(this.txtMJJobName);
             this.panel40.Controls.Add(this.label44);
             this.panel40.Controls.Add(this.label39);
             this.panel40.Controls.Add(this.label42);
-            this.panel40.Controls.Add(this.richTextBox2);
-            this.panel40.Controls.Add(this.richTextBox1);
+            this.panel40.Controls.Add(this.rtbJobLocation);
+            this.panel40.Controls.Add(this.rtbJobDescription);
             this.panel40.Controls.Add(this.label43);
             this.panel40.Location = new System.Drawing.Point(187, 185);
             this.panel40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1197,14 +1197,14 @@
             this.panel40.Size = new System.Drawing.Size(487, 473);
             this.panel40.TabIndex = 18;
             // 
-            // txtMJJobTitle
+            // txtMJJobName
             // 
-            this.txtMJJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMJJobTitle.Location = new System.Drawing.Point(128, 78);
-            this.txtMJJobTitle.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMJJobTitle.Name = "txtMJJobTitle";
-            this.txtMJJobTitle.Size = new System.Drawing.Size(305, 26);
-            this.txtMJJobTitle.TabIndex = 13;
+            this.txtMJJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMJJobName.Location = new System.Drawing.Point(128, 78);
+            this.txtMJJobName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMJJobName.Name = "txtMJJobName";
+            this.txtMJJobName.Size = new System.Drawing.Size(305, 26);
+            this.txtMJJobName.TabIndex = 13;
             // 
             // label44
             // 
@@ -1236,23 +1236,23 @@
             this.label42.TabIndex = 6;
             this.label42.Text = "Job Name:";
             // 
-            // richTextBox2
+            // rtbJobLocation
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(28, 345);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(406, 88);
-            this.richTextBox2.TabIndex = 11;
-            this.richTextBox2.Text = "";
+            this.rtbJobLocation.Location = new System.Drawing.Point(28, 345);
+            this.rtbJobLocation.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbJobLocation.Name = "rtbJobLocation";
+            this.rtbJobLocation.Size = new System.Drawing.Size(406, 88);
+            this.rtbJobLocation.TabIndex = 11;
+            this.rtbJobLocation.Text = "";
             // 
-            // richTextBox1
+            // rtbJobDescription
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(28, 194);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(406, 88);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.rtbJobDescription.Location = new System.Drawing.Point(28, 194);
+            this.rtbJobDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbJobDescription.Name = "rtbJobDescription";
+            this.rtbJobDescription.Size = new System.Drawing.Size(406, 88);
+            this.rtbJobDescription.TabIndex = 10;
+            this.rtbJobDescription.Text = "";
             // 
             // label43
             // 
@@ -1389,7 +1389,7 @@
             // panel37
             // 
             this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel37.Controls.Add(this.comboBox7);
+            this.panel37.Controls.Add(this.cmbEmpName);
             this.panel37.Controls.Add(this.label34);
             this.panel37.Controls.Add(this.label38);
             this.panel37.Location = new System.Drawing.Point(187, 20);
@@ -1398,15 +1398,15 @@
             this.panel37.Size = new System.Drawing.Size(487, 142);
             this.panel37.TabIndex = 16;
             // 
-            // comboBox7
+            // cmbEmpName
             // 
-            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(174, 62);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(292, 28);
-            this.comboBox7.TabIndex = 4;
+            this.cmbEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEmpName.FormattingEnabled = true;
+            this.cmbEmpName.Location = new System.Drawing.Point(174, 62);
+            this.cmbEmpName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbEmpName.Name = "cmbEmpName";
+            this.cmbEmpName.Size = new System.Drawing.Size(292, 28);
+            this.cmbEmpName.TabIndex = 4;
             // 
             // label34
             // 
@@ -1500,8 +1500,8 @@
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.panel22.Controls.Add(this.panel24);
             this.panel22.Controls.Add(this.panel25);
+            this.panel22.Controls.Add(this.panel24);
             this.panel22.Controls.Add(this.button18);
             this.panel22.Location = new System.Drawing.Point(12, 22);
             this.panel22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1509,56 +1509,11 @@
             this.panel22.Size = new System.Drawing.Size(1651, 722);
             this.panel22.TabIndex = 0;
             // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel24.Controls.Add(this.button19);
-            this.panel24.Controls.Add(this.label24);
-            this.panel24.Controls.Add(this.label25);
-            this.panel24.Location = new System.Drawing.Point(521, 190);
-            this.panel24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(599, 183);
-            this.panel24.TabIndex = 13;
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(488, 130);
-            this.button19.Margin = new System.Windows.Forms.Padding(4);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(96, 41);
-            this.button19.TabIndex = 14;
-            this.button19.Text = "Close";
-            this.button19.UseVisualStyleBackColor = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(4, 4);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(140, 33);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Guard Details:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.label25.Location = new System.Drawing.Point(28, 52);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(524, 29);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "x Prisoners are assigned to {jobname}. Send y guards to job site";
-            // 
             // panel25
             // 
             this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel25.Controls.Add(this.button20);
-            this.panel25.Controls.Add(this.comboBox4);
+            this.panel25.Controls.Add(this.btnNext);
+            this.panel25.Controls.Add(this.cbxJobName);
             this.panel25.Controls.Add(this.label22);
             this.panel25.Controls.Add(this.label23);
             this.panel25.Location = new System.Drawing.Point(604, 187);
@@ -1567,27 +1522,27 @@
             this.panel25.Size = new System.Drawing.Size(453, 206);
             this.panel25.TabIndex = 1;
             // 
-            // button20
+            // btnNext
             // 
-            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button20.ForeColor = System.Drawing.Color.White;
-            this.button20.Location = new System.Drawing.Point(34, 108);
-            this.button20.Margin = new System.Windows.Forms.Padding(4);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(373, 66);
-            this.button20.TabIndex = 12;
-            this.button20.Text = "Next";
-            this.button20.UseVisualStyleBackColor = false;
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(34, 108);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(373, 66);
+            this.btnNext.TabIndex = 12;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
             // 
-            // comboBox4
+            // cbxJobName
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(140, 57);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(265, 24);
-            this.comboBox4.TabIndex = 2;
+            this.cbxJobName.FormattingEnabled = true;
+            this.cbxJobName.Location = new System.Drawing.Point(140, 57);
+            this.cbxJobName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxJobName.Name = "cbxJobName";
+            this.cbxJobName.Size = new System.Drawing.Size(265, 24);
+            this.cbxJobName.TabIndex = 2;
             // 
             // label22
             // 
@@ -1608,6 +1563,51 @@
             this.label23.Size = new System.Drawing.Size(94, 29);
             this.label23.TabIndex = 0;
             this.label23.Text = "Job Name:";
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel24.Controls.Add(this.btnClose);
+            this.panel24.Controls.Add(this.label24);
+            this.panel24.Controls.Add(this.lblGuardDetails);
+            this.panel24.Location = new System.Drawing.Point(521, 190);
+            this.panel24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(599, 183);
+            this.panel24.TabIndex = 13;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(488, 130);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(96, 41);
+            this.btnClose.TabIndex = 14;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(4, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(140, 33);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Guard Details:";
+            // 
+            // lblGuardDetails
+            // 
+            this.lblGuardDetails.AutoSize = true;
+            this.lblGuardDetails.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.lblGuardDetails.Location = new System.Drawing.Point(28, 52);
+            this.lblGuardDetails.Name = "lblGuardDetails";
+            this.lblGuardDetails.Size = new System.Drawing.Size(524, 29);
+            this.lblGuardDetails.TabIndex = 0;
+            this.lblGuardDetails.Text = "x Prisoners are assigned to {jobname}. Send y guards to job site";
             // 
             // button18
             // 
@@ -1682,12 +1682,12 @@
             // 
             this.panel45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel45.Controls.Add(this.label50);
-            this.panel45.Controls.Add(this.button36);
-            this.panel45.Controls.Add(this.comboBox10);
-            this.panel45.Controls.Add(this.button37);
+            this.panel45.Controls.Add(this.btnASJRemoveSelSkill);
+            this.panel45.Controls.Add(this.cbxASJSkillName);
+            this.panel45.Controls.Add(this.btnAddNewSkill);
             this.panel45.Controls.Add(this.label47);
             this.panel45.Controls.Add(this.label51);
-            this.panel45.Controls.Add(this.listBox2);
+            this.panel45.Controls.Add(this.lstCurrentNeededSkills);
             this.panel45.Controls.Add(this.label49);
             this.panel45.Location = new System.Drawing.Point(386, 226);
             this.panel45.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1705,40 +1705,40 @@
             this.label50.TabIndex = 22;
             this.label50.Text = "Select a Skill to add:";
             // 
-            // button36
+            // btnASJRemoveSelSkill
             // 
-            this.button36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button36.ForeColor = System.Drawing.Color.White;
-            this.button36.Location = new System.Drawing.Point(29, 250);
-            this.button36.Margin = new System.Windows.Forms.Padding(4);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(348, 41);
-            this.button36.TabIndex = 21;
-            this.button36.Text = "Remove Selected Skill";
-            this.button36.UseVisualStyleBackColor = false;
+            this.btnASJRemoveSelSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnASJRemoveSelSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnASJRemoveSelSkill.ForeColor = System.Drawing.Color.White;
+            this.btnASJRemoveSelSkill.Location = new System.Drawing.Point(29, 250);
+            this.btnASJRemoveSelSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnASJRemoveSelSkill.Name = "btnASJRemoveSelSkill";
+            this.btnASJRemoveSelSkill.Size = new System.Drawing.Size(348, 41);
+            this.btnASJRemoveSelSkill.TabIndex = 21;
+            this.btnASJRemoveSelSkill.Text = "Remove Selected Skill";
+            this.btnASJRemoveSelSkill.UseVisualStyleBackColor = false;
             // 
-            // comboBox10
+            // cbxASJSkillName
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(571, 148);
-            this.comboBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(265, 24);
-            this.comboBox10.TabIndex = 2;
+            this.cbxASJSkillName.FormattingEnabled = true;
+            this.cbxASJSkillName.Location = new System.Drawing.Point(571, 148);
+            this.cbxASJSkillName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxASJSkillName.Name = "cbxASJSkillName";
+            this.cbxASJSkillName.Size = new System.Drawing.Size(265, 24);
+            this.cbxASJSkillName.TabIndex = 2;
             // 
-            // button37
+            // btnAddNewSkill
             // 
-            this.button37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button37.ForeColor = System.Drawing.Color.White;
-            this.button37.Location = new System.Drawing.Point(464, 250);
-            this.button37.Margin = new System.Windows.Forms.Padding(4);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(373, 41);
-            this.button37.TabIndex = 20;
-            this.button37.Text = "Add New Skill";
-            this.button37.UseVisualStyleBackColor = false;
+            this.btnAddNewSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAddNewSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnAddNewSkill.ForeColor = System.Drawing.Color.White;
+            this.btnAddNewSkill.Location = new System.Drawing.Point(464, 250);
+            this.btnAddNewSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddNewSkill.Name = "btnAddNewSkill";
+            this.btnAddNewSkill.Size = new System.Drawing.Size(373, 41);
+            this.btnAddNewSkill.TabIndex = 20;
+            this.btnAddNewSkill.Text = "Add New Skill";
+            this.btnAddNewSkill.UseVisualStyleBackColor = false;
             // 
             // label47
             // 
@@ -1760,15 +1760,15 @@
             this.label51.TabIndex = 0;
             this.label51.Text = "Skill Name:";
             // 
-            // listBox2
+            // lstCurrentNeededSkills
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(29, 92);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(347, 148);
-            this.listBox2.TabIndex = 10;
+            this.lstCurrentNeededSkills.FormattingEnabled = true;
+            this.lstCurrentNeededSkills.ItemHeight = 16;
+            this.lstCurrentNeededSkills.Location = new System.Drawing.Point(29, 92);
+            this.lstCurrentNeededSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.lstCurrentNeededSkills.Name = "lstCurrentNeededSkills";
+            this.lstCurrentNeededSkills.Size = new System.Drawing.Size(347, 148);
+            this.lstCurrentNeededSkills.TabIndex = 10;
             // 
             // label49
             // 
@@ -1783,7 +1783,7 @@
             // panel46
             // 
             this.panel46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel46.Controls.Add(this.comboBox9);
+            this.panel46.Controls.Add(this.cbxASJJobName);
             this.panel46.Controls.Add(this.label52);
             this.panel46.Controls.Add(this.label53);
             this.panel46.Location = new System.Drawing.Point(386, 78);
@@ -1792,15 +1792,15 @@
             this.panel46.Size = new System.Drawing.Size(487, 114);
             this.panel46.TabIndex = 18;
             // 
-            // comboBox9
+            // cbxASJJobName
             // 
-            this.comboBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(135, 58);
-            this.comboBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(292, 28);
-            this.comboBox9.TabIndex = 13;
+            this.cbxASJJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxASJJobName.FormattingEnabled = true;
+            this.cbxASJJobName.Location = new System.Drawing.Point(135, 58);
+            this.cbxASJJobName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxASJJobName.Name = "cbxASJJobName";
+            this.cbxASJJobName.Size = new System.Drawing.Size(292, 28);
+            this.cbxASJJobName.TabIndex = 13;
             // 
             // label52
             // 
@@ -1894,9 +1894,9 @@
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel17.Controls.Add(this.panel20);
             this.panel17.Controls.Add(this.button16);
             this.panel17.Controls.Add(this.button15);
-            this.panel17.Controls.Add(this.panel20);
             this.panel17.Controls.Add(this.panel18);
             this.panel17.Location = new System.Drawing.Point(12, 22);
             this.panel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1904,117 +1904,36 @@
             this.panel17.Size = new System.Drawing.Size(1651, 722);
             this.panel17.TabIndex = 0;
             // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(1550, 678);
-            this.button16.Margin = new System.Windows.Forms.Padding(4);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(96, 41);
-            this.button16.TabIndex = 11;
-            this.button16.Text = "Back";
-            this.button16.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(590, 462);
-            this.button15.Margin = new System.Windows.Forms.Padding(4);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(519, 66);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "Save";
-            this.button15.UseVisualStyleBackColor = false;
-            // 
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel20.Controls.Add(this.panel19);
-            this.panel20.Controls.Add(this.textBox5);
-            this.panel20.Controls.Add(this.textBox4);
+            this.panel20.Controls.Add(this.txtMSSkillDesc);
+            this.panel20.Controls.Add(this.txtMSSkillName);
             this.panel20.Controls.Add(this.label18);
             this.panel20.Controls.Add(this.label19);
             this.panel20.Controls.Add(this.label20);
+            this.panel20.Controls.Add(this.panel19);
             this.panel20.Location = new System.Drawing.Point(573, 283);
             this.panel20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(564, 260);
             this.panel20.TabIndex = 10;
             // 
-            // panel19
+            // txtMSSkillDesc
             // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel19.Controls.Add(this.button17);
-            this.panel19.Controls.Add(this.comboBox3);
-            this.panel19.Controls.Add(this.label14);
-            this.panel19.Controls.Add(this.label17);
-            this.panel19.Location = new System.Drawing.Point(61, 34);
-            this.panel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(453, 206);
-            this.panel19.TabIndex = 1;
+            this.txtMSSkillDesc.Location = new System.Drawing.Point(185, 107);
+            this.txtMSSkillDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMSSkillDesc.Name = "txtMSSkillDesc";
+            this.txtMSSkillDesc.Size = new System.Drawing.Size(265, 22);
+            this.txtMSSkillDesc.TabIndex = 3;
             // 
-            // button17
+            // txtMSSkillName
             // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(34, 108);
-            this.button17.Margin = new System.Windows.Forms.Padding(4);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(373, 66);
-            this.button17.TabIndex = 12;
-            this.button17.Text = "Next";
-            this.button17.UseVisualStyleBackColor = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(140, 57);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(265, 24);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(4, 4);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(122, 33);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Skill Details";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.label17.Location = new System.Drawing.Point(28, 52);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(104, 29);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Skill Name:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(185, 52);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(265, 22);
-            this.textBox5.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(185, 107);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(265, 22);
-            this.textBox4.TabIndex = 3;
+            this.txtMSSkillName.Location = new System.Drawing.Point(185, 52);
+            this.txtMSSkillName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMSSkillName.Name = "txtMSSkillName";
+            this.txtMSSkillName.Size = new System.Drawing.Size(265, 22);
+            this.txtMSSkillName.TabIndex = 4;
             // 
             // label18
             // 
@@ -2046,56 +1965,137 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "Skill Description:";
             // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel19.Controls.Add(this.btnMSNext);
+            this.panel19.Controls.Add(this.cbxMSSkillName);
+            this.panel19.Controls.Add(this.label14);
+            this.panel19.Controls.Add(this.label17);
+            this.panel19.Location = new System.Drawing.Point(61, 34);
+            this.panel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(453, 206);
+            this.panel19.TabIndex = 1;
+            // 
+            // btnMSNext
+            // 
+            this.btnMSNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSNext.ForeColor = System.Drawing.Color.White;
+            this.btnMSNext.Location = new System.Drawing.Point(34, 108);
+            this.btnMSNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMSNext.Name = "btnMSNext";
+            this.btnMSNext.Size = new System.Drawing.Size(373, 66);
+            this.btnMSNext.TabIndex = 12;
+            this.btnMSNext.Text = "Next";
+            this.btnMSNext.UseVisualStyleBackColor = false;
+            // 
+            // cbxMSSkillName
+            // 
+            this.cbxMSSkillName.FormattingEnabled = true;
+            this.cbxMSSkillName.Location = new System.Drawing.Point(140, 57);
+            this.cbxMSSkillName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxMSSkillName.Name = "cbxMSSkillName";
+            this.cbxMSSkillName.Size = new System.Drawing.Size(265, 24);
+            this.cbxMSSkillName.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(4, 4);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 33);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Skill Details";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label17.Location = new System.Drawing.Point(28, 52);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(104, 29);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Skill Name:";
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button16.ForeColor = System.Drawing.Color.White;
+            this.button16.Location = new System.Drawing.Point(1550, 678);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(96, 41);
+            this.button16.TabIndex = 11;
+            this.button16.Text = "Back";
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(590, 462);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(519, 66);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "Save";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel18.Controls.Add(this.button12);
-            this.panel18.Controls.Add(this.button13);
-            this.panel18.Controls.Add(this.button14);
+            this.panel18.Controls.Add(this.btnMSEditExisSkil);
+            this.panel18.Controls.Add(this.btnMSDelExisSkill);
+            this.panel18.Controls.Add(this.btnMSAddNewSkill);
             this.panel18.Location = new System.Drawing.Point(629, 28);
             this.panel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(459, 662);
             this.panel18.TabIndex = 9;
             // 
-            // button12
+            // btnMSEditExisSkil
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(59, 281);
-            this.button12.Margin = new System.Windows.Forms.Padding(4);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(359, 133);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "Edit Existing Skill";
-            this.button12.UseVisualStyleBackColor = false;
+            this.btnMSEditExisSkil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSEditExisSkil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSEditExisSkil.ForeColor = System.Drawing.Color.White;
+            this.btnMSEditExisSkil.Location = new System.Drawing.Point(59, 281);
+            this.btnMSEditExisSkil.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMSEditExisSkil.Name = "btnMSEditExisSkil";
+            this.btnMSEditExisSkil.Size = new System.Drawing.Size(359, 133);
+            this.btnMSEditExisSkil.TabIndex = 7;
+            this.btnMSEditExisSkil.Text = "Edit Existing Skill";
+            this.btnMSEditExisSkil.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // btnMSDelExisSkill
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(59, 480);
-            this.button13.Margin = new System.Windows.Forms.Padding(4);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(359, 133);
-            this.button13.TabIndex = 5;
-            this.button13.Text = "Delete Existing Skill";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btnMSDelExisSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSDelExisSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSDelExisSkill.ForeColor = System.Drawing.Color.White;
+            this.btnMSDelExisSkill.Location = new System.Drawing.Point(59, 480);
+            this.btnMSDelExisSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMSDelExisSkill.Name = "btnMSDelExisSkill";
+            this.btnMSDelExisSkill.Size = new System.Drawing.Size(359, 133);
+            this.btnMSDelExisSkill.TabIndex = 5;
+            this.btnMSDelExisSkill.Text = "Delete Existing Skill";
+            this.btnMSDelExisSkill.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // btnMSAddNewSkill
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(59, 52);
-            this.button14.Margin = new System.Windows.Forms.Padding(4);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(359, 133);
-            this.button14.TabIndex = 7;
-            this.button14.Text = "Add New Skill";
-            this.button14.UseVisualStyleBackColor = false;
+            this.btnMSAddNewSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSAddNewSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSAddNewSkill.ForeColor = System.Drawing.Color.White;
+            this.btnMSAddNewSkill.Location = new System.Drawing.Point(59, 52);
+            this.btnMSAddNewSkill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMSAddNewSkill.Name = "btnMSAddNewSkill";
+            this.btnMSAddNewSkill.Size = new System.Drawing.Size(359, 133);
+            this.btnMSAddNewSkill.TabIndex = 7;
+            this.btnMSAddNewSkill.Text = "Add New Skill";
+            this.btnMSAddNewSkill.UseVisualStyleBackColor = false;
             // 
             // tpPSkills
             // 
@@ -3182,7 +3182,7 @@
             this.panel41.PerformLayout();
             this.panel39.ResumeLayout(false);
             this.panel39.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
             this.panel40.ResumeLayout(false);
             this.panel40.PerformLayout();
             this.panel38.ResumeLayout(false);
@@ -3195,10 +3195,10 @@
             this.panel27.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.tpJSkills.ResumeLayout(false);
             this.panel42.ResumeLayout(false);
             this.panel42.PerformLayout();
@@ -3285,7 +3285,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtJobName;
+        private System.Windows.Forms.TextBox txtCJJobName;
         private System.Windows.Forms.ComboBox cmbJobID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
@@ -3324,36 +3324,36 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnMSEditExisSkil;
+        private System.Windows.Forms.Button btnMSDelExisSkill;
+        private System.Windows.Forms.Button btnMSAddNewSkill;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxMSSkillName;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMSSkillName;
+        private System.Windows.Forms.TextBox txtMSSkillDesc;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button btnMSNext;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.ComboBox cbxJobName;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lblGuardDetails;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel28;
@@ -3396,47 +3396,47 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.MonthCalendar monthCalendar4;
+        private System.Windows.Forms.MonthCalendar calEndDate;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.MonthCalendar monthCalendar5;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.MonthCalendar calStartDate;
+        private System.Windows.Forms.ComboBox cmbEmpName;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudDuration;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox txtMJJobTitle;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.RichTextBox rtbJobLocation;
+        private System.Windows.Forms.RichTextBox rtbJobDescription;
+        private System.Windows.Forms.TextBox txtMJJobName;
+        private System.Windows.Forms.CheckBox cbJobCompleted;
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Panel panel45;
-        private System.Windows.Forms.Button button36;
-        private System.Windows.Forms.Button button37;
+        private System.Windows.Forms.Button btnASJRemoveSelSkill;
+        private System.Windows.Forms.Button btnAddNewSkill;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstCurrentNeededSkills;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button button43;
         private System.Windows.Forms.Button button44;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox cbxASJSkillName;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Panel panel46;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox cbxASJJobName;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.Button button35;
+        private System.Windows.Forms.Button btnRemoveSelSkill;
+        private System.Windows.Forms.ComboBox cbxSkillName;
+        private System.Windows.Forms.Button btnAddSkill;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstSkillsNeeded;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Panel panel47;
