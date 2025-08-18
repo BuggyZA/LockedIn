@@ -30,5 +30,15 @@ namespace LockedIn
         private void panel14_Paint(object sender, PaintEventArgs e)
         {
                     }
+
+        private void btnAFJapply_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel16_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
