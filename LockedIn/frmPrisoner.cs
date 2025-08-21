@@ -16,5 +16,29 @@ namespace LockedIn
         {
             InitializeComponent();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+                    }
+
+        private void btnAFJapply_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel16_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
