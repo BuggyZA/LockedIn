@@ -38,27 +38,34 @@
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.txtAFJworkersNeeded = new System.Windows.Forms.TextBox();
-            this.lstAFJskillsRequired = new System.Windows.Forms.ListBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.btnAFJapply = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblAFJEndDate = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lblAFJStartDate = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.rtxjobDescription = new System.Windows.Forms.RichTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtAFJjobLocation = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.txtAFJworkersNeeded = new System.Windows.Forms.TextBox();
             this.txtAFJjobDuration = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lstAFJskillsRequired = new System.Windows.Forms.ListBox();
             this.txtAFJjobName = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -125,22 +132,17 @@
             this.btnHPmaintainPrisoner = new System.Windows.Forms.Button();
             this.calHPactiveJobs = new System.Windows.Forms.MonthCalendar();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label27 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.lblAFJStartDate = new System.Windows.Forms.Label();
-            this.lblAFJEndDate = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel14.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel9.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -158,8 +160,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -262,6 +263,24 @@
             this.label24.TabIndex = 20;
             this.label24.Text = "Job Description";
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(44, 178);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(561, 350);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel14.Controls.Add(this.button16);
+            this.panel14.Location = new System.Drawing.Point(14, 128);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1212, 420);
+            this.panel14.TabIndex = 24;
+            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
@@ -271,15 +290,6 @@
             this.button16.TabIndex = 19;
             this.button16.Text = "Apply";
             this.button16.UseVisualStyleBackColor = false;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(44, 178);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(561, 350);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // tabPage4
             // 
@@ -348,43 +358,39 @@
             this.panel9.Size = new System.Drawing.Size(1240, 635);
             this.panel9.TabIndex = 0;
             // 
-            // txtAFJworkersNeeded
+            // panel11
             // 
-            this.txtAFJworkersNeeded.Location = new System.Drawing.Point(487, 44);
-            this.txtAFJworkersNeeded.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAFJworkersNeeded.Name = "txtAFJworkersNeeded";
-            this.txtAFJworkersNeeded.Size = new System.Drawing.Size(52, 30);
-            this.txtAFJworkersNeeded.TabIndex = 8;
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel11.Controls.Add(this.dataGridView2);
+            this.panel11.Controls.Add(this.btnAFJapply);
+            this.panel11.Controls.Add(this.label27);
+            this.panel11.Location = new System.Drawing.Point(39, 387);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1172, 208);
+            this.panel11.TabIndex = 1;
             // 
-            // lstAFJskillsRequired
+            // btnAFJapply
             // 
-            this.lstAFJskillsRequired.FormattingEnabled = true;
-            this.lstAFJskillsRequired.ItemHeight = 22;
-            this.lstAFJskillsRequired.Location = new System.Drawing.Point(850, 47);
-            this.lstAFJskillsRequired.Margin = new System.Windows.Forms.Padding(2);
-            this.lstAFJskillsRequired.Name = "lstAFJskillsRequired";
-            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 158);
-            this.lstAFJskillsRequired.TabIndex = 7;
+            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.btnAFJapply.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFJapply.Location = new System.Drawing.Point(1017, 140);
+            this.btnAFJapply.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAFJapply.Name = "btnAFJapply";
+            this.btnAFJapply.Size = new System.Drawing.Size(134, 53);
+            this.btnAFJapply.TabIndex = 1;
+            this.btnAFJapply.Text = "Apply for job";
+            this.btnAFJapply.UseVisualStyleBackColor = false;
+            this.btnAFJapply.Click += new System.EventHandler(this.btnAFJapply_Click);
             // 
-            // label22
+            // label27
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(879, 8);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(136, 23);
-            this.label22.TabIndex = 3;
-            this.label22.Text = "Skills required";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(331, 47);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(152, 23);
-            this.label21.TabIndex = 2;
-            this.label21.Text = " Workers needed";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(898, 49);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(0, 23);
+            this.label27.TabIndex = 9;
             // 
             // panel10
             // 
@@ -412,6 +418,44 @@
             this.panel10.Size = new System.Drawing.Size(1172, 267);
             this.panel10.TabIndex = 0;
             // 
+            // lblAFJEndDate
+            // 
+            this.lblAFJEndDate.AutoSize = true;
+            this.lblAFJEndDate.Location = new System.Drawing.Point(404, 234);
+            this.lblAFJEndDate.Name = "lblAFJEndDate";
+            this.lblAFJEndDate.Size = new System.Drawing.Size(97, 23);
+            this.lblAFJEndDate.TabIndex = 15;
+            this.lblAFJEndDate.Text = "[End Date]";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(276, 234);
+            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(123, 23);
+            this.label34.TabIndex = 14;
+            this.label34.Text = "-    End Date: ";
+            // 
+            // lblAFJStartDate
+            // 
+            this.lblAFJStartDate.AutoSize = true;
+            this.lblAFJStartDate.Location = new System.Drawing.Point(154, 234);
+            this.lblAFJStartDate.Name = "lblAFJStartDate";
+            this.lblAFJStartDate.Size = new System.Drawing.Size(107, 23);
+            this.lblAFJStartDate.TabIndex = 13;
+            this.lblAFJStartDate.Text = "[Start Date]";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(26, 234);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(104, 23);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Start Date: ";
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -421,19 +465,6 @@
             this.label28.Size = new System.Drawing.Size(143, 23);
             this.label28.TabIndex = 11;
             this.label28.Text = "Job Information";
-            // 
-            // btnAFJapply
-            // 
-            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
-            this.btnAFJapply.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAFJapply.Location = new System.Drawing.Point(1017, 140);
-            this.btnAFJapply.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAFJapply.Name = "btnAFJapply";
-            this.btnAFJapply.Size = new System.Drawing.Size(134, 53);
-            this.btnAFJapply.TabIndex = 1;
-            this.btnAFJapply.Text = "Apply for job";
-            this.btnAFJapply.UseVisualStyleBackColor = false;
-            this.btnAFJapply.Click += new System.EventHandler(this.btnAFJapply_Click);
             // 
             // rtxjobDescription
             // 
@@ -472,6 +503,14 @@
             this.label25.TabIndex = 7;
             this.label25.Text = "Job location";
             // 
+            // txtAFJworkersNeeded
+            // 
+            this.txtAFJworkersNeeded.Location = new System.Drawing.Point(487, 44);
+            this.txtAFJworkersNeeded.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAFJworkersNeeded.Name = "txtAFJworkersNeeded";
+            this.txtAFJworkersNeeded.Size = new System.Drawing.Size(52, 30);
+            this.txtAFJworkersNeeded.TabIndex = 8;
+            // 
             // txtAFJjobDuration
             // 
             this.txtAFJjobDuration.Location = new System.Drawing.Point(158, 99);
@@ -480,6 +519,26 @@
             this.txtAFJjobDuration.Size = new System.Drawing.Size(128, 30);
             this.txtAFJjobDuration.TabIndex = 6;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(331, 47);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(152, 23);
+            this.label21.TabIndex = 2;
+            this.label21.Text = " Workers needed";
+            // 
+            // lstAFJskillsRequired
+            // 
+            this.lstAFJskillsRequired.FormattingEnabled = true;
+            this.lstAFJskillsRequired.ItemHeight = 22;
+            this.lstAFJskillsRequired.Location = new System.Drawing.Point(850, 47);
+            this.lstAFJskillsRequired.Margin = new System.Windows.Forms.Padding(2);
+            this.lstAFJskillsRequired.Name = "lstAFJskillsRequired";
+            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 158);
+            this.lstAFJskillsRequired.TabIndex = 7;
+            // 
             // txtAFJjobName
             // 
             this.txtAFJjobName.Location = new System.Drawing.Point(158, 46);
@@ -487,6 +546,16 @@
             this.txtAFJjobName.Name = "txtAFJjobName";
             this.txtAFJjobName.Size = new System.Drawing.Size(128, 30);
             this.txtAFJjobName.TabIndex = 5;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(879, 8);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(136, 23);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Skills required";
             // 
             // label23
             // 
@@ -1159,83 +1228,13 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 700);
             this.tabControl1.TabIndex = 0;
             // 
-            // label27
+            // dataGridView2
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(898, 49);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(0, 23);
-            this.label27.TabIndex = 9;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel11.Controls.Add(this.btnAFJapply);
-            this.panel11.Controls.Add(this.label29);
-            this.panel11.Controls.Add(this.label27);
-            this.panel11.Location = new System.Drawing.Point(39, 387);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1172, 208);
-            this.panel11.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(502, 10);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(239, 23);
-            this.label29.TabIndex = 10;
-            this.label29.Text = "Skills, workers and guards";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(26, 234);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(104, 23);
-            this.label30.TabIndex = 12;
-            this.label30.Text = "Start Date: ";
-            // 
-            // lblAFJStartDate
-            // 
-            this.lblAFJStartDate.AutoSize = true;
-            this.lblAFJStartDate.Location = new System.Drawing.Point(154, 234);
-            this.lblAFJStartDate.Name = "lblAFJStartDate";
-            this.lblAFJStartDate.Size = new System.Drawing.Size(107, 23);
-            this.lblAFJStartDate.TabIndex = 13;
-            this.lblAFJStartDate.Text = "[Start Date]";
-            // 
-            // lblAFJEndDate
-            // 
-            this.lblAFJEndDate.AutoSize = true;
-            this.lblAFJEndDate.Location = new System.Drawing.Point(404, 234);
-            this.lblAFJEndDate.Name = "lblAFJEndDate";
-            this.lblAFJEndDate.Size = new System.Drawing.Size(97, 23);
-            this.lblAFJEndDate.TabIndex = 15;
-            this.lblAFJEndDate.Text = "[End Date]";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(276, 234);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(123, 23);
-            this.label34.TabIndex = 14;
-            this.label34.Text = "-    End Date: ";
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel14.Controls.Add(this.button16);
-            this.panel14.Location = new System.Drawing.Point(14, 128);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1212, 420);
-            this.panel14.TabIndex = 24;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(30, 15);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(711, 178);
+            this.dataGridView2.TabIndex = 10;
             // 
             // frmPrisoner
             // 
@@ -1251,11 +1250,14 @@
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel14.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel9.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1282,9 +1284,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1388,12 +1388,12 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label lblAFJEndDate;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label lblAFJStartDate;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
