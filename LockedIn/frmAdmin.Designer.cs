@@ -201,6 +201,11 @@
             this.tpPrisoner = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.btnMPNext = new System.Windows.Forms.Button();
+            this.cmbMPPrisonerNo = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.panel53 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
@@ -219,11 +224,6 @@
             this.label59 = new System.Windows.Forms.Label();
             this.lstMPAllSkills = new System.Windows.Forms.ListBox();
             this.lstMPCurrentSkills = new System.Windows.Forms.ListBox();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.btnMPNext = new System.Windows.Forms.Button();
-            this.cmbMPPrisonerNo = new System.Windows.Forms.ComboBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
             this.panel54 = new System.Windows.Forms.Panel();
             this.button46 = new System.Windows.Forms.Button();
             this.button47 = new System.Windows.Forms.Button();
@@ -327,9 +327,9 @@
             this.tpPrisoner.SuspendLayout();
             this.panel57.SuspendLayout();
             this.panel52.SuspendLayout();
+            this.panel59.SuspendLayout();
             this.panel53.SuspendLayout();
             this.panel50.SuspendLayout();
-            this.panel59.SuspendLayout();
             this.panel54.SuspendLayout();
             this.panel55.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -802,6 +802,8 @@
             // 
             // cmbPrisonerID
             // 
+            this.cmbPrisonerID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPrisonerID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPrisonerID.FormattingEnabled = true;
             this.cmbPrisonerID.Location = new System.Drawing.Point(124, 81);
             this.cmbPrisonerID.Margin = new System.Windows.Forms.Padding(2);
@@ -844,6 +846,8 @@
             // 
             // cmbJobID
             // 
+            this.cmbJobID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbJobID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbJobID.FormattingEnabled = true;
             this.cmbJobID.Location = new System.Drawing.Point(102, 81);
             this.cmbJobID.Margin = new System.Windows.Forms.Padding(2);
@@ -1343,6 +1347,8 @@
             // 
             // cmbEmpName
             // 
+            this.cmbEmpName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbEmpName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmpName.FormattingEnabled = true;
             this.cmbEmpName.Location = new System.Drawing.Point(130, 50);
@@ -1479,6 +1485,8 @@
             // 
             // cbxJobName
             // 
+            this.cbxJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxJobName.FormattingEnabled = true;
             this.cbxJobName.Location = new System.Drawing.Point(105, 46);
             this.cbxJobName.Margin = new System.Windows.Forms.Padding(2);
@@ -1738,6 +1746,8 @@
             // 
             // cbxASJJobName
             // 
+            this.cbxASJJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxASJJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxASJJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxASJJobName.FormattingEnabled = true;
             this.cbxASJJobName.Location = new System.Drawing.Point(101, 47);
@@ -1843,6 +1853,7 @@
             this.panel17.Controls.Add(this.button16);
             this.panel17.Controls.Add(this.button15);
             this.panel17.Controls.Add(this.panel18);
+            this.panel17.Controls.Add(this.panel19);
             this.panel17.Location = new System.Drawing.Point(9, 18);
             this.panel17.Margin = new System.Windows.Forms.Padding(2);
             this.panel17.Name = "panel17";
@@ -1857,7 +1868,6 @@
             this.panel20.Controls.Add(this.label18);
             this.panel20.Controls.Add(this.label19);
             this.panel20.Controls.Add(this.label20);
-            this.panel20.Controls.Add(this.panel19);
             this.panel20.Location = new System.Drawing.Point(430, 230);
             this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
@@ -1920,7 +1930,7 @@
             this.panel19.Controls.Add(this.cbxMSSkillName);
             this.panel19.Controls.Add(this.label14);
             this.panel19.Controls.Add(this.label17);
-            this.panel19.Location = new System.Drawing.Point(46, 28);
+            this.panel19.Location = new System.Drawing.Point(117, 230);
             this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(340, 167);
@@ -1940,6 +1950,8 @@
             // 
             // cbxMSSkillName
             // 
+            this.cbxMSSkillName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxMSSkillName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxMSSkillName.FormattingEnabled = true;
             this.cbxMSSkillName.Location = new System.Drawing.Point(105, 46);
             this.cbxMSSkillName.Margin = new System.Windows.Forms.Padding(2);
@@ -2200,6 +2212,8 @@
             // 
             // cmbPrisonerName
             // 
+            this.cmbPrisonerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPrisonerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPrisonerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPrisonerName.FormattingEnabled = true;
             this.cmbPrisonerName.Location = new System.Drawing.Point(132, 47);
@@ -2294,6 +2308,64 @@
             this.panel52.Size = new System.Drawing.Size(1238, 594);
             this.panel52.TabIndex = 15;
             // 
+            // panel59
+            // 
+            this.panel59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel59.Controls.Add(this.btnMPNext);
+            this.panel59.Controls.Add(this.cmbMPPrisonerNo);
+            this.panel59.Controls.Add(this.label60);
+            this.panel59.Controls.Add(this.label67);
+            this.panel59.Location = new System.Drawing.Point(391, 4);
+            this.panel59.Margin = new System.Windows.Forms.Padding(2);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(340, 167);
+            this.panel59.TabIndex = 32;
+            // 
+            // btnMPNext
+            // 
+            this.btnMPNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMPNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMPNext.ForeColor = System.Drawing.Color.White;
+            this.btnMPNext.Location = new System.Drawing.Point(26, 88);
+            this.btnMPNext.Name = "btnMPNext";
+            this.btnMPNext.Size = new System.Drawing.Size(280, 54);
+            this.btnMPNext.TabIndex = 12;
+            this.btnMPNext.Text = "Next";
+            this.btnMPNext.UseVisualStyleBackColor = false;
+            // 
+            // cmbMPPrisonerNo
+            // 
+            this.cmbMPPrisonerNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMPPrisonerNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbMPPrisonerNo.FormattingEnabled = true;
+            this.cmbMPPrisonerNo.Location = new System.Drawing.Point(105, 46);
+            this.cmbMPPrisonerNo.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbMPPrisonerNo.Name = "cmbMPPrisonerNo";
+            this.cmbMPPrisonerNo.Size = new System.Drawing.Size(200, 31);
+            this.cmbMPPrisonerNo.TabIndex = 2;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(3, 3);
+            this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(131, 27);
+            this.label60.TabIndex = 0;
+            this.label60.Text = "Prisoner Details:";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label67.Location = new System.Drawing.Point(21, 49);
+            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(85, 23);
+            this.label67.TabIndex = 0;
+            this.label67.Text = "Prisoner No:";
+            // 
             // panel53
             // 
             this.panel53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -2307,7 +2379,7 @@
             this.panel53.Controls.Add(this.label65);
             this.panel53.Controls.Add(this.label66);
             this.panel53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel53.Location = new System.Drawing.Point(98, 145);
+            this.panel53.Location = new System.Drawing.Point(98, 224);
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(398, 251);
             this.panel53.TabIndex = 27;
@@ -2486,71 +2558,13 @@
             this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 234);
             this.lstMPCurrentSkills.TabIndex = 0;
             // 
-            // panel59
-            // 
-            this.panel59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel59.Controls.Add(this.btnMPNext);
-            this.panel59.Controls.Add(this.cmbMPPrisonerNo);
-            this.panel59.Controls.Add(this.label60);
-            this.panel59.Controls.Add(this.label67);
-            this.panel59.Location = new System.Drawing.Point(334, 2);
-            this.panel59.Margin = new System.Windows.Forms.Padding(2);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(340, 167);
-            this.panel59.TabIndex = 32;
-            // 
-            // btnMPNext
-            // 
-            this.btnMPNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnMPNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnMPNext.ForeColor = System.Drawing.Color.White;
-            this.btnMPNext.Location = new System.Drawing.Point(26, 88);
-            this.btnMPNext.Name = "btnMPNext";
-            this.btnMPNext.Size = new System.Drawing.Size(280, 54);
-            this.btnMPNext.TabIndex = 12;
-            this.btnMPNext.Text = "Next";
-            this.btnMPNext.UseVisualStyleBackColor = false;
-            // 
-            // cmbMPPrisonerNo
-            // 
-            this.cmbMPPrisonerNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbMPPrisonerNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbMPPrisonerNo.FormattingEnabled = true;
-            this.cmbMPPrisonerNo.Location = new System.Drawing.Point(105, 46);
-            this.cmbMPPrisonerNo.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbMPPrisonerNo.Name = "cmbMPPrisonerNo";
-            this.cmbMPPrisonerNo.Size = new System.Drawing.Size(200, 31);
-            this.cmbMPPrisonerNo.TabIndex = 2;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(3, 3);
-            this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(131, 27);
-            this.label60.TabIndex = 0;
-            this.label60.Text = "Prisoner Details:";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.label67.Location = new System.Drawing.Point(21, 49);
-            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(85, 23);
-            this.label67.TabIndex = 0;
-            this.label67.Text = "Prisoner No:";
-            // 
             // panel54
             // 
             this.panel54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel54.Controls.Add(this.button46);
             this.panel54.Controls.Add(this.button47);
             this.panel54.Controls.Add(this.button53);
-            this.panel54.Location = new System.Drawing.Point(1192, 34);
+            this.panel54.Location = new System.Drawing.Point(1208, 44);
             this.panel54.Margin = new System.Windows.Forms.Padding(2);
             this.panel54.Name = "panel54";
             this.panel54.Size = new System.Drawing.Size(344, 538);
@@ -2667,6 +2681,8 @@
             // 
             // cmbPrisonerNo
             // 
+            this.cmbPrisonerNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPrisonerNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPrisonerNo.FormattingEnabled = true;
             this.cmbPrisonerNo.Location = new System.Drawing.Point(156, 50);
             this.cmbPrisonerNo.Name = "cmbPrisonerNo";
@@ -2894,6 +2910,8 @@
             // 
             // cmbRRPrisonerName
             // 
+            this.cmbRRPrisonerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRRPrisonerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbRRPrisonerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRRPrisonerName.FormattingEnabled = true;
             this.cmbRRPrisonerName.Location = new System.Drawing.Point(130, 42);
@@ -2920,9 +2938,9 @@
             this.label32.Location = new System.Drawing.Point(21, 42);
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(105, 23);
+            this.label32.Size = new System.Drawing.Size(98, 23);
             this.label32.TabIndex = 0;
-            this.label32.Text = "Prisoner Name:";
+            this.label32.Text = "Prisoner Num:";
             // 
             // btnGenerateReport
             // 
@@ -3137,12 +3155,12 @@
             this.panel57.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
+            this.panel59.ResumeLayout(false);
+            this.panel59.PerformLayout();
             this.panel53.ResumeLayout(false);
             this.panel53.PerformLayout();
             this.panel50.ResumeLayout(false);
             this.panel50.PerformLayout();
-            this.panel59.ResumeLayout(false);
-            this.panel59.PerformLayout();
             this.panel54.ResumeLayout(false);
             this.panel55.ResumeLayout(false);
             this.panel55.PerformLayout();

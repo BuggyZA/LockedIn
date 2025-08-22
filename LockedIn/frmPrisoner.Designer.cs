@@ -48,6 +48,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnAFJapply = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -64,7 +65,6 @@
             this.txtAFJjobDuration = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.lstAFJskillsRequired = new System.Windows.Forms.ListBox();
-            this.txtAFJjobName = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -132,7 +132,7 @@
             this.btnHPmaintainPrisoner = new System.Windows.Forms.Button();
             this.calHPactiveJobs = new System.Windows.Forms.MonthCalendar();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -143,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel10.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -160,7 +161,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -370,6 +370,14 @@
             this.panel11.Size = new System.Drawing.Size(1172, 208);
             this.panel11.TabIndex = 1;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(30, 15);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(711, 178);
+            this.dataGridView2.TabIndex = 10;
+            // 
             // btnAFJapply
             // 
             this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
@@ -395,6 +403,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel10.Controls.Add(this.comboBox1);
             this.panel10.Controls.Add(this.lblAFJEndDate);
             this.panel10.Controls.Add(this.label34);
             this.panel10.Controls.Add(this.lblAFJStartDate);
@@ -408,7 +417,6 @@
             this.panel10.Controls.Add(this.txtAFJjobDuration);
             this.panel10.Controls.Add(this.label21);
             this.panel10.Controls.Add(this.lstAFJskillsRequired);
-            this.panel10.Controls.Add(this.txtAFJjobName);
             this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.label23);
             this.panel10.Controls.Add(this.label19);
@@ -538,14 +546,6 @@
             this.lstAFJskillsRequired.Name = "lstAFJskillsRequired";
             this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 158);
             this.lstAFJskillsRequired.TabIndex = 7;
-            // 
-            // txtAFJjobName
-            // 
-            this.txtAFJjobName.Location = new System.Drawing.Point(158, 46);
-            this.txtAFJjobName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAFJjobName.Name = "txtAFJjobName";
-            this.txtAFJjobName.Size = new System.Drawing.Size(128, 30);
-            this.txtAFJjobName.TabIndex = 5;
             // 
             // label22
             // 
@@ -1228,13 +1228,15 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 700);
             this.tabControl1.TabIndex = 0;
             // 
-            // dataGridView2
+            // comboBox1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(30, 15);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(711, 178);
-            this.dataGridView2.TabIndex = 10;
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(158, 41);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(128, 30);
+            this.comboBox1.TabIndex = 16;
             // 
             // frmPrisoner
             // 
@@ -1258,6 +1260,7 @@
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1284,7 +1287,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1363,7 +1365,6 @@
         private System.Windows.Forms.TextBox txtAFJjobLocation;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtAFJjobDuration;
-        private System.Windows.Forms.TextBox txtAFJjobName;
         private System.Windows.Forms.TextBox txtAFJworkersNeeded;
         private System.Windows.Forms.RichTextBox rtxjobDescription;
         private System.Windows.Forms.Label label26;
@@ -1395,5 +1396,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

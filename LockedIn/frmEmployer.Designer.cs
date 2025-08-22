@@ -1786,6 +1786,8 @@
             // 
             // ARJcmbSelectApplication
             // 
+            this.ARJcmbSelectApplication.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ARJcmbSelectApplication.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ARJcmbSelectApplication.FormattingEnabled = true;
             this.ARJcmbSelectApplication.Location = new System.Drawing.Point(73, 198);
             this.ARJcmbSelectApplication.Name = "ARJcmbSelectApplication";
@@ -1794,6 +1796,8 @@
             // 
             // ARJcmbJobName
             // 
+            this.ARJcmbJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ARJcmbJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ARJcmbJobName.FormattingEnabled = true;
             this.ARJcmbJobName.Location = new System.Drawing.Point(73, 77);
             this.ARJcmbJobName.Name = "ARJcmbJobName";
