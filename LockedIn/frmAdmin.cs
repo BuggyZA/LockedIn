@@ -27,5 +27,13 @@ namespace LockedIn
         {
 
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcPrisoner.SelectedIndex == 8)
+            {
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+            }
+        }
     }
 }

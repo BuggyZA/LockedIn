@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcPrisoner = new System.Windows.Forms.TabControl();
             this.tpMain = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -82,6 +82,14 @@
             this.label33 = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.panel41 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.panel39 = new System.Windows.Forms.Panel();
             this.cbJobCompleted = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -262,15 +270,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
-            this.panel41 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.tabControl1.SuspendLayout();
+            this.tcPrisoner.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -292,6 +292,7 @@
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
+            this.panel41.SuspendLayout();
             this.panel39.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
             this.panel40.SuspendLayout();
@@ -341,26 +342,26 @@
             this.panel30.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
-            this.panel41.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tcPrisoner
             // 
-            this.tabControl1.Controls.Add(this.tpMain);
-            this.tabControl1.Controls.Add(this.tpEmployer);
-            this.tabControl1.Controls.Add(this.tpCompleteJobs);
-            this.tabControl1.Controls.Add(this.tpJobs);
-            this.tabControl1.Controls.Add(this.tpGuards);
-            this.tabControl1.Controls.Add(this.tpJSkills);
-            this.tabControl1.Controls.Add(this.tpSkills);
-            this.tabControl1.Controls.Add(this.tpPSkills);
-            this.tabControl1.Controls.Add(this.tpPrisoner);
-            this.tabControl1.Controls.Add(this.tpReports);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1280, 720);
-            this.tabControl1.TabIndex = 0;
+            this.tcPrisoner.Controls.Add(this.tpMain);
+            this.tcPrisoner.Controls.Add(this.tpEmployer);
+            this.tcPrisoner.Controls.Add(this.tpCompleteJobs);
+            this.tcPrisoner.Controls.Add(this.tpJobs);
+            this.tcPrisoner.Controls.Add(this.tpGuards);
+            this.tcPrisoner.Controls.Add(this.tpJSkills);
+            this.tcPrisoner.Controls.Add(this.tpSkills);
+            this.tcPrisoner.Controls.Add(this.tpPSkills);
+            this.tcPrisoner.Controls.Add(this.tpPrisoner);
+            this.tcPrisoner.Controls.Add(this.tpReports);
+            this.tcPrisoner.Location = new System.Drawing.Point(0, 0);
+            this.tcPrisoner.Name = "tcPrisoner";
+            this.tcPrisoner.SelectedIndex = 0;
+            this.tcPrisoner.Size = new System.Drawing.Size(1280, 720);
+            this.tcPrisoner.TabIndex = 0;
+            this.tcPrisoner.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tpMain
             // 
@@ -951,6 +952,95 @@
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(1238, 587);
             this.panel35.TabIndex = 0;
+            // 
+            // panel41
+            // 
+            this.panel41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel41.Controls.Add(this.button1);
+            this.panel41.Controls.Add(this.button2);
+            this.panel41.Controls.Add(this.label3);
+            this.panel41.Controls.Add(this.label5);
+            this.panel41.Controls.Add(this.label25);
+            this.panel41.Controls.Add(this.listBox1);
+            this.panel41.Controls.Add(this.listBox2);
+            this.panel41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel41.Location = new System.Drawing.Point(518, 275);
+            this.panel41.Name = "panel41";
+            this.panel41.Size = new System.Drawing.Size(639, 282);
+            this.panel41.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(263, 187);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 33);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Remove  >";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(263, 136);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 33);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "<  Add";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(406, 41);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 23);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "All Skills:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 36);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Current Skills of Job:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(2, 3);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(102, 27);
+            this.label25.TabIndex = 29;
+            this.label25.Text = "Skill Details:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(410, 67);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(216, 199);
+            this.listBox1.TabIndex = 1;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(22, 67);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(216, 199);
+            this.listBox2.TabIndex = 0;
             // 
             // panel39
             // 
@@ -2189,9 +2279,9 @@
             // panel52
             // 
             this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel53);
             this.panel52.Controls.Add(this.panel50);
-            this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel54);
             this.panel52.Controls.Add(this.btnMPSave);
             this.panel52.Controls.Add(this.btnMPBack);
@@ -2217,7 +2307,7 @@
             this.panel53.Controls.Add(this.label65);
             this.panel53.Controls.Add(this.label66);
             this.panel53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel53.Location = new System.Drawing.Point(87, 291);
+            this.panel53.Location = new System.Drawing.Point(98, 145);
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(398, 251);
             this.panel53.TabIndex = 27;
@@ -2403,7 +2493,7 @@
             this.panel59.Controls.Add(this.cmbMPPrisonerNo);
             this.panel59.Controls.Add(this.label60);
             this.panel59.Controls.Add(this.label67);
-            this.panel59.Location = new System.Drawing.Point(1184, 265);
+            this.panel59.Location = new System.Drawing.Point(334, 2);
             this.panel59.Margin = new System.Windows.Forms.Padding(2);
             this.panel59.Name = "panel59";
             this.panel59.Size = new System.Drawing.Size(340, 167);
@@ -2423,6 +2513,8 @@
             // 
             // cmbMPPrisonerNo
             // 
+            this.cmbMPPrisonerNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMPPrisonerNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbMPPrisonerNo.FormattingEnabled = true;
             this.cmbMPPrisonerNo.Location = new System.Drawing.Point(105, 46);
             this.cmbMPPrisonerNo.Margin = new System.Windows.Forms.Padding(2);
@@ -2458,7 +2550,7 @@
             this.panel54.Controls.Add(this.button46);
             this.panel54.Controls.Add(this.button47);
             this.panel54.Controls.Add(this.button53);
-            this.panel54.Location = new System.Drawing.Point(1218, 44);
+            this.panel54.Location = new System.Drawing.Point(1192, 34);
             this.panel54.Margin = new System.Windows.Forms.Padding(2);
             this.panel54.Name = "panel54";
             this.panel54.Size = new System.Drawing.Size(344, 538);
@@ -2951,104 +3043,15 @@
             this.btnPrisonerRecord.Text = "Record of Prisoner per Time Period";
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
             // 
-            // panel41
-            // 
-            this.panel41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel41.Controls.Add(this.button1);
-            this.panel41.Controls.Add(this.button2);
-            this.panel41.Controls.Add(this.label3);
-            this.panel41.Controls.Add(this.label5);
-            this.panel41.Controls.Add(this.label25);
-            this.panel41.Controls.Add(this.listBox1);
-            this.panel41.Controls.Add(this.listBox2);
-            this.panel41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.panel41.Location = new System.Drawing.Point(518, 275);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(639, 282);
-            this.panel41.TabIndex = 27;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(263, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 33);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Remove  >";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(263, 136);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 33);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "<  Add";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(406, 41);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 23);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "All Skills:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(18, 36);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Current Skills of Job:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(2, 3);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(102, 27);
-            this.label25.TabIndex = 29;
-            this.label25.Text = "Skill Details:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(410, 67);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 199);
-            this.listBox1.TabIndex = 1;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(22, 67);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(216, 199);
-            this.listBox2.TabIndex = 0;
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcPrisoner);
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
-            this.tabControl1.ResumeLayout(false);
+            this.tcPrisoner.ResumeLayout(false);
             this.tpMain.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -3081,6 +3084,8 @@
             this.panel33.PerformLayout();
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
+            this.panel41.ResumeLayout(false);
+            this.panel41.PerformLayout();
             this.panel39.ResumeLayout(false);
             this.panel39.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
@@ -3156,15 +3161,13 @@
             this.panel31.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
-            this.panel41.ResumeLayout(false);
-            this.panel41.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcPrisoner;
         private System.Windows.Forms.TabPage tpMain;
         private System.Windows.Forms.TabPage tpPrisoner;
         private System.Windows.Forms.Button button5;

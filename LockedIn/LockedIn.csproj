@@ -80,6 +80,7 @@
     <Compile Include="frmPrisoner.Designer.cs">
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ComboboxHelper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
