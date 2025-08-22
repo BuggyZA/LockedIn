@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
+using LockedIn.Data;
 namespace LockedIn
 {
     public partial class frmAdmin : Form
@@ -19,7 +20,7 @@ namespace LockedIn
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

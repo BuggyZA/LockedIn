@@ -1,7 +1,9 @@
-﻿using System;
+﻿using LockedIn.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,9 @@ namespace LockedIn
 {
     public partial class Login : Form
     {
+        String conStr = DatabaseConfig.GetConStr();
+        SqlConnection con;
+
         public Login()
         {
             InitializeComponent();
@@ -29,6 +34,7 @@ namespace LockedIn
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
             frmAdmin adminForm = new frmAdmin();
             adminForm.Show();
         }
