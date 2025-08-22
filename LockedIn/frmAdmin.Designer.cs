@@ -168,17 +168,17 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.btnMSNext = new System.Windows.Forms.Button();
-            this.cbxMSSkillName = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.btnMSEditExisSkil = new System.Windows.Forms.Button();
             this.btnMSDelExisSkill = new System.Windows.Forms.Button();
             this.btnMSAddNewSkill = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.btnMSNext = new System.Windows.Forms.Button();
+            this.cbxMSSkillName = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.tpPSkills = new System.Windows.Forms.TabPage();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
@@ -316,8 +316,8 @@
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.tpPSkills.SuspendLayout();
             this.panel47.SuspendLayout();
             this.panel48.SuspendLayout();
@@ -1923,64 +1923,6 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "Skill Description:";
             // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel19.Controls.Add(this.btnMSNext);
-            this.panel19.Controls.Add(this.cbxMSSkillName);
-            this.panel19.Controls.Add(this.label14);
-            this.panel19.Controls.Add(this.label17);
-            this.panel19.Location = new System.Drawing.Point(117, 230);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(340, 167);
-            this.panel19.TabIndex = 1;
-            // 
-            // btnMSNext
-            // 
-            this.btnMSNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnMSNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnMSNext.ForeColor = System.Drawing.Color.White;
-            this.btnMSNext.Location = new System.Drawing.Point(26, 88);
-            this.btnMSNext.Name = "btnMSNext";
-            this.btnMSNext.Size = new System.Drawing.Size(280, 54);
-            this.btnMSNext.TabIndex = 12;
-            this.btnMSNext.Text = "Next";
-            this.btnMSNext.UseVisualStyleBackColor = false;
-            // 
-            // cbxMSSkillName
-            // 
-            this.cbxMSSkillName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbxMSSkillName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxMSSkillName.FormattingEnabled = true;
-            this.cbxMSSkillName.Location = new System.Drawing.Point(105, 46);
-            this.cbxMSSkillName.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxMSSkillName.Name = "cbxMSSkillName";
-            this.cbxMSSkillName.Size = new System.Drawing.Size(200, 21);
-            this.cbxMSSkillName.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 3);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 27);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Skill Details";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.label17.Location = new System.Drawing.Point(21, 42);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 23);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Skill Name:";
-            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -2052,6 +1994,64 @@
             this.btnMSAddNewSkill.TabIndex = 7;
             this.btnMSAddNewSkill.Text = "Add New Skill";
             this.btnMSAddNewSkill.UseVisualStyleBackColor = false;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel19.Controls.Add(this.btnMSNext);
+            this.panel19.Controls.Add(this.cbxMSSkillName);
+            this.panel19.Controls.Add(this.label14);
+            this.panel19.Controls.Add(this.label17);
+            this.panel19.Location = new System.Drawing.Point(117, 230);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(340, 167);
+            this.panel19.TabIndex = 1;
+            // 
+            // btnMSNext
+            // 
+            this.btnMSNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSNext.ForeColor = System.Drawing.Color.White;
+            this.btnMSNext.Location = new System.Drawing.Point(26, 88);
+            this.btnMSNext.Name = "btnMSNext";
+            this.btnMSNext.Size = new System.Drawing.Size(280, 54);
+            this.btnMSNext.TabIndex = 12;
+            this.btnMSNext.Text = "Next";
+            this.btnMSNext.UseVisualStyleBackColor = false;
+            // 
+            // cbxMSSkillName
+            // 
+            this.cbxMSSkillName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxMSSkillName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxMSSkillName.FormattingEnabled = true;
+            this.cbxMSSkillName.Location = new System.Drawing.Point(105, 46);
+            this.cbxMSSkillName.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxMSSkillName.Name = "cbxMSSkillName";
+            this.cbxMSSkillName.Size = new System.Drawing.Size(200, 21);
+            this.cbxMSSkillName.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 3);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 27);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Skill Details";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.label17.Location = new System.Drawing.Point(21, 42);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 23);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Skill Name:";
             // 
             // tpPSkills
             // 
@@ -2343,6 +2343,7 @@
             this.cmbMPPrisonerNo.Name = "cmbMPPrisonerNo";
             this.cmbMPPrisonerNo.Size = new System.Drawing.Size(200, 31);
             this.cmbMPPrisonerNo.TabIndex = 2;
+            this.cmbMPPrisonerNo.SelectedIndexChanged += new System.EventHandler(this.cmbMPPrisonerNo_SelectedIndexChanged);
             // 
             // label60
             // 
@@ -3139,9 +3140,9 @@
             this.panel17.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
+            this.panel18.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
-            this.panel18.ResumeLayout(false);
             this.tpPSkills.ResumeLayout(false);
             this.panel47.ResumeLayout(false);
             this.panel47.PerformLayout();
