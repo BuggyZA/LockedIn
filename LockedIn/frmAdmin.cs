@@ -14,6 +14,7 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
+        int skillID;
         int prsnrID;
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
          * and they invoke the various indexchanged events and this causes several errors)*/
@@ -76,7 +77,32 @@ namespace LockedIn
         {
             if (isPopulating) return;
 
-            int skillID = ListboxHelper.GetSelectedSkillID(lstMPAllSkills);
+            skillID = ListboxHelper.GetSelectedSkillID(lstMPAllSkills);
+        }
+
+        private void btnMPAdd_Click(object sender, EventArgs e)
+        {
+            PrisonerSkillManager.AddPrisonerSkill(prsnrID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            isPopulating = false;
+        }
+
+        private void btnMPRemove_Click(object sender, EventArgs e)
+        {
+            PrisonerSkillManager.RemovePrisonerSkill(prsnrID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            isPopulating = false;
+        }
+
+        private void lstMPCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            skillID = ListboxHelper.GetSelectedSkillID(lstMPCurrentSkills);
         }
     }
 }
