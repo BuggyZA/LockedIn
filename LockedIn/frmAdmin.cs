@@ -48,9 +48,15 @@ namespace LockedIn
             {
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
+            //Maintain Prisoner Page
             else if (tcPrisoner.SelectedIndex == 8)
             {
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+                pnlPInfo.Visible = false;
+                pnlMPSkills.Visible = false;
+                cmbMPPrisonerNo.Visible = false;
+                pnlMPChoices.Visible = true;
+                pnlModifyPPassword.Visible = false;
             }
 
             isPopulating = false;
@@ -117,6 +123,59 @@ namespace LockedIn
         private void btnMPNext_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Edit Prisoner
+        private void button46_Click(object sender, EventArgs e)
+        {
+            pnlPInfo.Visible = true;
+            pnlMPSkills.Visible = true;
+            cmbMPPrisonerNo.Visible = true;
+            txtPNo.Visible = false;
+            pnlMPChoices.Visible = false;
+            txtCurrentPassword.Enabled = true;
+        }
+
+        //Delete Prisoner
+        private void button47_Click(object sender, EventArgs e)
+        {
+            pnlPInfo.Visible = true;
+            pnlMPSkills.Visible = true;
+            cmbMPPrisonerNo.Visible = true;
+            txtPNo.Visible = false;
+            pnlMPChoices.Visible = false;
+            txtCurrentPassword.Enabled = true;
+        }
+
+        //Add Prisoner
+        private void button53_Click(object sender, EventArgs e)
+        {
+            pnlPInfo.Visible = true;
+            pnlMPSkills.Visible = true;
+            cmbMPPrisonerNo.Visible = false;
+            txtPNo.Visible = true;
+            pnlMPChoices.Visible = false;
+            txtCurrentPassword.Enabled= false;
+        }
+
+        private void btnMPSave_Click(object sender, EventArgs e)
+        {
+            pnlPInfo.Visible = false;
+            pnlMPSkills.Visible = false;
+            cmbMPPrisonerNo.Visible = false;
+            pnlMPChoices.Visible = true;
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            pnlModifyPPassword.Visible = true;
+            pnlPInfo.Visible=false;
+        }
+
+        private void btnSavePassword_Click(object sender, EventArgs e)
+        {
+            pnlModifyPPassword.Visible = false;
+            pnlPInfo.Visible=false;
         }
     }
 }
