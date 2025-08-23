@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LockedIn.Data;
+using LockedIn.Helpers;
 namespace LockedIn
 {
     public partial class frmAdmin : Form
@@ -59,11 +60,23 @@ namespace LockedIn
             if(cmbMPPrisonerNo.SelectedIndex != -1)
             {
                 prsnrID = ComboBoxHelper.GetSelectedID(cmbMPPrisonerNo);
+
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+                isPopulating = false;
             }
             else
             {
                 MessageBox.Show("Please select a Prisoner Name");
             }
+        }
+
+        private void lstMPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            int skillID = ListboxHelper.GetSelectedSkillID(lstMPAllSkills);
         }
     }
 }

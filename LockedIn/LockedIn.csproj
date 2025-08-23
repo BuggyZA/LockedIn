@@ -81,6 +81,7 @@
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ComboboxHelper.cs" />
+    <Compile Include="Helpers\ListboxHelper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

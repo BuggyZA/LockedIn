@@ -207,10 +207,6 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.panel53 = new System.Windows.Forms.Panel();
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.button46 = new System.Windows.Forms.Button();
-            this.button47 = new System.Windows.Forms.Button();
-            this.button53 = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.btnSavePassword = new System.Windows.Forms.Button();
@@ -221,6 +217,10 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.panel50 = new System.Windows.Forms.Panel();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
             this.btnMPRemove = new System.Windows.Forms.Button();
             this.btnMPAdd = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
@@ -329,8 +329,8 @@
             this.panel52.SuspendLayout();
             this.panel59.SuspendLayout();
             this.panel53.SuspendLayout();
-            this.panel54.SuspendLayout();
             this.panel50.SuspendLayout();
+            this.panel54.SuspendLayout();
             this.panel55.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel56.SuspendLayout();
@@ -2293,6 +2293,7 @@
             // panel52
             // 
             this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel52.Controls.Add(this.panel54);
             this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel53);
             this.panel52.Controls.Add(this.panel50);
@@ -2314,7 +2315,7 @@
             this.panel59.Controls.Add(this.cmbMPPrisonerNo);
             this.panel59.Controls.Add(this.label60);
             this.panel59.Controls.Add(this.label67);
-            this.panel59.Location = new System.Drawing.Point(323, 6);
+            this.panel59.Location = new System.Drawing.Point(115, 50);
             this.panel59.Margin = new System.Windows.Forms.Padding(2);
             this.panel59.Name = "panel59";
             this.panel59.Size = new System.Drawing.Size(340, 167);
@@ -2383,54 +2384,6 @@
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(398, 251);
             this.panel53.TabIndex = 27;
-            // 
-            // panel54
-            // 
-            this.panel54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel54.Controls.Add(this.button46);
-            this.panel54.Controls.Add(this.button47);
-            this.panel54.Controls.Add(this.button53);
-            this.panel54.Location = new System.Drawing.Point(264, 1);
-            this.panel54.Margin = new System.Windows.Forms.Padding(2);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(344, 538);
-            this.panel54.TabIndex = 31;
-            // 
-            // button46
-            // 
-            this.button46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button46.ForeColor = System.Drawing.Color.White;
-            this.button46.Location = new System.Drawing.Point(44, 228);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(269, 108);
-            this.button46.TabIndex = 7;
-            this.button46.Text = "Edit Existing Prisoner";
-            this.button46.UseVisualStyleBackColor = false;
-            // 
-            // button47
-            // 
-            this.button47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button47.ForeColor = System.Drawing.Color.White;
-            this.button47.Location = new System.Drawing.Point(44, 390);
-            this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(269, 108);
-            this.button47.TabIndex = 5;
-            this.button47.Text = "Delete Existing Prisoner";
-            this.button47.UseVisualStyleBackColor = false;
-            // 
-            // button53
-            // 
-            this.button53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button53.ForeColor = System.Drawing.Color.White;
-            this.button53.Location = new System.Drawing.Point(44, 42);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(269, 108);
-            this.button53.TabIndex = 7;
-            this.button53.Text = "Add New Prisoner";
-            this.button53.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
@@ -2518,7 +2471,6 @@
             // panel50
             // 
             this.panel50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel50.Controls.Add(this.panel54);
             this.panel50.Controls.Add(this.btnMPRemove);
             this.panel50.Controls.Add(this.btnMPAdd);
             this.panel50.Controls.Add(this.label57);
@@ -2532,16 +2484,64 @@
             this.panel50.Size = new System.Drawing.Size(650, 379);
             this.panel50.TabIndex = 33;
             // 
+            // panel54
+            // 
+            this.panel54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel54.Controls.Add(this.button46);
+            this.panel54.Controls.Add(this.button47);
+            this.panel54.Controls.Add(this.button53);
+            this.panel54.Location = new System.Drawing.Point(729, 480);
+            this.panel54.Margin = new System.Windows.Forms.Padding(2);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(344, 538);
+            this.panel54.TabIndex = 31;
+            // 
+            // button46
+            // 
+            this.button46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button46.ForeColor = System.Drawing.Color.White;
+            this.button46.Location = new System.Drawing.Point(44, 228);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(269, 108);
+            this.button46.TabIndex = 7;
+            this.button46.Text = "Edit Existing Prisoner";
+            this.button46.UseVisualStyleBackColor = false;
+            // 
+            // button47
+            // 
+            this.button47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button47.ForeColor = System.Drawing.Color.White;
+            this.button47.Location = new System.Drawing.Point(44, 390);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(269, 108);
+            this.button47.TabIndex = 5;
+            this.button47.Text = "Delete Existing Prisoner";
+            this.button47.UseVisualStyleBackColor = false;
+            // 
+            // button53
+            // 
+            this.button53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button53.ForeColor = System.Drawing.Color.White;
+            this.button53.Location = new System.Drawing.Point(44, 42);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(269, 108);
+            this.button53.TabIndex = 7;
+            this.button53.Text = "Add New Prisoner";
+            this.button53.UseVisualStyleBackColor = false;
+            // 
             // btnMPRemove
             // 
             this.btnMPRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPRemove.ForeColor = System.Drawing.Color.White;
-            this.btnMPRemove.Location = new System.Drawing.Point(255, 210);
+            this.btnMPRemove.Location = new System.Drawing.Point(262, 213);
             this.btnMPRemove.Name = "btnMPRemove";
             this.btnMPRemove.Size = new System.Drawing.Size(120, 33);
             this.btnMPRemove.TabIndex = 33;
-            this.btnMPRemove.Text = "Remove  >";
+            this.btnMPRemove.Text = "<  Remove";
             this.btnMPRemove.UseVisualStyleBackColor = false;
             // 
             // btnMPAdd
@@ -2549,29 +2549,29 @@
             this.btnMPAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPAdd.ForeColor = System.Drawing.Color.White;
-            this.btnMPAdd.Location = new System.Drawing.Point(255, 159);
+            this.btnMPAdd.Location = new System.Drawing.Point(262, 162);
             this.btnMPAdd.Name = "btnMPAdd";
             this.btnMPAdd.Size = new System.Drawing.Size(120, 33);
             this.btnMPAdd.TabIndex = 32;
-            this.btnMPAdd.Text = "<  Add";
+            this.btnMPAdd.Text = "Add  >";
             this.btnMPAdd.UseVisualStyleBackColor = false;
             // 
             // label57
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(410, 54);
+            this.label57.Location = new System.Drawing.Point(21, 41);
             this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(68, 23);
+            this.label57.Size = new System.Drawing.Size(110, 23);
             this.label57.TabIndex = 31;
-            this.label57.Text = "All Skills:";
+            this.label57.Text = "Available Skills:";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(22, 49);
+            this.label58.Location = new System.Drawing.Point(401, 36);
             this.label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(172, 23);
@@ -2593,18 +2593,19 @@
             // 
             this.lstMPAllSkills.FormattingEnabled = true;
             this.lstMPAllSkills.ItemHeight = 23;
-            this.lstMPAllSkills.Location = new System.Drawing.Point(413, 80);
+            this.lstMPAllSkills.Location = new System.Drawing.Point(24, 67);
             this.lstMPAllSkills.Name = "lstMPAllSkills";
-            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 234);
+            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 280);
             this.lstMPAllSkills.TabIndex = 1;
+            this.lstMPAllSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPAllSkills_SelectedIndexChanged);
             // 
             // lstMPCurrentSkills
             // 
             this.lstMPCurrentSkills.FormattingEnabled = true;
             this.lstMPCurrentSkills.ItemHeight = 23;
-            this.lstMPCurrentSkills.Location = new System.Drawing.Point(22, 80);
+            this.lstMPCurrentSkills.Location = new System.Drawing.Point(401, 67);
             this.lstMPCurrentSkills.Name = "lstMPCurrentSkills";
-            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 234);
+            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 280);
             this.lstMPCurrentSkills.TabIndex = 0;
             // 
             // btnMPSave
@@ -3160,9 +3161,9 @@
             this.panel59.PerformLayout();
             this.panel53.ResumeLayout(false);
             this.panel53.PerformLayout();
-            this.panel54.ResumeLayout(false);
             this.panel50.ResumeLayout(false);
             this.panel50.PerformLayout();
+            this.panel54.ResumeLayout(false);
             this.panel55.ResumeLayout(false);
             this.panel55.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
