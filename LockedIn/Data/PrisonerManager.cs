@@ -57,6 +57,60 @@ namespace LockedIn.Managers
             return prisoner;
         }
 
-        
+        public static bool AddPrisoner(Prisoner prisoner)
+        {
+            string query = @"INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, ClearedToWork) 
+                            VALUES (@PrisonerNum, @LastName, @FirstName, @SA_ID, @Password, @ClearedToWork)";
+
+            try
+            {
+                using (conn = new SqlConnection(constr))
+                {
+                    using (cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@PrisonerNum", prisoner.PrisonerNum);
+                        cmd.Parameters.AddWithValue("@LastName", prisoner.LastName);
+                        cmd.Parameters.AddWithValue("@FirstName", prisoner.FirstName);
+                        cmd.Parameters.AddWithValue("@SA_ID", prisoner.SA_ID);
+                        cmd.Parameters.AddWithValue("@Password", prisoner.Password);
+                        cmd.Parameters.AddWithValue("@ClearedToWork", prisoner.ClearedToWork);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding prisoner: {ex.Message}");
+                return false;
+            }
+        }
+
+        public static bool DeletePrisoner(int prisonerId)
+        {
+            string query = "DELETE FROM PRISONER WHERE PrisonerID = @PrisonerID";
+
+            try
+            {
+                using (conn = new SqlConnection(constr))
+                {
+                    using (cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@PrisonerID", prisonerId);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting prisoner with ID {prisonerId}: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
