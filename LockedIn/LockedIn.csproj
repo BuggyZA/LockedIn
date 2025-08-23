@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DatabaseConfig.cs" />
+    <Compile Include="Data\PrisonerManager.cs" />
     <Compile Include="Data\PrisonerSkillManager.cs" />
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>

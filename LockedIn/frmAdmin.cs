@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LockedIn.Data;
 using LockedIn.Helpers;
+using LockedIn.Models;
+using LockedIn.Managers;
 namespace LockedIn
 {
     public partial class frmAdmin : Form
@@ -66,10 +68,17 @@ namespace LockedIn
                 ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
                 ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
                 isPopulating = false;
+
+                Prisoner thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+                txtPNo.Text = thisPrisoner.PrisonerNum;
+                txtFirstName.Text = thisPrisoner.FirstName;
+                txtLastName.Text = thisPrisoner.LastName;  
+                txtID.Text = thisPrisoner.SA_ID;
+                ckbCleared.Checked = thisPrisoner.ClearedToWork == true ? true : false;
             }
             else
             {
-                MessageBox.Show("Please select a Prisoner Name");
+                MessageBox.Show("Please select a Prisoner Number");
             }
         }
 
@@ -103,6 +112,11 @@ namespace LockedIn
             if (isPopulating) return;
 
             skillID = ListboxHelper.GetSelectedSkillID(lstMPCurrentSkills);
+        }
+
+        private void btnMPNext_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
