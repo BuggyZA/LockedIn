@@ -165,11 +165,11 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtMSSkillDesc = new System.Windows.Forms.TextBox();
             this.txtMSSkillName = new System.Windows.Forms.TextBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.btnMSEditExisSkil = new System.Windows.Forms.Button();
             this.btnMSDelExisSkill = new System.Windows.Forms.Button();
@@ -1890,6 +1890,18 @@
             this.txtMSSkillName.Size = new System.Drawing.Size(200, 20);
             this.txtMSSkillName.TabIndex = 4;
             // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(8, 129);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(389, 54);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "Save";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1934,18 +1946,6 @@
             this.button16.TabIndex = 11;
             this.button16.Text = "Back";
             this.button16.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(8, 129);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(389, 54);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "Save";
-            this.button15.UseVisualStyleBackColor = false;
             // 
             // panel18
             // 
@@ -2293,9 +2293,8 @@
             // panel52
             // 
             this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.panel52.Controls.Add(this.panel54);
-            this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel53);
+            this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel50);
             this.panel52.Controls.Add(this.btnMPSave);
             this.panel52.Controls.Add(this.btnMPBack);
@@ -2314,7 +2313,7 @@
             this.panel54.Controls.Add(this.button46);
             this.panel54.Controls.Add(this.button47);
             this.panel54.Controls.Add(this.button53);
-            this.panel54.Location = new System.Drawing.Point(662, 480);
+            this.panel54.Location = new System.Drawing.Point(144, 83);
             this.panel54.Margin = new System.Windows.Forms.Padding(2);
             this.panel54.Name = "panel54";
             this.panel54.Size = new System.Drawing.Size(344, 538);
@@ -2363,7 +2362,7 @@
             this.panel59.Controls.Add(this.cmbMPPrisonerNo);
             this.panel59.Controls.Add(this.label60);
             this.panel59.Controls.Add(this.label67);
-            this.panel59.Location = new System.Drawing.Point(115, 50);
+            this.panel59.Location = new System.Drawing.Point(123, 22);
             this.panel59.Margin = new System.Windows.Forms.Padding(2);
             this.panel59.Name = "panel59";
             this.panel59.Size = new System.Drawing.Size(340, 167);
@@ -2428,7 +2427,7 @@
             this.panel53.Controls.Add(this.label65);
             this.panel53.Controls.Add(this.label66);
             this.panel53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel53.Location = new System.Drawing.Point(78, 220);
+            this.panel53.Location = new System.Drawing.Point(87, 353);
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(398, 251);
             this.panel53.TabIndex = 27;
@@ -2519,6 +2518,7 @@
             // panel50
             // 
             this.panel50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel50.Controls.Add(this.panel54);
             this.panel50.Controls.Add(this.btnMPRemove);
             this.panel50.Controls.Add(this.btnMPAdd);
             this.panel50.Controls.Add(this.label57);
@@ -2863,6 +2863,7 @@
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel29.Controls.Add(this.panel31);
             this.panel29.Controls.Add(this.panel30);
             this.panel29.Controls.Add(this.button21);
             this.panel29.Controls.Add(this.panel32);
@@ -2875,14 +2876,13 @@
             // panel30
             // 
             this.panel30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel30.Controls.Add(this.panel31);
             this.panel30.Controls.Add(this.btnGenerateReport);
             this.panel30.Controls.Add(this.btnRRBack);
             this.panel30.Controls.Add(this.label30);
             this.panel30.Controls.Add(this.calRREndDate);
             this.panel30.Controls.Add(this.label29);
             this.panel30.Controls.Add(this.calRRStartDate);
-            this.panel30.Location = new System.Drawing.Point(221, 144);
+            this.panel30.Location = new System.Drawing.Point(227, 390);
             this.panel30.Margin = new System.Windows.Forms.Padding(2);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(746, 217);
@@ -2895,7 +2895,7 @@
             this.panel31.Controls.Add(this.cmbRRPrisonerName);
             this.panel31.Controls.Add(this.label31);
             this.panel31.Controls.Add(this.label32);
-            this.panel31.Location = new System.Drawing.Point(214, 21);
+            this.panel31.Location = new System.Drawing.Point(49, 42);
             this.panel31.Margin = new System.Windows.Forms.Padding(2);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(375, 167);

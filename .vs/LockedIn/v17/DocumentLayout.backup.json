@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\user\\desktop\\nwu\\2de jaar\\semester 2\\cmpg 223\\project\\lockedin\\lockedin\\models\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\models\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\user\\desktop\\nwu\\2de jaar\\semester 2\\cmpg 223\\project\\lockedin\\lockedin\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\user\\desktop\\nwu\\2de jaar\\semester 2\\cmpg 223\\project\\lockedin\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\user\\desktop\\nwu\\2de jaar\\semester 2\\cmpg 223\\project\\lockedin\\lockedin\\data\\prisonerskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\prisonerskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,15 +50,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PrisonerSkillManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\PrisonerSkillManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\PrisonerSkillManager.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\PrisonerSkillManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\PrisonerSkillManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DatabaseConfig.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Data\\DatabaseConfig.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
+              "RelativeToolTip": "LockedIn\\Data\\DatabaseConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T08:05:42.913Z",
+              "WhenOpened": "2025-08-23T11:42:23.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Prisoner.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Models\\Prisoner.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Models\\Prisoner.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Models\\Prisoner.cs",
+              "RelativeToolTip": "LockedIn\\Models\\Prisoner.cs",
+              "ViewState": "AgIAADoAAAAAmJmZmZnZv1cAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T11:19:15.862Z",
               "EditorCaption": ""
             },
             {
@@ -69,14 +82,14 @@
               "RelativeDocumentMoniker": "LockedIn\\Helpers\\ListboxHelper.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Helpers\\ListboxHelper.cs",
               "RelativeToolTip": "LockedIn\\Helpers\\ListboxHelper.cs",
-              "ViewState": "AgIAAFkAAAAAMzMzMzMXwAoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAABAAAAAAAAwwGAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T06:45:13.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "frmAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
@@ -88,28 +101,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmAdmin.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAFEAAACgmZmZmRkwwGgAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAzMzMzMz0vzoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-22T07:48:18.592Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ComboboxHelper.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeToolTip": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ViewState": "AgIAAFMAAAAAzczMzMwowF0AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T07:34:38.06Z",
               "EditorCaption": ""
             }
           ]

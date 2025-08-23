@@ -1572,7 +1572,7 @@
             this.EPpnlEmployerDetails.Controls.Add(this.EPlblEmployerUsername);
             this.EPpnlEmployerDetails.Controls.Add(this.EPlblEmployerSurname);
             this.EPpnlEmployerDetails.Controls.Add(this.EPlblEmployerName);
-            this.EPpnlEmployerDetails.Location = new System.Drawing.Point(267, 47);
+            this.EPpnlEmployerDetails.Location = new System.Drawing.Point(201, 2);
             this.EPpnlEmployerDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EPpnlEmployerDetails.Name = "EPpnlEmployerDetails";
             this.EPpnlEmployerDetails.Size = new System.Drawing.Size(993, 642);
