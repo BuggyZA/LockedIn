@@ -207,6 +207,10 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.panel53 = new System.Windows.Forms.Panel();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.btnSavePassword = new System.Windows.Forms.Button();
@@ -224,10 +228,6 @@
             this.label59 = new System.Windows.Forms.Label();
             this.lstMPAllSkills = new System.Windows.Forms.ListBox();
             this.lstMPCurrentSkills = new System.Windows.Forms.ListBox();
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.button46 = new System.Windows.Forms.Button();
-            this.button47 = new System.Windows.Forms.Button();
-            this.button53 = new System.Windows.Forms.Button();
             this.btnMPSave = new System.Windows.Forms.Button();
             this.btnMPBack = new System.Windows.Forms.Button();
             this.panel55 = new System.Windows.Forms.Panel();
@@ -329,8 +329,8 @@
             this.panel52.SuspendLayout();
             this.panel59.SuspendLayout();
             this.panel53.SuspendLayout();
-            this.panel50.SuspendLayout();
             this.panel54.SuspendLayout();
+            this.panel50.SuspendLayout();
             this.panel55.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel56.SuspendLayout();
@@ -2296,7 +2296,6 @@
             this.panel52.Controls.Add(this.panel59);
             this.panel52.Controls.Add(this.panel53);
             this.panel52.Controls.Add(this.panel50);
-            this.panel52.Controls.Add(this.panel54);
             this.panel52.Controls.Add(this.btnMPSave);
             this.panel52.Controls.Add(this.btnMPBack);
             this.panel52.Controls.Add(this.panel55);
@@ -2315,7 +2314,7 @@
             this.panel59.Controls.Add(this.cmbMPPrisonerNo);
             this.panel59.Controls.Add(this.label60);
             this.panel59.Controls.Add(this.label67);
-            this.panel59.Location = new System.Drawing.Point(391, 4);
+            this.panel59.Location = new System.Drawing.Point(323, 6);
             this.panel59.Margin = new System.Windows.Forms.Padding(2);
             this.panel59.Name = "panel59";
             this.panel59.Size = new System.Drawing.Size(340, 167);
@@ -2380,10 +2379,58 @@
             this.panel53.Controls.Add(this.label65);
             this.panel53.Controls.Add(this.label66);
             this.panel53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel53.Location = new System.Drawing.Point(98, 224);
+            this.panel53.Location = new System.Drawing.Point(78, 220);
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(398, 251);
             this.panel53.TabIndex = 27;
+            // 
+            // panel54
+            // 
+            this.panel54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel54.Controls.Add(this.button46);
+            this.panel54.Controls.Add(this.button47);
+            this.panel54.Controls.Add(this.button53);
+            this.panel54.Location = new System.Drawing.Point(264, 1);
+            this.panel54.Margin = new System.Windows.Forms.Padding(2);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(344, 538);
+            this.panel54.TabIndex = 31;
+            // 
+            // button46
+            // 
+            this.button46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button46.ForeColor = System.Drawing.Color.White;
+            this.button46.Location = new System.Drawing.Point(44, 228);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(269, 108);
+            this.button46.TabIndex = 7;
+            this.button46.Text = "Edit Existing Prisoner";
+            this.button46.UseVisualStyleBackColor = false;
+            // 
+            // button47
+            // 
+            this.button47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button47.ForeColor = System.Drawing.Color.White;
+            this.button47.Location = new System.Drawing.Point(44, 390);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(269, 108);
+            this.button47.TabIndex = 5;
+            this.button47.Text = "Delete Existing Prisoner";
+            this.button47.UseVisualStyleBackColor = false;
+            // 
+            // button53
+            // 
+            this.button53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button53.ForeColor = System.Drawing.Color.White;
+            this.button53.Location = new System.Drawing.Point(44, 42);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(269, 108);
+            this.button53.TabIndex = 7;
+            this.button53.Text = "Add New Prisoner";
+            this.button53.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
@@ -2471,6 +2518,7 @@
             // panel50
             // 
             this.panel50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel50.Controls.Add(this.panel54);
             this.panel50.Controls.Add(this.btnMPRemove);
             this.panel50.Controls.Add(this.btnMPAdd);
             this.panel50.Controls.Add(this.label57);
@@ -2478,7 +2526,7 @@
             this.panel50.Controls.Add(this.label59);
             this.panel50.Controls.Add(this.lstMPAllSkills);
             this.panel50.Controls.Add(this.lstMPCurrentSkills);
-            this.panel50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel50.ForeColor = System.Drawing.Color.Black;
             this.panel50.Location = new System.Drawing.Point(502, 96);
             this.panel50.Name = "panel50";
             this.panel50.Size = new System.Drawing.Size(650, 379);
@@ -2558,54 +2606,6 @@
             this.lstMPCurrentSkills.Name = "lstMPCurrentSkills";
             this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 234);
             this.lstMPCurrentSkills.TabIndex = 0;
-            // 
-            // panel54
-            // 
-            this.panel54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel54.Controls.Add(this.button46);
-            this.panel54.Controls.Add(this.button47);
-            this.panel54.Controls.Add(this.button53);
-            this.panel54.Location = new System.Drawing.Point(1208, 44);
-            this.panel54.Margin = new System.Windows.Forms.Padding(2);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(344, 538);
-            this.panel54.TabIndex = 31;
-            // 
-            // button46
-            // 
-            this.button46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button46.ForeColor = System.Drawing.Color.White;
-            this.button46.Location = new System.Drawing.Point(44, 228);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(269, 108);
-            this.button46.TabIndex = 7;
-            this.button46.Text = "Edit Existing Prisoner";
-            this.button46.UseVisualStyleBackColor = false;
-            // 
-            // button47
-            // 
-            this.button47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button47.ForeColor = System.Drawing.Color.White;
-            this.button47.Location = new System.Drawing.Point(44, 390);
-            this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(269, 108);
-            this.button47.TabIndex = 5;
-            this.button47.Text = "Delete Existing Prisoner";
-            this.button47.UseVisualStyleBackColor = false;
-            // 
-            // button53
-            // 
-            this.button53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button53.ForeColor = System.Drawing.Color.White;
-            this.button53.Location = new System.Drawing.Point(44, 42);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(269, 108);
-            this.button53.TabIndex = 7;
-            this.button53.Text = "Add New Prisoner";
-            this.button53.UseVisualStyleBackColor = false;
             // 
             // btnMPSave
             // 
@@ -3160,9 +3160,9 @@
             this.panel59.PerformLayout();
             this.panel53.ResumeLayout(false);
             this.panel53.PerformLayout();
+            this.panel54.ResumeLayout(false);
             this.panel50.ResumeLayout(false);
             this.panel50.PerformLayout();
-            this.panel54.ResumeLayout(false);
             this.panel55.ResumeLayout(false);
             this.panel55.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

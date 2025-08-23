@@ -125,12 +125,12 @@ public static class ComboBoxHelper
         {
             object value = selectedRow[comboBox.ValueMember];
             if (value == null || value == DBNull.Value)
-                return -1; // or throw exception
+                return -1; 
 
             return Convert.ToInt32(value);
         }
 
-        // Fallback for other data source types
+        // Fallback
         return comboBox.SelectedValue != null ? Convert.ToInt32(comboBox.SelectedValue) : -1;
     }
 
