@@ -167,17 +167,15 @@
             this.ARJpnlApproveReject = new System.Windows.Forms.Panel();
             this.ARJbtnReject = new System.Windows.Forms.Button();
             this.ARJbtnApprove = new System.Windows.Forms.Button();
-            this.ARJtxtPrisonerSkill2 = new System.Windows.Forms.TextBox();
-            this.ARJPrisonerSkill2 = new System.Windows.Forms.Label();
             this.ARJcmbSelectApplication = new System.Windows.Forms.ComboBox();
             this.ARJcmbJobName = new System.Windows.Forms.ComboBox();
-            this.ARJtxtPrisonerSkill1 = new System.Windows.Forms.TextBox();
             this.ARJlblPrisonerSkill1 = new System.Windows.Forms.Label();
             this.ARJtxtPrisonerName = new System.Windows.Forms.TextBox();
             this.ARJlblPrisonerName = new System.Windows.Forms.Label();
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.ARJlsbCurrentSkills = new System.Windows.Forms.ListBox();
             this.tabPage1.SuspendLayout();
             this.ASJpnlHeader.SuspendLayout();
             this.ASJpnl1.SuspendLayout();
@@ -1726,13 +1724,11 @@
             // ARJpnlApproveReject
             // 
             this.ARJpnlApproveReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.ARJpnlApproveReject.Controls.Add(this.ARJlsbCurrentSkills);
             this.ARJpnlApproveReject.Controls.Add(this.ARJbtnReject);
             this.ARJpnlApproveReject.Controls.Add(this.ARJbtnApprove);
-            this.ARJpnlApproveReject.Controls.Add(this.ARJtxtPrisonerSkill2);
-            this.ARJpnlApproveReject.Controls.Add(this.ARJPrisonerSkill2);
             this.ARJpnlApproveReject.Controls.Add(this.ARJcmbSelectApplication);
             this.ARJpnlApproveReject.Controls.Add(this.ARJcmbJobName);
-            this.ARJpnlApproveReject.Controls.Add(this.ARJtxtPrisonerSkill1);
             this.ARJpnlApproveReject.Controls.Add(this.ARJlblPrisonerSkill1);
             this.ARJpnlApproveReject.Controls.Add(this.ARJtxtPrisonerName);
             this.ARJpnlApproveReject.Controls.Add(this.ARJlblPrisonerName);
@@ -1770,22 +1766,6 @@
             this.ARJbtnApprove.Text = "Approve";
             this.ARJbtnApprove.UseVisualStyleBackColor = false;
             // 
-            // ARJtxtPrisonerSkill2
-            // 
-            this.ARJtxtPrisonerSkill2.Location = new System.Drawing.Point(299, 415);
-            this.ARJtxtPrisonerSkill2.Name = "ARJtxtPrisonerSkill2";
-            this.ARJtxtPrisonerSkill2.Size = new System.Drawing.Size(168, 32);
-            this.ARJtxtPrisonerSkill2.TabIndex = 11;
-            // 
-            // ARJPrisonerSkill2
-            // 
-            this.ARJPrisonerSkill2.AutoSize = true;
-            this.ARJPrisonerSkill2.Location = new System.Drawing.Point(295, 368);
-            this.ARJPrisonerSkill2.Name = "ARJPrisonerSkill2";
-            this.ARJPrisonerSkill2.Size = new System.Drawing.Size(158, 24);
-            this.ARJPrisonerSkill2.TabIndex = 10;
-            this.ARJPrisonerSkill2.Text = "Prisoners Skill 2";
-            // 
             // ARJcmbSelectApplication
             // 
             this.ARJcmbSelectApplication.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1808,21 +1788,14 @@
             this.ARJcmbJobName.TabIndex = 8;
             this.ARJcmbJobName.SelectedIndexChanged += new System.EventHandler(this.ARJcmbJobName_SelectedIndexChanged);
             // 
-            // ARJtxtPrisonerSkill1
-            // 
-            this.ARJtxtPrisonerSkill1.Location = new System.Drawing.Point(73, 415);
-            this.ARJtxtPrisonerSkill1.Name = "ARJtxtPrisonerSkill1";
-            this.ARJtxtPrisonerSkill1.Size = new System.Drawing.Size(168, 32);
-            this.ARJtxtPrisonerSkill1.TabIndex = 7;
-            // 
             // ARJlblPrisonerSkill1
             // 
             this.ARJlblPrisonerSkill1.AutoSize = true;
             this.ARJlblPrisonerSkill1.Location = new System.Drawing.Point(69, 368);
             this.ARJlblPrisonerSkill1.Name = "ARJlblPrisonerSkill1";
-            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(155, 24);
+            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(237, 24);
             this.ARJlblPrisonerSkill1.TabIndex = 6;
-            this.ARJlblPrisonerSkill1.Text = "Prisoners Skill 1";
+            this.ARJlblPrisonerSkill1.Text = "Current skills of prisoner";
             // 
             // ARJtxtPrisonerName
             // 
@@ -1872,6 +1845,16 @@
             this.button11.TabIndex = 11;
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
+            // 
+            // ARJlsbCurrentSkills
+            // 
+            this.ARJlsbCurrentSkills.FormattingEnabled = true;
+            this.ARJlsbCurrentSkills.ItemHeight = 24;
+            this.ARJlsbCurrentSkills.Location = new System.Drawing.Point(73, 395);
+            this.ARJlsbCurrentSkills.Name = "ARJlsbCurrentSkills";
+            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(233, 100);
+            this.ARJlsbCurrentSkills.TabIndex = 15;
+            this.ARJlsbCurrentSkills.SelectedIndexChanged += new System.EventHandler(this.ARJlsbCurrentSkills_SelectedIndexChanged);
             // 
             // frmEmployer
             // 
@@ -2094,7 +2077,6 @@
         private System.Windows.Forms.Panel ARJpbl1;
         private System.Windows.Forms.Panel ARJpnl2;
         private System.Windows.Forms.Panel ARJpnlApproveReject;
-        private System.Windows.Forms.TextBox ARJtxtPrisonerSkill1;
         private System.Windows.Forms.Label ARJlblPrisonerSkill1;
         private System.Windows.Forms.TextBox ARJtxtPrisonerName;
         private System.Windows.Forms.Label ARJlblPrisonerName;
@@ -2103,9 +2085,8 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ComboBox ARJcmbJobName;
         private System.Windows.Forms.ComboBox ARJcmbSelectApplication;
-        private System.Windows.Forms.Label ARJPrisonerSkill2;
         private System.Windows.Forms.Button ARJbtnReject;
         private System.Windows.Forms.Button ARJbtnApprove;
-        private System.Windows.Forms.TextBox ARJtxtPrisonerSkill2;
+        private System.Windows.Forms.ListBox ARJlsbCurrentSkills;
     }
 }
