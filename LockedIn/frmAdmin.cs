@@ -169,10 +169,21 @@ namespace LockedIn
             txtPNo.Visible = true;
             pnlMPChoices.Visible = false;
             txtCurrentPassword.Enabled = false;
+
+            isPopulating = true;
+            ListboxHelper.PopulateAllPSkills(lstMPAllSkills);
+            isPopulating = false;
+
+            pnlMPSkills.Enabled = false;
         }
 
         private void btnMPSave_Click(object sender, EventArgs e)
         {
+            if (pnlMPSkills.Enabled ==  false)
+            {
+                pnlMPSkills.Enabled = true;
+                return;
+            }
             pnlPInfo.Visible = false;
             pnlMPSkills.Visible = false;
             cmbMPPrisonerNo.Visible = false;
@@ -188,7 +199,7 @@ namespace LockedIn
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
             pnlModifyPPassword.Visible = false;
-            pnlPInfo.Visible = false;
+            pnlPInfo.Visible = true;
         }
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
@@ -514,6 +525,12 @@ namespace LockedIn
         private void btnReqReports_Click(object sender, EventArgs e)
         {
             tcPrisoner.SelectedIndex = 9;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlModifyPPassword.Visible = false;
+            pnlPInfo.Visible = true;
         }
     }
 }
