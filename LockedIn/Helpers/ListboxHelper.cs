@@ -63,6 +63,33 @@ namespace LockedIn.Helpers
                 MessageBox.Show("Error loading prisoner skills: " + ex.Message);
             }
         }
+        public static void PopulateCurrentJobSkills(ListBox listBox, int jobID)     //Added for Assign Skill to job
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(constr))
+                {
+                    conn.Open();
+                    query = @"SELECT SkillID, SkillName FROM SKILL WHERE SkillID IN (SELECT SkillID FROM SKILL_OF_JOB
+                         WHERE JobID = @JobID) ORDER BY SkillName";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@JobID", jobID);
+
+                    adapter = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds, "SKILL_OF_JOB");
+
+                    listBox.DataSource = ds.Tables["SKILL_OF_JOB"];
+                    listBox.DisplayMember = "SkillName";
+                    listBox.ValueMember = "SkillID";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading job skills: " + ex.Message);
+            }
+        }
 
         public static void PopulateAvailablePSkills(ListBox listBox, int prisonerID)
         {
