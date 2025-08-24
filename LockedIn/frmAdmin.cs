@@ -33,7 +33,7 @@ namespace LockedIn
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            tcPrisoner.SelectedIndex = 3;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -193,12 +193,12 @@ namespace LockedIn
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
         {
-
+            tcPrisoner.SelectedIndex = 2;
         }
 
         private void btnMaintainSkills_Click(object sender, EventArgs e)
         {
-
+            tcPrisoner.SelectedIndex = 6;
         }
 
         private void btnMSEditExisSkil_Click(object sender, EventArgs e)
@@ -484,6 +484,36 @@ namespace LockedIn
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void btnAssignGuardsToJobs_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 4;
+        }
+
+        private void btnAssignSkillToPris_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 4;
+        }
+
+        private void btnAssignSkillToJob_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 5;
+        }
+
+        private void btnMaintainEmp_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 1;
+        }
+
+        private void btnMaintainPris_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 8;
+        }
+
+        private void btnReqReports_Click(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 9;
         }
     }
 }

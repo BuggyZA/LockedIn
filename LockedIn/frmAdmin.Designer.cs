@@ -471,6 +471,7 @@
             this.btnMaintainPris.TabIndex = 7;
             this.btnMaintainPris.Text = "Maintain Prisoners";
             this.btnMaintainPris.UseVisualStyleBackColor = false;
+            this.btnMaintainPris.Click += new System.EventHandler(this.btnMaintainPris_Click);
             // 
             // label13
             // 
@@ -506,6 +507,7 @@
             this.btnReqReports.TabIndex = 7;
             this.btnReqReports.Text = "Request Reports";
             this.btnReqReports.UseVisualStyleBackColor = false;
+            this.btnReqReports.Click += new System.EventHandler(this.btnReqReports_Click);
             // 
             // label12
             // 
@@ -543,6 +545,7 @@
             this.btnAssignSkillToPris.TabIndex = 7;
             this.btnAssignSkillToPris.Text = "Assign Skills To Prisoner";
             this.btnAssignSkillToPris.UseVisualStyleBackColor = false;
+            this.btnAssignSkillToPris.Click += new System.EventHandler(this.btnAssignSkillToPris_Click);
             // 
             // btnAssignSkillToJob
             // 
@@ -556,6 +559,7 @@
             this.btnAssignSkillToJob.TabIndex = 5;
             this.btnAssignSkillToJob.Text = "Assign Skills To Job";
             this.btnAssignSkillToJob.UseVisualStyleBackColor = false;
+            this.btnAssignSkillToJob.Click += new System.EventHandler(this.btnAssignSkillToJob_Click);
             // 
             // btnMaintainSkills
             // 
@@ -605,6 +609,7 @@
             this.btnMaintainEmp.TabIndex = 7;
             this.btnMaintainEmp.Text = "Maintain Employers";
             this.btnMaintainEmp.UseVisualStyleBackColor = false;
+            this.btnMaintainEmp.Click += new System.EventHandler(this.btnMaintainEmp_Click);
             // 
             // label15
             // 
@@ -642,6 +647,7 @@
             this.btnAssignGuardsToJobs.TabIndex = 6;
             this.btnAssignGuardsToJobs.Text = "Assign Guards To Jobs";
             this.btnAssignGuardsToJobs.UseVisualStyleBackColor = false;
+            this.btnAssignGuardsToJobs.Click += new System.EventHandler(this.btnAssignGuardsToJobs_Click);
             // 
             // btnMaintainJobs
             // 
