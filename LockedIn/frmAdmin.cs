@@ -18,17 +18,24 @@ namespace LockedIn
     {
         int skillID;
         int prsnrID;
+        int selectedSkillID; // this is for editing and deleting tracking of skills
+ 
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Integrated Security=True";
+
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
          * and they invoke the various indexchanged events and this causes several errors)*/
         bool isPopulating = false;
         public frmAdmin()
         {
             InitializeComponent();
+            // Setting the two panels to edit and add skills to false 
+            panel19.Visible = false;
+            panel20.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -39,12 +46,12 @@ namespace LockedIn
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             isPopulating = true;
-
-            if(tcPrisoner.SelectedIndex == 4)
+            //Popuating combo boxes.
+            if (tcPrisoner.SelectedIndex == 4)
             {
                 ComboBoxHelper.PopulateJobNames(cbxJobName);
             }
-            else if (tcPrisoner.SelectedIndex == 6)
+            else if (tcPrisoner.SelectedIndex == 6) //Maintain skills page
             {
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
@@ -62,11 +69,12 @@ namespace LockedIn
             isPopulating = false;
         }
 
+
         private void cmbMPPrisonerNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isPopulating) return;
 
-            if(cmbMPPrisonerNo.SelectedIndex != -1)
+            if (cmbMPPrisonerNo.SelectedIndex != -1)
             {
                 prsnrID = ComboBoxHelper.GetSelectedID(cmbMPPrisonerNo);
 
@@ -78,7 +86,7 @@ namespace LockedIn
                 Prisoner thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
                 txtPNo.Text = thisPrisoner.PrisonerNum;
                 txtFirstName.Text = thisPrisoner.FirstName;
-                txtLastName.Text = thisPrisoner.LastName;  
+                txtLastName.Text = thisPrisoner.LastName;
                 txtID.Text = thisPrisoner.SA_ID;
                 ckbCleared.Checked = thisPrisoner.ClearedToWork == true ? true : false;
             }
@@ -155,7 +163,7 @@ namespace LockedIn
             cmbMPPrisonerNo.Visible = false;
             txtPNo.Visible = true;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled= false;
+            txtCurrentPassword.Enabled = false;
         }
 
         private void btnMPSave_Click(object sender, EventArgs e)
@@ -169,13 +177,186 @@ namespace LockedIn
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             pnlModifyPPassword.Visible = true;
-            pnlPInfo.Visible=false;
+            pnlPInfo.Visible = false;
         }
 
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
             pnlModifyPPassword.Visible = false;
-            pnlPInfo.Visible=false;
+            pnlPInfo.Visible = false;
+        }
+
+        private void btnCompleteJobs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaintainSkills_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMSEditExisSkil_Click(object sender, EventArgs e)
+        {
+            //Setting the panel's visibility to true.
+            panel19.Visible = true;
+
+            //Updating the combobox with edited skill
+            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+        }
+
+        private void cbxMSSkillName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating || cbxMSSkillName.SelectedIndex == -1) return;
+
+            selectedSkillID = ComboBoxHelper.GetSelectedID(cbxMSSkillName);
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT SkillName, SkillDescription FROM SKILL WHERE SkillID = @SkillID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SkillId", selectedSkillID);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        txtMSSkillName.Text = reader["SkillName"].ToString();
+                        txtMSSkillDesc.Text = reader["SkillDescription"].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error receiving skill: " + ex.Message);
+                }
+            }
+            panel20.Visible = true;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            string skillName = txtMSSkillName.Text.Trim();
+            string skillDesc = txtMSSkillDesc.Text.Trim();
+
+            // Receiving the skill name and description from the textboxes
+            if(string.IsNullOrEmpty(skillName))
+            {
+                MessageBox.Show("Please enter a name for the skill o the prisoner!");
+                return;
+            }
+            //Saving the skills
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd;
+
+                if (selectedSkillID == -1)
+                {
+                    //Inserting the new skill into the database.
+                    cmd = new SqlCommand("INSERT INTO SKILL (SkillName, SkillDescription) OUTPUT INSERTED.SkillID VALUES (@Name, @Desc)", conn);
+                    cmd.Parameters.AddWithValue("@Name", skillName);
+                    cmd.Parameters.AddWithValue("@Desc", skillDesc);
+
+                    try
+                    {
+                        conn.Open();
+                        int newSkillID = (int)cmd.ExecuteScalar();
+
+                        // Link new skill to default prisoner
+                        int defaultPrisonerID = prsnrID != 0 ? prsnrID : 1;
+                        SqlCommand linkCmd = new SqlCommand("INSERT INTO SKILL_OF_PRISONER (PrisonerID, SkillID) VALUES (@PrisonerID, @SkillID)", conn);
+                        linkCmd.Parameters.AddWithValue("@PrisonerID", defaultPrisonerID);
+                        linkCmd.Parameters.AddWithValue("@SkillID", newSkillID);
+                        linkCmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Skill added successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving skill: " + ex.Message);
+                    }
+
+                }
+                else
+                {
+                    // Update existing skill
+                    cmd = new SqlCommand("UPDATE SKILL SET SkillName = @Name, SkillDescription = @Desc WHERE SkillID = @SkillID", conn);
+                    cmd.Parameters.AddWithValue("@Name", skillName);
+                    cmd.Parameters.AddWithValue("@Desc", skillDesc);
+                    cmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Skill updated successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating skill: " + ex.Message);
+                    }
+                }
+            }
+            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+
+        }
+
+        private void btnMSDelExisSkill_Click(object sender, EventArgs e)
+        {
+            if (selectedSkillID == -1)
+            {
+                MessageBox.Show("Please select a skill to delete.");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                try
+                {
+                    conn.Open();
+
+                    // Delete from skill of prisoners
+                    SqlCommand linkCmd = new SqlCommand("DELETE FROM SKILL_OF_PRISONER WHERE SkillID = @SkillID", conn);
+                    linkCmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                    linkCmd.ExecuteNonQuery();
+
+                    // Delete skill from SKILL
+                    SqlCommand cmd = new SqlCommand("DELETE FROM SKILL WHERE SkillID = @SkillID", conn);
+                    cmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Skill deleted successfully!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting skill: " + ex.Message);
+                }
+            }
+
+            txtMSSkillName.Clear();
+            txtMSSkillDesc.Clear();
+            panel20.Visible = false;
+            selectedSkillID = -1;
+            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+        }
+
+        private void btnMSNext_Click(object sender, EventArgs e)
+        {
+            panel20.Visible = true;
+        }
+
+        private void btnMSAddNewSkill_Click(object sender, EventArgs e)
+        {
+            panel19.Visible = false;
+            panel20.Visible = true;
+            txtMSSkillName.Clear();
+            txtMSSkillDesc.Clear();
+            selectedSkillID = -1;
         }
     }
 }
