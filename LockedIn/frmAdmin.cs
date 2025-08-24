@@ -177,5 +177,66 @@ namespace LockedIn
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible=false;
         }
+
+        private void btnEmployerDetails_Click(object sender, EventArgs e)
+        {
+            pnlEmpDetails.Visible = true;
+            PnlEmpInfo.Visible = true;
+            btnEmpChangePass.Visible = true;
+            btnAddNewEmp.Visible = false;
+            btnSaveEmp.Visible = true;
+            pnlEmpDetails.Visible = false;
+        }
+
+        private void btnAddEmp_Click(object sender, EventArgs e)
+        {
+            pnlEmpDetails.Visible = false;
+            PnlEmpInfo.Visible = true;
+            btnAddNewEmp.Visible = true;
+            btnEmpChangePass.Visible = false;
+            btnSaveEmp.Visible = false;
+            pnlEmpMenu.Visible = false;
+            btnBackEmp.Visible = true;
+        }
+
+        private void btnEditEmp_Click(object sender, EventArgs e)
+        {
+            pnlEmpDetails.Visible = true;
+            pnlEmpMenu.Visible = false;
+            btnEmployerDetails.Visible = true;
+            btnEmpDel.Visible = false;
+            btnBackEmp.Visible = true;
+        }
+
+        private void btnDelEmployer_Click(object sender, EventArgs e)
+        {
+            pnlEmpDetails.Visible = true;
+            btnSaveEmp.Visible = false;
+            pnlEmpMenu.Visible = false;
+            btnEmpDel.Visible = true;
+            btnEmployerDetails.Visible = false;
+            btnBackEmp.Visible = true;
+        }
+
+        private void btnBackEmp_Click(object sender, EventArgs e)
+        {
+            pnlEmpMenu.Visible = true;
+            PnlEmpInfo.Visible = false;
+            pnlEmpDetails.Visible = false;
+            btnSaveEmp.Visible = false;
+            pnlEmpPass.Visible = false;
+            btnBackEmp.Visible = false;
+        }
+
+        private void btnEmpChangePass_Click(object sender, EventArgs e)
+        {
+            pnlEmpPass.Visible = true;
+        }
+
+        private void btnEmpCancel_Click(object sender, EventArgs e)
+        {
+            pnlEmpPass.Visible = false;
+
+        }
     }
 }

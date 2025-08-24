@@ -43,3 +43,19 @@ C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.exe
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.pdb
+C:\Users\ashto\Documents\CMPG213\LockedIn\bin\Debug\LockedInDB.mdf
+C:\Users\ashto\Documents\CMPG213\LockedIn\bin\Debug\LockedInDB_log.ldf
+C:\Users\ashto\Documents\CMPG213\LockedIn\bin\Debug\LockedIn.exe.config
+C:\Users\ashto\Documents\CMPG213\LockedIn\bin\Debug\LockedIn.exe
+C:\Users\ashto\Documents\CMPG213\LockedIn\bin\Debug\LockedIn.pdb
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.csproj.AssemblyReference.cache
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.exe.config
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmAdmin.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmEmployer.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmPrisoner.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.Login.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.Properties.Resources.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.csproj.GenerateResource.cache
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.exe
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.pdb
