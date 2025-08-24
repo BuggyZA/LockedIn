@@ -63,6 +63,13 @@ namespace LockedIn
                 pnlMPChoices.Visible = true;
                 pnlModifyPPassword.Visible = false;
             }
+            else if (tcPrisoner.SelectedIndex == 2)
+            {
+                ComboBoxHelper.PopulateJobNames(cmbJobID);
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
+                calDateCompleted.MaxDate = DateTime.Today;
+            }
+
 
             isPopulating = false;
         }
@@ -416,6 +423,67 @@ namespace LockedIn
         {
             pnlEmpPass.Visible = false;
 
+        }
+
+      
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            cmbPrisonerID.SelectedIndex = -1;
+            cmbJobID.SelectedIndex = -1;
+            calDateCompleted.SetDate(DateTime.Today);
+            lstNotes.Items.Clear();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (cmbJobID.SelectedIndex != -1)
+                {
+                    if (cmbPrisonerID.SelectedIndex != -1)
+                    {
+                        DateTime selectedDate = calDateCompleted.SelectionStart;
+                        if (selectedDate <= DateTime.Today)
+                        {
+                            string connStr = DatabaseConfig.GetConStr();
+
+                            SqlConnection conn = new SqlConnection(connStr);
+                            conn.Open();
+                            string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = @Completed";
+                            SqlCommand comm = new SqlCommand(sql, conn);
+
+                            comm.Parameters.AddWithValue("@EndDate", selectedDate);
+                            comm.Parameters.AddWithValue("@Completed", true);
+                            comm.ExecuteNonQuery();
+
+
+                            conn.Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select an date that is either today or in the past.");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select an Prisoner Number.");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Please select an Job.");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
     }
 }
