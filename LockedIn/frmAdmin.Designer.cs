@@ -306,6 +306,8 @@
             this.label50 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.lblEmpPass = new System.Windows.Forms.Label();
+            this.txtEmpPass = new System.Windows.Forms.TextBox();
             this.tcPrisoner.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -761,22 +763,26 @@
             this.pnlEmpDetails.Location = new System.Drawing.Point(10, 15);
             this.pnlEmpDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlEmpDetails.Name = "pnlEmpDetails";
-            this.pnlEmpDetails.Size = new System.Drawing.Size(375, 167);
+            this.pnlEmpDetails.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.pnlEmpDetails.Size = new System.Drawing.Size(500, 206);
             this.pnlEmpDetails.TabIndex = 32;
             this.pnlEmpDetails.Visible = false;
+            this.pnlEmpDetails.VisibleChanged += new System.EventHandler(this.pnlEmpDetails_VisibleChanged);
             // 
             // btnEmpDel
             // 
             this.btnEmpDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnEmpDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnEmpDel.ForeColor = System.Drawing.Color.White;
-            this.btnEmpDel.Location = new System.Drawing.Point(55, 88);
+            this.btnEmpDel.Location = new System.Drawing.Point(73, 136);
+            this.btnEmpDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmpDel.Name = "btnEmpDel";
             this.btnEmpDel.Size = new System.Drawing.Size(280, 54);
             this.btnEmpDel.TabIndex = 13;
             this.btnEmpDel.Text = "Confirm Delete";
             this.btnEmpDel.UseVisualStyleBackColor = false;
             this.btnEmpDel.Visible = false;
+            this.btnEmpDel.Click += new System.EventHandler(this.btnEmpDel_Click);
             // 
             // btnEmployerDetails
             // 
@@ -796,11 +802,12 @@
             // 
             this.cmbEmpDetails.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbEmpDetails.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbEmpDetails.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmpDetails.FormattingEnabled = true;
-            this.cmbEmpDetails.Location = new System.Drawing.Point(172, 46);
-            this.cmbEmpDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEmpDetails.Location = new System.Drawing.Point(230, 62);
+            this.cmbEmpDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbEmpDetails.Name = "cmbEmpDetails";
-            this.cmbEmpDetails.Size = new System.Drawing.Size(163, 31);
+            this.cmbEmpDetails.Size = new System.Drawing.Size(216, 30);
             this.cmbEmpDetails.TabIndex = 2;
             // 
             // lblempDetails
@@ -934,8 +941,8 @@
             this.pnlEmpMenu.Controls.Add(this.btnEditEmp);
             this.pnlEmpMenu.Controls.Add(this.btnDelEmployer);
             this.pnlEmpMenu.Controls.Add(this.btnAddEmp);
-            this.pnlEmpMenu.Location = new System.Drawing.Point(32, 196);
-            this.pnlEmpMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlEmpMenu.Location = new System.Drawing.Point(530, 18);
+            this.pnlEmpMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEmpMenu.Name = "pnlEmpMenu";
             this.pnlEmpMenu.Size = new System.Drawing.Size(344, 538);
             this.pnlEmpMenu.TabIndex = 31;
@@ -1009,6 +1016,8 @@
             // PnlEmpInfo
             // 
             this.PnlEmpInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.PnlEmpInfo.Controls.Add(this.txtEmpPass);
+            this.PnlEmpInfo.Controls.Add(this.lblEmpPass);
             this.PnlEmpInfo.Controls.Add(this.btnAddNewEmp);
             this.PnlEmpInfo.Controls.Add(this.btnEmpChangePass);
             this.PnlEmpInfo.Controls.Add(this.lblEmpInfo);
@@ -1018,9 +1027,11 @@
             this.PnlEmpInfo.Controls.Add(this.lblEmpLName);
             this.PnlEmpInfo.Controls.Add(this.txtEmpLName);
             this.PnlEmpInfo.Controls.Add(this.lblEmpID);
-            this.PnlEmpInfo.Location = new System.Drawing.Point(386, 128);
+            this.PnlEmpInfo.Location = new System.Drawing.Point(18, 242);
+            this.PnlEmpInfo.Margin = new System.Windows.Forms.Padding(4);
             this.PnlEmpInfo.Name = "PnlEmpInfo";
-            this.PnlEmpInfo.Size = new System.Drawing.Size(375, 343);
+            this.PnlEmpInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PnlEmpInfo.Size = new System.Drawing.Size(500, 422);
             this.PnlEmpInfo.TabIndex = 23;
             this.PnlEmpInfo.Visible = false;
             // 
@@ -1035,6 +1046,7 @@
             this.btnAddNewEmp.Text = "Add Employer";
             this.btnAddNewEmp.UseVisualStyleBackColor = false;
             this.btnAddNewEmp.Visible = false;
+            this.btnAddNewEmp.Click += new System.EventHandler(this.btnAddNewEmp_Click);
             // 
             // btnEmpChangePass
             // 
@@ -1060,7 +1072,9 @@
             // 
             // txtEmpID
             // 
-            this.txtEmpID.Location = new System.Drawing.Point(156, 54);
+            this.txtEmpID.Enabled = false;
+            this.txtEmpID.Location = new System.Drawing.Point(208, 66);
+            this.txtEmpID.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.Size = new System.Drawing.Size(194, 30);
             this.txtEmpID.TabIndex = 16;
@@ -3645,12 +3659,31 @@
             this.button7.TabIndex = 11;
             this.button7.Text = "Back";
             this.button7.UseVisualStyleBackColor = false;
+            // lblEmpPass
+            // 
+            this.lblEmpPass.AutoSize = true;
+            this.lblEmpPass.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEmpPass.Location = new System.Drawing.Point(29, 286);
+            this.lblEmpPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpPass.Name = "lblEmpPass";
+            this.lblEmpPass.Size = new System.Drawing.Size(183, 29);
+            this.lblEmpPass.TabIndex = 35;
+            this.lblEmpPass.Text = "Enter Password";
+            // 
+            // txtEmpPass
+            // 
+            this.txtEmpPass.Location = new System.Drawing.Point(231, 283);
+            this.txtEmpPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpPass.MaxLength = 13;
+            this.txtEmpPass.Name = "txtEmpPass";
+            this.txtEmpPass.Size = new System.Drawing.Size(234, 36);
+            this.txtEmpPass.TabIndex = 36;
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1348, 670);
             this.Controls.Add(this.tcPrisoner);
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
@@ -4061,5 +4094,7 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox txtEmpPass;
+        private System.Windows.Forms.Label lblEmpPass;
     }
 }

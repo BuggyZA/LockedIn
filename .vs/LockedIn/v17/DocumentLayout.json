@@ -21,6 +21,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\Cmpg213\\lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,26 +36,11 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
+            { "$type": "Bookmark", "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}" },
+            { "$type": "Bookmark", "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}" },
+            { "$type": "Bookmark", "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}" },
+            { "$type": "Bookmark", "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}" },
+            { "$type": "Bookmark", "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}" },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -64,18 +53,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-24T21:08:58.83Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:00:02.589Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -92,6 +69,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAdmin.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
+              "ViewState": "AgIAAAsCAAAAAAAAAAA9wBwCAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T20:03:39.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
+              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T20:00:02.589Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ComboboxHelper.cs",
               "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
@@ -105,15 +107,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAAsCAAAAAAAAAAA9wBwCAAAhAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\Login.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Login.cs",
+              "ToolTip": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\Login.cs",
+              "RelativeToolTip": "LockedIn\\Login.cs",
+              "ViewState": "AgIAAFYAAABAAAAAAAAwwGAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:03:39.925Z",
+              "WhenOpened": "2025-08-23T06:45:13.832Z",
               "EditorCaption": ""
             }
           ]

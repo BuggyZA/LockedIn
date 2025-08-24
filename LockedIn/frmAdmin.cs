@@ -450,12 +450,22 @@ namespace LockedIn
 
         private void btnEmployerDetails_Click(object sender, EventArgs e)
         {
-            pnlEmpDetails.Visible = true;
-            PnlEmpInfo.Visible = true;
-            btnEmpChangePass.Visible = true;
-            btnAddNewEmp.Visible = false;
-            btnSaveEmp.Visible = true;
-            pnlEmpDetails.Visible = false;
+
+            if(cmbEmpDetails.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an Employer to edit details.");
+                return;
+            }
+            else
+            {
+                pnlEmpDetails.Visible = true;
+                PnlEmpInfo.Visible = true;
+                btnEmpChangePass.Visible = true;
+                btnAddNewEmp.Visible = false;
+                btnSaveEmp.Visible = true;
+                pnlEmpDetails.Visible = false;
+            }
+               
         }
 
         private void btnAddEmp_Click(object sender, EventArgs e)
@@ -645,5 +655,87 @@ namespace LockedIn
             ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
             isPopulating = false;
         }
+        private void pnlEmpDetails_VisibleChanged(object sender, EventArgs e)
+        {
+            //Populating the combobox with employer names on the visible change event of the pnlEmpDetails panel
+            ComboBoxHelper.PopulateEmployerNames(cmbEmpDetails);
+        }
+
+        private void btnEmpDel_Click(object sender, EventArgs e)
+        {
+            if (cmbEmpDetails.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an employer!");
+                return;
+            }
+
+            // Get EmployerID directly from ValueMember
+            int employerId = Convert.ToInt32(cmbEmpDetails.SelectedValue);
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                conn.Open();
+                string sql = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", employerId);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                        MessageBox.Show("Employer deleted successfully!");
+                    else
+                        MessageBox.Show("No matching employer found!");
+                }
+            }
+
+            // Refresh the ComboBox after deletion
+            ComboBoxHelper.PopulateEmployerNames(cmbEmpDetails);
+
+            cmbEmpDetails.SelectedIndex = -1;
+            btnEmpDel.Visible = false;
+            pnlEmpDetails.Visible = false;
+            pnlEmpMenu.Visible = true;  
+        }
+
+
+
+        private void btnAddNewEmp_Click(object sender, EventArgs e)
+        {
+            //Add new employer
+
+            string firstName = txtEmpFName.Text;
+            string lastName = txtEmpLName.Text;
+            string password = txtEmpPass.Text.GetHashCode().ToString();
+
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter all the details for the employer!");
+                return;
+            }
+
+            SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr());
+            conn.Open();
+            string sql = "INSERT INTO EMPLOYER (LastName, FirstName,Password) VALUES (@FName, @LName, @password)";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@FName", firstName);
+                cmd.Parameters.AddWithValue("@LName", lastName);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Employer added successfully!");
+            conn.Close();
+            txtEmpFName.Clear();
+            txtEmpLName.Clear();
+            txtEmpPass.Clear();
+            btnAddNewEmp.Visible = false;
+            PnlEmpInfo.Visible = false;
+            pnlEmpMenu.Visible = true;
+
+
+        }
+            
+
+        
     }
 }
