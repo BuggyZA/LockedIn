@@ -57,16 +57,21 @@ namespace LockedIn.Managers
             return prisoner;
         }
 
-        public static bool AddPrisoner(Prisoner prisoner)
+        public static int AddPrisoner(Prisoner prisoner)
         {
-            string query = @"INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, ClearedToWork) 
-                            VALUES (@PrisonerNum, @LastName, @FirstName, @SA_ID, @Password, @ClearedToWork)";
+            string insertQuery = @"INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, ClearedToWork) 
+                          VALUES (@PrisonerNum, @LastName, @FirstName, @SA_ID, @Password, @ClearedToWork)";
+
+            string selectQuery = "SELECT CAST(@@IDENTITY AS INT)";
 
             try
             {
                 using (conn = new SqlConnection(constr))
                 {
-                    using (cmd = new SqlCommand(query, conn))
+                    conn.Open();
+
+                    // First insert the record
+                    using (cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@PrisonerNum", prisoner.PrisonerNum);
                         cmd.Parameters.AddWithValue("@LastName", prisoner.LastName);
@@ -75,16 +80,31 @@ namespace LockedIn.Managers
                         cmd.Parameters.AddWithValue("@Password", prisoner.Password);
                         cmd.Parameters.AddWithValue("@ClearedToWork", prisoner.ClearedToWork);
 
-                        conn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
+
+                        if (rowsAffected == 0)
+                        {
+                            return -1; // Insert failed
+                        }
                     }
+
+                    // Then get the ID
+                    using (cmd = new SqlCommand(selectQuery, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+
+                    return -1;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding prisoner: {ex.Message}");
-                return false;
+                return -1;
             }
         }
 

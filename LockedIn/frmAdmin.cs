@@ -16,6 +16,7 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
+        string password = "";
         bool isAddingPrisoner = false;
         bool isDeletingPrisoner = false;
         bool isupdatingPrisoner = false;
@@ -200,6 +201,26 @@ namespace LockedIn
         {
             if (isAddingPrisoner && pnlMPSkills.Enabled ==  false)
             {
+                Prisoner thisPrisoner = new Prisoner();
+
+                thisPrisoner.PrisonerNum = Prisoner.GeneratePrisonerNum();
+                thisPrisoner.LastName = txtLastName.Text.Trim();
+                thisPrisoner.FirstName = txtFirstName.Text.Trim();
+                thisPrisoner.SA_ID = txtID.Text.Trim();
+                thisPrisoner.Password = password;
+                thisPrisoner.ClearedToWork = ckbCleared.Checked;
+
+                if (thisPrisoner.ValidateNewPrisoner())
+                {
+                    prsnrID =  PrisonerManager.AddPrisoner(thisPrisoner);
+                    MessageBox.Show(prsnrID.ToString());
+                    MessageBox.Show("Prisoner "+thisPrisoner.PrisonerNum+" added successfully! Now you can manage their skills.");
+                }
+                else
+                {
+                    return;
+                }
+
                 pnlMPSkills.Enabled = true;
                 return;
             }
@@ -211,8 +232,8 @@ namespace LockedIn
             isAddingPrisoner = false;
             isDeletingPrisoner = false;
             isupdatingPrisoner = false;
+            password = "";
 
-            pnlEmpDetails.clear
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -223,8 +244,30 @@ namespace LockedIn
 
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
+            if (isAddingPrisoner)
+            {                
+                if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
+                {
+                    if (txtNewPassword.Text.Trim().Length < 6)
+                    {
+                        MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    MessageBox.Show("Saving new password");
+                    password = txtNewPassword.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter your password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
+
+           
         }
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
