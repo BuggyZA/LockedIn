@@ -19,8 +19,6 @@ namespace LockedIn
         int skillID;
         int prsnrID;
         int selectedSkillID; // this is for editing and deleting tracking of skills
- 
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Integrated Security=True";
 
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
          * and they invoke the various indexchanged events and this causes several errors)*/
@@ -211,7 +209,7 @@ namespace LockedIn
 
             selectedSkillID = ComboBoxHelper.GetSelectedID(cbxMSSkillName);
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
                 string query = "SELECT SkillName, SkillDescription FROM SKILL WHERE SkillID = @SkillID";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -250,7 +248,7 @@ namespace LockedIn
             }
             //Saving the skills
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
                 SqlCommand cmd;
 
@@ -313,7 +311,7 @@ namespace LockedIn
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
 
                 try
