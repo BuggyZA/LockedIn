@@ -75,9 +75,15 @@ namespace LockedIn
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
+            else if(tcPrisoner.SelectedIndex == 5)
+            {
+                ListboxHelper.PopulateAllPSkills(lstASJAllSkills);
+                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
+
+            }
 
 
-            isPopulating = false;
+                isPopulating = false;
         }
 
 
@@ -602,6 +608,17 @@ namespace LockedIn
         }
 
         private void btnMPBack_Click(object sender, EventArgs e)
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnASPAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnASJAdd_Click(object sender, EventArgs e)
         {
 
         }
