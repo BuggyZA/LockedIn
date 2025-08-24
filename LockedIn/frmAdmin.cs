@@ -71,7 +71,6 @@ namespace LockedIn
             }
             else if(tcPrisoner.SelectedIndex == 5)
             {
-                ListboxHelper.PopulateAllPSkills(lstASJAllSkills);
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
 
             }
@@ -534,7 +533,31 @@ namespace LockedIn
 
         private void btnASJAdd_Click(object sender, EventArgs e)
         {
+            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
 
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating || cbxASJJobName.SelectedIndex == -1) 
+                return;
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            
+        }
+
+        private void btnASJRemove_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
+           
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
         }
     }
 }

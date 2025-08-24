@@ -54,6 +54,6 @@ namespace LockedIn.Data
             {
                 MessageBox.Show("Error removing skill from prisoner: " + ex.Message);
             }
-        }        
+        }
     }
 }
