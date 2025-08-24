@@ -28,7 +28,6 @@ namespace LockedIn.Helpers
                     adapter.Fill(ds, "SKILL");
                     listBox.DataSource = ds.Tables["SKILL"];
                     listBox.DisplayMember = "SkillName";
-                    listBox.ValueMember = "SkillID";
                 }
             }
             catch (Exception ex)

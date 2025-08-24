@@ -12,14 +12,28 @@ using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/* To Do List:
+ * Exception handeling
+ * Change to real time input validation for login & signup
+ * Add Admin table to switch from const username and passwords
+ * Migrate form navigation to login instead of APE panel
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 namespace LockedIn
 {
     public partial class frmLogIn : Form
     {
         private const String ADMINUSER = "admin", ADMINPASS = "admin";
         int SelectedUser = 0;
-        String conStr = DatabaseConfig.GetConStr();
 
         public frmLogIn()
         {
@@ -35,20 +49,29 @@ namespace LockedIn
         private void button5_Click(object sender, EventArgs e)
         {
             SelectedUser = 1;
-            btnLISignUp.Visible = false;
             frmAdmin adminForm = new frmAdmin();
             adminForm.Show();
+            lblUsername.Text = "Username: ";
+        
+            lblUsername.Visible = true;
+            txtUsername.Visible = true;
+
+            lblEmployerID.Visible = false;
+            cbxEmployerID.Visible = false;
+            btnLISignUp.Visible = false;
+
+            pnlAPESelect.Hide();
+            pnlLogIn.Show();
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             SelectedUser = 3;
-            btnLISignUp.Visible = false;
-            frmEmployer employerForm = new frmEmployer();
-            employerForm.Show();
-
-            pnlAPESelect.Hide();
-
+            
+            ComboBoxHelper.PopulateEmployerNames(cbxEmployerID);
+           
             lblUsername.Visible = false;
             txtUsername.Visible = false;
             btnLISignUp.Visible = false;
@@ -56,33 +79,27 @@ namespace LockedIn
             lblEmployerID.Visible = true;
             cbxEmployerID.Visible = true;
 
-            
-
+            pnlAPESelect.Hide();
             pnlLogIn.Show();
+
+            frmEmployer employerForm = new frmEmployer();
+            employerForm.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             SelectedUser = 2;
-            pnlAPESelect.Hide();
 
             lblUsername.Text = "Prisoner Number: ";
             lblUsername.Visible = true;
             txtUsername.Visible = true;
+            btnLISignUp.Visible = true;
 
             lblEmployerID.Visible = false;
             cbxEmployerID.Visible = false;
 
-            btnLISignUp.Visible = true;
-
+            pnlAPESelect.Hide();
             pnlLogIn.Show();
-
-
-
-
-
-
-
 
             frmPrisoner prisonerForm = new frmPrisoner();
             prisonerForm.Show();
@@ -154,22 +171,24 @@ namespace LockedIn
                 Password = txtSUPassword.Text,
                 ClearedToWork = false // New prisoners are not cleared to work by default
             };
+
             if (PrisonerManager.AddPrisoner(prisoner) == true)
             {
-                MessageBox.Show($"Sign up successful! Your prisoner number is " + prisoner.PrisonerNum + ". Please log in.");
-                pnlSignUp.Hide();
-                pnlAPESelect.Show();
+                MessageBox.Show("Sign up successful! Your prisoner number is " + prisoner.PrisonerNum + ". Please log in.");
+             
                 // Clear sign up fields
                 txtSUID.Clear();
                 txtSUFirstName.Clear();
                 txtSULastName.Clear();
                 txtSUPassword.Clear();
                 txtSUConfirmPass.Clear();
+                txtUsername.Text = prisoner.PrisonerNum;
+                pnlSignUp.Hide();
+                pnlLogIn.Show();
             }
             else
             {
                 MessageBox.Show("Sign up failed. Please try again.");
-
             }
         }
 
@@ -180,15 +199,10 @@ namespace LockedIn
             {
                 conn.Open();
                 SqlCommand cmd = null;
-                //=============================
-                //Hashing password concern!
-                //=============================
                 if (SelectedUser == 1) // Admin
                 {
-
-
                     /*
-                    cmd = new SqlCommand("SELECT * FROM ADMINISTRATOR WHERE Username = @username AND Password = @password", conn);
+                    cmd = new SqlCommand("SELECT * FROM ADMINISTRATORS WHERE Username = @username AND Password = @password", conn);
                     cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                     */
@@ -201,8 +215,8 @@ namespace LockedIn
                 }
                 else if (SelectedUser == 3) // Employer
                 {
-                    cmd = new SqlCommand("SELECT * FROM EMOPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
-                    cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedItem);
+                    cmd = new SqlCommand("SELECT * FROM EMPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
+                    cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
                     cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                 }
                 else
@@ -212,9 +226,10 @@ namespace LockedIn
                     pnlAPESelect.Show();
                     return;
                 }
-                SqlDataReader reader = cmd.ExecuteReader();
+                
                 if (SelectedUser == 2 || SelectedUser == 3)
                 {
+                    SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
                     {
                         MessageBox.Show("Login successful!");
