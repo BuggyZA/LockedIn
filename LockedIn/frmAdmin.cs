@@ -607,7 +607,7 @@ namespace LockedIn
             pnlPInfo.Visible = true;
         }
 
-        private void btnMPBack_Click(object sender, EventArgs e)
+        private void btnMPBack_Click(object sender, EventArgs e) { }
         private void frmAdmin_Load(object sender, EventArgs e)
         {
 

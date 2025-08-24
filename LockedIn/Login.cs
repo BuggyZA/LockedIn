@@ -172,7 +172,7 @@ namespace LockedIn
                 ClearedToWork = false // New prisoners are not cleared to work by default
             };
 
-            if (PrisonerManager.AddPrisoner(prisoner) == true)
+            if (PrisonerManager.AddPrisoner(prisoner) >= 1)
             {
                 MessageBox.Show("Sign up successful! Your prisoner number is " + prisoner.PrisonerNum + ". Please log in.");
              
