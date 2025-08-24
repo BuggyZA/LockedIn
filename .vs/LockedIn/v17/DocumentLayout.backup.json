@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ashto\\Documents\\Cmpg213\\",
+  "WorkspaceRootPath": "C:\\Users\\ashto\\Documents\\CMPG213\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\Cmpg213\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:LockedIn\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\ashto\\documents\\cmpg213\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:LockedIn\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:LockedIn\\frmadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\Helpers\\ComboboxHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:LockedIn\\Helpers\\ComboboxHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +50,24 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAdmin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.Designer.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.Designer.cs",
+              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.Designer.cs",
+              "RelativeToolTip": "LockedIn\\frmAdmin.Designer.cs",
+              "ViewState": "AgIAAJ4DAAAAAAAAAAAAALYDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T10:20:08.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\frmAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\frmAdmin.cs [Design]",
+              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs [Design]",
               "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-22T07:30:24.239Z",
@@ -56,13 +77,26 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\frmAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\ashto\\Documents\\Cmpg213\\LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\frmAdmin.cs",
               "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAhwPIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAmwIAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-22T07:48:18.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ComboboxHelper.cs",
+              "DocumentMoniker": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\Helpers\\ComboboxHelper.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Helpers\\ComboboxHelper.cs",
+              "ToolTip": "C:\\Users\\ashto\\Documents\\CMPG213\\LockedIn\\Helpers\\ComboboxHelper.cs",
+              "RelativeToolTip": "LockedIn\\Helpers\\ComboboxHelper.cs",
+              "ViewState": "AgIAAFMAAAAAzczMzMwowF0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T07:34:38.06Z",
               "EditorCaption": ""
             }
           ]

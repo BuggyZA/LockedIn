@@ -206,7 +206,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtMSSkillDesc = new System.Windows.Forms.TextBox();
             this.txtMSSkillName = new System.Windows.Forms.TextBox();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnMSSave = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -569,6 +569,7 @@
             this.btnMaintainSkills.TabIndex = 7;
             this.btnMaintainSkills.Text = "Maintain Skills";
             this.btnMaintainSkills.UseVisualStyleBackColor = false;
+            this.btnMaintainSkills.Click += new System.EventHandler(this.btnMaintainSkills_Click);
             // 
             // label11
             // 
@@ -668,6 +669,7 @@
             this.btnCompleteJobs.TabIndex = 3;
             this.btnCompleteJobs.Text = "Complete Jobs";
             this.btnCompleteJobs.UseVisualStyleBackColor = false;
+            this.btnCompleteJobs.Click += new System.EventHandler(this.btnCompleteJobs_Click);
             // 
             // label16
             // 
@@ -2409,7 +2411,7 @@
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel20.Controls.Add(this.txtMSSkillDesc);
             this.panel20.Controls.Add(this.txtMSSkillName);
-            this.panel20.Controls.Add(this.button15);
+            this.panel20.Controls.Add(this.btnMSSave);
             this.panel20.Controls.Add(this.label18);
             this.panel20.Controls.Add(this.label19);
             this.panel20.Controls.Add(this.label20);
@@ -2435,18 +2437,19 @@
             this.txtMSSkillName.Size = new System.Drawing.Size(265, 22);
             this.txtMSSkillName.TabIndex = 4;
             // 
-            // button15
+            // btnMSSave
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(11, 159);
-            this.button15.Margin = new System.Windows.Forms.Padding(4);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(519, 66);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "Save";
-            this.button15.UseVisualStyleBackColor = false;
+            this.btnMSSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMSSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMSSave.ForeColor = System.Drawing.Color.White;
+            this.btnMSSave.Location = new System.Drawing.Point(11, 159);
+            this.btnMSSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMSSave.Name = "btnMSSave";
+            this.btnMSSave.Size = new System.Drawing.Size(519, 66);
+            this.btnMSSave.TabIndex = 8;
+            this.btnMSSave.Text = "Save";
+            this.btnMSSave.UseVisualStyleBackColor = false;
+            this.btnMSSave.Click += new System.EventHandler(this.button15_Click);
             // 
             // label18
             // 
@@ -2515,6 +2518,7 @@
             this.btnMSEditExisSkil.TabIndex = 7;
             this.btnMSEditExisSkil.Text = "Edit Existing Skill";
             this.btnMSEditExisSkil.UseVisualStyleBackColor = false;
+            this.btnMSEditExisSkil.Click += new System.EventHandler(this.btnMSEditExisSkil_Click);
             // 
             // btnMSDelExisSkill
             // 
@@ -2528,6 +2532,7 @@
             this.btnMSDelExisSkill.TabIndex = 5;
             this.btnMSDelExisSkill.Text = "Delete Existing Skill";
             this.btnMSDelExisSkill.UseVisualStyleBackColor = false;
+            this.btnMSDelExisSkill.Click += new System.EventHandler(this.btnMSDelExisSkill_Click);
             // 
             // btnMSAddNewSkill
             // 
@@ -2541,6 +2546,7 @@
             this.btnMSAddNewSkill.TabIndex = 7;
             this.btnMSAddNewSkill.Text = "Add New Skill";
             this.btnMSAddNewSkill.UseVisualStyleBackColor = false;
+            this.btnMSAddNewSkill.Click += new System.EventHandler(this.btnMSAddNewSkill_Click);
             // 
             // panel19
             // 
@@ -2567,6 +2573,7 @@
             this.btnMSNext.TabIndex = 12;
             this.btnMSNext.Text = "Next";
             this.btnMSNext.UseVisualStyleBackColor = false;
+            this.btnMSNext.Click += new System.EventHandler(this.btnMSNext_Click);
             // 
             // cbxMSSkillName
             // 
@@ -2578,6 +2585,7 @@
             this.cbxMSSkillName.Name = "cbxMSSkillName";
             this.cbxMSSkillName.Size = new System.Drawing.Size(265, 24);
             this.cbxMSSkillName.TabIndex = 2;
+            this.cbxMSSkillName.SelectedIndexChanged += new System.EventHandler(this.cbxMSSkillName_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -3290,7 +3298,7 @@
             this.label75.Location = new System.Drawing.Point(29, 236);
             this.label75.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(89, 29);
+            this.label75.Size = new System.Drawing.Size(88, 29);
             this.label75.TabIndex = 19;
             this.label75.Text = "RSA ID";
             // 
@@ -3823,7 +3831,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnMSSave;
         private System.Windows.Forms.Button btnMSNext;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Label label27;
