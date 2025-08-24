@@ -16,6 +16,11 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
+        bool isAddingPrisoner = false;
+        bool isDeletingPrisoner = false;
+        bool isupdatingPrisoner = false;
+
+
         int skillID;
         int prsnrID;
         int selectedSkillID; // this is for editing and deleting tracking of skills
@@ -79,6 +84,14 @@ namespace LockedIn
         {
             if (isPopulating) return;
 
+            if (isDeletingPrisoner)
+            {
+                pnlMPSkills.Enabled = false;
+                pnlPInfo.Enabled = false;
+                cmbMPPrisonerNo.Enabled = true;
+            }
+
+
             if (cmbMPPrisonerNo.SelectedIndex != -1)
             {
                 prsnrID = ComboBoxHelper.GetSelectedID(cmbMPPrisonerNo);
@@ -141,6 +154,8 @@ namespace LockedIn
         //Edit Prisoner
         private void button46_Click(object sender, EventArgs e)
         {
+            isupdatingPrisoner = true;
+            
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -152,6 +167,8 @@ namespace LockedIn
         //Delete Prisoner
         private void button47_Click(object sender, EventArgs e)
         {
+            isDeletingPrisoner = true;
+            
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -163,6 +180,8 @@ namespace LockedIn
         //Add Prisoner
         private void button53_Click(object sender, EventArgs e)
         {
+            isAddingPrisoner = true;
+
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = false;
@@ -179,7 +198,7 @@ namespace LockedIn
 
         private void btnMPSave_Click(object sender, EventArgs e)
         {
-            if (pnlMPSkills.Enabled ==  false)
+            if (isAddingPrisoner && pnlMPSkills.Enabled ==  false)
             {
                 pnlMPSkills.Enabled = true;
                 return;
@@ -188,6 +207,12 @@ namespace LockedIn
             pnlMPSkills.Visible = false;
             cmbMPPrisonerNo.Visible = false;
             pnlMPChoices.Visible = true;
+
+            isAddingPrisoner = false;
+            isDeletingPrisoner = false;
+            isupdatingPrisoner = false;
+
+            pnlEmpDetails.clear
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -531,6 +556,11 @@ namespace LockedIn
         {
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
+        }
+
+        private void btnMPBack_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
