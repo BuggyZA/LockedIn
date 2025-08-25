@@ -17,7 +17,7 @@ using System.Windows.Forms;
  * Change to real time input validation for login & signup
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
- * 
+ * Prisoner.cs has validation method, use or not?
  * 
  * 
  * 

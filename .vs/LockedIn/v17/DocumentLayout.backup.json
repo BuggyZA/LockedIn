@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\!Github\\LockedIn\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,29 +50,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "JobManager.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobManager.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Data\\JobManager.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobManager.cs",
+              "RelativeToolTip": "LockedIn\\Data\\JobManager.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwCYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T09:46:14.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Job.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Models\\Job.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Models\\Job.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Models\\Job.cs",
+              "RelativeToolTip": "LockedIn\\Models\\Job.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAiwGgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T09:45:22.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "JobSkillManager.cs",
               "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
               "RelativeDocumentMoniker": "LockedIn\\Data\\JobSkillManager.cs",
               "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
               "RelativeToolTip": "LockedIn\\Data\\JobSkillManager.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCcAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T21:08:58.83Z",
+              "WhenOpened": "2025-08-25T09:44:11.526Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:00:02.589Z",
-              "EditorCaption": " [Design]"
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "30a6880c-a439-46b8-9290-15b58de09a6f",
+        "Display": 0,
+        "X": -1222,
+        "Y": 128,
+        "Width": 1227,
+        "Height": 909,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -85,35 +116,9 @@
               "RelativeDocumentMoniker": "LockedIn\\Helpers\\ListboxHelper.cs",
               "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Helpers\\ListboxHelper.cs",
               "RelativeToolTip": "LockedIn\\Helpers\\ListboxHelper.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowEIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:08:55.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ComboboxHelper.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeToolTip": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:08:34.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAAsCAAAAAAAAAAA9wBwCAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:03:39.925Z",
+              "WhenOpened": "2025-08-25T11:28:25.388Z",
               "EditorCaption": ""
             }
           ]
