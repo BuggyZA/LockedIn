@@ -26,8 +26,6 @@ C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.GenerateResource
 C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
 C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.exe
 C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.pdb
-C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
-C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedIn.exe.config
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedIn.exe
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedIn.pdb
@@ -105,3 +103,5 @@ C:\CMPG223 Project\LockedIn\LockedIn\obj\Debug\LockedIn.pdb
 C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
+C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
+C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
