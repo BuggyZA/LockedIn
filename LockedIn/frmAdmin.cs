@@ -203,12 +203,21 @@ namespace LockedIn
 
         private void btnMSEditExisSkil_Click(object sender, EventArgs e)
         {
-            //Setting the panel's visibility to true.
+            // Displayng the relevant panel to edit skills
             panel19.Visible = true;
 
-            //Updating the combobox with edited skill
+            // preventing a skill to be automatically selected.
+            isPopulating = true;
             ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+            cbxMSSkillName.SelectedIndex = -1;  // ensuring no skill is selected
+            isPopulating = false;
+
+            // keeping the fields clear until the user selects a skill
+            txtMSSkillName.Clear();
+            txtMSSkillDesc.Clear();
+            selectedSkillID = -1;
         }
+
 
         private void cbxMSSkillName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -247,21 +256,18 @@ namespace LockedIn
             string skillName = txtMSSkillName.Text.Trim();
             string skillDesc = txtMSSkillDesc.Text.Trim();
 
-            // Receiving the skill name and description from the textboxes
-            if(string.IsNullOrEmpty(skillName))
+            if (string.IsNullOrEmpty(skillName))
             {
-                MessageBox.Show("Please enter a name for the skill o the prisoner!");
+                MessageBox.Show("Please enter a name for the skill!");
                 return;
             }
-            //Saving the skills
 
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
                 SqlCommand cmd;
 
-                if (selectedSkillID == -1)
+                if (selectedSkillID == -1) // new skills 
                 {
-                    //Inserting the new skill into the database.
                     cmd = new SqlCommand("INSERT INTO SKILL (SkillName, SkillDescription) OUTPUT INSERTED.SkillID VALUES (@Name, @Desc)", conn);
                     cmd.Parameters.AddWithValue("@Name", skillName);
                     cmd.Parameters.AddWithValue("@Desc", skillDesc);
@@ -271,7 +277,7 @@ namespace LockedIn
                         conn.Open();
                         int newSkillID = (int)cmd.ExecuteScalar();
 
-                        // Link new skill to default prisoner
+                        // optionally linking the skill to the prisoner.
                         int defaultPrisonerID = prsnrID != 0 ? prsnrID : 1;
                         SqlCommand linkCmd = new SqlCommand("INSERT INTO SKILL_OF_PRISONER (PrisonerID, SkillID) VALUES (@PrisonerID, @SkillID)", conn);
                         linkCmd.Parameters.AddWithValue("@PrisonerID", defaultPrisonerID);
@@ -279,16 +285,25 @@ namespace LockedIn
                         linkCmd.ExecuteNonQuery();
 
                         MessageBox.Show("Skill added successfully!");
+
+                        // ensuring the textboxes are clear after a skill has been added.
+                        txtMSSkillName.Clear();
+                        txtMSSkillDesc.Clear();
+                        selectedSkillID = -1;
+
+                        // preventing the auto trigerring
+                        isPopulating = true;
+                        ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+                        cbxMSSkillName.SelectedIndex = -1;
+                        isPopulating = false;
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error saving skill: " + ex.Message);
                     }
-
                 }
-                else
+                else // updating the existing skill.
                 {
-                    // Update existing skill
                     cmd = new SqlCommand("UPDATE SKILL SET SkillName = @Name, SkillDescription = @Desc WHERE SkillID = @SkillID", conn);
                     cmd.Parameters.AddWithValue("@Name", skillName);
                     cmd.Parameters.AddWithValue("@Desc", skillDesc);
@@ -299,6 +314,16 @@ namespace LockedIn
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Skill updated successfully!");
+
+                        // clearing the textboxes after the skill has been updated.
+                        txtMSSkillName.Clear();
+                        txtMSSkillDesc.Clear();
+                        selectedSkillID = -1;
+
+                        isPopulating = true;
+                        ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+                        cbxMSSkillName.SelectedIndex = -1;
+                        isPopulating = false;
                     }
                     catch (Exception ex)
                     {
@@ -306,31 +331,47 @@ namespace LockedIn
                     }
                 }
             }
-            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
-
         }
+
 
         private void btnMSDelExisSkill_Click(object sender, EventArgs e)
         {
-            if (selectedSkillID == -1)
+            // Show panels so the user can select a skill
+            panel19.Visible = true;
+            panel20.Visible = true;
+
+            // If no skill is selected yet... population takes place
+            if (cbxMSSkillName.SelectedIndex == -1 || selectedSkillID == -1)
             {
-                MessageBox.Show("Please select a skill to delete.");
+                isPopulating = true;
+                ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+                cbxMSSkillName.SelectedIndex = -1; // ensuring that there is no skill auto selected.
+                isPopulating = false;
+
+                // Clearing textboxes
+                txtMSSkillName.Clear();
+                txtMSSkillDesc.Clear();
+                selectedSkillID = -1;
                 return;
             }
 
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
-
                 try
                 {
                     conn.Open();
 
-                    // Delete from skill of prisoners
+                    // first deleting the skill from SKILL_OF_PRISONER
                     SqlCommand linkCmd = new SqlCommand("DELETE FROM SKILL_OF_PRISONER WHERE SkillID = @SkillID", conn);
                     linkCmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
                     linkCmd.ExecuteNonQuery();
 
-                    // Delete skill from SKILL
+                    // secondly deleting skill from SKILL_OF_JOB
+                    SqlCommand linkCmd2 = new SqlCommand("DELETE FROM SKILL_OF_JOB WHERE SkillID = @SkillID", conn);
+                    linkCmd2.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                    linkCmd2.ExecuteNonQuery();
+
+                    // Delete from SKILL
                     SqlCommand cmd = new SqlCommand("DELETE FROM SKILL WHERE SkillID = @SkillID", conn);
                     cmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
                     cmd.ExecuteNonQuery();
@@ -343,12 +384,18 @@ namespace LockedIn
                 }
             }
 
+            // clearing textboxes after skill has been deleted.
             txtMSSkillName.Clear();
             txtMSSkillDesc.Clear();
-            panel20.Visible = false;
             selectedSkillID = -1;
+
+            isPopulating = true;
             ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+            cbxMSSkillName.SelectedIndex = -1; // ensuring that nothing is auto selected after the skill is deleted...
+            isPopulating = false;
         }
+
+
 
         private void btnMSNext_Click(object sender, EventArgs e)
         {
