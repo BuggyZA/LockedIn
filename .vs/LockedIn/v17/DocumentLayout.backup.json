@@ -1,34 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\",
+  "WorkspaceRootPath": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:1:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\alida\\onedrive\\desktop\\lockedin\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:1:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\janre\\documents\\github\\lockedin\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\janre\\documents\\github\\lockedin\\lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\janre\\documents\\github\\lockedin\\lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\lockedin\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:2:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:2:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,61 +30,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmEmployer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmEmployer.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmEmployer.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmEmployer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T06:36:57.483Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmPrisoner.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmPrisoner.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmPrisoner.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmPrisoner.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmPrisoner.cs [Design]",
+              "Title": "ComboboxHelper.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Helpers\\ComboboxHelper.cs",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
+              "RelativeToolTip": "LockedIn\\Helpers\\ComboboxHelper.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T06:37:03.185Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "WhenOpened": "2025-08-25T17:41:07.165Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "JobSkillManager.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Data\\JobSkillManager.cs",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
+              "RelativeToolTip": "LockedIn\\Data\\JobSkillManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T17:31:10.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAGABAAAAAAAAAAArwGUBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFgCAAAAAAAAAAAkwGACAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T11:42:23.493Z",
               "EditorCaption": ""
@@ -100,49 +74,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\Login.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Login.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\Login.cs",
-              "RelativeToolTip": "LockedIn\\Login.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T06:45:13.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "DatabaseConfig.cs",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
               "RelativeDocumentMoniker": "LockedIn\\Data\\DatabaseConfig.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\Data\\DatabaseConfig.cs",
               "RelativeToolTip": "LockedIn\\Data\\DatabaseConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T07:30:24.239Z"
+              "WhenOpened": "2025-08-22T07:30:24.239Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmAdmin.cs",
               "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
+              "ToolTip": "C:\\Users\\janre\\Documents\\GitHub\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
               "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T12:55:36.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\alida\\OneDrive\\Desktop\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAFABAAAAAAAAAIA4wJoBAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T11:22:11.411Z"
+              "WhenOpened": "2025-08-24T12:55:36.197Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -12,6 +12,7 @@ using LockedIn.Data;
 using LockedIn.Helpers;
 using LockedIn.Models;
 using LockedIn.Managers;
+using System.Security.Cryptography;
 namespace LockedIn
 {
     public partial class frmAdmin : Form
@@ -570,6 +571,7 @@ namespace LockedIn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //Clearing all the Job completed details
             cmbPrisonerID.SelectedIndex = -1;
             cmbJobID.SelectedIndex = -1;
             calDateCompleted.SetDate(DateTime.Today);
@@ -591,13 +593,23 @@ namespace LockedIn
                             string connStr = DatabaseConfig.GetConStr();
 
                             SqlConnection conn = new SqlConnection(connStr);
+
                             conn.Open();
-                            string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = @Completed";
-                            SqlCommand comm = new SqlCommand(sql, conn);
+                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
+                            SqlCommand getIdCmd = new SqlCommand(getIdSql, conn);
+                            getIdCmd.Parameters.AddWithValue("@JobName", cmbJobID.Text);
+                            int jobId = (int)getIdCmd.ExecuteScalar();
+
+
+                            string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = 1 WHERE JobID = @JobID; UPDATE PRISONER_ON_JOB SET JobFinished = 1 WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+                            SqlCommand comm = new SqlCommand(sql, conn);      
 
                             comm.Parameters.AddWithValue("@EndDate", selectedDate);
-                            comm.Parameters.AddWithValue("@Completed", true);
+                            comm.Parameters.AddWithValue("@JobID", jobId);          
+                            comm.Parameters.AddWithValue("@PrisonerID", cmbPrisonerID.SelectedValue); 
                             comm.ExecuteNonQuery();
+                            
+                            MessageBox.Show("Job completed has been updated.");
 
 
                             conn.Close();
@@ -781,8 +793,10 @@ namespace LockedIn
 
 
         }
-            
 
-        
+        private void cmbJobID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
