@@ -798,5 +798,52 @@ namespace LockedIn
         {
 
         }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            //Add job button
+            
+            try
+            {
+                string employer_name = cmbEmpName.Text;
+                string job_name = txtMJJobName.Text;
+                string job_description = rtbJobDescription.Text;
+                string job_location = rtbJobLocation.Text;
+                DateTime startDate = calStartDate.SelectionStart;
+                DateTime endDate = calEndDate.SelectionStart;
+                string skills = listBox2.Text;
+                decimal duration = nudDuration.Value;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            //Edit existing job
+            try
+            {
+                string employer_name = cmbEmpName.Text;
+                string job_name = txtMJJobName.Text;
+                string job_description = rtbJobDescription.Text;
+                string job_location = rtbJobLocation.Text;
+                DateTime startDate = calStartDate.SelectionStart;
+                DateTime endDate = calEndDate.SelectionStart;
+                string skills = listBox2.Text;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
+        }
     }
 }
