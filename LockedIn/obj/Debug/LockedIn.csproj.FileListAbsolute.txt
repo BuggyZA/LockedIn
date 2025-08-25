@@ -64,7 +64,6 @@ C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.exe.config
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.frmAdmin.resources
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.frmEmployer.resources
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.frmPrisoner.resources
-C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.Login.resources
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.Properties.Resources.resources
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.GenerateResource.cache
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
@@ -105,3 +104,4 @@ C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn
 C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
+C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
