@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\!Github\\LockedIn\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -56,7 +52,7 @@
               "RelativeDocumentMoniker": "LockedIn\\Data\\JobManager.cs",
               "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobManager.cs",
               "RelativeToolTip": "LockedIn\\Data\\JobManager.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCYAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAmwKMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-25T09:46:14.652Z",
               "EditorCaption": ""
@@ -69,22 +65,9 @@
               "RelativeDocumentMoniker": "LockedIn\\Models\\Job.cs",
               "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Models\\Job.cs",
               "RelativeToolTip": "LockedIn\\Models\\Job.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAiwGgAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-25T09:45:22.226Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "JobSkillManager.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\JobSkillManager.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\JobSkillManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:44:11.526Z",
               "EditorCaption": ""
             }
           ]
