@@ -89,5 +89,52 @@ namespace LockedIn.Models
                 return true;
             }
         }
+
+        // Main validation method for new prisoner
+        public bool ValidateNewPrisoner()
+        {
+            // Validate First Name
+            if (string.IsNullOrWhiteSpace(FirstName))
+            {
+                MessageBox.Show("First Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validate Last Name
+            if (string.IsNullOrWhiteSpace(LastName))
+            {
+                MessageBox.Show("Last Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }            
+
+            // Validate SA ID
+            if (string.IsNullOrWhiteSpace(SA_ID))
+            {
+                MessageBox.Show("SA ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!IsValidSAID())
+            {
+                MessageBox.Show("Invalid SA ID format. Must be 13 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validate Password
+            if (string.IsNullOrWhiteSpace(Password))
+            {
+                MessageBox.Show("Password is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (Password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }            
+
+            return true;
+        }
+
     }
 }
