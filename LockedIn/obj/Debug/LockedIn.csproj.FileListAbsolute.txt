@@ -101,7 +101,7 @@ C:\CMPG223 Project\LockedIn\LockedIn\obj\Debug\LockedIn.pdb
 C:\!Github\LockedIn\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
-C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
-C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
 C:\Users\alida\OneDrive\Desktop\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\Users\janre\Documents\GitHub\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
+C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
+C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf

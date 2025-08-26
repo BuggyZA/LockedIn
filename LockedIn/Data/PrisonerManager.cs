@@ -57,20 +57,58 @@ namespace LockedIn.Managers
             return prisoner;
         }
 
-        public static int AddPrisoner(Prisoner prisoner)
+        public static bool UpdatePrisoner(Prisoner prisoner)
         {
-            string insertQuery = @"INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, ClearedToWork) 
-                          VALUES (@PrisonerNum, @LastName, @FirstName, @SA_ID, @Password, @ClearedToWork)";
-
-            string selectQuery = "SELECT CAST(@@IDENTITY AS INT)";
+            string updateQuery = @"UPDATE PRISONER SET PrisonerNum = @PrisonerNum, LastName = @LastName, FirstName = @FirstName, SA_ID = @SA_ID, Password = @Password, ClearedToWork = @ClearedToWork WHERE PrisonerID = @PrisonerID";
 
             try
             {
                 using (conn = new SqlConnection(constr))
                 {
                     conn.Open();
+                    using (cmd = new SqlCommand(updateQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@PrisonerID", prisoner.PrisonerID);
+                        cmd.Parameters.AddWithValue("@PrisonerNum", prisoner.PrisonerNum);
+                        cmd.Parameters.AddWithValue("@LastName", prisoner.LastName);
+                        cmd.Parameters.AddWithValue("@FirstName", prisoner.FirstName);
+                        cmd.Parameters.AddWithValue("@SA_ID", prisoner.SA_ID);
+                        cmd.Parameters.AddWithValue("@Password", prisoner.Password);
+                        cmd.Parameters.AddWithValue("@ClearedToWork", prisoner.ClearedToWork);
 
-                    // First insert the record
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        if (rowsAffected > 0)
+                        {
+                            return true; // Update successful
+                        }
+                        else
+                        {
+                            MessageBox.Show("No prisoner found with the specified ID.");
+                            return false; // No rows were updated (prisoner not found)
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating prisoner: {ex.Message}");
+                return false;
+            }
+        }
+
+        public static int AddPrisoner(Prisoner prisoner)
+        {
+            // Option 1: Use OUTPUT clause (Recommended)
+            string insertQuery = @"INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, ClearedToWork) OUTPUT INSERTED.PrisonerID VALUES (@PrisonerNum, @LastName, @FirstName, @SA_ID, @Password, @ClearedToWork)";
+
+
+            try
+            {
+                using (conn = new SqlConnection(constr))
+                {
+                    conn.Open();
                     using (cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@PrisonerNum", prisoner.PrisonerNum);
@@ -80,25 +118,15 @@ namespace LockedIn.Managers
                         cmd.Parameters.AddWithValue("@Password", prisoner.Password);
                         cmd.Parameters.AddWithValue("@ClearedToWork", prisoner.ClearedToWork);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected == 0)
-                        {
-                            return -1; // Insert failed
-                        }
-                    }
-
-                    // Then get the ID
-                    using (cmd = new SqlCommand(selectQuery, conn))
-                    {
+                        // For Option 1 (OUTPUT clause):
                         object result = cmd.ExecuteScalar();
+                        conn.Close();
+
                         if (result != null && result != DBNull.Value)
                         {
                             return Convert.ToInt32(result);
                         }
                     }
-
-                    return -1;
                 }
             }
             catch (Exception ex)
@@ -106,6 +134,8 @@ namespace LockedIn.Managers
                 MessageBox.Show($"Error adding prisoner: {ex.Message}");
                 return -1;
             }
+
+            return -1;
         }
 
         public static bool DeletePrisoner(int prisonerId)

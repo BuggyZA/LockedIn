@@ -17,7 +17,9 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
-        string password = "";
+        Prisoner thisPrisoner;
+
+        string Ppassword = "";
         bool isAddingPrisoner = false;
         bool isDeletingPrisoner = false;
         bool isupdatingPrisoner = false;
@@ -108,12 +110,14 @@ namespace LockedIn
                 ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
                 isPopulating = false;
 
-                Prisoner thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+                thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+                Ppassword = thisPrisoner.Password;
                 txtPNo.Text = thisPrisoner.PrisonerNum;
                 txtFirstName.Text = thisPrisoner.FirstName;
                 txtLastName.Text = thisPrisoner.LastName;
                 txtID.Text = thisPrisoner.SA_ID;
                 ckbCleared.Checked = thisPrisoner.ClearedToWork == true ? true : false;
+                txtCurrentPassword.Text = thisPrisoner.Password;
             }
             else
             {
@@ -130,7 +134,7 @@ namespace LockedIn
 
         private void btnMPAdd_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(prsnrID, skillID);
+            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
             isPopulating = true;
             ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
             ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
@@ -213,14 +217,17 @@ namespace LockedIn
                 thisPrisoner.LastName = txtLastName.Text.Trim();
                 thisPrisoner.FirstName = txtFirstName.Text.Trim();
                 thisPrisoner.SA_ID = txtID.Text.Trim();
-                thisPrisoner.Password = password;
+                thisPrisoner.Password = Ppassword;
                 thisPrisoner.ClearedToWork = ckbCleared.Checked;
 
                 if (thisPrisoner.ValidateNewPrisoner())
                 {
-                    prsnrID =  PrisonerManager.AddPrisoner(thisPrisoner);
-                    MessageBox.Show(prsnrID.ToString());
-                    MessageBox.Show("Prisoner "+thisPrisoner.PrisonerNum+" added successfully! Now you can manage their skills.");
+                    thisPrisoner.PrisonerID =  PrisonerManager.AddPrisoner(thisPrisoner);
+                    if (thisPrisoner.PrisonerID > 0)
+                    {
+                        MessageBox.Show(thisPrisoner.PrisonerID.ToString());
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
+                    }
                 }
                 else
                 {
@@ -230,6 +237,53 @@ namespace LockedIn
                 pnlMPSkills.Enabled = true;
                 return;
             }
+            else if (isupdatingPrisoner)
+            {
+                thisPrisoner.LastName = txtLastName.Text.Trim();
+                thisPrisoner.FirstName = txtFirstName.Text.Trim();
+                thisPrisoner.SA_ID = txtID.Text.Trim();
+                thisPrisoner.Password = Ppassword;
+                thisPrisoner.ClearedToWork = ckbCleared.Checked;
+
+                if (thisPrisoner.ValidateNewPrisoner())
+                {
+                    bool pUpdated = PrisonerManager.UpdatePrisoner(thisPrisoner);
+                    if (pUpdated)
+                    {
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " updated successfully!");
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else if (isDeletingPrisoner)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?","Confirm Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // User clicked Yes - proceed with deletion
+                    if(PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
+                    {
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " deleted successfully.");
+                        pnlPInfo.Enabled = true;
+                        pnlModifyPPassword.Enabled = true;
+                        pnlMPSkills.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deletion could not proceed. Try again");
+                    }
+                }
+                else
+                {
+                    // User clicked No - cancel deletion
+                    MessageBox.Show("Delete cancelled.");
+                }
+            }
+
             pnlPInfo.Visible = false;
             pnlMPSkills.Visible = false;
             cmbMPPrisonerNo.Visible = false;
@@ -238,7 +292,7 @@ namespace LockedIn
             isAddingPrisoner = false;
             isDeletingPrisoner = false;
             isupdatingPrisoner = false;
-            password = "";
+            Ppassword = "";
 
         }
 
@@ -261,11 +315,11 @@ namespace LockedIn
                     }
 
                     MessageBox.Show("Saving new password");
-                    password = txtNewPassword.Text;
+                    Ppassword = txtNewPassword.Text;
                 }
                 else
                 {
-                    MessageBox.Show("Please enter your password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the same password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -675,7 +729,12 @@ namespace LockedIn
             pnlPInfo.Visible = true;
         }
 
-        private void btnMPBack_Click(object sender, EventArgs e) { }
+        private void btnMPBack_Click(object sender, EventArgs e) 
+        {
+            pnlPInfo.Enabled = true;
+            pnlModifyPPassword.Enabled = true;
+            pnlMPSkills.Enabled = true;
+        }
         private void frmAdmin_Load(object sender, EventArgs e)
         {
 
@@ -797,6 +856,28 @@ namespace LockedIn
         private void cmbJobID_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlMPChoices.Visible == true)
+            {
+                txtPNo.Clear();
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtID.Clear();
+                ckbCleared.Checked =false;
+                lstMPCurrentSkills.ClearSelected();
+                lstMPAllSkills.ClearSelected();
+
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+                cmbMPPrisonerNo.SelectedIndex = -1;
+                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+                pnlPInfo.Enabled = true;
+                pnlModifyPPassword.Enabled = true;
+                pnlMPSkills.Enabled = true;
+            }
         }
     }
 }
