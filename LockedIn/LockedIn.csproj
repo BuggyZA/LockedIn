@@ -79,6 +79,12 @@
     <Compile Include="frmEmployer.Designer.cs">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrisoner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +99,6 @@
     </Compile>
     <Compile Include="Helpers\ComboboxHelper.cs" />
     <Compile Include="Helpers\ListboxHelper.cs" />
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Prisoner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +108,14 @@
     <EmbeddedResource Include="frmEmployer.resx">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrisoner.resx">
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
