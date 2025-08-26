@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 /* To Do List:
  * Exception handeling
- * Change to real time input validation for login & signup
+ * Change to real time input validation for signup
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
  * Prisoner.cs has validation method, use or not?
