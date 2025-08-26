@@ -123,7 +123,6 @@ namespace LockedIn
                 txtLastName.Text = thisPrisoner.LastName;
                 txtID.Text = thisPrisoner.SA_ID;
                 ckbCleared.Checked = thisPrisoner.ClearedToWork == true ? true : false;
-                txtCurrentPassword.Text = thisPrisoner.Password;
             }
             else
             {
@@ -231,7 +230,6 @@ namespace LockedIn
                     thisPrisoner.PrisonerID =  PrisonerManager.AddPrisoner(thisPrisoner);
                     if (thisPrisoner.PrisonerID > 0)
                     {
-                        MessageBox.Show(thisPrisoner.PrisonerID.ToString());
                         MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
 
                         lstMPAllSkills.SelectedIndexChanged -= lstMPAllSkills_SelectedIndexChanged;
@@ -346,6 +344,34 @@ namespace LockedIn
                     MessageBox.Show("Please enter the same password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+            }
+            else if(isupdatingPrisoner)
+            {
+                if (txtCurrentPassword.Text.Trim() == thisPrisoner.Password)
+                {
+                    if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
+                    {
+                        if (txtNewPassword.Text.Trim().Length < 6)
+                        {
+                            MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        MessageBox.Show("Saving new password");
+                        Ppassword = txtNewPassword.Text;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wrong password. Password Change denied", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                
             }
 
             pnlModifyPPassword.Visible = false;
@@ -920,6 +946,9 @@ namespace LockedIn
                 ckbCleared.Checked =false;
                 lstMPCurrentSkills.ClearSelected();
                 lstMPAllSkills.ClearSelected();
+                txtCurrentPassword.Clear();
+                txtNewPassword.Clear();
+                txtConfirmPassword.Clear();
 
                 cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
                 cmbMPPrisonerNo.SelectedIndex = -1;

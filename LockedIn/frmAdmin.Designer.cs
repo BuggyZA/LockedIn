@@ -243,6 +243,10 @@
             this.tpPrisoner = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
+            this.pnlMPChoices = new System.Windows.Forms.Panel();
+            this.btnEditP = new System.Windows.Forms.Button();
+            this.btnDeleteP = new System.Windows.Forms.Button();
+            this.btnAddP = new System.Windows.Forms.Button();
             this.pnlModifyPPassword = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
@@ -254,10 +258,6 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.pnlMPSkills = new System.Windows.Forms.Panel();
-            this.pnlMPChoices = new System.Windows.Forms.Panel();
-            this.btnEditP = new System.Windows.Forms.Button();
-            this.btnDeleteP = new System.Windows.Forms.Button();
-            this.btnAddP = new System.Windows.Forms.Button();
             this.btnMPRemove = new System.Windows.Forms.Button();
             this.btnMPAdd = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
@@ -375,9 +375,9 @@
             this.tpPrisoner.SuspendLayout();
             this.panel57.SuspendLayout();
             this.panel52.SuspendLayout();
+            this.pnlMPChoices.SuspendLayout();
             this.pnlModifyPPassword.SuspendLayout();
             this.pnlMPSkills.SuspendLayout();
-            this.pnlMPChoices.SuspendLayout();
             this.pnlPInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel56.SuspendLayout();
@@ -2770,12 +2770,12 @@
             // 
             this.cmbPrisonerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbPrisonerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbPrisonerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPrisonerName.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
             this.cmbPrisonerName.FormattingEnabled = true;
-            this.cmbPrisonerName.Location = new System.Drawing.Point(132, 47);
+            this.cmbPrisonerName.Location = new System.Drawing.Point(131, 41);
             this.cmbPrisonerName.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPrisonerName.Name = "cmbPrisonerName";
-            this.cmbPrisonerName.Size = new System.Drawing.Size(220, 24);
+            this.cmbPrisonerName.Size = new System.Drawing.Size(220, 31);
             this.cmbPrisonerName.TabIndex = 13;
             this.cmbPrisonerName.SelectedIndexChanged += new System.EventHandler(this.cmbPrisonerName_SelectedIndexChanged);
             // 
@@ -2865,6 +2865,58 @@
             this.panel52.Name = "panel52";
             this.panel52.Size = new System.Drawing.Size(1238, 594);
             this.panel52.TabIndex = 15;
+            // 
+            // pnlMPChoices
+            // 
+            this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlMPChoices.Controls.Add(this.btnEditP);
+            this.pnlMPChoices.Controls.Add(this.btnDeleteP);
+            this.pnlMPChoices.Controls.Add(this.btnAddP);
+            this.pnlMPChoices.Location = new System.Drawing.Point(509, 44);
+            this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMPChoices.Name = "pnlMPChoices";
+            this.pnlMPChoices.Size = new System.Drawing.Size(344, 538);
+            this.pnlMPChoices.TabIndex = 31;
+            this.pnlMPChoices.VisibleChanged += new System.EventHandler(this.pnlMPChoices_VisibleChanged);
+            // 
+            // btnEditP
+            // 
+            this.btnEditP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEditP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnEditP.ForeColor = System.Drawing.Color.White;
+            this.btnEditP.Location = new System.Drawing.Point(44, 228);
+            this.btnEditP.Name = "btnEditP";
+            this.btnEditP.Size = new System.Drawing.Size(269, 108);
+            this.btnEditP.TabIndex = 7;
+            this.btnEditP.Text = "Edit Existing Prisoner";
+            this.btnEditP.UseVisualStyleBackColor = false;
+            this.btnEditP.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // btnDeleteP
+            // 
+            this.btnDeleteP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnDeleteP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnDeleteP.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteP.Location = new System.Drawing.Point(44, 390);
+            this.btnDeleteP.Name = "btnDeleteP";
+            this.btnDeleteP.Size = new System.Drawing.Size(269, 108);
+            this.btnDeleteP.TabIndex = 5;
+            this.btnDeleteP.Text = "Delete Existing Prisoner";
+            this.btnDeleteP.UseVisualStyleBackColor = false;
+            this.btnDeleteP.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // btnAddP
+            // 
+            this.btnAddP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAddP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnAddP.ForeColor = System.Drawing.Color.White;
+            this.btnAddP.Location = new System.Drawing.Point(44, 42);
+            this.btnAddP.Name = "btnAddP";
+            this.btnAddP.Size = new System.Drawing.Size(269, 108);
+            this.btnAddP.TabIndex = 7;
+            this.btnAddP.Text = "Add New Prisoner";
+            this.btnAddP.UseVisualStyleBackColor = false;
+            this.btnAddP.Click += new System.EventHandler(this.button53_Click);
             // 
             // pnlModifyPPassword
             // 
@@ -2986,58 +3038,6 @@
             this.pnlMPSkills.Size = new System.Drawing.Size(650, 379);
             this.pnlMPSkills.TabIndex = 33;
             this.pnlMPSkills.Visible = false;
-            // 
-            // pnlMPChoices
-            // 
-            this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlMPChoices.Controls.Add(this.btnEditP);
-            this.pnlMPChoices.Controls.Add(this.btnDeleteP);
-            this.pnlMPChoices.Controls.Add(this.btnAddP);
-            this.pnlMPChoices.Location = new System.Drawing.Point(509, 69);
-            this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlMPChoices.Name = "pnlMPChoices";
-            this.pnlMPChoices.Size = new System.Drawing.Size(344, 538);
-            this.pnlMPChoices.TabIndex = 31;
-            this.pnlMPChoices.VisibleChanged += new System.EventHandler(this.pnlMPChoices_VisibleChanged);
-            // 
-            // btnEditP
-            // 
-            this.btnEditP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEditP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnEditP.ForeColor = System.Drawing.Color.White;
-            this.btnEditP.Location = new System.Drawing.Point(44, 228);
-            this.btnEditP.Name = "btnEditP";
-            this.btnEditP.Size = new System.Drawing.Size(269, 108);
-            this.btnEditP.TabIndex = 7;
-            this.btnEditP.Text = "Edit Existing Prisoner";
-            this.btnEditP.UseVisualStyleBackColor = false;
-            this.btnEditP.Click += new System.EventHandler(this.button46_Click);
-            // 
-            // btnDeleteP
-            // 
-            this.btnDeleteP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnDeleteP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnDeleteP.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteP.Location = new System.Drawing.Point(44, 390);
-            this.btnDeleteP.Name = "btnDeleteP";
-            this.btnDeleteP.Size = new System.Drawing.Size(269, 108);
-            this.btnDeleteP.TabIndex = 5;
-            this.btnDeleteP.Text = "Delete Existing Prisoner";
-            this.btnDeleteP.UseVisualStyleBackColor = false;
-            this.btnDeleteP.Click += new System.EventHandler(this.button47_Click);
-            // 
-            // btnAddP
-            // 
-            this.btnAddP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnAddP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnAddP.ForeColor = System.Drawing.Color.White;
-            this.btnAddP.Location = new System.Drawing.Point(44, 42);
-            this.btnAddP.Name = "btnAddP";
-            this.btnAddP.Size = new System.Drawing.Size(269, 108);
-            this.btnAddP.TabIndex = 7;
-            this.btnAddP.Text = "Add New Prisoner";
-            this.btnAddP.UseVisualStyleBackColor = false;
-            this.btnAddP.Click += new System.EventHandler(this.button53_Click);
             // 
             // btnMPRemove
             // 
@@ -3698,11 +3698,11 @@
             this.panel57.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
+            this.pnlMPChoices.ResumeLayout(false);
             this.pnlModifyPPassword.ResumeLayout(false);
             this.pnlModifyPPassword.PerformLayout();
             this.pnlMPSkills.ResumeLayout(false);
             this.pnlMPSkills.PerformLayout();
-            this.pnlMPChoices.ResumeLayout(false);
             this.pnlPInfo.ResumeLayout(false);
             this.pnlPInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
