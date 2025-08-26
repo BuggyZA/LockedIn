@@ -20,3 +20,12 @@ LockedIn/bin/Debug/LockedInDB.mdf
 LockedIn/bin/Debug/LockedInDB_log.ldf
 LockedIn/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 *.cache
+*.db
+*.db-shm
+*.db-wal
+*.db
+*.db-shm
+*.db-wal
+.vs/LockedIn/v17/.suo
+.vs/LockedIn/v17/DocumentLayout.backup.json
+*.json
