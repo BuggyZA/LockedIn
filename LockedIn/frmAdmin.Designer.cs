@@ -142,7 +142,6 @@
             this.label41 = new System.Windows.Forms.Label();
             this.calStartDate = new System.Windows.Forms.MonthCalendar();
             this.panel40 = new System.Windows.Forms.Panel();
-            this.txtMJJobName = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -152,17 +151,8 @@
             this.panel38 = new System.Windows.Forms.Panel();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
             this.button32 = new System.Windows.Forms.Button();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.cmbEmpName = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
+            this.cmbJobNAme = new System.Windows.Forms.ComboBox();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.tpGuards = new System.Windows.Forms.TabPage();
@@ -308,6 +298,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
+            this.txtMJJobName = new System.Windows.Forms.TextBox();
             this.tcPrisoner.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -345,8 +336,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
             this.panel40.SuspendLayout();
             this.panel38.SuspendLayout();
-            this.panel36.SuspendLayout();
-            this.panel37.SuspendLayout();
             this.tpGuards.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -1500,10 +1489,9 @@
             // 
             this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.panel35.Controls.Add(this.panel41);
+            this.panel35.Controls.Add(this.panel38);
             this.panel35.Controls.Add(this.panel39);
             this.panel35.Controls.Add(this.panel40);
-            this.panel35.Controls.Add(this.panel38);
-            this.panel35.Controls.Add(this.panel37);
             this.panel35.Controls.Add(this.button28);
             this.panel35.Controls.Add(this.button27);
             this.panel35.Location = new System.Drawing.Point(9, 18);
@@ -1688,6 +1676,7 @@
             // panel40
             // 
             this.panel40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel40.Controls.Add(this.cmbJobNAme);
             this.panel40.Controls.Add(this.txtMJJobName);
             this.panel40.Controls.Add(this.label44);
             this.panel40.Controls.Add(this.label39);
@@ -1695,19 +1684,11 @@
             this.panel40.Controls.Add(this.rtbJobLocation);
             this.panel40.Controls.Add(this.rtbJobDescription);
             this.panel40.Controls.Add(this.label43);
-            this.panel40.Location = new System.Drawing.Point(140, 150);
+            this.panel40.Location = new System.Drawing.Point(140, 16);
             this.panel40.Margin = new System.Windows.Forms.Padding(2);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(365, 384);
+            this.panel40.Size = new System.Drawing.Size(365, 518);
             this.panel40.TabIndex = 18;
-            // 
-            // txtMJJobName
-            // 
-            this.txtMJJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMJJobName.Location = new System.Drawing.Point(96, 63);
-            this.txtMJJobName.Name = "txtMJJobName";
-            this.txtMJJobName.Size = new System.Drawing.Size(230, 23);
-            this.txtMJJobName.TabIndex = 13;
             // 
             // label44
             // 
@@ -1774,9 +1755,8 @@
             this.panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel38.Controls.Add(this.button30);
             this.panel38.Controls.Add(this.button31);
-            this.panel38.Controls.Add(this.panel36);
             this.panel38.Controls.Add(this.button32);
-            this.panel38.Location = new System.Drawing.Point(1179, 213);
+            this.panel38.Location = new System.Drawing.Point(1203, 115);
             this.panel38.Margin = new System.Windows.Forms.Padding(2);
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(344, 538);
@@ -1806,76 +1786,6 @@
             this.button31.Text = "Delete Existing Job";
             this.button31.UseVisualStyleBackColor = false;
             // 
-            // panel36
-            // 
-            this.panel36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel36.Controls.Add(this.comboBox6);
-            this.panel36.Controls.Add(this.button33);
-            this.panel36.Controls.Add(this.button29);
-            this.panel36.Controls.Add(this.label36);
-            this.panel36.Controls.Add(this.label37);
-            this.panel36.Location = new System.Drawing.Point(14, 342);
-            this.panel36.Margin = new System.Windows.Forms.Padding(2);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(366, 156);
-            this.panel36.TabIndex = 10;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(112, 56);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(227, 28);
-            this.comboBox6.TabIndex = 14;
-            // 
-            // button33
-            // 
-            this.button33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button33.ForeColor = System.Drawing.Color.White;
-            this.button33.Location = new System.Drawing.Point(267, 101);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(72, 33);
-            this.button33.TabIndex = 13;
-            this.button33.Text = "Back";
-            this.button33.UseVisualStyleBackColor = false;
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button29.ForeColor = System.Drawing.Color.White;
-            this.button29.Location = new System.Drawing.Point(22, 101);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(230, 33);
-            this.button29.TabIndex = 12;
-            this.button29.Text = "Next";
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(3, 3);
-            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(95, 27);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Job Details:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(19, 56);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(74, 23);
-            this.label37.TabIndex = 0;
-            this.label37.Text = "Job Name:";
-            // 
             // button32
             // 
             this.button32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1888,51 +1798,17 @@
             this.button32.Text = "Add New Job";
             this.button32.UseVisualStyleBackColor = false;
             // 
-            // panel37
+            // cmbJobNAme
             // 
-            this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel37.Controls.Add(this.cmbEmpName);
-            this.panel37.Controls.Add(this.label34);
-            this.panel37.Controls.Add(this.label38);
-            this.panel37.Location = new System.Drawing.Point(140, 16);
-            this.panel37.Margin = new System.Windows.Forms.Padding(2);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(365, 115);
-            this.panel37.TabIndex = 16;
-            // 
-            // cmbEmpName
-            // 
-            this.cmbEmpName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbEmpName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEmpName.FormattingEnabled = true;
-            this.cmbEmpName.Location = new System.Drawing.Point(130, 50);
-            this.cmbEmpName.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbEmpName.Name = "cmbEmpName";
-            this.cmbEmpName.Size = new System.Drawing.Size(220, 24);
-            this.cmbEmpName.TabIndex = 4;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(3, 3);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(138, 27);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Employer Details:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(17, 50);
-            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(110, 23);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Employer Name:";
+            this.cmbJobNAme.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbJobNAme.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbJobNAme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbJobNAme.FormattingEnabled = true;
+            this.cmbJobNAme.Location = new System.Drawing.Point(95, 78);
+            this.cmbJobNAme.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbJobNAme.Name = "cmbJobNAme";
+            this.cmbJobNAme.Size = new System.Drawing.Size(232, 24);
+            this.cmbJobNAme.TabIndex = 4;
             // 
             // button28
             // 
@@ -3589,6 +3465,14 @@
             this.btnPrisonerRecord.Text = "Record of Prisoner per Time Period";
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
             // 
+            // txtMJJobName
+            // 
+            this.txtMJJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMJJobName.Location = new System.Drawing.Point(96, 63);
+            this.txtMJJobName.Name = "txtMJJobName";
+            this.txtMJJobName.Size = new System.Drawing.Size(230, 23);
+            this.txtMJJobName.TabIndex = 13;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3654,10 +3538,6 @@
             this.panel40.ResumeLayout(false);
             this.panel40.PerformLayout();
             this.panel38.ResumeLayout(false);
-            this.panel36.ResumeLayout(false);
-            this.panel36.PerformLayout();
-            this.panel37.ResumeLayout(false);
-            this.panel37.PerformLayout();
             this.tpGuards.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
@@ -3842,26 +3722,17 @@
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Panel panel36;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Button button33;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.MonthCalendar calEndDate;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.MonthCalendar calStartDate;
-        private System.Windows.Forms.ComboBox cmbEmpName;
+        private System.Windows.Forms.ComboBox cmbJobNAme;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.NumericUpDown nudDuration;
@@ -3871,7 +3742,6 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.RichTextBox rtbJobLocation;
         private System.Windows.Forms.RichTextBox rtbJobDescription;
-        private System.Windows.Forms.TextBox txtMJJobName;
         private System.Windows.Forms.CheckBox cbJobCompleted;
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Label label46;
@@ -4006,5 +3876,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtEmpPass;
         private System.Windows.Forms.Label lblEmpPass;
+        private System.Windows.Forms.TextBox txtMJJobName;
     }
 }
