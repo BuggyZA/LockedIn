@@ -941,7 +941,7 @@ namespace LockedIn
             
             try
             {
-                string employer_name = cmbEmpName.Text;
+                string employer_name = cmbJobNAme.Text;
                 string job_name = txtMJJobName.Text;
                 string job_description = rtbJobDescription.Text;
                 string job_location = rtbJobLocation.Text;
@@ -964,7 +964,7 @@ namespace LockedIn
             //Edit existing job
             try
             {
-                string employer_name = cmbEmpName.Text;
+                string employer_name = cmbJobNAme.Text;
                 string job_name = txtMJJobName.Text;
                 string job_description = rtbJobDescription.Text;
                 string job_location = rtbJobLocation.Text;
