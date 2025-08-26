@@ -6,3 +6,5 @@
 *.suo
 *.json
 *.db
+*.exe
+*.pdb
