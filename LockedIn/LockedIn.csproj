@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,20 +80,27 @@
     <Compile Include="frmEmployer.Designer.cs">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrisoner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPrisoner.Designer.cs">
-      <DependentUpon>frmPrisoner.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\ComboboxHelper.cs" />
-    <Compile Include="Helpers\ListboxHelper.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrisoner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrisoner.Designer.cs">
+      <DependentUpon>frmPrisoner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ComboboxHelper.cs" />
+    <Compile Include="Helpers\ListboxHelper.cs" />
+    <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Prisoner.cs" />
     <Compile Include="Program.cs" />
@@ -104,11 +111,14 @@
     <EmbeddedResource Include="frmEmployer.resx">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrisoner.resx">
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
