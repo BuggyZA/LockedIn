@@ -227,6 +227,8 @@ namespace LockedIn
                     {
                         MessageBox.Show(thisPrisoner.PrisonerID.ToString());
                         MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
+                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills,thisPrisoner.PrisonerID);
+
                     }
                 }
                 else
@@ -288,6 +290,10 @@ namespace LockedIn
             pnlMPSkills.Visible = false;
             cmbMPPrisonerNo.Visible = false;
             pnlMPChoices.Visible = true;
+
+            cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+            ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+            cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
 
             isAddingPrisoner = false;
             isDeletingPrisoner = false;
@@ -870,7 +876,6 @@ namespace LockedIn
                 lstMPCurrentSkills.ClearSelected();
                 lstMPAllSkills.ClearSelected();
 
-                ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
                 cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
                 cmbMPPrisonerNo.SelectedIndex = -1;
                 cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;

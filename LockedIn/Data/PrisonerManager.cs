@@ -138,28 +138,59 @@ namespace LockedIn.Managers
             return -1;
         }
 
-        public static bool DeletePrisoner(int prisonerId)
+        public static bool DeletePrisoner(int prisonerID)
         {
-            string query = "DELETE FROM PRISONER WHERE PrisonerID = @PrisonerID";
-
             try
             {
-                using (conn = new SqlConnection(constr))
+                using (SqlConnection conn = new SqlConnection(constr)) // constr = your connection string
                 {
-                    using (cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@PrisonerID", prisonerId);
+                    conn.Open();
 
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                    // Always use a transaction for multi-step deletes
+                    using (SqlTransaction tran = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Delete from PRISONER_ON_JOB
+                            string query1 = "DELETE FROM PRISONER_ON_JOB WHERE PrisonerID = @PrisonerID";
+                            using (SqlCommand cmd1 = new SqlCommand(query1, conn, tran))
+                            {
+                                cmd1.Parameters.AddWithValue("@PrisonerID", prisonerID);
+                                cmd1.ExecuteNonQuery();
+                            }
+
+                            // 2. Delete from SKILL_OF_PRISONER
+                            string query2 = "DELETE FROM SKILL_OF_PRISONER WHERE PrisonerID = @PrisonerID";
+                            using (SqlCommand cmd2 = new SqlCommand(query2, conn, tran))
+                            {
+                                cmd2.Parameters.AddWithValue("@PrisonerID", prisonerID);
+                                cmd2.ExecuteNonQuery();
+                            }
+
+                            // 3. Delete prisoner
+                            string query3 = "DELETE FROM PRISONER WHERE PrisonerID = @PrisonerID";
+                            using (SqlCommand cmd3 = new SqlCommand(query3, conn, tran))
+                            {
+                                cmd3.Parameters.AddWithValue("@PrisonerID", prisonerID);
+                                cmd3.ExecuteNonQuery();
+                            }
+
+                            // Commit transaction
+                            tran.Commit();
+                            return true;
+                        }
+                        catch
+                        {
+                            tran.Rollback(); // rollback if something fails
+                            return false;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error deleting prisoner with ID {prisonerId}: {ex.Message}");
                 return false;
+                MessageBox.Show("Error deleting prisoner: " + ex.Message);
             }
         }
 
