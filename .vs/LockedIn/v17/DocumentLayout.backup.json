@@ -3,46 +3,8 @@
   "WorkspaceRootPath": "C:\\!Github\\LockedIn\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C___GITHUB_LOCKEDIN_LOCKEDIN_LOCKEDIN_LOCKEDINDB.MDF/True/SqlTable/dbo.EMPLOYER.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\prisonermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\prisonermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C___GITHUB_LOCKEDIN_LOCKEDIN_LOCKEDIN_LOCKEDINDB.MDF/True/SqlTable/dbo.PRISONER.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\listboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,126 +35,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmEmployer.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
-              "RelativeToolTip": "LockedIn\\frmEmployer.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAASwGEAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:54:55.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmEmployer.cs [Design]",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmEmployer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:54:52.504Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.EMPLOYER [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C___GITHUB_LOCKEDIN_LOCKEDIN_LOCKEDIN_LOCKEDINDB.MDF/True/SqlTable/dbo.EMPLOYER.sql",
-              "ToolTip": "dbo.EMPLOYER [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-08-26T09:53:59.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmPrisoner.cs [Design]",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmPrisoner.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmPrisoner.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:39:28.504Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "dbo.PRISONER [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C___GITHUB_LOCKEDIN_LOCKEDIN_LOCKEDIN_LOCKEDINDB.MDF/True/SqlTable/dbo.PRISONER.sql",
-              "ToolTip": "dbo.PRISONER [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-08-26T09:36:26.739Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PrisonerManager.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\PrisonerManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\PrisonerManager.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\PrisonerManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\PrisonerManager.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:19:33.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Login.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Login.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Login.cs",
-              "RelativeToolTip": "LockedIn\\Login.cs",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAUwAEBAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:19:20.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Login.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Login.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Login.cs [Design]",
-              "RelativeToolTip": "LockedIn\\Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T09:19:13.032Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "JobManager.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\JobManager.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\JobManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\JobManager.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAmwKMAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:46:14.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Job.cs",
-              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Models\\Job.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Models\\Job.cs",
-              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Models\\Job.cs",
-              "RelativeToolTip": "LockedIn\\Models\\Job.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T09:45:22.226Z"
             }
           ]
         }
@@ -217,7 +59,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "ListboxHelper.cs",
               "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Helpers\\ListboxHelper.cs",
               "RelativeDocumentMoniker": "LockedIn\\Helpers\\ListboxHelper.cs",
