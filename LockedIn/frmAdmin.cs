@@ -227,8 +227,10 @@ namespace LockedIn
                     {
                         MessageBox.Show(thisPrisoner.PrisonerID.ToString());
                         MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
-                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills,thisPrisoner.PrisonerID);
 
+                        lstMPAllSkills.SelectedIndexChanged -= lstMPAllSkills_SelectedIndexChanged;
+                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills,thisPrisoner.PrisonerID);
+                        lstMPAllSkills.SelectedIndexChanged += lstMPAllSkills_SelectedIndexChanged;
                     }
                 }
                 else
