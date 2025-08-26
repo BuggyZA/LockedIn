@@ -1,22 +1,29 @@
 --File for the SQL stored procedures
 -- AddJob, UpdateJob and DeleteJob
 CREATE PROCEDURE dbo.AddJob
-    @employerID        INT NOT NULL,
-    @jobName           NVARCHAR(55),
-    @jobDescription    NVARCHAR(55),
-    @jobLocation       NVARCHAR(55),
-    @startDate         DATETIME,
-    @endDate           DATETIME,
-    @prisonersNeeded   INT,
-    @completed         BIT,
-    @durationPerDay    TIME(0)
+    @employerID INT,
+    @jobName NVARCHAR(55),
+    @jobDescription NVARCHAR(55),
+    @jobLocation NVARCHAR(55),
+    @startDate DATETIME,
+    @endDate DATETIME,
+    @prisonersNeeded INT,
+    @completed BIT,
+    @durationPerDay TIME(0)
 AS
 BEGIN
+    IF @employerID IS NULL
+    BEGIN
+        RAISERROR('EmployerID cannot be NULL', 16, 1);
+        RETURN;
+    END
+
     INSERT INTO JOB (EmployerID, JobName, JobDescription, JobLocation, StartDate, EndDate,
                      PrisonersNeeded, Completed, DurationPerDay)
     VALUES (@employerID, @jobName, @jobDescription, @jobLocation, @startDate, @endDate,
             @prisonersNeeded, @completed, @durationPerDay);
 END
+GO
 
 --Update Job
 
@@ -45,6 +52,7 @@ BEGIN
         DurationPerDay  = @durationPerDay
     WHERE JobID = @jobID;
 END
+GO
 
 --Delete job
 
@@ -55,3 +63,5 @@ BEGIN
     DELETE FROM JOB
     WHERE JobID = @jobID;
 END
+GO
+
