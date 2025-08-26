@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DatabaseConfig.cs" />
+    <Compile Include="Data\JobManager.cs" />
     <Compile Include="Data\PrisonerManager.cs" />
     <Compile Include="Data\JobSkillManager.cs" />
     <Compile Include="Data\PrisonerSkillManager.cs" />
@@ -99,6 +100,8 @@
     </Compile>
     <Compile Include="Helpers\ComboboxHelper.cs" />
     <Compile Include="Helpers\ListboxHelper.cs" />
+    <Compile Include="Models\Employer.cs" />
+    <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Prisoner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
