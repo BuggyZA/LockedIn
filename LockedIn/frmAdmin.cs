@@ -62,6 +62,12 @@ namespace LockedIn
             {
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
+            else if (tcPrisoner.SelectedIndex == 7)
+            {
+                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerName);
+                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+            }
             //Maintain Prisoner Page
             else if (tcPrisoner.SelectedIndex == 8)
             {
@@ -78,7 +84,7 @@ namespace LockedIn
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
-            else if(tcPrisoner.SelectedIndex == 5)
+            else if (tcPrisoner.SelectedIndex == 5)
             {
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
 
@@ -782,7 +788,11 @@ namespace LockedIn
 
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
-
+            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+            isPopulating = false;
         }
 
         private void btnASJAdd_Click(object sender, EventArgs e)
@@ -916,6 +926,76 @@ namespace LockedIn
                 pnlPInfo.Enabled = true;
                 pnlModifyPPassword.Enabled = true;
                 pnlMPSkills.Enabled = true;
+            }
+        }
+
+        private void cmbPrisonerName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+                        
+            prsnrID = ComboBoxHelper.GetSelectedID(cmbPrisonerName);
+            thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+            isPopulating = false;
+            
+        }
+
+        private void btnASPRemove_Click(object sender, EventArgs e)
+        {
+            PrisonerSkillManager.RemovePrisonerSkill(prsnrID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            isPopulating = false;
+        }
+
+        private void lstASPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            skillID = ListboxHelper.GetSelectedSkillID(lstASPAllSkills);
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Skills of Prisoner saved!");
+
+            cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+            cmbPrisonerName.SelectedIndex = -1;
+            cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
+
+            lstASPAllSkills.DataSource = null;
+            lstASPAllSkills.Items.Clear();
+            lstASPCurrentSkills.DataSource = null;
+            lstASPCurrentSkills.Items.Clear();
+
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+                cmbPrisonerName.SelectedIndex = -1;
+                cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
+
+                lstASPAllSkills.DataSource = null;
+                lstASPAllSkills.Items.Clear();
+                lstASPCurrentSkills.DataSource = null;
+                lstASPCurrentSkills.Items.Clear();
+
+                frmLogIn loginForm = new frmLogIn();
+                this.Close();
+                loginForm.ShowDialog();
+            }
+            else
+            {
+
             }
         }
     }

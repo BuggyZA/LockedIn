@@ -243,10 +243,6 @@
             this.tpPrisoner = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
-            this.pnlMPChoices = new System.Windows.Forms.Panel();
-            this.btnEditP = new System.Windows.Forms.Button();
-            this.btnDeleteP = new System.Windows.Forms.Button();
-            this.btnAddP = new System.Windows.Forms.Button();
             this.pnlModifyPPassword = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
@@ -258,6 +254,10 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.pnlMPSkills = new System.Windows.Forms.Panel();
+            this.pnlMPChoices = new System.Windows.Forms.Panel();
+            this.btnEditP = new System.Windows.Forms.Button();
+            this.btnDeleteP = new System.Windows.Forms.Button();
+            this.btnAddP = new System.Windows.Forms.Button();
             this.btnMPRemove = new System.Windows.Forms.Button();
             this.btnMPAdd = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
@@ -375,9 +375,9 @@
             this.tpPrisoner.SuspendLayout();
             this.panel57.SuspendLayout();
             this.panel52.SuspendLayout();
-            this.pnlMPChoices.SuspendLayout();
             this.pnlModifyPPassword.SuspendLayout();
             this.pnlMPSkills.SuspendLayout();
+            this.pnlMPChoices.SuspendLayout();
             this.pnlPInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel56.SuspendLayout();
@@ -2668,10 +2668,10 @@
             this.panel58.Controls.Add(this.label80);
             this.panel58.Controls.Add(this.lstASPAllSkills);
             this.panel58.Controls.Add(this.lstASPCurrentSkills);
-            this.panel58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel58.ForeColor = System.Drawing.Color.Black;
             this.panel58.Location = new System.Drawing.Point(303, 121);
             this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(650, 447);
+            this.panel58.Size = new System.Drawing.Size(650, 415);
             this.panel58.TabIndex = 26;
             // 
             // btnASPRemove
@@ -2679,23 +2679,24 @@
             this.btnASPRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnASPRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnASPRemove.ForeColor = System.Drawing.Color.White;
-            this.btnASPRemove.Location = new System.Drawing.Point(252, 226);
+            this.btnASPRemove.Location = new System.Drawing.Point(260, 226);
             this.btnASPRemove.Name = "btnASPRemove";
             this.btnASPRemove.Size = new System.Drawing.Size(120, 33);
             this.btnASPRemove.TabIndex = 33;
-            this.btnASPRemove.Text = "Remove  >";
+            this.btnASPRemove.Text = "<  Remove";
             this.btnASPRemove.UseVisualStyleBackColor = false;
+            this.btnASPRemove.Click += new System.EventHandler(this.btnASPRemove_Click);
             // 
             // btnASPAdd
             // 
             this.btnASPAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnASPAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnASPAdd.ForeColor = System.Drawing.Color.White;
-            this.btnASPAdd.Location = new System.Drawing.Point(252, 175);
+            this.btnASPAdd.Location = new System.Drawing.Point(260, 175);
             this.btnASPAdd.Name = "btnASPAdd";
             this.btnASPAdd.Size = new System.Drawing.Size(120, 33);
             this.btnASPAdd.TabIndex = 32;
-            this.btnASPAdd.Text = "<  Add";
+            this.btnASPAdd.Text = "Add  >";
             this.btnASPAdd.UseVisualStyleBackColor = false;
             this.btnASPAdd.Click += new System.EventHandler(this.btnASPAdd_Click);
             // 
@@ -2703,7 +2704,7 @@
             // 
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.Location = new System.Drawing.Point(406, 70);
+            this.label72.Location = new System.Drawing.Point(13, 58);
             this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(68, 23);
@@ -2714,7 +2715,7 @@
             // 
             this.label79.AutoSize = true;
             this.label79.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label79.Location = new System.Drawing.Point(19, 65);
+            this.label79.Location = new System.Drawing.Point(410, 53);
             this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(172, 23);
@@ -2734,18 +2735,23 @@
             // 
             // lstASPAllSkills
             // 
+            this.lstASPAllSkills.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
             this.lstASPAllSkills.FormattingEnabled = true;
-            this.lstASPAllSkills.Location = new System.Drawing.Point(410, 96);
+            this.lstASPAllSkills.ItemHeight = 23;
+            this.lstASPAllSkills.Location = new System.Drawing.Point(17, 84);
             this.lstASPAllSkills.Name = "lstASPAllSkills";
-            this.lstASPAllSkills.Size = new System.Drawing.Size(216, 290);
+            this.lstASPAllSkills.Size = new System.Drawing.Size(216, 280);
             this.lstASPAllSkills.TabIndex = 1;
+            this.lstASPAllSkills.SelectedIndexChanged += new System.EventHandler(this.lstASPAllSkills_SelectedIndexChanged);
             // 
             // lstASPCurrentSkills
             // 
+            this.lstASPCurrentSkills.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
             this.lstASPCurrentSkills.FormattingEnabled = true;
-            this.lstASPCurrentSkills.Location = new System.Drawing.Point(19, 96);
+            this.lstASPCurrentSkills.ItemHeight = 23;
+            this.lstASPCurrentSkills.Location = new System.Drawing.Point(410, 84);
             this.lstASPCurrentSkills.Name = "lstASPCurrentSkills";
-            this.lstASPCurrentSkills.Size = new System.Drawing.Size(216, 290);
+            this.lstASPCurrentSkills.Size = new System.Drawing.Size(216, 280);
             this.lstASPCurrentSkills.TabIndex = 0;
             // 
             // panel51
@@ -2771,6 +2777,7 @@
             this.cmbPrisonerName.Name = "cmbPrisonerName";
             this.cmbPrisonerName.Size = new System.Drawing.Size(220, 24);
             this.cmbPrisonerName.TabIndex = 13;
+            this.cmbPrisonerName.SelectedIndexChanged += new System.EventHandler(this.cmbPrisonerName_SelectedIndexChanged);
             // 
             // label61
             // 
@@ -2779,9 +2786,9 @@
             this.label61.Location = new System.Drawing.Point(22, 44);
             this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(105, 23);
+            this.label61.Size = new System.Drawing.Size(85, 23);
             this.label61.TabIndex = 6;
-            this.label61.Text = "Prisoner Name:";
+            this.label61.Text = "Prisoner No:";
             // 
             // label62
             // 
@@ -2805,6 +2812,7 @@
             this.button40.TabIndex = 15;
             this.button40.Text = "Save";
             this.button40.UseVisualStyleBackColor = false;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
             // button41
             // 
@@ -2817,6 +2825,7 @@
             this.button41.TabIndex = 11;
             this.button41.Text = "Back";
             this.button41.UseVisualStyleBackColor = false;
+            this.button41.Click += new System.EventHandler(this.button41_Click);
             // 
             // tpPrisoner
             // 
@@ -2856,58 +2865,6 @@
             this.panel52.Name = "panel52";
             this.panel52.Size = new System.Drawing.Size(1238, 594);
             this.panel52.TabIndex = 15;
-            // 
-            // pnlMPChoices
-            // 
-            this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlMPChoices.Controls.Add(this.btnEditP);
-            this.pnlMPChoices.Controls.Add(this.btnDeleteP);
-            this.pnlMPChoices.Controls.Add(this.btnAddP);
-            this.pnlMPChoices.Location = new System.Drawing.Point(504, 44);
-            this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlMPChoices.Name = "pnlMPChoices";
-            this.pnlMPChoices.Size = new System.Drawing.Size(344, 538);
-            this.pnlMPChoices.TabIndex = 31;
-            this.pnlMPChoices.VisibleChanged += new System.EventHandler(this.pnlMPChoices_VisibleChanged);
-            // 
-            // btnEditP
-            // 
-            this.btnEditP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEditP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnEditP.ForeColor = System.Drawing.Color.White;
-            this.btnEditP.Location = new System.Drawing.Point(44, 228);
-            this.btnEditP.Name = "btnEditP";
-            this.btnEditP.Size = new System.Drawing.Size(269, 108);
-            this.btnEditP.TabIndex = 7;
-            this.btnEditP.Text = "Edit Existing Prisoner";
-            this.btnEditP.UseVisualStyleBackColor = false;
-            this.btnEditP.Click += new System.EventHandler(this.button46_Click);
-            // 
-            // btnDeleteP
-            // 
-            this.btnDeleteP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnDeleteP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnDeleteP.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteP.Location = new System.Drawing.Point(44, 390);
-            this.btnDeleteP.Name = "btnDeleteP";
-            this.btnDeleteP.Size = new System.Drawing.Size(269, 108);
-            this.btnDeleteP.TabIndex = 5;
-            this.btnDeleteP.Text = "Delete Existing Prisoner";
-            this.btnDeleteP.UseVisualStyleBackColor = false;
-            this.btnDeleteP.Click += new System.EventHandler(this.button47_Click);
-            // 
-            // btnAddP
-            // 
-            this.btnAddP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnAddP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnAddP.ForeColor = System.Drawing.Color.White;
-            this.btnAddP.Location = new System.Drawing.Point(44, 42);
-            this.btnAddP.Name = "btnAddP";
-            this.btnAddP.Size = new System.Drawing.Size(269, 108);
-            this.btnAddP.TabIndex = 7;
-            this.btnAddP.Text = "Add New Prisoner";
-            this.btnAddP.UseVisualStyleBackColor = false;
-            this.btnAddP.Click += new System.EventHandler(this.button53_Click);
             // 
             // pnlModifyPPassword
             // 
@@ -3029,6 +2986,58 @@
             this.pnlMPSkills.Size = new System.Drawing.Size(650, 379);
             this.pnlMPSkills.TabIndex = 33;
             this.pnlMPSkills.Visible = false;
+            // 
+            // pnlMPChoices
+            // 
+            this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlMPChoices.Controls.Add(this.btnEditP);
+            this.pnlMPChoices.Controls.Add(this.btnDeleteP);
+            this.pnlMPChoices.Controls.Add(this.btnAddP);
+            this.pnlMPChoices.Location = new System.Drawing.Point(509, 69);
+            this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMPChoices.Name = "pnlMPChoices";
+            this.pnlMPChoices.Size = new System.Drawing.Size(344, 538);
+            this.pnlMPChoices.TabIndex = 31;
+            this.pnlMPChoices.VisibleChanged += new System.EventHandler(this.pnlMPChoices_VisibleChanged);
+            // 
+            // btnEditP
+            // 
+            this.btnEditP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEditP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnEditP.ForeColor = System.Drawing.Color.White;
+            this.btnEditP.Location = new System.Drawing.Point(44, 228);
+            this.btnEditP.Name = "btnEditP";
+            this.btnEditP.Size = new System.Drawing.Size(269, 108);
+            this.btnEditP.TabIndex = 7;
+            this.btnEditP.Text = "Edit Existing Prisoner";
+            this.btnEditP.UseVisualStyleBackColor = false;
+            this.btnEditP.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // btnDeleteP
+            // 
+            this.btnDeleteP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnDeleteP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnDeleteP.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteP.Location = new System.Drawing.Point(44, 390);
+            this.btnDeleteP.Name = "btnDeleteP";
+            this.btnDeleteP.Size = new System.Drawing.Size(269, 108);
+            this.btnDeleteP.TabIndex = 5;
+            this.btnDeleteP.Text = "Delete Existing Prisoner";
+            this.btnDeleteP.UseVisualStyleBackColor = false;
+            this.btnDeleteP.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // btnAddP
+            // 
+            this.btnAddP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAddP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnAddP.ForeColor = System.Drawing.Color.White;
+            this.btnAddP.Location = new System.Drawing.Point(44, 42);
+            this.btnAddP.Name = "btnAddP";
+            this.btnAddP.Size = new System.Drawing.Size(269, 108);
+            this.btnAddP.TabIndex = 7;
+            this.btnAddP.Text = "Add New Prisoner";
+            this.btnAddP.UseVisualStyleBackColor = false;
+            this.btnAddP.Click += new System.EventHandler(this.button53_Click);
             // 
             // btnMPRemove
             // 
@@ -3689,11 +3698,11 @@
             this.panel57.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
-            this.pnlMPChoices.ResumeLayout(false);
             this.pnlModifyPPassword.ResumeLayout(false);
             this.pnlModifyPPassword.PerformLayout();
             this.pnlMPSkills.ResumeLayout(false);
             this.pnlMPSkills.PerformLayout();
+            this.pnlMPChoices.ResumeLayout(false);
             this.pnlPInfo.ResumeLayout(false);
             this.pnlPInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
