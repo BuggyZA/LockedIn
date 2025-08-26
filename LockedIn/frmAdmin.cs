@@ -17,7 +17,9 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
-        string password = "";
+        Prisoner thisPrisoner = null;
+
+        string Ppassword = "";
         bool isAddingPrisoner = false;
         bool isDeletingPrisoner = false;
         bool isupdatingPrisoner = false;
@@ -60,6 +62,12 @@ namespace LockedIn
             {
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
+            else if (tcPrisoner.SelectedIndex == 7)
+            {
+                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerName);
+                cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
+            }
             //Maintain Prisoner Page
             else if (tcPrisoner.SelectedIndex == 8)
             {
@@ -76,7 +84,7 @@ namespace LockedIn
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
-            else if(tcPrisoner.SelectedIndex == 5)
+            else if (tcPrisoner.SelectedIndex == 5)
             {
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
 
@@ -108,7 +116,8 @@ namespace LockedIn
                 ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
                 isPopulating = false;
 
-                Prisoner thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+                thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+                Ppassword = thisPrisoner.Password;
                 txtPNo.Text = thisPrisoner.PrisonerNum;
                 txtFirstName.Text = thisPrisoner.FirstName;
                 txtLastName.Text = thisPrisoner.LastName;
@@ -130,10 +139,10 @@ namespace LockedIn
 
         private void btnMPAdd_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(prsnrID, skillID);
+            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
             isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
             isPopulating = false;
         }
 
@@ -207,20 +216,26 @@ namespace LockedIn
         {
             if (isAddingPrisoner && pnlMPSkills.Enabled ==  false)
             {
-                Prisoner thisPrisoner = new Prisoner();
+                thisPrisoner = new Prisoner();
 
                 thisPrisoner.PrisonerNum = Prisoner.GeneratePrisonerNum();
                 thisPrisoner.LastName = txtLastName.Text.Trim();
                 thisPrisoner.FirstName = txtFirstName.Text.Trim();
                 thisPrisoner.SA_ID = txtID.Text.Trim();
-                thisPrisoner.Password = password;
+                thisPrisoner.Password = Ppassword;
                 thisPrisoner.ClearedToWork = ckbCleared.Checked;
 
                 if (thisPrisoner.ValidateNewPrisoner())
                 {
-                    prsnrID =  PrisonerManager.AddPrisoner(thisPrisoner);
-                    MessageBox.Show(prsnrID.ToString());
-                    MessageBox.Show("Prisoner "+thisPrisoner.PrisonerNum+" added successfully! Now you can manage their skills.");
+                    thisPrisoner.PrisonerID =  PrisonerManager.AddPrisoner(thisPrisoner);
+                    if (thisPrisoner.PrisonerID > 0)
+                    {
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
+
+                        lstMPAllSkills.SelectedIndexChanged -= lstMPAllSkills_SelectedIndexChanged;
+                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills,thisPrisoner.PrisonerID);
+                        lstMPAllSkills.SelectedIndexChanged += lstMPAllSkills_SelectedIndexChanged;
+                    }
                 }
                 else
                 {
@@ -230,15 +245,76 @@ namespace LockedIn
                 pnlMPSkills.Enabled = true;
                 return;
             }
+            else if (isupdatingPrisoner)
+            {
+                thisPrisoner.LastName = txtLastName.Text.Trim();
+                thisPrisoner.FirstName = txtFirstName.Text.Trim();
+                thisPrisoner.SA_ID = txtID.Text.Trim();
+                thisPrisoner.Password = Ppassword;
+                thisPrisoner.ClearedToWork = ckbCleared.Checked;
+
+                if (thisPrisoner.ValidateNewPrisoner())
+                {
+                    bool pUpdated = PrisonerManager.UpdatePrisoner(thisPrisoner);
+                    if (pUpdated)
+                    {
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " updated successfully!");
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else if (isDeletingPrisoner)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?","Confirm Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // User clicked Yes - proceed with deletion
+                    if(PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
+                    {
+                        MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " deleted successfully.");
+                        pnlPInfo.Enabled = true;
+                        pnlModifyPPassword.Enabled = true;
+                        pnlMPSkills.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deletion could not proceed. Try again");
+                    }
+                }
+                else
+                {
+                    // User clicked No - cancel deletion
+                    MessageBox.Show("Delete cancelled.");
+                }
+            }
+
+            if(isAddingPrisoner)
+            {
+                MessageBox.Show("Prisoner data saved!!");
+            }
+
+            lstASJAllSkills.DataSource=null;
+            lstASJAllSkills.Items.Clear();
+            lstMPCurrentSkills.DataSource = null;
+            lstMPCurrentSkills.Items.Clear();
+
             pnlPInfo.Visible = false;
             pnlMPSkills.Visible = false;
             cmbMPPrisonerNo.Visible = false;
             pnlMPChoices.Visible = true;
 
+            cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+            ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+            cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+
             isAddingPrisoner = false;
             isDeletingPrisoner = false;
             isupdatingPrisoner = false;
-            password = "";
+            Ppassword = "";
 
         }
 
@@ -261,13 +337,41 @@ namespace LockedIn
                     }
 
                     MessageBox.Show("Saving new password");
-                    password = txtNewPassword.Text;
+                    Ppassword = txtNewPassword.Text;
                 }
                 else
                 {
-                    MessageBox.Show("Please enter your password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the same password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+            }
+            else if(isupdatingPrisoner)
+            {
+                if (txtCurrentPassword.Text.Trim() == thisPrisoner.Password)
+                {
+                    if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
+                    {
+                        if (txtNewPassword.Text.Trim().Length < 6)
+                        {
+                            MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        MessageBox.Show("Saving new password");
+                        Ppassword = txtNewPassword.Text;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wrong password. Password Change denied", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                
             }
 
             pnlModifyPPassword.Visible = false;
@@ -646,7 +750,7 @@ namespace LockedIn
 
         private void btnAssignSkillToPris_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 4;
+            tcPrisoner.SelectedIndex = 7;
         }
 
         private void btnAssignSkillToJob_Click(object sender, EventArgs e)
@@ -666,7 +770,8 @@ namespace LockedIn
 
         private void btnReqReports_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 9;
+            frmReports ReportForm = new frmReports();
+            ReportForm.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -675,7 +780,34 @@ namespace LockedIn
             pnlPInfo.Visible = true;
         }
 
-        private void btnMPBack_Click(object sender, EventArgs e) { }
+        private void btnMPBack_Click(object sender, EventArgs e) 
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                txtPNo.Clear();
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtID.Clear();
+                ckbCleared.Checked = false;
+                lstMPCurrentSkills.ClearSelected();
+                lstMPAllSkills.ClearSelected();
+
+                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+                cmbMPPrisonerNo.SelectedIndex = -1;
+                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+                pnlPInfo.Enabled = true;
+                pnlModifyPPassword.Enabled = true;
+                pnlMPSkills.Enabled = true;
+
+                frmLogIn myLoginform = new frmLogIn();
+                this.Close();
+                myLoginform.ShowDialog();
+            }
+
+            
+        }
         private void frmAdmin_Load(object sender, EventArgs e)
         {
 
@@ -683,7 +815,11 @@ namespace LockedIn
 
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
-
+            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+            isPopulating = false;
         }
 
         private void btnASJAdd_Click(object sender, EventArgs e)
@@ -844,6 +980,104 @@ namespace LockedIn
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
 
+        }
+        private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlMPChoices.Visible == true)
+            {
+                txtPNo.Clear();
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtID.Clear();
+                ckbCleared.Checked =false;
+                lstMPCurrentSkills.ClearSelected();
+                lstMPAllSkills.ClearSelected();
+                txtCurrentPassword.Clear();
+                txtNewPassword.Clear();
+                txtConfirmPassword.Clear();
+
+                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+                cmbMPPrisonerNo.SelectedIndex = -1;
+                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+                pnlPInfo.Enabled = true;
+                pnlModifyPPassword.Enabled = true;
+                pnlMPSkills.Enabled = true;
+            }
+        }
+
+        private void cmbPrisonerName_SelectedIndexChanged(object sender, EventArgs e)
+        {                        
+            prsnrID = ComboBoxHelper.GetSelectedID(cmbPrisonerName);
+            thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
+
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+            isPopulating = false;
+            
+        }
+
+        private void btnASPRemove_Click(object sender, EventArgs e)
+        {
+            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
+            isPopulating = true;
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+            isPopulating = false;
+        }
+
+        private void lstASPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            skillID = ListboxHelper.GetSelectedSkillID(lstASPAllSkills);
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Skills of Prisoner saved!");
+
+            cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+            cmbPrisonerName.SelectedIndex = -1;
+            cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
+
+            lstASPAllSkills.DataSource = null;
+            lstASPAllSkills.Items.Clear();
+            lstASPCurrentSkills.DataSource = null;
+            lstASPCurrentSkills.Items.Clear();
+
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+                cmbPrisonerName.SelectedIndex = -1;
+                cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
+
+                lstASPAllSkills.DataSource = null;
+                lstASPAllSkills.Items.Clear();
+                lstASPCurrentSkills.DataSource = null;
+                lstASPCurrentSkills.Items.Clear();
+
+                frmLogIn loginForm = new frmLogIn();
+                this.Close();
+                loginForm.ShowDialog();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void lstASPCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            skillID = ListboxHelper.GetSelectedSkillID(lstASPCurrentSkills);
         }
     }
 }

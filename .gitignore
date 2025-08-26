@@ -1,0 +1,8 @@
+*.cache
+*.db-shm
+*.db-wal
+*.vsidx
+*.vsidx
+*.suo
+*.json
+*.db

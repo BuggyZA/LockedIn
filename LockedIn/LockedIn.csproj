@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DatabaseConfig.cs" />
+    <Compile Include="Data\JobManager.cs" />
     <Compile Include="Data\PrisonerManager.cs" />
     <Compile Include="Data\JobSkillManager.cs" />
     <Compile Include="Data\PrisonerSkillManager.cs" />
@@ -79,20 +80,28 @@
     <Compile Include="frmEmployer.Designer.cs">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrisoner.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPrisoner.Designer.cs">
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ComboboxHelper.cs" />
-    <Compile Include="Helpers\ListboxHelper.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="frmReports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ComboboxHelper.cs" />
+    <Compile Include="Helpers\ListboxHelper.cs" />
+    <Compile Include="Models\Employer.cs" />
+    <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Prisoner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,11 +111,14 @@
     <EmbeddedResource Include="frmEmployer.resx">
       <DependentUpon>frmEmployer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrisoner.resx">
       <DependentUpon>frmPrisoner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,11 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LockedInDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LockedInDB_log.ldf">
       <DependentUpon>LockedInDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Pictures\back-arrow.png" />
     <Content Include="Pictures\profile-user.png" />
