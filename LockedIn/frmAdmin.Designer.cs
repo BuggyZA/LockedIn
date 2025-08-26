@@ -2753,6 +2753,7 @@
             this.lstASPCurrentSkills.Name = "lstASPCurrentSkills";
             this.lstASPCurrentSkills.Size = new System.Drawing.Size(216, 280);
             this.lstASPCurrentSkills.TabIndex = 0;
+            this.lstASPCurrentSkills.SelectedIndexChanged += new System.EventHandler(this.lstASPCurrentSkills_SelectedIndexChanged);
             // 
             // panel51
             // 

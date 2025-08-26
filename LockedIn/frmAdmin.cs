@@ -66,7 +66,7 @@ namespace LockedIn
             {
                 cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerName);
-                cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
+                cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
             }
             //Maintain Prisoner Page
             else if (tcPrisoner.SelectedIndex == 8)
@@ -750,7 +750,7 @@ namespace LockedIn
 
         private void btnAssignSkillToPris_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 4;
+            tcPrisoner.SelectedIndex = 7;
         }
 
         private void btnAssignSkillToJob_Click(object sender, EventArgs e)
@@ -960,9 +960,7 @@ namespace LockedIn
         }
 
         private void cmbPrisonerName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isPopulating) return;
-                        
+        {                        
             prsnrID = ComboBoxHelper.GetSelectedID(cmbPrisonerName);
             thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
 
@@ -975,10 +973,10 @@ namespace LockedIn
 
         private void btnASPRemove_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(prsnrID, skillID);
+            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
             isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
             isPopulating = false;
         }
 
@@ -1027,6 +1025,13 @@ namespace LockedIn
             {
 
             }
+        }
+
+        private void lstASPCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating) return;
+
+            skillID = ListboxHelper.GetSelectedSkillID(lstASPCurrentSkills);
         }
     }
 }
