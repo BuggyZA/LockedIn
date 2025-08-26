@@ -125,6 +125,10 @@
             this.label33 = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
             this.panel41 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -149,20 +153,6 @@
             this.rtbJobLocation = new System.Windows.Forms.RichTextBox();
             this.rtbJobDescription = new System.Windows.Forms.RichTextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.button32 = new System.Windows.Forms.Button();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.cmbEmpName = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.tpGuards = new System.Windows.Forms.TabPage();
@@ -308,6 +298,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.tcPrisoner.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -340,13 +331,11 @@
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
+            this.panel38.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel39.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
             this.panel40.SuspendLayout();
-            this.panel38.SuspendLayout();
-            this.panel36.SuspendLayout();
-            this.panel37.SuspendLayout();
             this.tpGuards.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -1531,7 +1520,6 @@
             this.panel35.Controls.Add(this.panel41);
             this.panel35.Controls.Add(this.panel39);
             this.panel35.Controls.Add(this.panel40);
-            this.panel35.Controls.Add(this.panel37);
             this.panel35.Controls.Add(this.button28);
             this.panel35.Controls.Add(this.button27);
             this.panel35.Location = new System.Drawing.Point(12, 22);
@@ -1539,6 +1527,59 @@
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(1651, 722);
             this.panel35.TabIndex = 0;
+            // 
+            // panel38
+            // 
+            this.panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel38.Controls.Add(this.button30);
+            this.panel38.Controls.Add(this.button31);
+            this.panel38.Controls.Add(this.button32);
+            this.panel38.Location = new System.Drawing.Point(1197, 20);
+            this.panel38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(691, 662);
+            this.panel38.TabIndex = 9;
+            // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button30.ForeColor = System.Drawing.Color.White;
+            this.button30.Location = new System.Drawing.Point(59, 281);
+            this.button30.Margin = new System.Windows.Forms.Padding(4);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(359, 133);
+            this.button30.TabIndex = 7;
+            this.button30.Text = "Edit Existing Job";
+            this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button31.ForeColor = System.Drawing.Color.White;
+            this.button31.Location = new System.Drawing.Point(59, 480);
+            this.button31.Margin = new System.Windows.Forms.Padding(4);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(359, 133);
+            this.button31.TabIndex = 5;
+            this.button31.Text = "Delete Existing Job";
+            this.button31.UseVisualStyleBackColor = false;
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button32.ForeColor = System.Drawing.Color.White;
+            this.button32.Location = new System.Drawing.Point(59, 52);
+            this.button32.Margin = new System.Windows.Forms.Padding(4);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(359, 133);
+            this.button32.TabIndex = 7;
+            this.button32.Text = "Add New Job";
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // panel41
             // 
@@ -1638,7 +1679,6 @@
             this.panel39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel39.Controls.Add(this.cbJobCompleted);
             this.panel39.Controls.Add(this.label40);
-            this.panel39.Controls.Add(this.panel36);
             this.panel39.Controls.Add(this.calEndDate);
             this.panel39.Controls.Add(this.nudDuration);
             this.panel39.Controls.Add(this.label35);
@@ -1720,6 +1760,7 @@
             // panel40
             // 
             this.panel40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel40.Controls.Add(this.comboBox6);
             this.panel40.Controls.Add(this.txtMJJobName);
             this.panel40.Controls.Add(this.label44);
             this.panel40.Controls.Add(this.label39);
@@ -1727,10 +1768,10 @@
             this.panel40.Controls.Add(this.rtbJobLocation);
             this.panel40.Controls.Add(this.rtbJobDescription);
             this.panel40.Controls.Add(this.label43);
-            this.panel40.Location = new System.Drawing.Point(187, 185);
+            this.panel40.Location = new System.Drawing.Point(187, 20);
             this.panel40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(487, 473);
+            this.panel40.Size = new System.Drawing.Size(487, 638);
             this.panel40.TabIndex = 18;
             // 
             // txtMJJobName
@@ -1799,173 +1840,6 @@
             this.label43.Size = new System.Drawing.Size(118, 33);
             this.label43.TabIndex = 9;
             this.label43.Text = "Job Details:";
-            // 
-            // panel38
-            // 
-            this.panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel38.Controls.Add(this.button30);
-            this.panel38.Controls.Add(this.button31);
-            this.panel38.Controls.Add(this.button32);
-            this.panel38.Location = new System.Drawing.Point(1209, 20);
-            this.panel38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(691, 662);
-            this.panel38.TabIndex = 9;
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button30.ForeColor = System.Drawing.Color.White;
-            this.button30.Location = new System.Drawing.Point(59, 281);
-            this.button30.Margin = new System.Windows.Forms.Padding(4);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(359, 133);
-            this.button30.TabIndex = 7;
-            this.button30.Text = "Edit Existing Job";
-            this.button30.UseVisualStyleBackColor = false;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
-            // 
-            // button31
-            // 
-            this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button31.ForeColor = System.Drawing.Color.White;
-            this.button31.Location = new System.Drawing.Point(59, 480);
-            this.button31.Margin = new System.Windows.Forms.Padding(4);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(359, 133);
-            this.button31.TabIndex = 5;
-            this.button31.Text = "Delete Existing Job";
-            this.button31.UseVisualStyleBackColor = false;
-            // 
-            // panel36
-            // 
-            this.panel36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel36.Controls.Add(this.comboBox6);
-            this.panel36.Controls.Add(this.button33);
-            this.panel36.Controls.Add(this.button29);
-            this.panel36.Controls.Add(this.label36);
-            this.panel36.Controls.Add(this.label37);
-            this.panel36.Location = new System.Drawing.Point(29, 59);
-            this.panel36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(488, 192);
-            this.panel36.TabIndex = 10;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(149, 69);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(301, 33);
-            this.comboBox6.TabIndex = 14;
-            // 
-            // button33
-            // 
-            this.button33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button33.ForeColor = System.Drawing.Color.White;
-            this.button33.Location = new System.Drawing.Point(356, 124);
-            this.button33.Margin = new System.Windows.Forms.Padding(4);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(96, 41);
-            this.button33.TabIndex = 13;
-            this.button33.Text = "Back";
-            this.button33.UseVisualStyleBackColor = false;
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button29.ForeColor = System.Drawing.Color.White;
-            this.button29.Location = new System.Drawing.Point(29, 124);
-            this.button29.Margin = new System.Windows.Forms.Padding(4);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(307, 41);
-            this.button29.TabIndex = 12;
-            this.button29.Text = "Next";
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(4, 4);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(118, 33);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Job Details:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(25, 69);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(94, 29);
-            this.label37.TabIndex = 0;
-            this.label37.Text = "Job Name:";
-            // 
-            // button32
-            // 
-            this.button32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button32.ForeColor = System.Drawing.Color.White;
-            this.button32.Location = new System.Drawing.Point(59, 52);
-            this.button32.Margin = new System.Windows.Forms.Padding(4);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(359, 133);
-            this.button32.TabIndex = 7;
-            this.button32.Text = "Add New Job";
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
-            // 
-            // panel37
-            // 
-            this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel37.Controls.Add(this.cmbEmpName);
-            this.panel37.Controls.Add(this.label34);
-            this.panel37.Controls.Add(this.label38);
-            this.panel37.Location = new System.Drawing.Point(187, 20);
-            this.panel37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(487, 142);
-            this.panel37.TabIndex = 16;
-            // 
-            // cmbEmpName
-            // 
-            this.cmbEmpName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbEmpName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEmpName.FormattingEnabled = true;
-            this.cmbEmpName.Location = new System.Drawing.Point(173, 62);
-            this.cmbEmpName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbEmpName.Name = "cmbEmpName";
-            this.cmbEmpName.Size = new System.Drawing.Size(292, 28);
-            this.cmbEmpName.TabIndex = 4;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(4, 4);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(169, 33);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Employer Details:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(23, 62);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(142, 29);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Employer Name:";
             // 
             // button28
             // 
@@ -3656,6 +3530,16 @@
             this.btnPrisonerRecord.Text = "Record of Prisoner per Time Period";
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
             // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(128, 79);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(307, 33);
+            this.comboBox6.TabIndex = 14;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3714,6 +3598,7 @@
             this.panel33.PerformLayout();
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
+            this.panel38.ResumeLayout(false);
             this.panel41.ResumeLayout(false);
             this.panel41.PerformLayout();
             this.panel39.ResumeLayout(false);
@@ -3721,11 +3606,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
             this.panel40.ResumeLayout(false);
             this.panel40.PerformLayout();
-            this.panel38.ResumeLayout(false);
-            this.panel36.ResumeLayout(false);
-            this.panel36.PerformLayout();
-            this.panel37.ResumeLayout(false);
-            this.panel37.PerformLayout();
             this.tpGuards.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
@@ -3910,26 +3790,16 @@
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Panel panel36;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Button button33;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.MonthCalendar calEndDate;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.MonthCalendar calStartDate;
-        private System.Windows.Forms.ComboBox cmbEmpName;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.NumericUpDown nudDuration;
@@ -4074,5 +3944,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtEmpPass;
         private System.Windows.Forms.Label lblEmpPass;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }
