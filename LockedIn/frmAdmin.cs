@@ -654,7 +654,8 @@ namespace LockedIn
 
         private void btnReqReports_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 9;
+            frmReports ReportForm = new frmReports();
+            ReportForm.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

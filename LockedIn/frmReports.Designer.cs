@@ -112,10 +112,10 @@
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.panel29.Controls.Add(this.pnlDisplayPrisoners);
-            this.panel29.Controls.Add(this.pnlPrisonerDetails);
             this.panel29.Controls.Add(this.pnlDisplayJobs);
+            this.panel29.Controls.Add(this.pnlDisplayPrisoners);
             this.panel29.Controls.Add(this.pnlJobsCompleted);
+            this.panel29.Controls.Add(this.pnlPrisonerDetails);
             this.panel29.Controls.Add(this.button21);
             this.panel29.Controls.Add(this.pnlReports);
             this.panel29.Location = new System.Drawing.Point(14, 28);
@@ -130,7 +130,7 @@
             this.pnlDisplayPrisoners.Controls.Add(this.btnPrisonersReportBack);
             this.pnlDisplayPrisoners.Controls.Add(this.panel3);
             this.pnlDisplayPrisoners.Controls.Add(this.label3);
-            this.pnlDisplayPrisoners.Location = new System.Drawing.Point(275, 72);
+            this.pnlDisplayPrisoners.Location = new System.Drawing.Point(87, 207);
             this.pnlDisplayPrisoners.Name = "pnlDisplayPrisoners";
             this.pnlDisplayPrisoners.Size = new System.Drawing.Size(1458, 642);
             this.pnlDisplayPrisoners.TabIndex = 15;
@@ -166,6 +166,7 @@
             this.btnPrisonersReportBack.TabIndex = 17;
             this.btnPrisonersReportBack.Text = "Back";
             this.btnPrisonersReportBack.UseVisualStyleBackColor = false;
+            this.btnPrisonersReportBack.Click += new System.EventHandler(this.btnPrisonersReportBack_Click);
             // 
             // panel3
             // 
@@ -179,7 +180,7 @@
             // dbDisplayPrisoners
             // 
             this.dbDisplayPrisoners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbDisplayPrisoners.Location = new System.Drawing.Point(10, 9);
+            this.dbDisplayPrisoners.Location = new System.Drawing.Point(12, 9);
             this.dbDisplayPrisoners.Name = "dbDisplayPrisoners";
             this.dbDisplayPrisoners.RowHeadersWidth = 62;
             this.dbDisplayPrisoners.RowTemplate.Height = 28;
@@ -207,7 +208,7 @@
             this.pnlPrisonerDetails.Controls.Add(this.cmbRRPrisonerNum);
             this.pnlPrisonerDetails.Controls.Add(this.label31);
             this.pnlPrisonerDetails.Controls.Add(this.label32);
-            this.pnlPrisonerDetails.Location = new System.Drawing.Point(264, 164);
+            this.pnlPrisonerDetails.Location = new System.Drawing.Point(308, 202);
             this.pnlPrisonerDetails.Name = "pnlPrisonerDetails";
             this.pnlPrisonerDetails.Size = new System.Drawing.Size(1297, 443);
             this.pnlPrisonerDetails.TabIndex = 13;
@@ -256,6 +257,7 @@
             this.btnRRNext.TabIndex = 12;
             this.btnRRNext.Text = "Next";
             this.btnRRNext.UseVisualStyleBackColor = false;
+            this.btnRRNext.Click += new System.EventHandler(this.btnRRNext_Click);
             // 
             // cmbRRPrisonerNum
             // 
@@ -294,7 +296,7 @@
             this.pnlDisplayJobs.Controls.Add(this.btnReportBack);
             this.pnlDisplayJobs.Controls.Add(this.panel1);
             this.pnlDisplayJobs.Controls.Add(this.label1);
-            this.pnlDisplayJobs.Location = new System.Drawing.Point(386, 191);
+            this.pnlDisplayJobs.Location = new System.Drawing.Point(224, 191);
             this.pnlDisplayJobs.Name = "pnlDisplayJobs";
             this.pnlDisplayJobs.Size = new System.Drawing.Size(1096, 645);
             this.pnlDisplayJobs.TabIndex = 14;
@@ -311,6 +313,7 @@
             this.btnReportBack.TabIndex = 14;
             this.btnReportBack.Text = "Back";
             this.btnReportBack.UseVisualStyleBackColor = false;
+            this.btnReportBack.Click += new System.EventHandler(this.btnReportBack_Click);
             // 
             // panel1
             // 
@@ -350,7 +353,7 @@
             this.pnlJobsCompleted.Controls.Add(this.btnRRBack);
             this.pnlJobsCompleted.Controls.Add(this.label29);
             this.pnlJobsCompleted.Controls.Add(this.calRRStartDate);
-            this.pnlJobsCompleted.Location = new System.Drawing.Point(366, 254);
+            this.pnlJobsCompleted.Location = new System.Drawing.Point(241, 229);
             this.pnlJobsCompleted.Name = "pnlJobsCompleted";
             this.pnlJobsCompleted.Size = new System.Drawing.Size(1119, 334);
             this.pnlJobsCompleted.TabIndex = 12;
@@ -383,6 +386,7 @@
             this.btnGenerateReport.TabIndex = 14;
             this.btnGenerateReport.Text = "Generate report";
             this.btnGenerateReport.UseVisualStyleBackColor = false;
+            this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
             // 
             // btnRRBack
             // 
@@ -396,6 +400,7 @@
             this.btnRRBack.TabIndex = 13;
             this.btnRRBack.Text = "Back";
             this.btnRRBack.UseVisualStyleBackColor = false;
+            this.btnRRBack.Click += new System.EventHandler(this.btnRRBack_Click);
             // 
             // label29
             // 
@@ -459,6 +464,7 @@
             this.btnJobsCompleted.TabIndex = 7;
             this.btnJobsCompleted.Text = "Jobs Completed Per Time Period";
             this.btnJobsCompleted.UseVisualStyleBackColor = false;
+            this.btnJobsCompleted.Click += new System.EventHandler(this.btnJobsCompleted_Click);
             // 
             // btnPrisonerRecord
             // 
@@ -472,6 +478,7 @@
             this.btnPrisonerRecord.TabIndex = 5;
             this.btnPrisonerRecord.Text = "Record of Prisoner per Time Period";
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
+            this.btnPrisonerRecord.Click += new System.EventHandler(this.btnPrisonerRecord_Click);
             // 
             // frmReports
             // 
@@ -482,6 +489,7 @@
             this.Controls.Add(this.panel26);
             this.Name = "frmReports";
             this.Text = "frmReports";
+            this.Load += new System.EventHandler(this.frmReports_Load);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel28.ResumeLayout(false);
