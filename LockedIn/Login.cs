@@ -34,10 +34,21 @@ namespace LockedIn
     {
         private const String ADMINUSER = "admin", ADMINPASS = "admin";
         int SelectedUser = 0;
+        int PrisonerID, EmployerID;     //Variables of ID's to be used on other forms to fetch currently logged in ID
 
         public frmLogIn()
         {
             InitializeComponent();
+        }
+
+        public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
+        {
+            return PrisonerID;
+        }
+
+        public int getLogedInEmployerID()          //Used to return the currently logged in Employers ID
+        {
+            return EmployerID;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -232,17 +243,29 @@ namespace LockedIn
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
                     {
-                        MessageBox.Show("Login successful!");
-                        if(SelectedUser == 2)
+                        reader.Close();
+                        if (SelectedUser == 2)
                         {
+                            cmd = new SqlCommand("SELECT PrisonerID FROM PRISONER WHERE PrisonerNum = @prisonerNum", conn);
+                            cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
+                            PrisonerID = (int)cmd.ExecuteScalar();
+                            reader.Close();
+                            //PrisonerManager.LoadPrisoner(PrisonerID);                       //Loaded PrisonerID into PrisonerManager class
+                            
                             frmPrisoner prisonerForm = new frmPrisoner();
                             prisonerForm.Show();
                         }
-                        else if(SelectedUser == 3)
+                        else if (SelectedUser == 3)
                         {
+                            cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
+                            cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
+                            EmployerID = (int)cmd.ExecuteScalar();                           //EmployerID is ready to be parsed
+                            reader.Close();
+
                             frmEmployer employerForm = new frmEmployer();
                             employerForm.Show();
                         }
+                        MessageBox.Show("Login successful!");
                         this.Hide();
 
                     }

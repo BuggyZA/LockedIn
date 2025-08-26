@@ -99,9 +99,9 @@ namespace LockedIn
 
                         SqlDataAdapter adapter = new SqlDataAdapter(comm);
                         DataSet ds = new DataSet();
-                        adapter.Fill(ds, "SKILLS_OF_PRISONER");
+                        adapter.Fill(ds, "SKILL_OF_PRISONER");      //SKILLS_OF_PRISONER >> SKILL_OF_PRISONER
 
-                        ARJlsbCurrentSkills.DataSource = ds.Tables["SKILLS_OF_PRISONER"];
+                        ARJlsbCurrentSkills.DataSource = ds.Tables["SKILL_OF_PRISONER"];        //SKILLS_OF_PRISONER >> SKILL_OF_PRISONER
                         ARJlsbCurrentSkills.ValueMember = "SkillId";
                         ARJlsbCurrentSkills.DisplayMember = "SkillName";
                         
@@ -163,6 +163,11 @@ namespace LockedIn
         }
 
         private void ARJlsbCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ARJpbl1_Paint(object sender, PaintEventArgs e)
         {
 
         }
