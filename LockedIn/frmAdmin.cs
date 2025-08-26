@@ -17,7 +17,7 @@ namespace LockedIn
 {
     public partial class frmAdmin : Form
     {
-        Prisoner thisPrisoner;
+        Prisoner thisPrisoner = null;
 
         string Ppassword = "";
         bool isAddingPrisoner = false;
@@ -136,8 +136,8 @@ namespace LockedIn
         {
             PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
             isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
             isPopulating = false;
         }
 
@@ -211,7 +211,7 @@ namespace LockedIn
         {
             if (isAddingPrisoner && pnlMPSkills.Enabled ==  false)
             {
-                Prisoner thisPrisoner = new Prisoner();
+                thisPrisoner = new Prisoner();
 
                 thisPrisoner.PrisonerNum = Prisoner.GeneratePrisonerNum();
                 thisPrisoner.LastName = txtLastName.Text.Trim();
@@ -287,6 +287,16 @@ namespace LockedIn
                     MessageBox.Show("Delete cancelled.");
                 }
             }
+
+            if(isAddingPrisoner)
+            {
+                MessageBox.Show("Prisoner data saved!!");
+            }
+
+            lstASJAllSkills.DataSource=null;
+            lstASJAllSkills.Items.Clear();
+            lstMPCurrentSkills.DataSource = null;
+            lstMPCurrentSkills.Items.Clear();
 
             pnlPInfo.Visible = false;
             pnlMPSkills.Visible = false;
@@ -739,9 +749,31 @@ namespace LockedIn
 
         private void btnMPBack_Click(object sender, EventArgs e) 
         {
-            pnlPInfo.Enabled = true;
-            pnlModifyPPassword.Enabled = true;
-            pnlMPSkills.Enabled = true;
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                txtPNo.Clear();
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtID.Clear();
+                ckbCleared.Checked = false;
+                lstMPCurrentSkills.ClearSelected();
+                lstMPAllSkills.ClearSelected();
+
+                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+                cmbMPPrisonerNo.SelectedIndex = -1;
+                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+                pnlPInfo.Enabled = true;
+                pnlModifyPPassword.Enabled = true;
+                pnlMPSkills.Enabled = true;
+
+                frmLogIn myLoginform = new frmLogIn();
+                this.Close();
+                myLoginform.ShowDialog();
+            }
+
+            
         }
         private void frmAdmin_Load(object sender, EventArgs e)
         {

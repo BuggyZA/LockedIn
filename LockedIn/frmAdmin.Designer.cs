@@ -2863,7 +2863,7 @@
             this.pnlMPChoices.Controls.Add(this.btnEditP);
             this.pnlMPChoices.Controls.Add(this.btnDeleteP);
             this.pnlMPChoices.Controls.Add(this.btnAddP);
-            this.pnlMPChoices.Location = new System.Drawing.Point(504, 54);
+            this.pnlMPChoices.Location = new System.Drawing.Point(504, 44);
             this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMPChoices.Name = "pnlMPChoices";
             this.pnlMPChoices.Size = new System.Drawing.Size(344, 538);
