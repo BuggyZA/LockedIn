@@ -1196,7 +1196,7 @@ namespace LockedIn
             //Update employer password
             string empId = txtEmpID.Text;
             string newPass = txtEmpNew.Text;
-            string confirmPass = txtEmpLName.Text;
+            string confirmPass = txtEmpConfirm.Text;
 
             if(newPass != confirmPass)
             {
