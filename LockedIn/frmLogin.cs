@@ -13,12 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /* To Do List:
- * Exception handeling
+ * 
  * Change to real time input validation for signup
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
  * Prisoner.cs has validation method, use or not?
- * 
+ * Use password hasher
  * 
  * 
  * 
@@ -39,6 +39,16 @@ namespace LockedIn
         public frmLogIn()
         {
             InitializeComponent();
+        }
+
+        public void logOut()        //Call this method when loging out of user to reset
+        {
+            PrisonerID = -1;
+            EmployerID = -1;
+            SelectedUser = 0;
+            pnlAPESelect.Visible= true;
+            pnlLogIn.Visible = false;
+            pnlSignUp.Visible = false;
         }
 
         public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
@@ -145,160 +155,169 @@ namespace LockedIn
 
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
-            if (txtSUFirstName.Text == "" || txtSULastName.Text == "" || txtSUID.Text == "" || txtSUPassword.Text == "")
+            try
             {
-                MessageBox.Show("Please fill in all fields.");              //Change to real time validation checks? Text on change
-                return;
-            }
+                if (txtSUFirstName.Text == "" || txtSULastName.Text == "" || txtSUID.Text == "" || txtSUPassword.Text == "")
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
 
-            if (txtSUPassword.Text.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters long.");
-                return;
-            }
+                if (txtSUPassword.Text.Length < 6)
+                {
+                    MessageBox.Show("Password must be at least 6 characters long.");
+                    return;
+                }
 
-            if (!txtSUID.Text.All(char.IsDigit) || txtSUID.Text.Length != 13)
-            {
-                MessageBox.Show("Please enter a valid South African ID number.");
-                return;
-            }
+                if (!txtSUID.Text.All(char.IsDigit) || txtSUID.Text.Length != 13)
+                {
+                    MessageBox.Show("Please enter a valid South African ID number.");
+                    return;
+                }
 
-            if (txtSUPassword.Text != txtSUConfirmPass.Text)
-            {
-                MessageBox.Show("Passwords do not match.");
-                return;
-            }
+                if (txtSUPassword.Text != txtSUConfirmPass.Text)
+                {
+                    MessageBox.Show("Passwords do not match.");
+                    return;
+                }
 
-            if (PrisonerManager.SAIDExists(txtSUID.Text))
-            {
-                MessageBox.Show("A prisoner with this South African ID already exists.");
-                return;
-            }
+                if (PrisonerManager.SAIDExists(txtSUID.Text))
+                {
+                    MessageBox.Show("A prisoner with this South African ID already exists.");
+                    return;
+                }
 
-            Prisoner prisoner = new Prisoner
-            {
-                PrisonerNum = Prisoner.GeneratePrisonerNum(),
-                LastName = txtSULastName.Text,
-                FirstName = txtSUFirstName.Text,
-                SA_ID = txtSUID.Text,
-                Password = txtSUPassword.Text,
-                ClearedToWork = false // New prisoners are not cleared to work by default
-            };
+                Prisoner prisoner = new Prisoner
+                {
+                    PrisonerNum = Prisoner.GeneratePrisonerNum(),
+                    LastName = txtSULastName.Text,
+                    FirstName = txtSUFirstName.Text,
+                    SA_ID = txtSUID.Text,
+                    Password = txtSUPassword.Text,
+                    ClearedToWork = false // New prisoners are not cleared to work by default
+                };
 
-            if (PrisonerManager.AddPrisoner(prisoner) >= 1)
-            {
-                MessageBox.Show("Sign up successful! Your prisoner number is " + prisoner.PrisonerNum + ". Please log in.");
-             
-                // Clear sign up fields
-                txtSUID.Clear();
-                txtSUFirstName.Clear();
-                txtSULastName.Clear();
-                txtSUPassword.Clear();
-                txtSUConfirmPass.Clear();
-                txtUsername.Text = prisoner.PrisonerNum;
-                pnlSignUp.Hide();
-                pnlLogIn.Show();
+                if (PrisonerManager.AddPrisoner(prisoner) >= 1)
+                {
+                    MessageBox.Show("Sign up successful! Your prisoner number is " + prisoner.PrisonerNum + ". Please log in.");
+
+                    // Clear sign up fields
+                    txtSUID.Clear();
+                    txtSUFirstName.Clear();
+                    txtSULastName.Clear();
+                    txtSUPassword.Clear();
+                    txtSUConfirmPass.Clear();
+                    txtUsername.Text = prisoner.PrisonerNum;
+
+                    pnlSignUp.Hide();
+                    pnlLogIn.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sign up failed. Please try again.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sign up failed. Please try again.");
+                MessageBox.Show("An error occurred while signing up:\n" + ex.Message, "Sign Up Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            //^^^ Validation of inputs
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            try
             {
-                conn.Open();
-                SqlCommand cmd = null;
-                if (SelectedUser == 1) // Admin
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {
-                    /*
-                    cmd = new SqlCommand("SELECT * FROM ADMINISTRATORS WHERE Username = @username AND Password = @password", conn);
-                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                    */
-                }
-                else if (SelectedUser == 2) // Prisoner
-                {
-                    cmd = new SqlCommand("SELECT * FROM PRISONER WHERE PrisonerNum = @prisonerNum AND Password = @password", conn);
-                    cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                }
-                else if (SelectedUser == 3) // Employer
-                {
-                    cmd = new SqlCommand("SELECT * FROM EMPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
-                    cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                }
-                else
-                {
-                    MessageBox.Show("System Error: User type not selected.");
-                    pnlLogIn.Hide();
-                    pnlAPESelect.Show();
-                    return;
-                }
-                
-                if (SelectedUser == 2 || SelectedUser == 3)
-                {
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    conn.Open();
+                    SqlCommand cmd = null;
+
+                    if (SelectedUser == 1) // Admin
                     {
-                        reader.Close();
-                        if (SelectedUser == 2)
-                        {
-                            cmd = new SqlCommand("SELECT PrisonerID FROM PRISONER WHERE PrisonerNum = @prisonerNum", conn);
-                            cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
-                            PrisonerID = (int)cmd.ExecuteScalar();
-                            reader.Close();
-                            //PrisonerManager.LoadPrisoner(PrisonerID);                       //Loaded PrisonerID into PrisonerManager class
-                            
-                            frmPrisoner prisonerForm = new frmPrisoner();
-                            prisonerForm.Show();
-                        }
-                        else if (SelectedUser == 3)
-                        {
-                            cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
-                            cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
-                            EmployerID = (int)cmd.ExecuteScalar();                           //EmployerID is ready to be parsed
-                            reader.Close();
-
-                            frmEmployer employerForm = new frmEmployer();
-                            employerForm.Show();
-                        }
-                        MessageBox.Show("Login successful!");
-                        this.Hide();
-
+                        // Example query for admin if needed
+                        // cmd = new SqlCommand("SELECT * FROM ADMINISTRATORS WHERE Username = @username AND Password = @password", conn);
+                        // cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                        // cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                    }
+                    else if (SelectedUser == 2) // Prisoner
+                    {
+                        cmd = new SqlCommand("SELECT * FROM PRISONER WHERE PrisonerNum = @prisonerNum AND Password = @password", conn);
+                        cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                    }
+                    else if (SelectedUser == 3) // Employer
+                    {
+                        cmd = new SqlCommand("SELECT * FROM EMPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
+                        cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Invalid username or password.");
-                        txtPassword.Clear();
-                        txtUsername.Clear();
-                        cbxEmployerID.SelectedIndex = -1;
+                        MessageBox.Show("System Error: User type not selected.");
+                        pnlLogIn.Hide();
+                        pnlAPESelect.Show();
+                        return;
+                    }
+
+                    if (SelectedUser == 2 || SelectedUser == 3)
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            reader.Close();
+                            if (SelectedUser == 2)
+                            {
+                                cmd = new SqlCommand("SELECT PrisonerID FROM PRISONER WHERE PrisonerNum = @prisonerNum", conn);
+                                cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
+                                PrisonerID = (int)cmd.ExecuteScalar();
+
+                                frmPrisoner prisonerForm = new frmPrisoner();
+                                prisonerForm.Show();
+                            }
+                            else if (SelectedUser == 3)
+                            {
+                                cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
+                                cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
+                                EmployerID = (int)cmd.ExecuteScalar();
+
+                                frmEmployer employerForm = new frmEmployer();
+                                employerForm.Show();
+                            }
+
+                            MessageBox.Show("Login successful!");
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password.");
+                            txtPassword.Clear();
+                            txtUsername.Clear();
+                            cbxEmployerID.SelectedIndex = -1;
+                        }
+                    }
+                    else // Admin
+                    {
+                        if (txtUsername.Text == ADMINUSER && txtPassword.Text == ADMINPASS)
+                        {
+                            MessageBox.Show("Login successful!");
+                            frmAdmin adminForm = new frmAdmin();
+                            adminForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password.");
+                            txtPassword.Clear();
+                            txtUsername.Clear();
+                        }
                     }
                 }
-                else
-                {
-                    if (txtUsername.Text == ADMINUSER && txtPassword.Text == ADMINPASS)
-                    {
-                        MessageBox.Show("Login successful!");
-                        frmAdmin adminForm = new frmAdmin();
-                        adminForm.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.");
-                        txtPassword.Clear();
-                        txtUsername.Clear();
-                    }
-                }
-                conn.Close();
             }
-           
-               
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while logging in:\n" + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
