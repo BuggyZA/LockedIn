@@ -160,10 +160,10 @@ namespace LockedIn
 
         private void btnMPRemove_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(prsnrID, skillID);
+            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
             isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, prsnrID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, prsnrID);
+            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
             isPopulating = false;
         }
 

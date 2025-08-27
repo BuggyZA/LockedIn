@@ -33,6 +33,7 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -118,6 +119,7 @@
             this.btnMPSave = new System.Windows.Forms.Button();
             this.btnMPBack = new System.Windows.Forms.Button();
             this.pnlPInfo = new System.Windows.Forms.Panel();
+            this.txtPrisonerNo = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.ckbCleared = new System.Windows.Forms.CheckBox();
@@ -134,8 +136,6 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPrisonerNo = new System.Windows.Forms.TextBox();
             this.tabPage5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -218,6 +218,18 @@
             this.panel16.Size = new System.Drawing.Size(1212, 75);
             this.panel16.TabIndex = 22;
             this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panel16_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(235, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(624, 77);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Page To be DELETED";
             // 
             // label20
             // 
@@ -868,7 +880,7 @@
             this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.pnlMPChoices.Controls.Add(this.btnEditP);
             this.pnlMPChoices.Controls.Add(this.btnDeleteP);
-            this.pnlMPChoices.Location = new System.Drawing.Point(493, 96);
+            this.pnlMPChoices.Location = new System.Drawing.Point(502, 86);
             this.pnlMPChoices.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMPChoices.Name = "pnlMPChoices";
             this.pnlMPChoices.Size = new System.Drawing.Size(344, 347);
@@ -913,7 +925,7 @@
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(139, 481);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 224);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
@@ -929,6 +941,7 @@
             this.btnCancel.TabIndex = 36;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label63
             // 
@@ -950,6 +963,7 @@
             this.btnSavePassword.TabIndex = 35;
             this.btnSavePassword.Text = "Save Password";
             this.btnSavePassword.UseVisualStyleBackColor = false;
+            this.btnSavePassword.Click += new System.EventHandler(this.btnSavePassword_Click);
             // 
             // txtCurrentPassword
             // 
@@ -1030,6 +1044,7 @@
             this.btnRemoveSkill.TabIndex = 33;
             this.btnRemoveSkill.Text = "<  Remove";
             this.btnRemoveSkill.UseVisualStyleBackColor = false;
+            this.btnRemoveSkill.Click += new System.EventHandler(this.btnRemoveSkill_Click);
             // 
             // btnAddSkill
             // 
@@ -1042,6 +1057,7 @@
             this.btnAddSkill.TabIndex = 32;
             this.btnAddSkill.Text = "Add  >";
             this.btnAddSkill.UseVisualStyleBackColor = false;
+            this.btnAddSkill.Click += new System.EventHandler(this.btnAddSkill_Click);
             // 
             // label57
             // 
@@ -1084,6 +1100,7 @@
             this.lstMPAllSkills.Name = "lstMPAllSkills";
             this.lstMPAllSkills.Size = new System.Drawing.Size(216, 280);
             this.lstMPAllSkills.TabIndex = 1;
+            this.lstMPAllSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPAllSkills_SelectedIndexChanged);
             // 
             // lstMPCurrentSkills
             // 
@@ -1093,6 +1110,7 @@
             this.lstMPCurrentSkills.Name = "lstMPCurrentSkills";
             this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 280);
             this.lstMPCurrentSkills.TabIndex = 0;
+            this.lstMPCurrentSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPCurrentSkills_SelectedIndexChanged);
             // 
             // btnMPSave
             // 
@@ -1105,6 +1123,7 @@
             this.btnMPSave.TabIndex = 29;
             this.btnMPSave.Text = "Save";
             this.btnMPSave.UseVisualStyleBackColor = false;
+            this.btnMPSave.Click += new System.EventHandler(this.btnMPSave_Click);
             // 
             // btnMPBack
             // 
@@ -1117,6 +1136,7 @@
             this.btnMPBack.TabIndex = 28;
             this.btnMPBack.Text = "Back";
             this.btnMPBack.UseVisualStyleBackColor = false;
+            this.btnMPBack.Click += new System.EventHandler(this.btnMPBack_Click);
             // 
             // pnlPInfo
             // 
@@ -1138,6 +1158,13 @@
             this.pnlPInfo.TabIndex = 23;
             this.pnlPInfo.Visible = false;
             // 
+            // txtPrisonerNo
+            // 
+            this.txtPrisonerNo.Location = new System.Drawing.Point(156, 54);
+            this.txtPrisonerNo.Name = "txtPrisonerNo";
+            this.txtPrisonerNo.Size = new System.Drawing.Size(194, 30);
+            this.txtPrisonerNo.TabIndex = 34;
+            // 
             // label70
             // 
             this.label70.AutoSize = true;
@@ -1157,6 +1184,7 @@
             this.btnChangePassword.TabIndex = 32;
             this.btnChangePassword.Text = "Manage Password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // ckbCleared
             // 
@@ -1290,25 +1318,6 @@
             this.pictureBox4.Size = new System.Drawing.Size(50, 50);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(235, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(624, 77);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Page To be DELETED";
-            // 
-            // txtPrisonerNo
-            // 
-            this.txtPrisonerNo.Location = new System.Drawing.Point(156, 54);
-            this.txtPrisonerNo.Name = "txtPrisonerNo";
-            this.txtPrisonerNo.Size = new System.Drawing.Size(194, 30);
-            this.txtPrisonerNo.TabIndex = 34;
             // 
             // frmPrisoner
             // 
