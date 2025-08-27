@@ -108,6 +108,8 @@ public static class ComboBoxHelper
                 comboBox.DataSource = ds.Tables["JOB"];
                 comboBox.DisplayMember = "JobName";
                 comboBox.ValueMember = "JobID";
+                
+                
                 comboBox.SelectedIndex = -1;
             }
         }

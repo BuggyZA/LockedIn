@@ -145,29 +145,5 @@ namespace LockedIn.Managers
                 return false;
             }
         }
-
-
-        public static bool SAIDExists(string saId)          //Added for sign up page to check if RSA ID already exists
-        {
-            try
-            {
-                string query = "SELECT COUNT(*) FROM PRISONER WHERE SA_ID = @SA_ID";
-                using (conn = new SqlConnection(constr))
-                {
-                    using (cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@SA_ID", saId);
-                        conn.Open();
-                        int count = (int)cmd.ExecuteScalar();
-                        return count > 0;
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Database error checking SA ID: {ex.Message}");
-                return false;
-            }
-        }
     }
 }

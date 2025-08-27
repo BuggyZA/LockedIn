@@ -208,7 +208,7 @@
             // 
             this.cbxEmployerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.cbxEmployerID.FormattingEnabled = true;
-            this.cbxEmployerID.Location = new System.Drawing.Point(23, 33);
+            this.cbxEmployerID.Location = new System.Drawing.Point(23, 30);
             this.cbxEmployerID.Name = "cbxEmployerID";
             this.cbxEmployerID.Size = new System.Drawing.Size(284, 32);
             this.cbxEmployerID.TabIndex = 8;
@@ -219,7 +219,7 @@
             this.txtPassword.Location = new System.Drawing.Point(173, 79);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(134, 29);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 9;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
@@ -228,7 +228,7 @@
             this.txtUsername.Location = new System.Drawing.Point(173, 33);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(134, 29);
-            this.txtUsername.TabIndex = 6;
+            this.txtUsername.TabIndex = 7;
             // 
             // lblPassword
             // 
@@ -337,7 +337,7 @@
             this.txtSUID.Location = new System.Drawing.Point(171, 131);
             this.txtSUID.Name = "txtSUID";
             this.txtSUID.Size = new System.Drawing.Size(151, 29);
-            this.txtSUID.TabIndex = 15;
+            this.txtSUID.TabIndex = 8;
             // 
             // lblSUFirstName
             // 
@@ -355,7 +355,7 @@
             this.txtSUConfirmPass.Location = new System.Drawing.Point(171, 219);
             this.txtSUConfirmPass.Name = "txtSUConfirmPass";
             this.txtSUConfirmPass.Size = new System.Drawing.Size(151, 29);
-            this.txtSUConfirmPass.TabIndex = 13;
+            this.txtSUConfirmPass.TabIndex = 10;
             this.txtSUConfirmPass.UseSystemPasswordChar = true;
             // 
             // txtSUPassword
@@ -364,7 +364,7 @@
             this.txtSUPassword.Location = new System.Drawing.Point(171, 174);
             this.txtSUPassword.Name = "txtSUPassword";
             this.txtSUPassword.Size = new System.Drawing.Size(151, 29);
-            this.txtSUPassword.TabIndex = 12;
+            this.txtSUPassword.TabIndex = 9;
             this.txtSUPassword.UseSystemPasswordChar = true;
             // 
             // lblSUConfirmPass
