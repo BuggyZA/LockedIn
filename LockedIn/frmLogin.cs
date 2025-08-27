@@ -43,12 +43,14 @@ namespace LockedIn
 
         public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
         {
-            return PrisonerID;
+            //return PrisonerID;
+            return 1;
         }
 
         public int getLogedInEmployerID()          //Used to return the currently logged in Employers ID
         {
-            return EmployerID;
+            //return EmployerID;
+            return 1;
         }
 
         private void Login_Load(object sender, EventArgs e)

@@ -1244,6 +1244,9 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 0;
         }
 
-        
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
