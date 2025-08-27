@@ -1,18 +1,19 @@
-﻿using System;
+﻿using LockedIn.Data;
+using LockedIn.Helpers;
+using LockedIn.Managers;
+using LockedIn.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using LockedIn.Data;
-using LockedIn.Helpers;
-using LockedIn.Models;
-using LockedIn.Managers;
-using System.Security.Cryptography;
+using System.Xml.Linq;
 namespace LockedIn
 {
     public partial class frmAdmin : Form
@@ -602,7 +603,7 @@ namespace LockedIn
 
         private void btnEmployerDetails_Click(object sender, EventArgs e)
         {
-
+            //show panel to edit employer details with data auto filled in
             if (cmbEmpDetails.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an Employer to edit details.");
@@ -663,6 +664,7 @@ namespace LockedIn
                 txtEmpPass.Visible = false;
                 lblEmpPass.Visible = false;
                 btnEmpEdit.Visible = true;
+                
 
             }
         }
@@ -671,6 +673,7 @@ namespace LockedIn
 
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
+            //show panel to ley user insert new employer 
             pnlEmpDetails.Visible = false;
             PnlEmpInfo.Visible = true;
             btnAddNewEmp.Visible = true;
@@ -683,10 +686,14 @@ namespace LockedIn
             txtEmpPass.Clear();
             txtEmpFName.Enabled = true;
             txtEmpLName.Enabled = true;
+            lblEmpPass.Visible = true;
+            txtEmpPass.Visible = true;
         }
 
         private void btnEditEmp_Click(object sender, EventArgs e)
         {
+            //show panel for user to select employer to edit
+
             pnlEmpDetails.Visible = true;
             pnlEmpMenu.Visible = false;
             btnEmployerDetails.Visible = true;
@@ -696,12 +703,15 @@ namespace LockedIn
 
         private void btnDelEmployer_Click(object sender, EventArgs e)
         {
+            //show panel for user to select employer to delete
             pnlEmpDetails.Visible = true;
 
             pnlEmpMenu.Visible = false;
             btnEmpDel.Visible = true;
             btnEmployerDetails.Visible = false;
             btnBackEmp.Visible = true;
+            btnBackEmp.Visible = false;
+
         }
 
         private void btnBackEmp_Click(object sender, EventArgs e)
@@ -717,12 +727,15 @@ namespace LockedIn
 
         private void btnEmpChangePass_Click(object sender, EventArgs e)
         {
+            //show the panel to change password
             pnlEmpPass.Visible = true;
         }
 
         private void btnEmpCancel_Click(object sender, EventArgs e)
         {
             pnlEmpPass.Visible = false;
+            txtEmpNew.Clear();
+            txtEmpConfirm.Clear();
 
         }
 
@@ -913,6 +926,7 @@ namespace LockedIn
 
         private void btnEmpDel_Click(object sender, EventArgs e)
         {
+            //delete employer
             if (cmbEmpDetails.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an employer!");
@@ -925,8 +939,13 @@ namespace LockedIn
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
                 conn.Open();
-                string sql = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                string sql1 = "DELETE FROM JOB Where EmployerID = @ID";
+                using (SqlCommand cmd = new SqlCommand(sql1, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", employerId);
+                }
+                string sql2 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                using (SqlCommand cmd = new SqlCommand(sql2, conn))
                 {
                     cmd.Parameters.AddWithValue("@ID", employerId);
 
@@ -1137,7 +1156,7 @@ namespace LockedIn
 
         private void btnEmpEdit_Click(object sender, EventArgs e)
         {
-
+            //make textboxes editable
             txtEmpFName.Enabled = true;
             txtEmpLName.Enabled = true;
             btnEmpSave.Visible = true;
@@ -1148,6 +1167,7 @@ namespace LockedIn
 
         private void btnEmpSave_Click(object sender, EventArgs e)
         {
+            //Update employer details
             string empId = txtEmpID.Text;
             string fName = txtEmpFName.Text;
             string lName = txtEmpLName.Text;
@@ -1181,6 +1201,59 @@ namespace LockedIn
                     
                 }
             }
+        }
+
+        private void btnEmpSavePass_Click(object sender, EventArgs e)
+        {
+            //Update employer password
+            string empId = txtEmpID.Text;
+            string newPass = txtEmpNew.Text;
+            string confirmPass = txtEmpLName.Text;
+
+            if(newPass != confirmPass)
+            {
+                MessageBox.Show("passwords do not match!");
+                return;
+            }
+            else
+            {
+                newPass = PasswordHasser.HashPassword(newPass);
+
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    conn.Open();
+                    string sql = "UPDATE EMPLOYER SET Password = @new WHERE EmployerID = @empId";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@new", newPass);
+                        cmd.Parameters.AddWithValue("@empId", @empId);
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Password Updated successfully!");
+
+                            pnlEmpPass.Visible = false;
+                            txtEmpNew.Clear();
+                            txtEmpConfirm.Clear();
+
+                        }
+
+
+                    }
+                }
+            }
+
+
+
+                
+        }
+
+        private void btnMEmpBack_Click(object sender, EventArgs e)
+        {
+            //bacl to main menu
+            tcPrisoner.SelectedIndex = 0;
         }
     }
 }
