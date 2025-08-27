@@ -41,6 +41,16 @@ namespace LockedIn
             InitializeComponent();
         }
 
+        public void logOut()        //Call this method when loging out of user to reset
+        {
+            PrisonerID = -1;
+            EmployerID = -1;
+            SelectedUser = 0;
+            pnlAPESelect.Visible= true;
+            pnlLogIn.Visible = false;
+            pnlSignUp.Visible = false;
+        }
+
         public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
         {
             return PrisonerID;

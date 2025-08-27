@@ -40,5 +40,11 @@ namespace LockedIn
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.logOut();
+        }
     }
 }
