@@ -107,3 +107,4 @@ C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn
 C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\obj\Debug\LockedIn.frmReports.resources
 C:\CMPG223 Project\LockedIn\LockedIn\obj\Debug\LockedIn.frmLogIn.resources
 C:\CMPG223 Project\LockedIn\LockedIn\obj\Debug\LockedIn.frmReports.resources
+C:\Users\ashto\Documents\CMPG213\LockedIn\obj\Debug\LockedIn.frmReports.resources

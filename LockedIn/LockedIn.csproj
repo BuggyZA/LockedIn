@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Helpers\ComboboxHelper.cs" />
     <Compile Include="Helpers\ListboxHelper.cs" />
+    <Compile Include="Helpers\PasswordHasser.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Prisoner.cs" />

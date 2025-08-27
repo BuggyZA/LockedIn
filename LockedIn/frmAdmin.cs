@@ -91,7 +91,7 @@ namespace LockedIn
             }
 
 
-                isPopulating = false;
+            isPopulating = false;
         }
 
 
@@ -171,7 +171,7 @@ namespace LockedIn
         private void button46_Click(object sender, EventArgs e)
         {
             isupdatingPrisoner = true;
-            
+
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -184,7 +184,7 @@ namespace LockedIn
         private void button47_Click(object sender, EventArgs e)
         {
             isDeletingPrisoner = true;
-            
+
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -214,7 +214,7 @@ namespace LockedIn
 
         private void btnMPSave_Click(object sender, EventArgs e)
         {
-            if (isAddingPrisoner && pnlMPSkills.Enabled ==  false)
+            if (isAddingPrisoner && pnlMPSkills.Enabled == false)
             {
                 thisPrisoner = new Prisoner();
 
@@ -227,13 +227,13 @@ namespace LockedIn
 
                 if (thisPrisoner.ValidateNewPrisoner())
                 {
-                    thisPrisoner.PrisonerID =  PrisonerManager.AddPrisoner(thisPrisoner);
+                    thisPrisoner.PrisonerID = PrisonerManager.AddPrisoner(thisPrisoner);
                     if (thisPrisoner.PrisonerID > 0)
                     {
                         MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " successfully added! Now you can manage their skills");
 
                         lstMPAllSkills.SelectedIndexChanged -= lstMPAllSkills_SelectedIndexChanged;
-                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills,thisPrisoner.PrisonerID);
+                        ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
                         lstMPAllSkills.SelectedIndexChanged += lstMPAllSkills_SelectedIndexChanged;
                     }
                 }
@@ -268,12 +268,12 @@ namespace LockedIn
             }
             else if (isDeletingPrisoner)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?","Confirm Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     // User clicked Yes - proceed with deletion
-                    if(PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
+                    if (PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
                     {
                         MessageBox.Show("Prisoner " + thisPrisoner.PrisonerNum + " deleted successfully.");
                         pnlPInfo.Enabled = true;
@@ -292,12 +292,12 @@ namespace LockedIn
                 }
             }
 
-            if(isAddingPrisoner)
+            if (isAddingPrisoner)
             {
                 MessageBox.Show("Prisoner data saved!!");
             }
 
-            lstASJAllSkills.DataSource=null;
+            lstASJAllSkills.DataSource = null;
             lstASJAllSkills.Items.Clear();
             lstMPCurrentSkills.DataSource = null;
             lstMPCurrentSkills.Items.Clear();
@@ -327,7 +327,7 @@ namespace LockedIn
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
             if (isAddingPrisoner)
-            {                
+            {
                 if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
                 {
                     if (txtNewPassword.Text.Trim().Length < 6)
@@ -341,11 +341,11 @@ namespace LockedIn
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the same password in both open spaces","Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
-            else if(isupdatingPrisoner)
+            else if (isupdatingPrisoner)
             {
                 if (txtCurrentPassword.Text.Trim() == thisPrisoner.Password)
                 {
@@ -371,13 +371,13 @@ namespace LockedIn
                     MessageBox.Show("Wrong password. Password Change denied", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
+
             }
 
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
 
-           
+
         }
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
@@ -603,22 +603,71 @@ namespace LockedIn
         private void btnEmployerDetails_Click(object sender, EventArgs e)
         {
 
-            if(cmbEmpDetails.SelectedIndex == -1)
+            if (cmbEmpDetails.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an Employer to edit details.");
                 return;
             }
             else
             {
-                pnlEmpDetails.Visible = true;
+
+
+
+                int employerId = Convert.ToInt32(cmbEmpDetails.SelectedValue);
+
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT EmployerID, FirstName, LastName FROM EMPLOYER WHERE EmployerID = @EmployerID";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@EmployerID", employerId);
+
+                        try
+                        {
+
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            if (reader.Read())
+                            {
+                                // Fill textboxes
+                                txtEmpID.Text = reader["EmployerID"].ToString();
+                                txtEmpFName.Text = reader["FirstName"].ToString();
+                                txtEmpLName.Text = reader["LastName"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No employer found with that ID.");
+                            }
+
+                            reader.Close();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error loading employer details: " + ex.Message);
+                        }
+                    }
+                    conn.Close();
+
+                }
+
                 PnlEmpInfo.Visible = true;
                 btnEmpChangePass.Visible = true;
                 btnAddNewEmp.Visible = false;
-                btnSaveEmp.Visible = true;
+                txtEmpFName.Enabled = false;
+                txtEmpLName.Enabled = false;
+
                 pnlEmpDetails.Visible = false;
+                txtEmpPass.Visible = false;
+                lblEmpPass.Visible = false;
+                btnEmpEdit.Visible = true;
+
             }
-               
         }
+
+
 
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
@@ -626,9 +675,14 @@ namespace LockedIn
             PnlEmpInfo.Visible = true;
             btnAddNewEmp.Visible = true;
             btnEmpChangePass.Visible = false;
-            btnSaveEmp.Visible = false;
             pnlEmpMenu.Visible = false;
             btnBackEmp.Visible = true;
+            txtEmpID.Clear();
+            txtEmpFName.Clear();
+            txtEmpLName.Clear();
+            txtEmpPass.Clear();
+            txtEmpFName.Enabled = true;
+            txtEmpLName.Enabled = true;
         }
 
         private void btnEditEmp_Click(object sender, EventArgs e)
@@ -643,7 +697,7 @@ namespace LockedIn
         private void btnDelEmployer_Click(object sender, EventArgs e)
         {
             pnlEmpDetails.Visible = true;
-            btnSaveEmp.Visible = false;
+
             pnlEmpMenu.Visible = false;
             btnEmpDel.Visible = true;
             btnEmployerDetails.Visible = false;
@@ -655,9 +709,10 @@ namespace LockedIn
             pnlEmpMenu.Visible = true;
             PnlEmpInfo.Visible = false;
             pnlEmpDetails.Visible = false;
-            btnSaveEmp.Visible = false;
+            btnEmpEdit.Visible = false;
             pnlEmpPass.Visible = false;
             btnBackEmp.Visible = false;
+            btnEmpSave.Visible = false;
         }
 
         private void btnEmpChangePass_Click(object sender, EventArgs e)
@@ -671,7 +726,7 @@ namespace LockedIn
 
         }
 
-      
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -706,13 +761,13 @@ namespace LockedIn
 
 
                             string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = 1 WHERE JobID = @JobID; UPDATE PRISONER_ON_JOB SET JobFinished = 1 WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
-                            SqlCommand comm = new SqlCommand(sql, conn);      
+                            SqlCommand comm = new SqlCommand(sql, conn);
 
                             comm.Parameters.AddWithValue("@EndDate", selectedDate);
-                            comm.Parameters.AddWithValue("@JobID", jobId);          
-                            comm.Parameters.AddWithValue("@PrisonerID", cmbPrisonerID.SelectedValue); 
+                            comm.Parameters.AddWithValue("@JobID", jobId);
+                            comm.Parameters.AddWithValue("@PrisonerID", cmbPrisonerID.SelectedValue);
                             comm.ExecuteNonQuery();
-                            
+
                             MessageBox.Show("Job completed has been updated.");
 
 
@@ -780,7 +835,7 @@ namespace LockedIn
             pnlPInfo.Visible = true;
         }
 
-        private void btnMPBack_Click(object sender, EventArgs e) 
+        private void btnMPBack_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -806,7 +861,7 @@ namespace LockedIn
                 myLoginform.ShowDialog();
             }
 
-            
+
         }
         private void frmAdmin_Load(object sender, EventArgs e)
         {
@@ -834,17 +889,17 @@ namespace LockedIn
 
         private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (isPopulating || cbxASJJobName.SelectedIndex == -1) 
+            if (isPopulating || cbxASJJobName.SelectedIndex == -1)
                 return;
             ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
             ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-            
+
         }
 
         private void btnASJRemove_Click(object sender, EventArgs e)
         {
             JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
-           
+
             isPopulating = true;
             ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
             ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
@@ -889,7 +944,7 @@ namespace LockedIn
             cmbEmpDetails.SelectedIndex = -1;
             btnEmpDel.Visible = false;
             pnlEmpDetails.Visible = false;
-            pnlEmpMenu.Visible = true;  
+            pnlEmpMenu.Visible = true;
         }
 
 
@@ -900,7 +955,7 @@ namespace LockedIn
 
             string firstName = txtEmpFName.Text;
             string lastName = txtEmpLName.Text;
-            string password = txtEmpPass.Text.GetHashCode().ToString();
+            string password = PasswordHasser.HashPassword(txtEmpPass.Text);
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(password))
             {
@@ -910,7 +965,7 @@ namespace LockedIn
 
             SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr());
             conn.Open();
-            string sql = "INSERT INTO EMPLOYER (LastName, FirstName,Password) VALUES (@FName, @LName, @password)";
+            string sql = "INSERT INTO EMPLOYER ( FirstName, LastName,Password) VALUES (@FName, @LName, @password)";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@FName", firstName);
@@ -938,7 +993,7 @@ namespace LockedIn
         private void button32_Click(object sender, EventArgs e)
         {
             //Add job button
-            
+
             try
             {
                 string employer_name = cmbJobNAme.Text;
@@ -989,7 +1044,7 @@ namespace LockedIn
                 txtFirstName.Clear();
                 txtLastName.Clear();
                 txtID.Clear();
-                ckbCleared.Checked =false;
+                ckbCleared.Checked = false;
                 lstMPCurrentSkills.ClearSelected();
                 lstMPAllSkills.ClearSelected();
                 txtCurrentPassword.Clear();
@@ -1006,7 +1061,7 @@ namespace LockedIn
         }
 
         private void cmbPrisonerName_SelectedIndexChanged(object sender, EventArgs e)
-        {                        
+        {
             prsnrID = ComboBoxHelper.GetSelectedID(cmbPrisonerName);
             thisPrisoner = PrisonerManager.LoadPrisoner(prsnrID);
 
@@ -1014,7 +1069,7 @@ namespace LockedIn
             ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
             ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
             isPopulating = false;
-            
+
         }
 
         private void btnASPRemove_Click(object sender, EventArgs e)
@@ -1078,6 +1133,54 @@ namespace LockedIn
             if (isPopulating) return;
 
             skillID = ListboxHelper.GetSelectedSkillID(lstASPCurrentSkills);
+        }
+
+        private void btnEmpEdit_Click(object sender, EventArgs e)
+        {
+
+            txtEmpFName.Enabled = true;
+            txtEmpLName.Enabled = true;
+            btnEmpSave.Visible = true;
+            btnEmpEdit.Visible = false;
+
+
+        }
+
+        private void btnEmpSave_Click(object sender, EventArgs e)
+        {
+            string empId = txtEmpID.Text;
+            string fName = txtEmpFName.Text;
+            string lName = txtEmpLName.Text;
+
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                conn.Open();
+                string sql = "UPDATE EMPLOYER SET LastName = @lName, FirstName = @fName WHERE EmployerID = @empId";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@lName", lName);
+                    cmd.Parameters.AddWithValue("@fName", fName);
+                    cmd.Parameters.AddWithValue("@empId", @empId);
+
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Employer Updated successfully!");
+                        pnlEmpMenu.Visible = true;
+                        PnlEmpInfo.Visible = false;
+                        pnlEmpDetails.Visible = false;
+                        btnEmpEdit.Visible = false;
+                        pnlEmpPass.Visible = false;
+                        btnBackEmp.Visible = false;
+                        btnEmpSave.Visible = false;
+
+                    }
+                       
+                    
+                }
+            }
         }
     }
 }
