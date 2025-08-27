@@ -31,41 +31,7 @@ namespace LockedIn
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabCont_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void ARJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -115,10 +81,7 @@ namespace LockedIn
             }
         }
 
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void frmEmployer_Load(object sender, EventArgs e)
         {
@@ -252,20 +215,11 @@ namespace LockedIn
             tabCont.SelectedIndex = 0;
         }
 
-        private void ARJlsbCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
-        private void ARJpbl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnHPARJ_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void ARJbtnApprove_Click(object sender, EventArgs e)
         {
@@ -280,11 +234,8 @@ namespace LockedIn
             int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
             UpdateApplicationStatus(jobId, prisonerId, false);
         }
+
+        
     }
-
-        
-
-
-
-        
+ 
 }
