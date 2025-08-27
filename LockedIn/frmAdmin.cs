@@ -61,7 +61,13 @@ namespace LockedIn
             //Popuating combo boxes.
             if (tcPrisoner.SelectedIndex == 4)
             {
+                cbxJobName.SelectedIndexChanged -= cbxJobName_SelectedIndexChanged;
                 ComboBoxHelper.PopulateJobNames(cbxJobName);
+                cbxJobName.SelectedIndexChanged += cbxJobName_SelectedIndexChanged;
+
+                
+                pnlJobDetails.Visible = true;
+                pnlGuardDetails.Visible = false;
             }
             else if (tcPrisoner.SelectedIndex == 6) //Maintain skills page
             {
@@ -1423,6 +1429,39 @@ namespace LockedIn
         private void frmAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxJobName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pnlJobDetails.Visible = false;
+            int jobID = ComboBoxHelper.GetSelectedID(cbxJobName);
+            Job thisJob = JobManager.LoadJob(jobID);
+
+            lblGuardDetails.Text = JobManager.CountPrisonersOnJob(thisJob)+" prisoners are assigned to "+thisJob.JobName+". Send "+ thisJob.AssignedGuards() + " guards to job site";
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlGuardDetails.Visible = false;
+            pnlJobDetails.Visible = true;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {                
+                frmLogIn myLoginform = new frmLogIn();
+                this.Close();
+                myLoginform.ShowDialog();
+            }
+            else
+            {
+                pnlGuardDetails.Visible = false;
+                pnlJobDetails.Visible = true;
+            }
         }
     }
 

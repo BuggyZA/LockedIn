@@ -81,7 +81,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.btnHPapplyForJobs = new System.Windows.Forms.Button();
-            this.btnHPassignSkillsToPrisoner = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -311,7 +310,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.tabPage4.Controls.Add(this.panel13);
             this.tabPage4.Controls.Add(this.panel9);
             this.tabPage4.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -607,7 +606,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
@@ -698,7 +697,6 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.panel3.Controls.Add(this.listView2);
             this.panel3.Controls.Add(this.btnHPapplyForJobs);
-            this.panel3.Controls.Add(this.btnHPassignSkillsToPrisoner);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.btnHPmaintainPrisoner);
@@ -728,17 +726,7 @@
             this.btnHPapplyForJobs.TabIndex = 13;
             this.btnHPapplyForJobs.Text = "Apply for jobs";
             this.btnHPapplyForJobs.UseVisualStyleBackColor = false;
-            // 
-            // btnHPassignSkillsToPrisoner
-            // 
-            this.btnHPassignSkillsToPrisoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.btnHPassignSkillsToPrisoner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.btnHPassignSkillsToPrisoner.Location = new System.Drawing.Point(135, 75);
-            this.btnHPassignSkillsToPrisoner.Name = "btnHPassignSkillsToPrisoner";
-            this.btnHPassignSkillsToPrisoner.Size = new System.Drawing.Size(170, 43);
-            this.btnHPassignSkillsToPrisoner.TabIndex = 12;
-            this.btnHPassignSkillsToPrisoner.Text = "Assign Skills";
-            this.btnHPassignSkillsToPrisoner.UseVisualStyleBackColor = false;
+            this.btnHPapplyForJobs.Click += new System.EventHandler(this.btnHPapplyForJobs_Click);
             // 
             // dataGridView1
             // 
@@ -1384,7 +1372,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHPapplyForJobs;
-        private System.Windows.Forms.Button btnHPassignSkillsToPrisoner;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobDescription;

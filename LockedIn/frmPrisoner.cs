@@ -30,7 +30,7 @@ namespace LockedIn
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedIndex = 1;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -327,6 +327,11 @@ namespace LockedIn
             txtCurrentPassword.Text = "";
             txtConfirmPassword.Text = "";
             txtNewPassword.Text = "";
+        }
+
+        private void btnHPapplyForJobs_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
         }
     }
 }
