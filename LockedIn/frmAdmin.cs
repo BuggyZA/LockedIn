@@ -99,6 +99,7 @@ namespace LockedIn
                 panel40.Visible = false;
                 panel39.Visible = false;
                 panel41.Visible = false;
+                panel38.Visible = true;
             }
 
 
@@ -1008,22 +1009,14 @@ namespace LockedIn
 
         }
 
-        
+
 
         private void button32_Click(object sender, EventArgs e)
         {
-            //Add job button
 
-            try
-            {
-                string employer_name = cmbJobNAme.Text;
-                string job_name = txtMJJobName.Text;
-                string job_description = rtbJobDescription.Text;
-                string job_location = rtbJobLocation.Text;
-                DateTime startDate = calStartDate.SelectionStart;
-                DateTime endDate = calEndDate.SelectionStart;
-                string skills = listBox2.Text;
-                decimal duration = nudDuration.Value;
+           
+
+        }
 
     
         private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
