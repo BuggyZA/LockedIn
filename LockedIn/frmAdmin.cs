@@ -46,10 +46,7 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 3;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -163,10 +160,7 @@ namespace LockedIn
             skillID = ListboxHelper.GetSelectedSkillID(lstMPCurrentSkills);
         }
 
-        private void btnMPNext_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         //Edit Prisoner
         private void button46_Click(object sender, EventArgs e)
@@ -876,10 +870,7 @@ namespace LockedIn
 
 
         }
-        private void frmAdmin_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
@@ -1004,10 +995,7 @@ namespace LockedIn
 
         }
 
-        private void cmbJobID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button32_Click(object sender, EventArgs e)
         {
@@ -1255,5 +1243,7 @@ namespace LockedIn
             //bacl to main menu
             tcPrisoner.SelectedIndex = 0;
         }
+
+        
     }
 }

@@ -117,13 +117,32 @@
             this.btnHpARJ = new System.Windows.Forms.Button();
             this.btnHpASTJ = new System.Windows.Forms.Button();
             this.btnHpMJ = new System.Windows.Forms.Button();
-            this.tabCont = new System.Windows.Forms.TabControl();
+            this.tcEmployer = new System.Windows.Forms.TabControl();
             this.tpProfile = new System.Windows.Forms.TabPage();
             this.EPpnlHeader = new System.Windows.Forms.Panel();
             this.EPbtnBack = new System.Windows.Forms.Button();
             this.EPlblHeader = new System.Windows.Forms.Label();
             this.EPpnl1 = new System.Windows.Forms.Panel();
             this.EPpnl2 = new System.Windows.Forms.Panel();
+            this.pnlEmpPass = new System.Windows.Forms.Panel();
+            this.btnEmpCancel = new System.Windows.Forms.Button();
+            this.lblModifyPass = new System.Windows.Forms.Label();
+            this.btnEmpSavePass = new System.Windows.Forms.Button();
+            this.txtEmpNew = new System.Windows.Forms.TextBox();
+            this.txtEmpConfirm = new System.Windows.Forms.TextBox();
+            this.lblEmpNew = new System.Windows.Forms.Label();
+            this.lblEmpConfirm = new System.Windows.Forms.Label();
+            this.PnlEmpInfo = new System.Windows.Forms.Panel();
+            this.btnEmpSave = new System.Windows.Forms.Button();
+            this.btnEmpEdit = new System.Windows.Forms.Button();
+            this.btnEmpChangePass = new System.Windows.Forms.Button();
+            this.lblEmpInfo = new System.Windows.Forms.Label();
+            this.txtEmpID = new System.Windows.Forms.TextBox();
+            this.lblEmpFName = new System.Windows.Forms.Label();
+            this.txtEmpFName = new System.Windows.Forms.TextBox();
+            this.lblEmpLName = new System.Windows.Forms.Label();
+            this.txtEmpLName = new System.Windows.Forms.TextBox();
+            this.lblEmpID = new System.Windows.Forms.Label();
             this.tabpage4 = new System.Windows.Forms.TabPage();
             this.ARJpnlHeader = new System.Windows.Forms.Panel();
             this.ARJbtnBack = new System.Windows.Forms.Button();
@@ -142,25 +161,6 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
-            this.PnlEmpInfo = new System.Windows.Forms.Panel();
-            this.btnEmpSave = new System.Windows.Forms.Button();
-            this.btnEmpEdit = new System.Windows.Forms.Button();
-            this.btnEmpChangePass = new System.Windows.Forms.Button();
-            this.lblEmpInfo = new System.Windows.Forms.Label();
-            this.txtEmpID = new System.Windows.Forms.TextBox();
-            this.lblEmpFName = new System.Windows.Forms.Label();
-            this.txtEmpFName = new System.Windows.Forms.TextBox();
-            this.lblEmpLName = new System.Windows.Forms.Label();
-            this.txtEmpLName = new System.Windows.Forms.TextBox();
-            this.lblEmpID = new System.Windows.Forms.Label();
-            this.pnlEmpPass = new System.Windows.Forms.Panel();
-            this.btnEmpCancel = new System.Windows.Forms.Button();
-            this.lblModifyPass = new System.Windows.Forms.Label();
-            this.btnEmpSavePass = new System.Windows.Forms.Button();
-            this.txtEmpNew = new System.Windows.Forms.TextBox();
-            this.txtEmpConfirm = new System.Windows.Forms.TextBox();
-            this.lblEmpNew = new System.Windows.Forms.Label();
-            this.lblEmpConfirm = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.ASJpnlHeader.SuspendLayout();
             this.ASJpnl1.SuspendLayout();
@@ -185,18 +185,18 @@
             this.pnlHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfile)).BeginInit();
             this.pnlNavigate.SuspendLayout();
-            this.tabCont.SuspendLayout();
+            this.tcEmployer.SuspendLayout();
             this.tpProfile.SuspendLayout();
             this.EPpnlHeader.SuspendLayout();
             this.EPpnl1.SuspendLayout();
             this.EPpnl2.SuspendLayout();
+            this.pnlEmpPass.SuspendLayout();
+            this.PnlEmpInfo.SuspendLayout();
             this.tabpage4.SuspendLayout();
             this.ARJpnlHeader.SuspendLayout();
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
-            this.PnlEmpInfo.SuspendLayout();
-            this.pnlEmpPass.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -231,6 +231,7 @@
             this.ASJbtnBack.TabIndex = 3;
             this.ASJbtnBack.Text = "Back";
             this.ASJbtnBack.UseVisualStyleBackColor = true;
+            this.ASJbtnBack.Click += new System.EventHandler(this.ASJbtnBack_Click);
             // 
             // ASJlblHeader
             // 
@@ -454,6 +455,7 @@
             this.btnMJBack.TabIndex = 2;
             this.btnMJBack.Text = "Back";
             this.btnMJBack.UseVisualStyleBackColor = true;
+            this.btnMJBack.Click += new System.EventHandler(this.btnMJBack_Click);
             // 
             // lblMJHeading
             // 
@@ -1125,6 +1127,7 @@
             this.btnLogOut.TabIndex = 2;
             this.btnLogOut.Text = "LogOut";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // imgProfile
             // 
@@ -1136,6 +1139,7 @@
             this.imgProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgProfile.TabIndex = 1;
             this.imgProfile.TabStop = false;
+            this.imgProfile.Click += new System.EventHandler(this.imgProfile_Click);
             // 
             // lblEmpHeading
             // 
@@ -1168,6 +1172,7 @@
             this.btnHpARJ.TabIndex = 2;
             this.btnHpARJ.Text = "Approve/Reject Job";
             this.btnHpARJ.UseVisualStyleBackColor = true;
+            this.btnHpARJ.Click += new System.EventHandler(this.btnHpARJ_Click);
             // 
             // btnHpASTJ
             // 
@@ -1177,6 +1182,7 @@
             this.btnHpASTJ.TabIndex = 1;
             this.btnHpASTJ.Text = "Assign Skills to job";
             this.btnHpASTJ.UseVisualStyleBackColor = true;
+            this.btnHpASTJ.Click += new System.EventHandler(this.btnHpASTJ_Click);
             // 
             // btnHpMJ
             // 
@@ -1186,20 +1192,21 @@
             this.btnHpMJ.TabIndex = 2;
             this.btnHpMJ.Text = "Maintain Jobs";
             this.btnHpMJ.UseVisualStyleBackColor = true;
+            this.btnHpMJ.Click += new System.EventHandler(this.btnHpMJ_Click);
             // 
-            // tabCont
+            // tcEmployer
             // 
-            this.tabCont.Controls.Add(this.EmpHome);
-            this.tabCont.Controls.Add(this.tabMaintainJobs);
-            this.tabCont.Controls.Add(this.tabPage1);
-            this.tabCont.Controls.Add(this.tpProfile);
-            this.tabCont.Controls.Add(this.tabpage4);
-            this.tabCont.Location = new System.Drawing.Point(4, 4);
-            this.tabCont.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabCont.Name = "tabCont";
-            this.tabCont.SelectedIndex = 0;
-            this.tabCont.Size = new System.Drawing.Size(1363, 743);
-            this.tabCont.TabIndex = 0;
+            this.tcEmployer.Controls.Add(this.EmpHome);
+            this.tcEmployer.Controls.Add(this.tabMaintainJobs);
+            this.tcEmployer.Controls.Add(this.tabPage1);
+            this.tcEmployer.Controls.Add(this.tpProfile);
+            this.tcEmployer.Controls.Add(this.tabpage4);
+            this.tcEmployer.Location = new System.Drawing.Point(4, 4);
+            this.tcEmployer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.tcEmployer.Name = "tcEmployer";
+            this.tcEmployer.SelectedIndex = 0;
+            this.tcEmployer.Size = new System.Drawing.Size(1363, 743);
+            this.tcEmployer.TabIndex = 0;
             // 
             // tpProfile
             // 
@@ -1221,7 +1228,7 @@
             this.EPpnlHeader.Location = new System.Drawing.Point(-57, 8);
             this.EPpnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EPpnlHeader.Name = "EPpnlHeader";
-            this.EPpnlHeader.Size = new System.Drawing.Size(1406, 58);
+            this.EPpnlHeader.Size = new System.Drawing.Size(1318, 58);
             this.EPpnlHeader.TabIndex = 19;
             // 
             // EPbtnBack
@@ -1232,6 +1239,7 @@
             this.EPbtnBack.TabIndex = 4;
             this.EPbtnBack.Text = "Back";
             this.EPbtnBack.UseVisualStyleBackColor = true;
+            this.EPbtnBack.Click += new System.EventHandler(this.EPbtnBack_Click);
             // 
             // EPlblHeader
             // 
@@ -1264,6 +1272,233 @@
             this.EPpnl2.Name = "EPpnl2";
             this.EPpnl2.Size = new System.Drawing.Size(1316, 612);
             this.EPpnl2.TabIndex = 0;
+            // 
+            // pnlEmpPass
+            // 
+            this.pnlEmpPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlEmpPass.Controls.Add(this.btnEmpCancel);
+            this.pnlEmpPass.Controls.Add(this.lblModifyPass);
+            this.pnlEmpPass.Controls.Add(this.btnEmpSavePass);
+            this.pnlEmpPass.Controls.Add(this.txtEmpNew);
+            this.pnlEmpPass.Controls.Add(this.txtEmpConfirm);
+            this.pnlEmpPass.Controls.Add(this.lblEmpNew);
+            this.pnlEmpPass.Controls.Add(this.lblEmpConfirm);
+            this.pnlEmpPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlEmpPass.Location = new System.Drawing.Point(754, 49);
+            this.pnlEmpPass.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlEmpPass.Name = "pnlEmpPass";
+            this.pnlEmpPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.pnlEmpPass.Size = new System.Drawing.Size(531, 309);
+            this.pnlEmpPass.TabIndex = 28;
+            this.pnlEmpPass.Visible = false;
+            // 
+            // btnEmpCancel
+            // 
+            this.btnEmpCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpCancel.ForeColor = System.Drawing.Color.White;
+            this.btnEmpCancel.Location = new System.Drawing.Point(391, 226);
+            this.btnEmpCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpCancel.Name = "btnEmpCancel";
+            this.btnEmpCancel.Size = new System.Drawing.Size(117, 54);
+            this.btnEmpCancel.TabIndex = 4;
+            this.btnEmpCancel.Text = "Cancel";
+            this.btnEmpCancel.UseVisualStyleBackColor = false;
+            this.btnEmpCancel.Click += new System.EventHandler(this.btnEmpCancel_Click);
+            // 
+            // lblModifyPass
+            // 
+            this.lblModifyPass.AutoSize = true;
+            this.lblModifyPass.Font = new System.Drawing.Font("Bahnschrift", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifyPass.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblModifyPass.Location = new System.Drawing.Point(18, 18);
+            this.lblModifyPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblModifyPass.Name = "lblModifyPass";
+            this.lblModifyPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblModifyPass.Size = new System.Drawing.Size(223, 33);
+            this.lblModifyPass.TabIndex = 34;
+            this.lblModifyPass.Text = "Modify Password";
+            // 
+            // btnEmpSavePass
+            // 
+            this.btnEmpSavePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpSavePass.ForeColor = System.Drawing.Color.White;
+            this.btnEmpSavePass.Location = new System.Drawing.Point(40, 226);
+            this.btnEmpSavePass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpSavePass.Name = "btnEmpSavePass";
+            this.btnEmpSavePass.Size = new System.Drawing.Size(343, 54);
+            this.btnEmpSavePass.TabIndex = 3;
+            this.btnEmpSavePass.Text = "Save Password";
+            this.btnEmpSavePass.UseVisualStyleBackColor = false;
+            this.btnEmpSavePass.Click += new System.EventHandler(this.btnEmpSavePass_Click);
+            // 
+            // txtEmpNew
+            // 
+            this.txtEmpNew.Location = new System.Drawing.Point(276, 88);
+            this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpNew.Name = "txtEmpNew";
+            this.txtEmpNew.Size = new System.Drawing.Size(231, 32);
+            this.txtEmpNew.TabIndex = 1;
+            // 
+            // txtEmpConfirm
+            // 
+            this.txtEmpConfirm.Location = new System.Drawing.Point(276, 161);
+            this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpConfirm.Name = "txtEmpConfirm";
+            this.txtEmpConfirm.Size = new System.Drawing.Size(231, 32);
+            this.txtEmpConfirm.TabIndex = 2;
+            // 
+            // lblEmpNew
+            // 
+            this.lblEmpNew.AutoSize = true;
+            this.lblEmpNew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
+            this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpNew.Name = "lblEmpNew";
+            this.lblEmpNew.Size = new System.Drawing.Size(144, 24);
+            this.lblEmpNew.TabIndex = 25;
+            this.lblEmpNew.Text = "New Password";
+            // 
+            // lblEmpConfirm
+            // 
+            this.lblEmpConfirm.AutoSize = true;
+            this.lblEmpConfirm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
+            this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpConfirm.Name = "lblEmpConfirm";
+            this.lblEmpConfirm.Size = new System.Drawing.Size(175, 24);
+            this.lblEmpConfirm.TabIndex = 27;
+            this.lblEmpConfirm.Text = "Confirm Password";
+            // 
+            // PnlEmpInfo
+            // 
+            this.PnlEmpInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.PnlEmpInfo.Controls.Add(this.btnEmpSave);
+            this.PnlEmpInfo.Controls.Add(this.btnEmpEdit);
+            this.PnlEmpInfo.Controls.Add(this.btnEmpChangePass);
+            this.PnlEmpInfo.Controls.Add(this.lblEmpInfo);
+            this.PnlEmpInfo.Controls.Add(this.txtEmpID);
+            this.PnlEmpInfo.Controls.Add(this.lblEmpFName);
+            this.PnlEmpInfo.Controls.Add(this.txtEmpFName);
+            this.PnlEmpInfo.Controls.Add(this.lblEmpLName);
+            this.PnlEmpInfo.Controls.Add(this.txtEmpLName);
+            this.PnlEmpInfo.Controls.Add(this.lblEmpID);
+            this.PnlEmpInfo.Location = new System.Drawing.Point(39, 24);
+            this.PnlEmpInfo.Margin = new System.Windows.Forms.Padding(5);
+            this.PnlEmpInfo.Name = "PnlEmpInfo";
+            this.PnlEmpInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PnlEmpInfo.Size = new System.Drawing.Size(667, 519);
+            this.PnlEmpInfo.TabIndex = 24;
+            this.PnlEmpInfo.Visible = false;
+            this.PnlEmpInfo.VisibleChanged += new System.EventHandler(this.PnlEmpInfo_VisibleChanged);
+            // 
+            // btnEmpSave
+            // 
+            this.btnEmpSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpSave.ForeColor = System.Drawing.Color.White;
+            this.btnEmpSave.Location = new System.Drawing.Point(350, 363);
+            this.btnEmpSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpSave.Name = "btnEmpSave";
+            this.btnEmpSave.Size = new System.Drawing.Size(313, 54);
+            this.btnEmpSave.TabIndex = 8;
+            this.btnEmpSave.Text = "Save Details";
+            this.btnEmpSave.UseVisualStyleBackColor = false;
+            this.btnEmpSave.Visible = false;
+            this.btnEmpSave.Click += new System.EventHandler(this.btnEmpSave_Click);
+            // 
+            // btnEmpEdit
+            // 
+            this.btnEmpEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEmpEdit.Location = new System.Drawing.Point(350, 301);
+            this.btnEmpEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpEdit.Name = "btnEmpEdit";
+            this.btnEmpEdit.Size = new System.Drawing.Size(313, 54);
+            this.btnEmpEdit.TabIndex = 6;
+            this.btnEmpEdit.Text = "Edit Details";
+            this.btnEmpEdit.UseVisualStyleBackColor = false;
+            this.btnEmpEdit.Click += new System.EventHandler(this.btnEmpEdit_Click);
+            // 
+            // btnEmpChangePass
+            // 
+            this.btnEmpChangePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpChangePass.ForeColor = System.Drawing.Color.White;
+            this.btnEmpChangePass.Location = new System.Drawing.Point(29, 301);
+            this.btnEmpChangePass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpChangePass.Name = "btnEmpChangePass";
+            this.btnEmpChangePass.Size = new System.Drawing.Size(313, 54);
+            this.btnEmpChangePass.TabIndex = 5;
+            this.btnEmpChangePass.Text = "Change Password";
+            this.btnEmpChangePass.UseVisualStyleBackColor = false;
+            this.btnEmpChangePass.Click += new System.EventHandler(this.btnEmpChangePass_Click);
+            // 
+            // lblEmpInfo
+            // 
+            this.lblEmpInfo.AutoSize = true;
+            this.lblEmpInfo.Location = new System.Drawing.Point(7, 5);
+            this.lblEmpInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpInfo.Name = "lblEmpInfo";
+            this.lblEmpInfo.Size = new System.Drawing.Size(207, 24);
+            this.lblEmpInfo.TabIndex = 24;
+            this.lblEmpInfo.Text = "Employer Information";
+            // 
+            // txtEmpID
+            // 
+            this.txtEmpID.Enabled = false;
+            this.txtEmpID.Location = new System.Drawing.Point(277, 66);
+            this.txtEmpID.Margin = new System.Windows.Forms.Padding(5);
+            this.txtEmpID.Name = "txtEmpID";
+            this.txtEmpID.Size = new System.Drawing.Size(257, 32);
+            this.txtEmpID.TabIndex = 1;
+            // 
+            // lblEmpFName
+            // 
+            this.lblEmpFName.AutoSize = true;
+            this.lblEmpFName.Location = new System.Drawing.Point(29, 142);
+            this.lblEmpFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpFName.Name = "lblEmpFName";
+            this.lblEmpFName.Size = new System.Drawing.Size(115, 24);
+            this.lblEmpFName.TabIndex = 15;
+            this.lblEmpFName.Text = "First Name:";
+            // 
+            // txtEmpFName
+            // 
+            this.txtEmpFName.Enabled = false;
+            this.txtEmpFName.Location = new System.Drawing.Point(277, 139);
+            this.txtEmpFName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpFName.Name = "txtEmpFName";
+            this.txtEmpFName.Size = new System.Drawing.Size(257, 32);
+            this.txtEmpFName.TabIndex = 2;
+            // 
+            // lblEmpLName
+            // 
+            this.lblEmpLName.AutoSize = true;
+            this.lblEmpLName.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEmpLName.Location = new System.Drawing.Point(29, 218);
+            this.lblEmpLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpLName.Name = "lblEmpLName";
+            this.lblEmpLName.Size = new System.Drawing.Size(112, 24);
+            this.lblEmpLName.TabIndex = 17;
+            this.lblEmpLName.Text = "Last Name:";
+            // 
+            // txtEmpLName
+            // 
+            this.txtEmpLName.Enabled = false;
+            this.txtEmpLName.Location = new System.Drawing.Point(277, 215);
+            this.txtEmpLName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpLName.MaxLength = 13;
+            this.txtEmpLName.Name = "txtEmpLName";
+            this.txtEmpLName.Size = new System.Drawing.Size(257, 32);
+            this.txtEmpLName.TabIndex = 3;
+            // 
+            // lblEmpID
+            // 
+            this.lblEmpID.AutoSize = true;
+            this.lblEmpID.Location = new System.Drawing.Point(29, 69);
+            this.lblEmpID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpID.Name = "lblEmpID";
+            this.lblEmpID.Size = new System.Drawing.Size(125, 24);
+            this.lblEmpID.TabIndex = 19;
+            this.lblEmpID.Text = "Employer ID:";
             // 
             // tabpage4
             // 
@@ -1464,234 +1699,13 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
-            // PnlEmpInfo
-            // 
-            this.PnlEmpInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.PnlEmpInfo.Controls.Add(this.btnEmpSave);
-            this.PnlEmpInfo.Controls.Add(this.btnEmpEdit);
-            this.PnlEmpInfo.Controls.Add(this.btnEmpChangePass);
-            this.PnlEmpInfo.Controls.Add(this.lblEmpInfo);
-            this.PnlEmpInfo.Controls.Add(this.txtEmpID);
-            this.PnlEmpInfo.Controls.Add(this.lblEmpFName);
-            this.PnlEmpInfo.Controls.Add(this.txtEmpFName);
-            this.PnlEmpInfo.Controls.Add(this.lblEmpLName);
-            this.PnlEmpInfo.Controls.Add(this.txtEmpLName);
-            this.PnlEmpInfo.Controls.Add(this.lblEmpID);
-            this.PnlEmpInfo.Location = new System.Drawing.Point(39, 24);
-            this.PnlEmpInfo.Margin = new System.Windows.Forms.Padding(5);
-            this.PnlEmpInfo.Name = "PnlEmpInfo";
-            this.PnlEmpInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PnlEmpInfo.Size = new System.Drawing.Size(667, 519);
-            this.PnlEmpInfo.TabIndex = 24;
-            this.PnlEmpInfo.Visible = false;
-            // 
-            // btnEmpSave
-            // 
-            this.btnEmpSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpSave.ForeColor = System.Drawing.Color.White;
-            this.btnEmpSave.Location = new System.Drawing.Point(350, 363);
-            this.btnEmpSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpSave.Name = "btnEmpSave";
-            this.btnEmpSave.Size = new System.Drawing.Size(313, 54);
-            this.btnEmpSave.TabIndex = 8;
-            this.btnEmpSave.Text = "Save Details";
-            this.btnEmpSave.UseVisualStyleBackColor = false;
-            this.btnEmpSave.Visible = false;
-            // 
-            // btnEmpEdit
-            // 
-            this.btnEmpEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEmpEdit.Location = new System.Drawing.Point(350, 301);
-            this.btnEmpEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpEdit.Name = "btnEmpEdit";
-            this.btnEmpEdit.Size = new System.Drawing.Size(313, 54);
-            this.btnEmpEdit.TabIndex = 6;
-            this.btnEmpEdit.Text = "Edit Details";
-            this.btnEmpEdit.UseVisualStyleBackColor = false;
-            this.btnEmpEdit.Visible = false;
-            // 
-            // btnEmpChangePass
-            // 
-            this.btnEmpChangePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpChangePass.ForeColor = System.Drawing.Color.White;
-            this.btnEmpChangePass.Location = new System.Drawing.Point(29, 301);
-            this.btnEmpChangePass.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpChangePass.Name = "btnEmpChangePass";
-            this.btnEmpChangePass.Size = new System.Drawing.Size(313, 54);
-            this.btnEmpChangePass.TabIndex = 5;
-            this.btnEmpChangePass.Text = "Change Password";
-            this.btnEmpChangePass.UseVisualStyleBackColor = false;
-            this.btnEmpChangePass.Visible = false;
-            // 
-            // lblEmpInfo
-            // 
-            this.lblEmpInfo.AutoSize = true;
-            this.lblEmpInfo.Location = new System.Drawing.Point(7, 5);
-            this.lblEmpInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpInfo.Name = "lblEmpInfo";
-            this.lblEmpInfo.Size = new System.Drawing.Size(207, 24);
-            this.lblEmpInfo.TabIndex = 24;
-            this.lblEmpInfo.Text = "Employer Information";
-            // 
-            // txtEmpID
-            // 
-            this.txtEmpID.Enabled = false;
-            this.txtEmpID.Location = new System.Drawing.Point(277, 66);
-            this.txtEmpID.Margin = new System.Windows.Forms.Padding(5);
-            this.txtEmpID.Name = "txtEmpID";
-            this.txtEmpID.Size = new System.Drawing.Size(257, 32);
-            this.txtEmpID.TabIndex = 1;
-            // 
-            // lblEmpFName
-            // 
-            this.lblEmpFName.AutoSize = true;
-            this.lblEmpFName.Location = new System.Drawing.Point(29, 142);
-            this.lblEmpFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpFName.Name = "lblEmpFName";
-            this.lblEmpFName.Size = new System.Drawing.Size(115, 24);
-            this.lblEmpFName.TabIndex = 15;
-            this.lblEmpFName.Text = "First Name:";
-            // 
-            // txtEmpFName
-            // 
-            this.txtEmpFName.Location = new System.Drawing.Point(277, 139);
-            this.txtEmpFName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpFName.Name = "txtEmpFName";
-            this.txtEmpFName.Size = new System.Drawing.Size(257, 32);
-            this.txtEmpFName.TabIndex = 2;
-            // 
-            // lblEmpLName
-            // 
-            this.lblEmpLName.AutoSize = true;
-            this.lblEmpLName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpLName.Location = new System.Drawing.Point(29, 218);
-            this.lblEmpLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpLName.Name = "lblEmpLName";
-            this.lblEmpLName.Size = new System.Drawing.Size(112, 24);
-            this.lblEmpLName.TabIndex = 17;
-            this.lblEmpLName.Text = "Last Name:";
-            // 
-            // txtEmpLName
-            // 
-            this.txtEmpLName.Location = new System.Drawing.Point(277, 215);
-            this.txtEmpLName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpLName.MaxLength = 13;
-            this.txtEmpLName.Name = "txtEmpLName";
-            this.txtEmpLName.Size = new System.Drawing.Size(257, 32);
-            this.txtEmpLName.TabIndex = 3;
-            // 
-            // lblEmpID
-            // 
-            this.lblEmpID.AutoSize = true;
-            this.lblEmpID.Location = new System.Drawing.Point(29, 69);
-            this.lblEmpID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpID.Name = "lblEmpID";
-            this.lblEmpID.Size = new System.Drawing.Size(125, 24);
-            this.lblEmpID.TabIndex = 19;
-            this.lblEmpID.Text = "Employer ID:";
-            // 
-            // pnlEmpPass
-            // 
-            this.pnlEmpPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlEmpPass.Controls.Add(this.btnEmpCancel);
-            this.pnlEmpPass.Controls.Add(this.lblModifyPass);
-            this.pnlEmpPass.Controls.Add(this.btnEmpSavePass);
-            this.pnlEmpPass.Controls.Add(this.txtEmpNew);
-            this.pnlEmpPass.Controls.Add(this.txtEmpConfirm);
-            this.pnlEmpPass.Controls.Add(this.lblEmpNew);
-            this.pnlEmpPass.Controls.Add(this.lblEmpConfirm);
-            this.pnlEmpPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlEmpPass.Location = new System.Drawing.Point(754, 49);
-            this.pnlEmpPass.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlEmpPass.Name = "pnlEmpPass";
-            this.pnlEmpPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pnlEmpPass.Size = new System.Drawing.Size(531, 309);
-            this.pnlEmpPass.TabIndex = 28;
-            this.pnlEmpPass.Visible = false;
-            // 
-            // btnEmpCancel
-            // 
-            this.btnEmpCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpCancel.ForeColor = System.Drawing.Color.White;
-            this.btnEmpCancel.Location = new System.Drawing.Point(391, 226);
-            this.btnEmpCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpCancel.Name = "btnEmpCancel";
-            this.btnEmpCancel.Size = new System.Drawing.Size(117, 54);
-            this.btnEmpCancel.TabIndex = 4;
-            this.btnEmpCancel.Text = "Cancel";
-            this.btnEmpCancel.UseVisualStyleBackColor = false;
-            // 
-            // lblModifyPass
-            // 
-            this.lblModifyPass.AutoSize = true;
-            this.lblModifyPass.Font = new System.Drawing.Font("Bahnschrift", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifyPass.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblModifyPass.Location = new System.Drawing.Point(18, 18);
-            this.lblModifyPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblModifyPass.Name = "lblModifyPass";
-            this.lblModifyPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblModifyPass.Size = new System.Drawing.Size(223, 33);
-            this.lblModifyPass.TabIndex = 34;
-            this.lblModifyPass.Text = "Modify Password";
-            // 
-            // btnEmpSavePass
-            // 
-            this.btnEmpSavePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpSavePass.ForeColor = System.Drawing.Color.White;
-            this.btnEmpSavePass.Location = new System.Drawing.Point(40, 226);
-            this.btnEmpSavePass.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpSavePass.Name = "btnEmpSavePass";
-            this.btnEmpSavePass.Size = new System.Drawing.Size(343, 54);
-            this.btnEmpSavePass.TabIndex = 3;
-            this.btnEmpSavePass.Text = "Save Password";
-            this.btnEmpSavePass.UseVisualStyleBackColor = false;
-            // 
-            // txtEmpNew
-            // 
-            this.txtEmpNew.Location = new System.Drawing.Point(276, 88);
-            this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(231, 32);
-            this.txtEmpNew.TabIndex = 1;
-            // 
-            // txtEmpConfirm
-            // 
-            this.txtEmpConfirm.Location = new System.Drawing.Point(276, 161);
-            this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(231, 32);
-            this.txtEmpConfirm.TabIndex = 2;
-            // 
-            // lblEmpNew
-            // 
-            this.lblEmpNew.AutoSize = true;
-            this.lblEmpNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
-            this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpNew.Name = "lblEmpNew";
-            this.lblEmpNew.Size = new System.Drawing.Size(144, 24);
-            this.lblEmpNew.TabIndex = 25;
-            this.lblEmpNew.Text = "New Password";
-            // 
-            // lblEmpConfirm
-            // 
-            this.lblEmpConfirm.AutoSize = true;
-            this.lblEmpConfirm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
-            this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpConfirm.Name = "lblEmpConfirm";
-            this.lblEmpConfirm.Size = new System.Drawing.Size(175, 24);
-            this.lblEmpConfirm.TabIndex = 27;
-            this.lblEmpConfirm.Text = "Confirm Password";
-            // 
             // frmEmployer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.tabCont);
+            this.Controls.Add(this.tcEmployer);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -1736,12 +1750,16 @@
             this.pnlHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfile)).EndInit();
             this.pnlNavigate.ResumeLayout(false);
-            this.tabCont.ResumeLayout(false);
+            this.tcEmployer.ResumeLayout(false);
             this.tpProfile.ResumeLayout(false);
             this.EPpnlHeader.ResumeLayout(false);
             this.EPpnlHeader.PerformLayout();
             this.EPpnl1.ResumeLayout(false);
             this.EPpnl2.ResumeLayout(false);
+            this.pnlEmpPass.ResumeLayout(false);
+            this.pnlEmpPass.PerformLayout();
+            this.PnlEmpInfo.ResumeLayout(false);
+            this.PnlEmpInfo.PerformLayout();
             this.tabpage4.ResumeLayout(false);
             this.ARJpnlHeader.ResumeLayout(false);
             this.ARJpnlHeader.PerformLayout();
@@ -1749,10 +1767,6 @@
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
-            this.PnlEmpInfo.ResumeLayout(false);
-            this.PnlEmpInfo.PerformLayout();
-            this.pnlEmpPass.ResumeLayout(false);
-            this.pnlEmpPass.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1829,7 +1843,7 @@
         private System.Windows.Forms.Button btnHpARJ;
         private System.Windows.Forms.Button btnHpASTJ;
         private System.Windows.Forms.Button btnHpMJ;
-        private System.Windows.Forms.TabControl tabCont;
+        private System.Windows.Forms.TabControl tcEmployer;
         private System.Windows.Forms.Panel ASJpnlHeader;
         private System.Windows.Forms.Label ASJlblHeader;
         private System.Windows.Forms.Panel ASJpnl1;

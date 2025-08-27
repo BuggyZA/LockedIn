@@ -713,7 +713,7 @@
             this.tpEmployer.Location = new System.Drawing.Point(4, 25);
             this.tpEmployer.Margin = new System.Windows.Forms.Padding(4);
             this.tpEmployer.Name = "tpEmployer";
-            this.tpEmployer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tpEmployer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tpEmployer.Size = new System.Drawing.Size(1699, 857);
             this.tpEmployer.TabIndex = 4;
             this.tpEmployer.Text = "Maintain Employers";
@@ -1014,6 +1014,7 @@
             this.PnlEmpInfo.Size = new System.Drawing.Size(667, 519);
             this.PnlEmpInfo.TabIndex = 23;
             this.PnlEmpInfo.Visible = false;
+            
             // 
             // btnEmpSave
             // 
@@ -1193,7 +1194,7 @@
             this.pnlEmpHeading.Location = new System.Drawing.Point(0, 0);
             this.pnlEmpHeading.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEmpHeading.Name = "pnlEmpHeading";
-            this.pnlEmpHeading.Size = new System.Drawing.Size(1721, 58);
+            this.pnlEmpHeading.Size = new System.Drawing.Size(1672, 58);
             this.pnlEmpHeading.TabIndex = 14;
             // 
             // btnMEmpBack
@@ -1427,7 +1428,7 @@
             this.cmbJobID.Name = "cmbJobID";
             this.cmbJobID.Size = new System.Drawing.Size(292, 36);
             this.cmbJobID.TabIndex = 2;
-            this.cmbJobID.SelectedIndexChanged += new System.EventHandler(this.cmbJobID_SelectedIndexChanged);
+            
             // 
             // label8
             // 
@@ -3557,7 +3558,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
-            this.Load += new System.EventHandler(this.frmAdmin_Load);
+           
             this.tcPrisoner.ResumeLayout(false);
             this.tpMain.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
