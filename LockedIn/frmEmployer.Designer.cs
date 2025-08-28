@@ -1713,6 +1713,7 @@
             this.Text = "frmEmployer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmEmployer_Load);
+            this.Shown += new System.EventHandler(this.frmEmployer_Shown);
             this.tabPage1.ResumeLayout(false);
             this.ASJpnlHeader.ResumeLayout(false);
             this.ASJpnlHeader.PerformLayout();

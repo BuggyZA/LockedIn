@@ -90,7 +90,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnHPmaintainPrisoner = new System.Windows.Forms.Button();
             this.calHPactiveJobs = new System.Windows.Forms.MonthCalendar();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcPrisoner = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
@@ -154,7 +154,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tcPrisoner.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel57.SuspendLayout();
             this.panel52.SuspendLayout();
@@ -810,19 +810,19 @@
             this.calHPactiveJobs.Name = "calHPactiveJobs";
             this.calHPactiveJobs.TabIndex = 0;
             // 
-            // tabControl1
+            // tcPrisoner
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1280, 700);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tcPrisoner.Controls.Add(this.tabPage1);
+            this.tcPrisoner.Controls.Add(this.tabPage2);
+            this.tcPrisoner.Controls.Add(this.tabPage4);
+            this.tcPrisoner.Controls.Add(this.tabPage5);
+            this.tcPrisoner.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcPrisoner.Location = new System.Drawing.Point(0, 0);
+            this.tcPrisoner.Name = "tcPrisoner";
+            this.tcPrisoner.SelectedIndex = 0;
+            this.tcPrisoner.Size = new System.Drawing.Size(1280, 700);
+            this.tcPrisoner.TabIndex = 0;
+            this.tcPrisoner.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -1312,10 +1312,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcPrisoner);
             this.Name = "frmPrisoner";
             this.Text = "frmPrisoner";
             this.Load += new System.EventHandler(this.frmPrisoner_Load);
+            this.Shown += new System.EventHandler(this.frmPrisoner_Shown);
             this.tabPage5.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -1343,7 +1344,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tcPrisoner.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel57.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
@@ -1386,7 +1387,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcPrisoner;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;

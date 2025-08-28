@@ -434,5 +434,10 @@ namespace LockedIn
                 }
             }
         }
+
+        private void frmEmployer_Shown(object sender, EventArgs e)
+        {
+            tcEmployer.SelectedIndex = 0;
+        }
     }
 }

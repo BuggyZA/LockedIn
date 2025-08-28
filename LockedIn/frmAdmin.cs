@@ -35,6 +35,7 @@ namespace LockedIn
         string action = "";// this for maintain jobs to hold say if data needs to be edited, addded or deleted
         int selectedJobID = -1; // This will hold the selected JobID for Edit/Delete
 
+        int SelectedUser;
 
 
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
@@ -50,37 +51,37 @@ namespace LockedIn
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 3;
+            tcAdmin.SelectedIndex = 3;
         }
 
-        
+
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             isPopulating = true;
             //Popuating combo boxes.
-            if (tcPrisoner.SelectedIndex == 4)
+            if (tcAdmin.SelectedIndex == 4)
             {
                 cbxJobName.SelectedIndexChanged -= cbxJobName_SelectedIndexChanged;
                 ComboBoxHelper.PopulateJobNames(cbxJobName);
                 cbxJobName.SelectedIndexChanged += cbxJobName_SelectedIndexChanged;
 
-                
+
                 pnlJobDetails.Visible = true;
                 pnlGuardDetails.Visible = false;
             }
-            else if (tcPrisoner.SelectedIndex == 6) //Maintain skills page
+            else if (tcAdmin.SelectedIndex == 6) //Maintain skills page
             {
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
-            else if (tcPrisoner.SelectedIndex == 7)
+            else if (tcAdmin.SelectedIndex == 7)
             {
                 cmbPrisonerName.SelectedIndexChanged -= cmbPrisonerName_SelectedIndexChanged;
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerName);
                 cmbPrisonerName.SelectedIndexChanged += cmbPrisonerName_SelectedIndexChanged;
             }
             //Maintain Prisoner Page
-            else if (tcPrisoner.SelectedIndex == 8)
+            else if (tcAdmin.SelectedIndex == 8)
             {
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
                 pnlPInfo.Visible = false;
@@ -89,19 +90,19 @@ namespace LockedIn
                 pnlMPChoices.Visible = true;
                 pnlModifyPPassword.Visible = false;
             }
-            else if (tcPrisoner.SelectedIndex == 2)
+            else if (tcAdmin.SelectedIndex == 2)
             {
                 ComboBoxHelper.PopulateJobNames(cmbJobID);
                 ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
-            else if (tcPrisoner.SelectedIndex == 5)
+            else if (tcAdmin.SelectedIndex == 5)
             {
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
 
             }
-            else if (tcPrisoner.SelectedIndex == 3)
-            { 
+            else if (tcAdmin.SelectedIndex == 3)
+            {
                 panel40.Visible = false;
                 panel39.Visible = false;
                 panel41.Visible = false;
@@ -180,7 +181,7 @@ namespace LockedIn
             skillID = ListboxHelper.GetSelectedSkillID(lstMPCurrentSkills);
         }
 
-       
+
 
         //Edit Prisoner
         private void button46_Click(object sender, EventArgs e)
@@ -400,12 +401,12 @@ namespace LockedIn
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 2;
+            tcAdmin.SelectedIndex = 2;
         }
 
         private void btnMaintainSkills_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 6;
+            tcAdmin.SelectedIndex = 6;
         }
 
         private void btnMSEditExisSkil_Click(object sender, EventArgs e)
@@ -681,7 +682,7 @@ namespace LockedIn
                 txtEmpPass.Visible = false;
                 lblEmpPass.Visible = false;
                 btnEmpEdit.Visible = true;
-                
+
 
             }
         }
@@ -696,7 +697,7 @@ namespace LockedIn
             btnAddNewEmp.Visible = true;
             btnEmpChangePass.Visible = false;
             pnlEmpMenu.Visible = false;
-            btnBackEmp.Visible = true;
+            //btnBackEmp.Visible = true;
             txtEmpID.Clear();
             txtEmpFName.Clear();
             txtEmpLName.Clear();
@@ -715,7 +716,7 @@ namespace LockedIn
             pnlEmpMenu.Visible = false;
             btnEmployerDetails.Visible = true;
             btnEmpDel.Visible = false;
-            btnBackEmp.Visible = true;
+            //btnBackEmp.Visible = true;
         }
 
         private void btnDelEmployer_Click(object sender, EventArgs e)
@@ -726,8 +727,8 @@ namespace LockedIn
             pnlEmpMenu.Visible = false;
             btnEmpDel.Visible = true;
             btnEmployerDetails.Visible = false;
-            btnBackEmp.Visible = true;
-            btnBackEmp.Visible = false;
+            //btnBackEmp.Visible = true;
+            //btnBackEmp.Visible = false;
 
         }
 
@@ -738,7 +739,7 @@ namespace LockedIn
             pnlEmpDetails.Visible = false;
             btnEmpEdit.Visible = false;
             pnlEmpPass.Visible = false;
-            btnBackEmp.Visible = false;
+           //btnBackEmp.Visible = false;
             btnEmpSave.Visible = false;
         }
 
@@ -830,27 +831,27 @@ namespace LockedIn
 
         private void btnAssignGuardsToJobs_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 4;
+            tcAdmin.SelectedIndex = 4;
         }
 
         private void btnAssignSkillToPris_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 7;
+            tcAdmin.SelectedIndex = 7;
         }
 
         private void btnAssignSkillToJob_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 5;
+            tcAdmin.SelectedIndex = 5;
         }
 
         private void btnMaintainEmp_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 1;
+            tcAdmin.SelectedIndex = 1;
         }
 
         private void btnMaintainPris_Click(object sender, EventArgs e)
         {
-            tcPrisoner.SelectedIndex = 8;
+            tcAdmin.SelectedIndex = 8;
         }
 
         private void btnReqReports_Click(object sender, EventArgs e)
@@ -893,7 +894,7 @@ namespace LockedIn
 
 
         }
-       
+
 
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
@@ -1023,11 +1024,11 @@ namespace LockedIn
         private void button32_Click(object sender, EventArgs e)
         {
 
-           
+
 
         }
 
-    
+
         private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
         {
             if (pnlMPChoices.Visible == true)
@@ -1197,7 +1198,7 @@ namespace LockedIn
                         }
                     }
                 }
-                   
+
 
             }
             catch (Exception ex)
@@ -1243,7 +1244,7 @@ namespace LockedIn
                             comm.Parameters.AddWithValue("@jobLocation", job_location);
                             comm.Parameters.AddWithValue("@startDate", startDate);
                             comm.Parameters.AddWithValue("@endDate", endDate);
-                            comm.Parameters.AddWithValue("@prisonersNeeded", prisoners );
+                            comm.Parameters.AddWithValue("@prisonersNeeded", prisoners);
                             comm.Parameters.AddWithValue("@completed", job_completed);
                             comm.Parameters.AddWithValue("@durationPerDay", duration);
 
@@ -1366,12 +1367,12 @@ namespace LockedIn
                         pnlEmpDetails.Visible = false;
                         btnEmpEdit.Visible = false;
                         pnlEmpPass.Visible = false;
-                        btnBackEmp.Visible = false;
+                        //btnBackEmp.Visible = false;
                         btnEmpSave.Visible = false;
 
                     }
-                       
-                    
+
+
                 }
             }
         }
@@ -1383,7 +1384,7 @@ namespace LockedIn
             string newPass = txtEmpNew.Text;
             string confirmPass = txtEmpConfirm.Text;
 
-            if(newPass != confirmPass)
+            if (newPass != confirmPass)
             {
                 MessageBox.Show("passwords do not match!");
                 return;
@@ -1420,13 +1421,12 @@ namespace LockedIn
 
 
 
-                
+
         }
 
         private void btnMEmpBack_Click(object sender, EventArgs e)
         {
-            //bacl to main menu
-            tcPrisoner.SelectedIndex = 0;
+            BackButton();
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
@@ -1460,7 +1460,7 @@ namespace LockedIn
             DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
-            {                
+            {
                 frmLogIn myLoginform = new frmLogIn();
                 this.Close();
                 myLoginform.ShowDialog();
@@ -1471,9 +1471,48 @@ namespace LockedIn
                 pnlJobDetails.Visible = true;
             }
         }
-    } 
+
+        //LOGOUT & BACK BUTTONS
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.logOut();
+        }
+
+        private void BackButton()
+        {
+            if (SessionData.SelectedUser == 1)
+            {
+                tcAdmin.SelectedIndex = 0;
+            }
+            else if (SessionData.SelectedUser == 2)
+            {
+                frmPrisoner prisoner = new frmPrisoner();
+                prisoner.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 3)
+            {
+                frmEmployer employer = new frmEmployer();
+                employer.Show();
+                this.Hide();
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
 
 
+
+
+
+        //END OF LOGOUT & BACK BUTTONS
+
+    }
 }
     
 

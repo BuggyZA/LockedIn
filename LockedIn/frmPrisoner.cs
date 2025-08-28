@@ -30,7 +30,7 @@ namespace LockedIn
 
         private void button5_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            tcPrisoner.SelectedIndex = 1;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,7 +54,7 @@ namespace LockedIn
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
+            if (tcPrisoner.SelectedIndex == 1)
             {
 
                 pnlPInfo.Visible = false;
@@ -331,7 +331,12 @@ namespace LockedIn
 
         private void btnHPapplyForJobs_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
+            tcPrisoner.SelectedIndex = 2;
+        }
+
+        private void frmPrisoner_Shown(object sender, EventArgs e)
+        {
+            tcPrisoner.SelectedIndex = 0;
         }
     }
 }

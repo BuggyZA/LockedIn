@@ -16,7 +16,7 @@ using System.Windows.Forms;
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
  * Use password hasher
- * 
+ * Change the get's to SessionData
  * 
  * 
  * 
@@ -30,7 +30,7 @@ namespace LockedIn
     public partial class frmLogIn : Form
     {
         private const String ADMINUSER = "admin", ADMINPASS = "admin";
-        int SelectedUser = 0;
+        int SelectedUser;
         int PrisonerID, EmployerID;     //Variables of ID's to be used on other forms to fetch currently logged in ID
 
         public frmLogIn()
@@ -47,6 +47,10 @@ namespace LockedIn
             pnlLogIn.Visible = false;
             pnlSignUp.Visible = false;
         }
+        public int getSelectedUser()
+        {
+            return SelectedUser;
+        }
 
         public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
         {
@@ -62,13 +66,14 @@ namespace LockedIn
 
         private void Login_Load(object sender, EventArgs e)
         {
+            SelectedUser = 0;
             pnlLogIn.Hide();
             pnlSignUp.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            SelectedUser = 1;
+            SessionData.SelectedUser = 1;
             frmAdmin adminForm = new frmAdmin();
             adminForm.Show();
             lblUsername.Text = "Username: ";
@@ -86,8 +91,8 @@ namespace LockedIn
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SelectedUser = 3;
-            
+            SessionData.SelectedUser = 3;
+
             ComboBoxHelper.PopulateEmployerNames(cbxEmployerID);
            
             lblUsername.Visible = false;
@@ -106,7 +111,7 @@ namespace LockedIn
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SelectedUser = 2;
+            SessionData.SelectedUser = 2;
 
             lblUsername.Text = "Prisoner Number: ";
             lblUsername.Visible = true;
@@ -241,7 +246,8 @@ namespace LockedIn
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            if(txtPassword.Text == "")
+           
+            if (txtPassword.Text == "")
             {
                 MessageBox.Show("Password cannot be empty.");
                 return;
@@ -302,6 +308,8 @@ namespace LockedIn
                                 cmd = new SqlCommand("SELECT PrisonerID FROM PRISONER WHERE PrisonerNum = @prisonerNum", conn);
                                 cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
                                 PrisonerID = (int)cmd.ExecuteScalar();
+                                SessionData.LoggedInPrisonerID = PrisonerID;
+
 
                                 frmPrisoner prisonerForm = new frmPrisoner();
                                 prisonerForm.Show();
@@ -311,10 +319,12 @@ namespace LockedIn
                                 cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
                                 cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
                                 EmployerID = (int)cmd.ExecuteScalar();
+                                SessionData.LoggedInEmployerID = EmployerID;
 
                                 frmEmployer employerForm = new frmEmployer();
                                 employerForm.Show();
                             }
+                            
                             MessageBox.Show("Login successful!");
                             this.Hide();
                         }
@@ -342,6 +352,7 @@ namespace LockedIn
                             txtUsername.Clear();
                         }
                     }
+                    
                 }
             }
             catch (Exception ex)

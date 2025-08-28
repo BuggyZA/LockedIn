@@ -1,30 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\",
+  "WorkspaceRootPath": "C:\\!Github\\LockedIn\\LockedIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\!Github\\LockedIn\\LockedIn\\lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\data\\sessiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\sessiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\users\\user\\desktop\\nwu\\2de jaar\\semester 2\\cmpg 223\\project\\lockedin\\lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\helpers\\comboboxhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\data\\jobskillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmprisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|c:\\!github\\lockedin\\lockedin\\lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E06E292F-C070-4185-8B11-D21BB070F66C}|LockedIn\\LockedIn.csproj|solutionrelative:lockedin\\frmemployer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +50,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 14,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -54,80 +74,129 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Job.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Models\\Job.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Models\\Job.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Models\\Job.cs",
-              "RelativeToolTip": "LockedIn\\Models\\Job.cs",
-              "ViewState": "AgIAABgAAAAAzczMzMw6wBsAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "frmAdmin.Designer.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.Designer.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.Designer.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.Designer.cs",
+              "RelativeToolTip": "LockedIn\\frmAdmin.Designer.cs",
+              "ViewState": "AgIAAGgOAAAAAAAAAAAQwH4OAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T18:45:02.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JobManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\JobManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\JobManager.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\JobManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\JobManager.cs",
-              "ViewState": "AgIAAAoAAAAAaGZmZmYGwBkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T18:43:27.225Z",
+              "WhenOpened": "2025-08-28T11:12:02.881Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ComboboxHelper.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Helpers\\ComboboxHelper.cs",
-              "RelativeToolTip": "LockedIn\\Helpers\\ComboboxHelper.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAuwIgAAAAEAAAAAAAAAA==",
+              "Title": "SessionData.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\SessionData.cs",
+              "RelativeDocumentMoniker": "LockedIn\\Data\\SessionData.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\Data\\SessionData.cs",
+              "RelativeToolTip": "LockedIn\\Data\\SessionData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T17:41:07.165Z",
+              "WhenOpened": "2025-08-28T11:07:45.691Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JobSkillManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
-              "RelativeDocumentMoniker": "LockedIn\\Data\\JobSkillManager.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\Data\\JobSkillManager.cs",
-              "RelativeToolTip": "LockedIn\\Data\\JobSkillManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "frmEmployer.cs [Design]",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs [Design]",
+              "RelativeToolTip": "LockedIn\\frmEmployer.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T17:31:10.775Z",
+              "WhenOpened": "2025-08-28T10:44:02.289Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmPrisoner.cs [Design]",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmPrisoner.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs [Design]",
+              "RelativeToolTip": "LockedIn\\frmPrisoner.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T10:40:28.505Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
+              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T12:55:36.197Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmLogin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmLogin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmLogin.cs [Design]",
+              "RelativeToolTip": "LockedIn\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T09:31:59.282Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmEmployer.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmEmployer.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmEmployer.cs",
+              "RelativeToolTip": "LockedIn\\frmEmployer.cs",
+              "ViewState": "AgIAAJYBAAAAAAAAAAAowLcBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T10:46:04.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmPrisoner.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmPrisoner.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmPrisoner.cs",
+              "RelativeToolTip": "LockedIn\\frmPrisoner.cs",
+              "ViewState": "AgIAAEABAAAAAAAAAAAEwFIBAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T10:42:49.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAdmin.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmAdmin.cs",
+              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
+              "ViewState": "AgIAALwFAAAAAAAAAAAUwMwFAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T10:36:56.385Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs",
-              "ViewState": "AgIAAMcAAAAAAAAAAAA8wNQAAAAWAAAAAAAAAA==",
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmLogin.cs",
+              "RelativeDocumentMoniker": "LockedIn\\frmLogin.cs",
+              "ToolTip": "C:\\!Github\\LockedIn\\LockedIn\\LockedIn\\frmLogin.cs",
+              "RelativeToolTip": "LockedIn\\frmLogin.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAApwHIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T11:42:23.493Z",
+              "WhenOpened": "2025-08-28T09:32:02.669Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmAdmin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs",
-              "RelativeDocumentMoniker": "LockedIn\\frmAdmin.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NWU\\2de Jaar\\Semester 2\\CMPG 223\\Project\\LockedIn\\LockedIn\\frmAdmin.cs [Design]",
-              "RelativeToolTip": "LockedIn\\frmAdmin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T12:55:36.197Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }
