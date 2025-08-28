@@ -64,6 +64,11 @@
             this.btnSULogIn = new System.Windows.Forms.Button();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblSUFNError = new System.Windows.Forms.Label();
+            this.lblSULNError = new System.Windows.Forms.Label();
+            this.lblSUIDError = new System.Windows.Forms.Label();
+            this.lblSUPassError = new System.Windows.Forms.Label();
+            this.lblSUConPassError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlAPESelect.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,7 +90,7 @@
             // 
             // pnlAPESelect
             // 
-            this.pnlAPESelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.pnlAPESelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlAPESelect.Controls.Add(this.panel3);
             this.pnlAPESelect.Controls.Add(this.label2);
             this.pnlAPESelect.Location = new System.Drawing.Point(140, 199);
@@ -146,7 +151,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.label2.Location = new System.Drawing.Point(75, 6);
@@ -157,7 +162,7 @@
             // 
             // pnlLogIn
             // 
-            this.pnlLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.pnlLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlLogIn.Controls.Add(this.btnLIBack);
             this.pnlLogIn.Controls.Add(this.panel5);
             this.pnlLogIn.Controls.Add(this.label3);
@@ -279,7 +284,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.label3.Location = new System.Drawing.Point(75, 6);
@@ -290,7 +295,7 @@
             // 
             // pnlSignUp
             // 
-            this.pnlSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.pnlSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlSignUp.Controls.Add(this.btnSUBack);
             this.pnlSignUp.Controls.Add(this.panel6);
             this.pnlSignUp.Controls.Add(this.label7);
@@ -314,6 +319,11 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel6.Controls.Add(this.lblSUConPassError);
+            this.panel6.Controls.Add(this.lblSUPassError);
+            this.panel6.Controls.Add(this.lblSUIDError);
+            this.panel6.Controls.Add(this.lblSULNError);
+            this.panel6.Controls.Add(this.lblSUFNError);
             this.panel6.Controls.Add(this.txtSUID);
             this.panel6.Controls.Add(this.lblSUFirstName);
             this.panel6.Controls.Add(this.txtSUConfirmPass);
@@ -326,7 +336,7 @@
             this.panel6.Controls.Add(this.lblSUID);
             this.panel6.Controls.Add(this.btnSULogIn);
             this.panel6.Controls.Add(this.btnSignUp);
-            this.panel6.Location = new System.Drawing.Point(8, 51);
+            this.panel6.Location = new System.Drawing.Point(8, 49);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(335, 377);
             this.panel6.TabIndex = 5;
@@ -334,16 +344,17 @@
             // txtSUID
             // 
             this.txtSUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtSUID.Location = new System.Drawing.Point(171, 131);
+            this.txtSUID.Location = new System.Drawing.Point(171, 123);
             this.txtSUID.Name = "txtSUID";
             this.txtSUID.Size = new System.Drawing.Size(151, 29);
             this.txtSUID.TabIndex = 8;
+            this.txtSUID.TextChanged += new System.EventHandler(this.txtSUID_TextChanged);
             // 
             // lblSUFirstName
             // 
             this.lblSUFirstName.AutoSize = true;
             this.lblSUFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblSUFirstName.Location = new System.Drawing.Point(66, 40);
+            this.lblSUFirstName.Location = new System.Drawing.Point(66, 21);
             this.lblSUFirstName.Name = "lblSUFirstName";
             this.lblSUFirstName.Size = new System.Drawing.Size(106, 24);
             this.lblSUFirstName.TabIndex = 14;
@@ -352,11 +363,12 @@
             // txtSUConfirmPass
             // 
             this.txtSUConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtSUConfirmPass.Location = new System.Drawing.Point(171, 219);
+            this.txtSUConfirmPass.Location = new System.Drawing.Point(171, 225);
             this.txtSUConfirmPass.Name = "txtSUConfirmPass";
             this.txtSUConfirmPass.Size = new System.Drawing.Size(151, 29);
             this.txtSUConfirmPass.TabIndex = 10;
             this.txtSUConfirmPass.UseSystemPasswordChar = true;
+            this.txtSUConfirmPass.TextChanged += new System.EventHandler(this.txtSUConfirmPass_TextChanged);
             // 
             // txtSUPassword
             // 
@@ -366,12 +378,13 @@
             this.txtSUPassword.Size = new System.Drawing.Size(151, 29);
             this.txtSUPassword.TabIndex = 9;
             this.txtSUPassword.UseSystemPasswordChar = true;
+            this.txtSUPassword.TextChanged += new System.EventHandler(this.txtSUPassword_TextChanged);
             // 
             // lblSUConfirmPass
             // 
             this.lblSUConfirmPass.AutoSize = true;
             this.lblSUConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblSUConfirmPass.Location = new System.Drawing.Point(5, 222);
+            this.lblSUConfirmPass.Location = new System.Drawing.Point(5, 228);
             this.lblSUConfirmPass.Name = "lblSUConfirmPass";
             this.lblSUConfirmPass.Size = new System.Drawing.Size(167, 24);
             this.lblSUConfirmPass.TabIndex = 11;
@@ -390,24 +403,26 @@
             // txtSULastName
             // 
             this.txtSULastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtSULastName.Location = new System.Drawing.Point(171, 86);
+            this.txtSULastName.Location = new System.Drawing.Point(171, 73);
             this.txtSULastName.Name = "txtSULastName";
             this.txtSULastName.Size = new System.Drawing.Size(151, 29);
             this.txtSULastName.TabIndex = 7;
+            this.txtSULastName.TextChanged += new System.EventHandler(this.txtSULastName_TextChanged);
             // 
             // txtSUFirstName
             // 
             this.txtSUFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtSUFirstName.Location = new System.Drawing.Point(171, 40);
+            this.txtSUFirstName.Location = new System.Drawing.Point(171, 21);
             this.txtSUFirstName.Name = "txtSUFirstName";
             this.txtSUFirstName.Size = new System.Drawing.Size(151, 29);
             this.txtSUFirstName.TabIndex = 6;
+            this.txtSUFirstName.TextChanged += new System.EventHandler(this.txtSUFirstName_TextChanged);
             // 
             // lblSULastName
             // 
             this.lblSULastName.AutoSize = true;
             this.lblSULastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblSULastName.Location = new System.Drawing.Point(68, 86);
+            this.lblSULastName.Location = new System.Drawing.Point(68, 73);
             this.lblSULastName.Name = "lblSULastName";
             this.lblSULastName.Size = new System.Drawing.Size(104, 24);
             this.lblSULastName.TabIndex = 5;
@@ -417,7 +432,7 @@
             // 
             this.lblSUID.AutoSize = true;
             this.lblSUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblSUID.Location = new System.Drawing.Point(97, 137);
+            this.lblSUID.Location = new System.Drawing.Point(97, 129);
             this.lblSUID.Name = "lblSUID";
             this.lblSUID.Size = new System.Drawing.Size(75, 24);
             this.lblSUID.TabIndex = 4;
@@ -452,7 +467,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.label7.Location = new System.Drawing.Point(75, 6);
@@ -460,6 +475,51 @@
             this.label7.Size = new System.Drawing.Size(249, 42);
             this.label7.TabIndex = 4;
             this.label7.Text = "Sign Up Page";
+            // 
+            // lblSUFNError
+            // 
+            this.lblSUFNError.AutoSize = true;
+            this.lblSUFNError.ForeColor = System.Drawing.Color.Red;
+            this.lblSUFNError.Location = new System.Drawing.Point(168, 56);
+            this.lblSUFNError.Name = "lblSUFNError";
+            this.lblSUFNError.Size = new System.Drawing.Size(0, 13);
+            this.lblSUFNError.TabIndex = 15;
+            // 
+            // lblSULNError
+            // 
+            this.lblSULNError.AutoSize = true;
+            this.lblSULNError.ForeColor = System.Drawing.Color.Red;
+            this.lblSULNError.Location = new System.Drawing.Point(168, 105);
+            this.lblSULNError.Name = "lblSULNError";
+            this.lblSULNError.Size = new System.Drawing.Size(0, 13);
+            this.lblSULNError.TabIndex = 16;
+            // 
+            // lblSUIDError
+            // 
+            this.lblSUIDError.AutoSize = true;
+            this.lblSUIDError.ForeColor = System.Drawing.Color.Red;
+            this.lblSUIDError.Location = new System.Drawing.Point(168, 155);
+            this.lblSUIDError.Name = "lblSUIDError";
+            this.lblSUIDError.Size = new System.Drawing.Size(0, 13);
+            this.lblSUIDError.TabIndex = 17;
+            // 
+            // lblSUPassError
+            // 
+            this.lblSUPassError.AutoSize = true;
+            this.lblSUPassError.ForeColor = System.Drawing.Color.Red;
+            this.lblSUPassError.Location = new System.Drawing.Point(168, 209);
+            this.lblSUPassError.Name = "lblSUPassError";
+            this.lblSUPassError.Size = new System.Drawing.Size(0, 13);
+            this.lblSUPassError.TabIndex = 18;
+            // 
+            // lblSUConPassError
+            // 
+            this.lblSUConPassError.AutoSize = true;
+            this.lblSUConPassError.ForeColor = System.Drawing.Color.Red;
+            this.lblSUConPassError.Location = new System.Drawing.Point(168, 257);
+            this.lblSUConPassError.Name = "lblSUConPassError";
+            this.lblSUConPassError.Size = new System.Drawing.Size(0, 13);
+            this.lblSUConPassError.TabIndex = 19;
             // 
             // frmLogIn
             // 
@@ -529,6 +589,11 @@
         private System.Windows.Forms.Button btnSUBack;
         private System.Windows.Forms.Label lblEmployerID;
         private System.Windows.Forms.ComboBox cbxEmployerID;
+        private System.Windows.Forms.Label lblSUConPassError;
+        private System.Windows.Forms.Label lblSUPassError;
+        private System.Windows.Forms.Label lblSUIDError;
+        private System.Windows.Forms.Label lblSULNError;
+        private System.Windows.Forms.Label lblSUFNError;
     }
 }
 

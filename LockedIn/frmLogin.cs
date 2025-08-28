@@ -13,11 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /* To Do List:
- * 
- * Change to real time input validation for signup
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
- * Prisoner.cs has validation method, use or not?
  * Use password hasher
  * 
  * 
@@ -85,8 +82,6 @@ namespace LockedIn
 
             pnlAPESelect.Hide();
             pnlLogIn.Show();
-
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -132,13 +127,17 @@ namespace LockedIn
         {
             pnlLogIn.Hide();
             pnlSignUp.Show();
+            txtSUFirstName.Clear();
+            txtSULastName.Clear();
+            txtSUID.Clear();
+            txtSUPassword.Clear();
+            txtSUConfirmPass.Clear();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             pnlSignUp.Hide();
             pnlLogIn.Show();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -153,34 +152,51 @@ namespace LockedIn
             pnlAPESelect.Show();
         }
 
+        private void txtSUFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSUFirstName.Text == "")
+            {
+                lblSUFNError.Text = "First name cannot be empty";
+            }
+        }
+
+        private void txtSULastName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSULastName.Text == "")
+            {
+                lblSULNError.Text = "Last name cannot be empty";
+            }
+        }
+
+        private void txtSUID_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtSUID.Text.All(char.IsDigit) || txtSUID.Text.Length != 13)
+            {
+                lblSUIDError.Text = "Enter a valid RSA ID";
+            }
+        }
+
+        private void txtSUPassword_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSUPassword.Text.Length < 6)
+            {
+                lblSUPassError.Text = "Password must be at least 6 characters long";
+            }
+           
+        }
+
+        private void txtSUConfirmPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSUPassword.Text != txtSUConfirmPass.Text)
+            {
+                lblSUConPassError.Text = "Passwords do not match";
+            }
+        }
+
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             try
-            {
-                if (txtSUFirstName.Text == "" || txtSULastName.Text == "" || txtSUID.Text == "" || txtSUPassword.Text == "")
-                {
-                    MessageBox.Show("Please fill in all fields.");
-                    return;
-                }
-
-                if (txtSUPassword.Text.Length < 6)
-                {
-                    MessageBox.Show("Password must be at least 6 characters long.");
-                    return;
-                }
-
-                if (!txtSUID.Text.All(char.IsDigit) || txtSUID.Text.Length != 13)
-                {
-                    MessageBox.Show("Please enter a valid South African ID number.");
-                    return;
-                }
-
-                if (txtSUPassword.Text != txtSUConfirmPass.Text)
-                {
-                    MessageBox.Show("Passwords do not match.");
-                    return;
-                }
-
+            { 
                 if (PrisonerManager.SAIDExists(txtSUID.Text))
                 {
                     MessageBox.Show("A prisoner with this South African ID already exists.");
@@ -225,6 +241,22 @@ namespace LockedIn
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            if(txtPassword.Text == "")
+            {
+                MessageBox.Show("Password cannot be empty.");
+                return;
+            }
+            if(txtUsername.Text == "" && SelectedUser == 2)
+            {
+                MessageBox.Show("Prisoner number cannot be empty.");
+                return;
+            }
+            if(cbxEmployerID.SelectedIndex == -1 && SelectedUser == 3)
+            {
+                MessageBox.Show("Please select an Employer ID.");
+                return;
+            }
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
@@ -283,7 +315,6 @@ namespace LockedIn
                                 frmEmployer employerForm = new frmEmployer();
                                 employerForm.Show();
                             }
-
                             MessageBox.Show("Login successful!");
                             this.Hide();
                         }
@@ -318,6 +349,5 @@ namespace LockedIn
                 MessageBox.Show("An error occurred while logging in:\n" + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
