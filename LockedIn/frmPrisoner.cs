@@ -335,7 +335,6 @@ namespace LockedIn
         {
             frmLogIn login = new frmLogIn();
             login.logOut();
-            this.Hide();
         }
 
         private void frmPrisoner_Shown(object sender, EventArgs e)

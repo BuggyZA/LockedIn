@@ -19,7 +19,9 @@ namespace LockedIn.Managers
             Job job = null;
 
             string query = @"SELECT JobID, EmployerID, JobName, JobDescription, JobLocation, 
-                StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay FROM JOB WHERE JobID = @JobID";
+                StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay  
+         FROM JOB 
+         WHERE JobID = @JobID";
 
             try
             {
@@ -64,9 +66,11 @@ namespace LockedIn.Managers
 
         public static int AddJob(Job job)
         {
-            string insertQuery = @"INSERT INTO JOB(EmployerID, JobName, JobDescription, JobLocation, 
+            string insertQuery = @"INSERT INTO JOB 
+                            (EmployerID, JobName, JobDescription, JobLocation, 
                              StartDate, EndDate, Completed, DurationPerDay) 
-                           VALUES(@EmployerID, @JobName, @JobDescription, @JobLocation, 
+                           VALUES 
+                            (@EmployerID, @JobName, @JobDescription, @JobLocation, 
                              @StartDate, @EndDate, @Completed, @DurationPerDay)";
 
             string selectQuery = "SELECT CAST(@@IDENTITY AS INT)"; // Get last inserted JobID
