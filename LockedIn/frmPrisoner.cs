@@ -139,11 +139,7 @@ namespace LockedIn
         }
 
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmLogIn login = new frmLogIn();
-            login.logOut();
-        }
+      
 
         private void btnMPSave_Click(object sender, EventArgs e)
         {
@@ -334,9 +330,59 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 2;
         }
 
+        //START OF LOGOUT AND BACK BUTTON
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.logOut();
+        }
+
         private void frmPrisoner_Shown(object sender, EventArgs e)
         {
             tcPrisoner.SelectedIndex = 0;
         }
+
+        private void BackButton()
+        {
+            if (SessionData.SelectedUser == 1)
+            {
+                frmAdmin admin = new frmAdmin();
+                admin.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 2)
+            {
+                tcPrisoner.SelectedIndex = 0;
+            }
+            else if (SessionData.SelectedUser == 3)
+            {
+                frmEmployer employer = new frmEmployer();
+                employer.Show();
+                this.Hide();
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+
+
+
+
+
+        //END OF LOGOUT AND BACK BUTTON
     }
 }

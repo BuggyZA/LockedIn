@@ -269,7 +269,7 @@ namespace LockedIn
 
         private void btnMJBack_Click(object sender, EventArgs e)
         {
-            tcEmployer.SelectedIndex = 0;
+            BackButton();
         }
 
         private void ASJbtnBack_Click(object sender, EventArgs e)
@@ -438,6 +438,54 @@ namespace LockedIn
         private void frmEmployer_Shown(object sender, EventArgs e)
         {
             tcEmployer.SelectedIndex = 0;
+        }
+
+        //START OF LOGOUT AND BACK BUTTON
+        private void BackButton()
+        {
+            if (SessionData.SelectedUser == 1)
+            {
+               frmAdmin admin = new frmAdmin();
+                admin.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 2)
+            {
+                frmPrisoner prisoner = new frmPrisoner();
+                prisoner.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 3)
+            {
+                tcEmployer.SelectedIndex = 0;
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.logOut();
+        }
+
+        private void btnMEmpBack_Click_1(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BackButton();
         }
     }
 }

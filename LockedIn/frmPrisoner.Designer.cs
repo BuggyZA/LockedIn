@@ -43,10 +43,6 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -131,18 +127,22 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel56 = new System.Windows.Forms.Panel();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tabPage5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel14.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -163,18 +163,20 @@
             this.pnlMPSkills.SuspendLayout();
             this.pnlPInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel56.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
             this.tabPage5.Controls.Add(this.panel12);
-            this.tabPage5.Location = new System.Drawing.Point(4, 32);
+            this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1272, 664);
+            this.tabPage5.Size = new System.Drawing.Size(1259, 652);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "View Jobs";
             // 
@@ -200,7 +202,7 @@
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.label32.Location = new System.Drawing.Point(231, 137);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(139, 23);
+            this.label32.Size = new System.Drawing.Size(119, 19);
             this.label32.TabIndex = 23;
             this.label32.Text = "Jobs Available ";
             // 
@@ -276,7 +278,7 @@
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.label24.Location = new System.Drawing.Point(904, 137);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(141, 23);
+            this.label24.Size = new System.Drawing.Size(122, 19);
             this.label24.TabIndex = 20;
             this.label24.Text = "Job Description";
             // 
@@ -311,68 +313,25 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.tabPage4.Controls.Add(this.panel13);
+            this.tabPage4.Controls.Add(this.panel5);
             this.tabPage4.Controls.Add(this.panel9);
             this.tabPage4.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage4.Location = new System.Drawing.Point(4, 32);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1272, 664);
+            this.tabPage4.Size = new System.Drawing.Size(1259, 652);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Apply For Jobs";
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel13.Controls.Add(this.label31);
-            this.panel13.Controls.Add(this.pictureBox6);
-            this.panel13.Controls.Add(this.button2);
-            this.panel13.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel13.Location = new System.Drawing.Point(24, 20);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1212, 75);
-            this.panel13.TabIndex = 5;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1699, 86);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(159, 23);
-            this.label31.TabIndex = 12;
-            this.label31.Text = "First + Last name";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(1751, 18);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.button2.Location = new System.Drawing.Point(3, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 43);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel9.Controls.Add(this.panel11);
             this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(10, 8);
+            this.panel9.Location = new System.Drawing.Point(14, 52);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1240, 635);
+            this.panel9.Size = new System.Drawing.Size(1235, 594);
             this.panel9.TabIndex = 0;
             // 
             // panel11
@@ -381,7 +340,7 @@
             this.panel11.Controls.Add(this.dataGridView2);
             this.panel11.Controls.Add(this.btnAFJapply);
             this.panel11.Controls.Add(this.label27);
-            this.panel11.Location = new System.Drawing.Point(39, 387);
+            this.panel11.Location = new System.Drawing.Point(27, 339);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1172, 208);
@@ -397,8 +356,8 @@
             // 
             // btnAFJapply
             // 
-            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
-            this.btnAFJapply.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAFJapply.ForeColor = System.Drawing.Color.White;
             this.btnAFJapply.Location = new System.Drawing.Point(1017, 140);
             this.btnAFJapply.Margin = new System.Windows.Forms.Padding(2);
             this.btnAFJapply.Name = "btnAFJapply";
@@ -437,7 +396,7 @@
             this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.label23);
             this.panel10.Controls.Add(this.label19);
-            this.panel10.Location = new System.Drawing.Point(39, 116);
+            this.panel10.Location = new System.Drawing.Point(27, 68);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1172, 267);
@@ -609,10 +568,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 32);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1272, 664);
+            this.tabPage1.Size = new System.Drawing.Size(1259, 652);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home Page";
             // 
@@ -624,9 +583,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(24, 21);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1212, 131);
+            this.panel1.Size = new System.Drawing.Size(1264, 131);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -661,8 +620,8 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Location = new System.Drawing.Point(14, 46);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(104, 43);
@@ -718,8 +677,8 @@
             // 
             // btnHPapplyForJobs
             // 
-            this.btnHPapplyForJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.btnHPapplyForJobs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.btnHPapplyForJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnHPapplyForJobs.ForeColor = System.Drawing.Color.White;
             this.btnHPapplyForJobs.Location = new System.Drawing.Point(240, 26);
             this.btnHPapplyForJobs.Name = "btnHPapplyForJobs";
             this.btnHPapplyForJobs.Size = new System.Drawing.Size(170, 43);
@@ -790,8 +749,8 @@
             // 
             // btnHPmaintainPrisoner
             // 
-            this.btnHPmaintainPrisoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.btnHPmaintainPrisoner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.btnHPmaintainPrisoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnHPmaintainPrisoner.ForeColor = System.Drawing.Color.White;
             this.btnHPmaintainPrisoner.Location = new System.Drawing.Point(22, 26);
             this.btnHPmaintainPrisoner.Name = "btnHPmaintainPrisoner";
             this.btnHPmaintainPrisoner.Size = new System.Drawing.Size(170, 43);
@@ -816,11 +775,11 @@
             this.tcPrisoner.Controls.Add(this.tabPage2);
             this.tcPrisoner.Controls.Add(this.tabPage4);
             this.tcPrisoner.Controls.Add(this.tabPage5);
-            this.tcPrisoner.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcPrisoner.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.tcPrisoner.Location = new System.Drawing.Point(0, 0);
             this.tcPrisoner.Name = "tcPrisoner";
             this.tcPrisoner.SelectedIndex = 0;
-            this.tcPrisoner.Size = new System.Drawing.Size(1280, 700);
+            this.tcPrisoner.Size = new System.Drawing.Size(1267, 684);
             this.tcPrisoner.TabIndex = 0;
             this.tcPrisoner.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -828,27 +787,27 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(117)))), ((int)(((byte)(24)))));
             this.tabPage2.Controls.Add(this.panel57);
-            this.tabPage2.Location = new System.Drawing.Point(4, 32);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1272, 664);
+            this.tabPage2.Size = new System.Drawing.Size(1259, 652);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Maintain Prisoners";
             // 
             // panel57
             // 
             this.panel57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.panel57.Controls.Add(this.panel4);
             this.panel57.Controls.Add(this.panel52);
-            this.panel57.Controls.Add(this.panel56);
-            this.panel57.Location = new System.Drawing.Point(-4, 2);
+            this.panel57.Location = new System.Drawing.Point(-4, 0);
             this.panel57.Margin = new System.Windows.Forms.Padding(2);
             this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(1280, 661);
+            this.panel57.Size = new System.Drawing.Size(1280, 663);
             this.panel57.TabIndex = 20;
             // 
             // panel52
             // 
-            this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel52.Controls.Add(this.pnlMPChoices);
             this.panel52.Controls.Add(this.pnlModifyPPassword);
             this.panel52.Controls.Add(this.pnlMPSkills);
@@ -858,9 +817,9 @@
             this.panel52.Controls.Add(this.label76);
             this.panel52.Controls.Add(this.pictureBox3);
             this.panel52.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel52.Location = new System.Drawing.Point(9, 53);
+            this.panel52.Location = new System.Drawing.Point(17, 52);
             this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(1238, 594);
+            this.panel52.Size = new System.Drawing.Size(1235, 594);
             this.panel52.TabIndex = 15;
             // 
             // pnlMPChoices
@@ -1263,38 +1222,52 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
-            // panel56
+            // panel4
             // 
-            this.panel56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel56.Controls.Add(this.label78);
-            this.panel56.Controls.Add(this.label77);
-            this.panel56.Controls.Add(this.pictureBox4);
-            this.panel56.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel56.Location = new System.Drawing.Point(0, 0);
-            this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(1291, 47);
-            this.panel56.TabIndex = 14;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label37);
+            this.panel4.Controls.Add(this.pictureBox4);
+            this.panel4.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(4, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1269, 47);
+            this.panel4.TabIndex = 34;
             // 
-            // label78
+            // button4
             // 
-            this.label78.AutoSize = true;
-            this.label78.BackColor = System.Drawing.Color.Transparent;
-            this.label78.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(2, 3);
-            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(214, 39);
-            this.label78.TabIndex = 13;
-            this.label78.Text = "Maintain Prisoners";
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(16, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(72, 33);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Back";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label77
+            // label5
             // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(1699, 86);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(159, 23);
-            this.label77.TabIndex = 12;
-            this.label77.Text = "First + Last name";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(520, 5);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(214, 39);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Maintain Prisoners";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(1699, 86);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(159, 23);
+            this.label37.TabIndex = 12;
+            this.label37.Text = "First + Last name";
             // 
             // pictureBox4
             // 
@@ -1307,10 +1280,69 @@
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.pictureBox6);
+            this.panel5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1269, 47);
+            this.panel5.TabIndex = 16;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(16, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 33);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(520, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(170, 39);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Apply For Jobs";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1699, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 23);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "First + Last name";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox6.TabIndex = 5;
+            this.pictureBox6.TabStop = false;
+            // 
             // frmPrisoner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tcPrisoner);
             this.Name = "frmPrisoner";
@@ -1325,9 +1357,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel14.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -1357,9 +1386,12 @@
             this.pnlPInfo.ResumeLayout(false);
             this.pnlPInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel56.ResumeLayout(false);
-            this.panel56.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1414,10 +1446,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label lblAFJEndDate;
@@ -1466,11 +1494,17 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Panel panel56;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPrisonerNo;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

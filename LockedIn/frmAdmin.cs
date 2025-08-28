@@ -1424,10 +1424,7 @@ namespace LockedIn
 
         }
 
-        private void btnMEmpBack_Click(object sender, EventArgs e)
-        {
-            BackButton();
-        }
+       
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
@@ -1505,9 +1502,45 @@ namespace LockedIn
         {
             BackButton();
         }
+        private void btnMEmpBack_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
 
 
         //END OF LOGOUT & BACK BUTTONS

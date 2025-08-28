@@ -11,5 +11,7 @@ namespace LockedIn.Data
         public static int LoggedInPrisonerID { get; set; }
         public static int LoggedInEmployerID { get; set; }
         public static int SelectedUser { get; set; }
+
+
     }
 }
