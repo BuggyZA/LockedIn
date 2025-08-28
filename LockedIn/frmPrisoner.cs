@@ -68,7 +68,7 @@ namespace LockedIn
         private void frmPrisoner_Load(object sender, EventArgs e)
         {
             frmLogIn loginForm = new frmLogIn();
-            thisPrisoner = PrisonerManager.LoadPrisoner(loginForm.getLogedInPrisonerID());
+            thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
             MessageBox.Show(thisPrisoner.PrisonerID.ToString());
         }
 
@@ -335,6 +335,7 @@ namespace LockedIn
         {
             frmLogIn login = new frmLogIn();
             login.logOut();
+            this.Hide();
         }
 
         private void frmPrisoner_Shown(object sender, EventArgs e)

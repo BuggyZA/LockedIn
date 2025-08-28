@@ -46,22 +46,22 @@ namespace LockedIn
             pnlAPESelect.Visible= true;
             pnlLogIn.Visible = false;
             pnlSignUp.Visible = false;
-        }
-        public int getSelectedUser()
-        {
-            return SelectedUser;
+            SessionData.LoggedInPrisonerID = -1;
+            SessionData.LoggedInEmployerID = -1;
+            SessionData.SelectedUser = 0;
+            this.Show();
         }
 
         public int getLogedInPrisonerID()           //Used to return the currently logged in Prisoners ID
         {
-            //return PrisonerID;
-            return 1;
+            return PrisonerID;
+            //return 1;
         }
 
         public int getLogedInEmployerID()          //Used to return the currently logged in Employers ID
         {
-            //return EmployerID;
-            return 1;
+            return EmployerID;
+            //return 1;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -74,8 +74,8 @@ namespace LockedIn
         private void button5_Click(object sender, EventArgs e)
         {
             SessionData.SelectedUser = 1;
-            frmAdmin adminForm = new frmAdmin();
-            adminForm.Show();
+            //frmAdmin adminForm = new frmAdmin();
+            //adminForm.Show();
             lblUsername.Text = "Username: ";
         
             lblUsername.Visible = true;
@@ -105,8 +105,8 @@ namespace LockedIn
             pnlAPESelect.Hide();
             pnlLogIn.Show();
 
-            frmEmployer employerForm = new frmEmployer();
-            employerForm.Show();
+            //frmEmployer employerForm = new frmEmployer();
+            //employerForm.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -124,8 +124,8 @@ namespace LockedIn
             pnlAPESelect.Hide();
             pnlLogIn.Show();
 
-            frmPrisoner prisonerForm = new frmPrisoner();
-            prisonerForm.Show();
+            //frmPrisoner prisonerForm = new frmPrisoner();
+            //prisonerForm.Show();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
@@ -252,12 +252,12 @@ namespace LockedIn
                 MessageBox.Show("Password cannot be empty.");
                 return;
             }
-            if(txtUsername.Text == "" && SelectedUser == 2)
+            if(txtUsername.Text == "" && SessionData.SelectedUser == 2)
             {
                 MessageBox.Show("Prisoner number cannot be empty.");
                 return;
             }
-            if(cbxEmployerID.SelectedIndex == -1 && SelectedUser == 3)
+            if(cbxEmployerID.SelectedIndex == -1 && SessionData.SelectedUser == 3)
             {
                 MessageBox.Show("Please select an Employer ID.");
                 return;
@@ -270,20 +270,20 @@ namespace LockedIn
                     conn.Open();
                     SqlCommand cmd = null;
 
-                    if (SelectedUser == 1) // Admin
+                    if (SessionData.SelectedUser == 1) // Admin
                     {
                         // Example query for admin if needed
                         // cmd = new SqlCommand("SELECT * FROM ADMINISTRATORS WHERE Username = @username AND Password = @password", conn);
                         // cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                         // cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                     }
-                    else if (SelectedUser == 2) // Prisoner
+                    else if (SessionData.SelectedUser == 2) // Prisoner
                     {
                         cmd = new SqlCommand("SELECT * FROM PRISONER WHERE PrisonerNum = @prisonerNum AND Password = @password", conn);
                         cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                     }
-                    else if (SelectedUser == 3) // Employer
+                    else if (SessionData.SelectedUser == 3) // Employer
                     {
                         cmd = new SqlCommand("SELECT * FROM EMPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
                         cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
@@ -297,13 +297,13 @@ namespace LockedIn
                         return;
                     }
 
-                    if (SelectedUser == 2 || SelectedUser == 3)
+                    if (SessionData.SelectedUser == 2 || SessionData.SelectedUser == 3)
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.HasRows)
                         {
                             reader.Close();
-                            if (SelectedUser == 2)
+                            if (SessionData.SelectedUser == 2)
                             {
                                 cmd = new SqlCommand("SELECT PrisonerID FROM PRISONER WHERE PrisonerNum = @prisonerNum", conn);
                                 cmd.Parameters.AddWithValue("@prisonerNum", txtUsername.Text);
@@ -314,7 +314,7 @@ namespace LockedIn
                                 frmPrisoner prisonerForm = new frmPrisoner();
                                 prisonerForm.Show();
                             }
-                            else if (SelectedUser == 3)
+                            else if (SessionData.SelectedUser == 3)
                             {
                                 cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
                                 cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
