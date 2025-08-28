@@ -187,6 +187,7 @@ namespace LockedIn
         {
             isupdatingPrisoner = true;
 
+            txtID.Enabled = false;
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -200,6 +201,7 @@ namespace LockedIn
         {
             isDeletingPrisoner = true;
 
+            txtID.Enabled = false;
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = true;
@@ -213,6 +215,7 @@ namespace LockedIn
         {
             isAddingPrisoner = true;
 
+            txtID.Enabled = true;
             pnlPInfo.Visible = true;
             pnlMPSkills.Visible = true;
             cmbMPPrisonerNo.Visible = false;
@@ -1437,13 +1440,18 @@ namespace LockedIn
             int jobID = ComboBoxHelper.GetSelectedID(cbxJobName);
             Job thisJob = JobManager.LoadJob(jobID);
 
-            lblGuardDetails.Text = JobManager.CountPrisonersOnJob(thisJob)+" prisoners are assigned to "+thisJob.JobName+". Send "+ thisJob.AssignedGuards() + " guards to job site";
-
+            lblGuardDetails.Text = JobManager.CountPrisonersOnJob(thisJob) + " prisoners are assigned to " + thisJob.JobName + ". Send " + thisJob.AssignedGuards() + " guard(s) to job site";
+            pnlGuardDetails.Visible = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlGuardDetails.Visible = false;
+
+            cbxJobName.SelectedIndexChanged -= cbxJobName_SelectedIndexChanged;
+            cbxJobName.SelectedIndex = -1;
+            cbxJobName.SelectedIndexChanged += cbxJobName_SelectedIndexChanged;
+
             pnlJobDetails.Visible = true;
         }
 
@@ -1463,9 +1471,7 @@ namespace LockedIn
                 pnlJobDetails.Visible = true;
             }
         }
-    }
-
-    
+    } 
 
 
 }

@@ -19,9 +19,9 @@ namespace LockedIn.Managers
             Job job = null;
 
             string query = @"SELECT JobID, EmployerID, JobName, JobDescription, JobLocation, 
-                            StartDate, EndDate, Completed, CAST(DurationPerDay AS VARCHAR(8)) as DurationPerDay  
-                     FROM JOB 
-                     WHERE JobID = @JobID";
+                StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay  
+         FROM JOB 
+         WHERE JobID = @JobID";
 
             try
             {
@@ -47,7 +47,7 @@ namespace LockedIn.Managers
                                     EndDate = reader.GetDateTime(6),
                                     PrisonersNeeded = reader.GetInt32(7),
                                     Completed = reader.GetBoolean(8),
-                                    DurationPerDay = reader.GetTimeSpan(9)
+                                    DurationPerDay = reader.GetInt32(9)
                                 };
                             }
                         }

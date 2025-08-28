@@ -27,7 +27,7 @@ namespace LockedIn.Models
         public DateTime EndDate { get; set; }
         public int PrisonersNeeded { get; set; }
         public bool Completed { get; set; }
-        public TimeSpan DurationPerDay { get; set; }
+        public int DurationPerDay { get; set; }
 
 
         // Default constructor
@@ -37,7 +37,7 @@ namespace LockedIn.Models
         // Constructor with parameters (for Job)
         public Job(int jobId, int employerId, string jobName, string jobDescription,
                    string jobLocation, DateTime startDate, DateTime endDate, int prisonersNeeded,
-                   bool completed, TimeSpan durationPerDay)
+                   bool completed, int durationPerDay)
         {
             JobID = jobId;
             EmployerID = employerId;
@@ -115,7 +115,7 @@ namespace LockedIn.Models
             }
 
             //Validate DurationPerDay
-            if (DurationPerDay <= TimeSpan.Zero || DurationPerDay > TimeSpan.FromHours(12))
+            if (DurationPerDay <= 0 || DurationPerDay > 12)
             {
                 MessageBox.Show("Duration per day must be between 1 and 12 hours.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

@@ -1,5 +1,96 @@
-USE LockedIn;
+USE master;
 GO
+
+IF DB_ID('LockedIn') IS NOT NULL		-- Check if the database exists before dropping it
+BEGIN
+    ALTER DATABASE LockedIn SET SINGLE_USER WITH ROLLBACK IMMEDIATE; -- Set the database to single user mode to drop it
+	--SINGLE_USER mode, meaning only one connection is allowed at a time
+	--WITH ROLLBACK IMMEDIATE will roll back any uncommitted transactions
+    DROP DATABASE LockedIn;
+END
+GO
+
+--Change file paths to your local github files
+CREATE DATABASE LockedIn
+ON (NAME = LockedInDB, 
+    FILENAME = 'C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\LockedInDB.mdf')
+LOG ON (NAME = LockedInDB_log, 
+    FILENAME = 'C:\Users\User\Desktop\NWU\2de Jaar\Semester 2\CMPG 223\Project\LockedIn\LockedIn\LockedInDB_log.ldf');
+GO
+
+USE LockedIn
+GO
+
+CREATE TABLE EMPLOYER(
+	EmployerID int IDENTITY(1,1) PRIMARY KEY,
+	LastName varchar(55),
+	FirstName varchar(55),
+	Password varchar(50)
+);
+
+CREATE TABLE JOB(
+	JobID int IDENTITY(1,1) PRIMARY KEY,
+	EmployerID int NOT  NULL,
+	JobName varchar(55),
+	JobDescription varchar(55),
+	JobLocation varchar(55),
+	StartDate datetime,
+	EndDate datetime,
+	PrisonersNeeded int,
+	Completed bit,
+	DurationPerDay int,  -- Changed from time(0) to int
+
+	CONSTRAINT FK_JOB_EMPLOYER FOREIGN KEY (EmployerID) REFERENCES EMPLOYER(EmployerID)
+);
+
+CREATE TABLE PRISONER(
+	PrisonerID int IDENTITY(1,1) PRIMARY KEY,
+	PrisonerNum char(10),			
+	LastName varchar(55),
+	FirstName varchar(55),
+	SA_ID varchar(13),
+	Password varchar(25),
+	ClearedToWork bit
+);
+
+CREATE TABLE SKILL(
+	SkillID int IDENTITY(1,1) PRIMARY KEY,
+	SkillName nvarchar(30),
+	SkillDescription nvarchar(50)
+);
+
+CREATE TABLE PRISONER_ON_JOB(
+	JobID int NOT NULL,
+	PrisonerID int NOT NULL,
+	[Accepted/Rejeced] bit,
+	JobFinished bit,
+	OnPremise bit, 
+
+	CONSTRAINT PK_PRISONER_ON_JOB PRIMARY KEY(JobID,PrisonerID),
+
+	CONSTRAINT FK_PRISONER_ON_JOB_JOB FOREIGN KEY (JobID) REFERENCES JOB(JobID),
+	CONSTRAINT FK_PRISONER_ON_JOB_PRISONER FOREIGN KEY (PrisonerID) REFERENCES PRISONER(PrisonerID)
+);
+
+CREATE TABLE SKILL_OF_JOB(
+	JobID int NOT NULL,
+	SkillID int NOT NULL,
+
+	CONSTRAINT PK_SKILL_OF_JOB PRIMARY KEY(JobID,SkillID),
+
+	CONSTRAINT FK_SKILL_OF_JOB_JOB FOREIGN KEY (JobID) REFERENCES JOB(JobID),
+	CONSTRAINT FK_SKILL_OF_JOB_SKILL FOREIGN KEY (SkillID) REFERENCES SKILL(SkillID)
+);
+
+CREATE TABLE SKILL_OF_PRISONER(
+	PrisonerID int NOT NULL,
+	SkillID int NOT NULL,
+
+	CONSTRAINT PK_SKILL_OF_PRISONER PRIMARY KEY(PrisonerID,SkillID),
+
+	CONSTRAINT FK_SKILL_OF_PRISONER_PRISONER FOREIGN KEY (PrisonerID) REFERENCES PRISONER(PrisonerID),
+	CONSTRAINT FK_SKILL_OF_PRISONER_SKILL FOREIGN KEY (SkillID) REFERENCES SKILL(SkillID)
+);
 
 -- Insert test data for EMPLOYER table - Community Organizations
 INSERT INTO EMPLOYER (LastName, FirstName, Password) VALUES
@@ -42,18 +133,18 @@ INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, Cleared
 ('P011234567', 'King', 'Donald', '7904156789012', 'pass011', 1),
 ('P012345678', 'Wright', 'Steven', '9008203456789', 'pass012', 1);
 
--- Insert test data for JOB table - Community Service Jobs
+-- Insert test data for JOB table - Community Service Jobs (DurationPerDay converted to hours as INT)
 INSERT INTO JOB (EmployerID, JobName, JobDescription, JobLocation, StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay) VALUES
-(1, 'Park Cleanup', 'Cleaning and maintenance of Mandela Park', 'Mandela Park, Potchefstroom', '2024-09-01', '2024-11-30', 6, 0, '06:00:00'),
-(2, 'Hospital Construction', 'Assisting with new community hospital build', 'New Hospital Site, CBD', '2024-08-15', '2025-03-15', 12, 0, '08:00:00'),
-(3, 'Road Maintenance', 'Pothole repairs and road cleaning', 'Various Streets, Potchefstroom', '2024-09-10', '2024-12-10', 8, 0, '07:00:00'),
-(4, 'School Renovation', 'Painting and repairs at local primary school', 'Mooiriver Primary School', '2024-10-01', '2024-12-15', 5, 0, '07:30:00'),
-(5, 'Community Garden', 'Establishing vegetable gardens for soup kitchens', 'Ikageng Community Center', '2024-08-01', '2024-10-31', 4, 0, '05:30:00'),
-(6, 'Library Restoration', 'Renovation of old municipal library', 'Central Library, Church Street', '2024-07-15', '2024-09-30', 6, 1, '07:00:00'),
-(7, 'Elderly Home Support', 'Maintenance and landscaping services', 'Sunset Retirement Home', '2024-08-20', '2024-11-20', 3, 0, '06:00:00'),
-(8, 'Bridge Construction', 'Assisting with new pedestrian bridge', 'Mooi River Crossing', '2024-06-01', '2024-08-31', 10, 1, '08:00:00'),
-(1, 'Town Square Beautification', 'Landscaping and maintenance of town square', 'Central Town Square', '2024-09-15', '2024-12-31', 4, 0, '06:30:00'),
-(3, 'Homeless Shelter Repairs', 'Building repairs and maintenance', 'Hope Haven Shelter', '2024-10-05', '2025-01-05', 7, 0, '07:30:00');
+(1, 'Park Cleanup', 'Cleaning and maintenance of Mandela Park', 'Mandela Park, Potchefstroom', '2024-09-01', '2024-11-30', 6, 0, 6),     -- was '06:00:00'
+(2, 'Hospital Construction', 'Assisting with new community hospital build', 'New Hospital Site, CBD', '2024-08-15', '2025-03-15', 12, 0, 8),   -- was '08:00:00'
+(3, 'Road Maintenance', 'Pothole repairs and road cleaning', 'Various Streets, Potchefstroom', '2024-09-10', '2024-12-10', 8, 0, 7),       -- was '07:00:00'
+(4, 'School Renovation', 'Painting and repairs at local primary school', 'Mooiriver Primary School', '2024-10-01', '2024-12-15', 5, 0, 8),    -- was '07:30:00' -> rounded to 8
+(5, 'Community Garden', 'Establishing vegetable gardens for soup kitchens', 'Ikageng Community Center', '2024-08-01', '2024-10-31', 4, 0, 6),  -- was '05:30:00' -> rounded to 6
+(6, 'Library Restoration', 'Renovation of old municipal library', 'Central Library, Church Street', '2024-07-15', '2024-09-30', 6, 1, 7),     -- was '07:00:00'
+(7, 'Elderly Home Support', 'Maintenance and landscaping services', 'Sunset Retirement Home', '2024-08-20', '2024-11-20', 3, 0, 6),           -- was '06:00:00'
+(8, 'Bridge Construction', 'Assisting with new pedestrian bridge', 'Mooi River Crossing', '2024-06-01', '2024-08-31', 10, 1, 8),              -- was '08:00:00'
+(1, 'Town Square Beautification', 'Landscaping and maintenance of town square', 'Central Town Square', '2024-09-15', '2024-12-31', 4, 0, 7),  -- was '06:30:00' -> rounded to 7
+(3, 'Homeless Shelter Repairs', 'Building repairs and maintenance', 'Hope Haven Shelter', '2024-10-05', '2025-01-05', 7, 0, 8);               -- was '07:30:00' -> rounded to 8
 
 -- Insert test data for PRISONER_ON_JOB table (community service assignments)
 INSERT INTO PRISONER_ON_JOB (JobID, PrisonerID, [Accepted/Rejeced], JobFinished, OnPremise) VALUES

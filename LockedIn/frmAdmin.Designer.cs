@@ -1929,7 +1929,7 @@
             this.pnlJobDetails.Controls.Add(this.cbxJobName);
             this.pnlJobDetails.Controls.Add(this.label22);
             this.pnlJobDetails.Controls.Add(this.label23);
-            this.pnlJobDetails.Location = new System.Drawing.Point(391, 146);
+            this.pnlJobDetails.Location = new System.Drawing.Point(375, 144);
             this.pnlJobDetails.Margin = new System.Windows.Forms.Padding(2);
             this.pnlJobDetails.Name = "pnlJobDetails";
             this.pnlJobDetails.Size = new System.Drawing.Size(447, 155);
@@ -1976,10 +1976,10 @@
             this.pnlGuardDetails.Controls.Add(this.btnClose);
             this.pnlGuardDetails.Controls.Add(this.label24);
             this.pnlGuardDetails.Controls.Add(this.lblGuardDetails);
-            this.pnlGuardDetails.Location = new System.Drawing.Point(391, 154);
+            this.pnlGuardDetails.Location = new System.Drawing.Point(317, 153);
             this.pnlGuardDetails.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGuardDetails.Name = "pnlGuardDetails";
-            this.pnlGuardDetails.Size = new System.Drawing.Size(449, 149);
+            this.pnlGuardDetails.Size = new System.Drawing.Size(557, 149);
             this.pnlGuardDetails.TabIndex = 13;
             // 
             // btnClose
@@ -1987,7 +1987,7 @@
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(366, 106);
+            this.btnClose.Location = new System.Drawing.Point(476, 113);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(72, 33);
             this.btnClose.TabIndex = 14;
@@ -2833,7 +2833,7 @@
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 224);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 221);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
@@ -3162,7 +3162,6 @@
             // 
             // txtID
             // 
-            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(156, 185);
             this.txtID.MaxLength = 13;
             this.txtID.Name = "txtID";
