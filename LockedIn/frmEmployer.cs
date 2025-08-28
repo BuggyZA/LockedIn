@@ -388,7 +388,6 @@ namespace LockedIn
                         PnlEmpInfo.Visible = true;
 
                     }
-
                 }
             }
         }
@@ -466,6 +465,7 @@ namespace LockedIn
         {
             frmLogIn login = new frmLogIn();
             login.logOut();
+            this.Hide();
         }
 
         private void btnMEmpBack_Click_1(object sender, EventArgs e)
