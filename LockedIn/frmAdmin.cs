@@ -954,17 +954,48 @@ namespace LockedIn
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
                 conn.Open();
-                string sql1 = "DELETE FROM JOB Where EmployerID = @ID";
-                using (SqlCommand cmd = new SqlCommand(sql1, conn))
+                
+                string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
+                using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ID", employerId);
-                }
-                string sql2 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
-                using (SqlCommand cmd = new SqlCommand(sql2, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ID", employerId);
+                    cmd1.Parameters.AddWithValue("@ID", employerId);
+                    SqlDataReader reader = cmd1.ExecuteReader();
+                    List<int> jobIds = new List<int>();
+                    while (reader.Read())
+                    {
+                        jobIds.Add(reader.GetInt32(0));
+                    }
+                    reader.Close();
+                    // Delete associated records in PRISONER_ON_JOB for each job
+                    foreach (int jobId in jobIds)
+                    {
+                        string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
+                        using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@JobID", jobId);
+                            cmd2.ExecuteNonQuery();
+                        }
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                        string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
+                        using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
+                        {
+                            cmd3.Parameters.AddWithValue("@JobID", jobId);
+                            cmd3.ExecuteNonQuery();
+                        }
+                    }
+                }
+                string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
+                using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
+                {
+                    cmd4.Parameters.AddWithValue("@ID", employerId);
+                    cmd4.ExecuteNonQuery();
+                }
+                string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
+                {
+                    cmd5.Parameters.AddWithValue("@ID", employerId);
+
+                    int rowsAffected = cmd5.ExecuteNonQuery();
                     if (rowsAffected > 0)
                         MessageBox.Show("Employer deleted successfully!");
                     else
