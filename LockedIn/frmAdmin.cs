@@ -697,7 +697,7 @@ namespace LockedIn
             btnAddNewEmp.Visible = true;
             btnEmpChangePass.Visible = false;
             pnlEmpMenu.Visible = false;
-            //btnBackEmp.Visible = true;
+            btnBackEmp.Visible = true;
             txtEmpID.Clear();
             txtEmpFName.Clear();
             txtEmpLName.Clear();
@@ -716,7 +716,7 @@ namespace LockedIn
             pnlEmpMenu.Visible = false;
             btnEmployerDetails.Visible = true;
             btnEmpDel.Visible = false;
-            //btnBackEmp.Visible = true;
+            btnBackEmp.Visible = true;
         }
 
         private void btnDelEmployer_Click(object sender, EventArgs e)
@@ -727,8 +727,8 @@ namespace LockedIn
             pnlEmpMenu.Visible = false;
             btnEmpDel.Visible = true;
             btnEmployerDetails.Visible = false;
-            //btnBackEmp.Visible = true;
-            //btnBackEmp.Visible = false;
+            btnBackEmp.Visible = true;
+            
 
         }
 
@@ -739,7 +739,7 @@ namespace LockedIn
             pnlEmpDetails.Visible = false;
             btnEmpEdit.Visible = false;
             pnlEmpPass.Visible = false;
-           //btnBackEmp.Visible = false;
+           btnBackEmp.Visible = false;
             btnEmpSave.Visible = false;
         }
 
@@ -979,6 +979,7 @@ namespace LockedIn
             btnEmpDel.Visible = false;
             pnlEmpDetails.Visible = false;
             pnlEmpMenu.Visible = true;
+            btnBackEmp.Visible = false;
         }
 
 
@@ -1540,6 +1541,17 @@ namespace LockedIn
         private void button14_Click(object sender, EventArgs e)
         {
             BackButton();
+        }
+
+        private void btnEmpBack_Click(object sender, EventArgs e)
+        {
+            pnlEmpMenu.Visible = true;
+            PnlEmpInfo.Visible = false;
+            pnlEmpDetails.Visible = false;
+            btnEmpEdit.Visible = false;
+            pnlEmpPass.Visible = false;
+            btnBackEmp.Visible = false;
+            btnEmpSave.Visible = false;
         }
 
 
