@@ -17,7 +17,7 @@ using System.Windows.Forms;
  * Migrate form navigation to login instead of APE panel
  * Use password hasher
  * Change the get's to SessionData
- * 
+ * Fix Logout method
  * 
  * 
  * 
@@ -43,6 +43,7 @@ namespace LockedIn
             PrisonerID = -1;
             EmployerID = -1;
             SelectedUser = 0;
+            this.Show();
             pnlAPESelect.Visible= true;
             pnlLogIn.Visible = false;
             pnlSignUp.Visible = false;
