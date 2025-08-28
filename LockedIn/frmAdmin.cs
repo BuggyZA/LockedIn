@@ -1476,7 +1476,6 @@ namespace LockedIn
         {
             frmLogIn login = new frmLogIn();
             login.logOut();
-            this.Hide();
         }
 
         private void BackButton()
