@@ -316,6 +316,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
+            this.label68 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -3452,6 +3453,7 @@
             // panel26
             // 
             this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel26.Controls.Add(this.label68);
             this.panel26.Controls.Add(this.button14);
             this.panel26.Controls.Add(this.label26);
             this.panel26.Controls.Add(this.label67);
@@ -3459,7 +3461,7 @@
             this.panel26.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel26.Location = new System.Drawing.Point(2, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(1269, 47);
+            this.panel26.Size = new System.Drawing.Size(1269, 75);
             this.panel26.TabIndex = 15;
             // 
             // button14
@@ -3709,6 +3711,18 @@
             this.btnPrisonerRecord.TabIndex = 5;
             this.btnPrisonerRecord.Text = "Record of Prisoner per Time Period";
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.label68.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.ForeColor = System.Drawing.Color.Red;
+            this.label68.Location = new System.Drawing.Point(322, -1);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(624, 77);
+            this.label68.TabIndex = 31;
+            this.label68.Text = "Page To be DELETED";
             // 
             // frmAdmin
             // 
@@ -4140,5 +4154,6 @@
         private System.Windows.Forms.ComboBox cmbJobID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label68;
     }
 }
