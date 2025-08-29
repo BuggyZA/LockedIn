@@ -32,6 +32,7 @@ namespace LockedIn
         private const String ADMINUSER = "admin", ADMINPASS = "admin";
         int SelectedUser;
         int PrisonerID, EmployerID;     //Variables of ID's to be used on other forms to fetch currently logged in ID
+        bool validSignUp = false;
 
         public frmLogIn()
         {
@@ -162,6 +163,12 @@ namespace LockedIn
             if(txtSUFirstName.Text == "")
             {
                 lblSUFNError.Text = "First name cannot be empty";
+                validSignUp = false;
+            }
+            else
+            {
+                lblSUFNError.Text = "";
+                validSignUp = true;
             }
         }
 
@@ -170,6 +177,12 @@ namespace LockedIn
             if (txtSULastName.Text == "")
             {
                 lblSULNError.Text = "Last name cannot be empty";
+                validSignUp = false;
+            }
+            else
+            {
+                lblSULNError.Text = "";
+                validSignUp = true;
             }
         }
 
@@ -178,6 +191,12 @@ namespace LockedIn
             if (!txtSUID.Text.All(char.IsDigit) || txtSUID.Text.Length != 13)
             {
                 lblSUIDError.Text = "Enter a valid RSA ID";
+                validSignUp = false;
+            }
+            else
+            {
+                lblSUIDError.Text = "";
+                validSignUp = true;
             }
         }
 
@@ -186,8 +205,14 @@ namespace LockedIn
             if(txtSUPassword.Text.Length < 6)
             {
                 lblSUPassError.Text = "Password must be at least 6 characters long";
+                validSignUp = false;
             }
-           
+            else
+            {
+                lblSUPassError.Text = "";
+                validSignUp = true;
+            }
+
         }
 
         private void txtSUConfirmPass_TextChanged(object sender, EventArgs e)
@@ -195,16 +220,35 @@ namespace LockedIn
             if (txtSUPassword.Text != txtSUConfirmPass.Text)
             {
                 lblSUConPassError.Text = "Passwords do not match";
+                validSignUp = false;
+            }
+            else
+            {
+                lblSUConPassError.Text = "";
+                validSignUp = true;
             }
         }
 
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
+            
             try
-            { 
+            {
+                if (!validSignUp)
+                {
+                    MessageBox.Show("Please correct the errors in the sign-up form before proceeding.");
+                    return;
+                }
+
                 if (PrisonerManager.SAIDExists(txtSUID.Text))
                 {
                     MessageBox.Show("A prisoner with this South African ID already exists.");
+                    return;
+                }
+
+                if(txtSUPassword.Text != txtSUConfirmPass.Text)
+                {
+                    MessageBox.Show("Passwords do not match.");
                     return;
                 }
 
