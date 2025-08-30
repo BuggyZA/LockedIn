@@ -159,11 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LockedInDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="LockedInDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LockedInDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Pictures\back-arrow.png" />
     <Content Include="Pictures\profile-user.png" />

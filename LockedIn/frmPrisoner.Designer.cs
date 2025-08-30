@@ -36,8 +36,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btnAFJapply = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btnAFJapply = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblAFJEndDate = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -64,14 +64,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.btnHPapplyForJobs = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.JobID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JobDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DurationPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHPmaintainPrisoner = new System.Windows.Forms.Button();
             this.calHPactiveJobs = new System.Windows.Forms.MonthCalendar();
@@ -121,6 +114,7 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.redDisplay = new System.Windows.Forms.RichTextBox();
             this.tabPage4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -132,7 +126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tcPrisoner.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel57.SuspendLayout();
@@ -227,19 +220,6 @@
             this.panel9.Size = new System.Drawing.Size(1235, 594);
             this.panel9.TabIndex = 0;
             // 
-            // btnAFJapply
-            // 
-            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnAFJapply.ForeColor = System.Drawing.Color.White;
-            this.btnAFJapply.Location = new System.Drawing.Point(985, 397);
-            this.btnAFJapply.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAFJapply.Name = "btnAFJapply";
-            this.btnAFJapply.Size = new System.Drawing.Size(134, 53);
-            this.btnAFJapply.TabIndex = 1;
-            this.btnAFJapply.Text = "Apply for job";
-            this.btnAFJapply.UseVisualStyleBackColor = false;
-            this.btnAFJapply.Click += new System.EventHandler(this.btnAFJapply_Click);
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -266,6 +246,19 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1172, 471);
             this.panel10.TabIndex = 0;
+            // 
+            // btnAFJapply
+            // 
+            this.btnAFJapply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnAFJapply.ForeColor = System.Drawing.Color.White;
+            this.btnAFJapply.Location = new System.Drawing.Point(985, 397);
+            this.btnAFJapply.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAFJapply.Name = "btnAFJapply";
+            this.btnAFJapply.Size = new System.Drawing.Size(134, 53);
+            this.btnAFJapply.TabIndex = 1;
+            this.btnAFJapply.Text = "Apply for job";
+            this.btnAFJapply.UseVisualStyleBackColor = false;
+            this.btnAFJapply.Click += new System.EventHandler(this.btnAFJapply_Click);
             // 
             // comboBox1
             // 
@@ -448,9 +441,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(10, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 131);
+            this.panel1.Size = new System.Drawing.Size(1240, 131);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -466,7 +459,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(165, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(191, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(875, 125);
             this.pictureBox2.TabIndex = 6;
@@ -519,9 +512,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel3.Controls.Add(this.listView2);
+            this.panel3.Controls.Add(this.redDisplay);
             this.panel3.Controls.Add(this.btnHPapplyForJobs);
-            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.btnHPmaintainPrisoner);
             this.panel3.Controls.Add(this.calHPactiveJobs);
@@ -531,77 +523,17 @@
             this.panel3.Size = new System.Drawing.Size(1160, 440);
             this.panel3.TabIndex = 2;
             // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(508, 288);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(121, 97);
-            this.listView2.TabIndex = 15;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
             // btnHPapplyForJobs
             // 
             this.btnHPapplyForJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnHPapplyForJobs.ForeColor = System.Drawing.Color.White;
-            this.btnHPapplyForJobs.Location = new System.Drawing.Point(240, 26);
+            this.btnHPapplyForJobs.Location = new System.Drawing.Point(265, 68);
             this.btnHPapplyForJobs.Name = "btnHPapplyForJobs";
             this.btnHPapplyForJobs.Size = new System.Drawing.Size(170, 43);
             this.btnHPapplyForJobs.TabIndex = 13;
             this.btnHPapplyForJobs.Text = "Apply for jobs";
             this.btnHPapplyForJobs.UseVisualStyleBackColor = false;
             this.btnHPapplyForJobs.Click += new System.EventHandler(this.btnHPapplyForJobs_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.JobID,
-            this.JobDescription,
-            this.StartDate,
-            this.EndDate,
-            this.DurationPerDay});
-            this.dataGridView1.Location = new System.Drawing.Point(508, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(636, 355);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // JobID
-            // 
-            this.JobID.HeaderText = "JobID";
-            this.JobID.MinimumWidth = 6;
-            this.JobID.Name = "JobID";
-            this.JobID.Width = 120;
-            // 
-            // JobDescription
-            // 
-            this.JobDescription.HeaderText = "JobDescription";
-            this.JobDescription.MinimumWidth = 6;
-            this.JobDescription.Name = "JobDescription";
-            this.JobDescription.Width = 120;
-            // 
-            // StartDate
-            // 
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.MinimumWidth = 6;
-            this.StartDate.Name = "StartDate";
-            this.StartDate.Width = 120;
-            // 
-            // EndDate
-            // 
-            this.EndDate.HeaderText = "End Date";
-            this.EndDate.MinimumWidth = 6;
-            this.EndDate.Name = "EndDate";
-            this.EndDate.Width = 120;
-            // 
-            // DurationPerDay
-            // 
-            this.DurationPerDay.HeaderText = "Duration Per Day";
-            this.DurationPerDay.MinimumWidth = 6;
-            this.DurationPerDay.Name = "DurationPerDay";
-            this.DurationPerDay.Width = 120;
             // 
             // label2
             // 
@@ -616,7 +548,7 @@
             // 
             this.btnHPmaintainPrisoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnHPmaintainPrisoner.ForeColor = System.Drawing.Color.White;
-            this.btnHPmaintainPrisoner.Location = new System.Drawing.Point(22, 26);
+            this.btnHPmaintainPrisoner.Location = new System.Drawing.Point(64, 68);
             this.btnHPmaintainPrisoner.Name = "btnHPmaintainPrisoner";
             this.btnHPmaintainPrisoner.Size = new System.Drawing.Size(170, 43);
             this.btnHPmaintainPrisoner.TabIndex = 5;
@@ -627,9 +559,10 @@
             // calHPactiveJobs
             // 
             this.calHPactiveJobs.CalendarDimensions = new System.Drawing.Size(2, 1);
+            this.calHPactiveJobs.Enabled = false;
             this.calHPactiveJobs.Font = new System.Drawing.Font("Bahnschrift Condensed", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calHPactiveJobs.Location = new System.Drawing.Point(22, 223);
-            this.calHPactiveJobs.MaxDate = new System.DateTime(2025, 8, 25, 23, 59, 59, 0);
+            this.calHPactiveJobs.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.calHPactiveJobs.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.calHPactiveJobs.Name = "calHPactiveJobs";
             this.calHPactiveJobs.TabIndex = 0;
@@ -1144,13 +1077,22 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
+            // redDisplay
+            // 
+            this.redDisplay.Location = new System.Drawing.Point(521, 68);
+            this.redDisplay.Name = "redDisplay";
+            this.redDisplay.Size = new System.Drawing.Size(591, 317);
+            this.redDisplay.TabIndex = 14;
+            this.redDisplay.Text = "";
+            // 
             // frmPrisoner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tcPrisoner);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmPrisoner";
             this.Text = "frmPrisoner";
             this.Load += new System.EventHandler(this.frmPrisoner_Load);
@@ -1171,7 +1113,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tcPrisoner.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel57.ResumeLayout(false);
@@ -1199,12 +1140,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHPapplyForJobs;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JobID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JobDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DurationPerDay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHPmaintainPrisoner;
         private System.Windows.Forms.MonthCalendar calHPactiveJobs;
@@ -1228,7 +1163,6 @@
         private System.Windows.Forms.TextBox txtAFJworkersNeeded;
         private System.Windows.Forms.RichTextBox rtxjobDescription;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lblAFJEndDate;
         private System.Windows.Forms.Label label34;
@@ -1285,5 +1219,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.RichTextBox redDisplay;
     }
 }

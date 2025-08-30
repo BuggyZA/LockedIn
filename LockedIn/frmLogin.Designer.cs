@@ -532,6 +532,8 @@
             this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pnlAPESelect);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmLogIn";
             this.ShowInTaskbar = false;
             this.Text = "LockedIn.exe";

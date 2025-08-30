@@ -3399,6 +3399,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tcAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
             this.tcAdmin.ResumeLayout(false);

@@ -6,8 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -67,9 +69,61 @@ namespace LockedIn
 
         private void frmPrisoner_Load(object sender, EventArgs e)
         {
-            frmLogIn loginForm = new frmLogIn();
+            //frmLogIn loginForm = new frmLogIn();                                          //Unnessecary??
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
-            MessageBox.Show(thisPrisoner.PrisonerID.ToString());
+
+            //Tab control 
+            tcPrisoner.Appearance = TabAppearance.FlatButtons;
+            tcPrisoner.ItemSize = new Size(0, 1);
+            tcPrisoner.SizeMode = TabSizeMode.Fixed;
+
+
+            //Calendar
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {                                                                               //Put SQL in word doc if correct
+                string query = @"SELECT j.JobID, j.StartDate, j.EndDate             
+                                FROM JOB j
+                                INNER JOIN PRISONER_ON_JOB poj 
+                                    ON j.JobID = poj.JobID
+                                WHERE poj.PrisonerID = @PrisonerID
+                                  AND poj.[Accepted/Rejeced] = 1
+                                 ;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@PrisonerID", SessionData.LoggedInPrisonerID);
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<DateTime> activeDates = new List<DateTime>();
+
+                DateTime start = DateTime.Now, end = DateTime.Now;
+                while (reader.Read())
+                {
+                    start = Convert.ToDateTime(reader["StartDate"]);
+                    end = Convert.ToDateTime(reader["EndDate"]);
+
+                    // Add all days between start and end
+                    for (DateTime date = start; date <= end; date = date.AddDays(1))
+                    {
+                        activeDates.Add(date);
+                    }
+                }
+
+                reader.Close();
+
+                // Highlight in calendar
+                calHPactiveJobs.RemoveAllBoldedDates();
+                calHPactiveJobs.BoldedDates = activeDates.ToArray();
+                // Highlight range of a job
+                calHPactiveJobs.SelectionStart = start;
+                calHPactiveJobs.SelectionEnd = end;
+
+                calHPactiveJobs.UpdateBoldedDates();
+            }
+
+
+
         }
 
         private void btnEditP_Click(object sender, EventArgs e)

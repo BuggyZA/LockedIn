@@ -11,8 +11,6 @@ C:\!Github\LockedIn\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
 C:\!Github\LockedIn\LockedIn\obj\Debug\LockedIn.exe
 C:\!Github\LockedIn\LockedIn\obj\Debug\LockedIn.pdb
 C:\!Github\LockedIn\LockedIn\obj\Debug\LockedIn.exe.config
-C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
-C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
 C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedIn.exe.config
 C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedIn.exe
 C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedIn.pdb
@@ -126,3 +124,5 @@ C:\CMPG223\LockedIn\obj\Debug\LockedIn.csproj.GenerateResource.cache
 C:\CMPG223\LockedIn\obj\Debug\LockedIn.csproj.CoreCompileInputs.cache
 C:\CMPG223\LockedIn\obj\Debug\LockedIn.exe
 C:\CMPG223\LockedIn\obj\Debug\LockedIn.pdb
+C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
+C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
