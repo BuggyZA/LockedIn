@@ -23,6 +23,7 @@ namespace LockedIn
     {
         static String constr = DatabaseConfig.GetConStr();
         static String sql;
+        bool isPopulating = false;
         String EmployerID;
         string EmpID; 
         public frmEmployer()
@@ -560,5 +561,43 @@ namespace LockedIn
         {
             ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
         }
+
+        private void tcEmployer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            isPopulating = true;
+            if(tcEmployer.SelectedIndex == 2)
+            {
+                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
+            }
+            isPopulating = false;
+        }
+
+        private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating || cbxASJJobName.SelectedIndex == -1)
+                return;
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+        }
+
+        private void btnASJRemove_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+        private void btnASJAdd_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
     }
 }

@@ -90,7 +90,7 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 2)
             {
-                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
+                ComboBoxHelper.PopulateJobNames(cbxCJJobName);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
             else if (tcAdmin.SelectedIndex == 5)
@@ -759,7 +759,7 @@ namespace LockedIn
         private void btnClear_Click(object sender, EventArgs e)
         {
             //Clearing all the Job completed details
-            cmbJobID.SelectedIndex = -1;
+            cbxCJJobName.SelectedIndex = -1;
             calDateCompleted.SetDate(DateTime.Today);
             lstNotes.Items.Clear();
         }
@@ -769,7 +769,7 @@ namespace LockedIn
             try
             {
 
-                if (cmbJobID.SelectedIndex != -1)
+                if (cbxCJJobName.SelectedIndex != -1)
                 {
                     DateTime selectedDate = calDateCompleted.SelectionStart;
                     if (selectedDate <= DateTime.Today)
@@ -781,7 +781,7 @@ namespace LockedIn
                         conn.Open();
                         string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
                         SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                        getIdcomm.Parameters.AddWithValue("@JobName", cmbJobID.Text);
+                        getIdcomm.Parameters.AddWithValue("@JobName", cbxCJJobName.Text);
                         int jobId = (int)getIdcomm.ExecuteScalar();
 
 
@@ -1125,7 +1125,7 @@ namespace LockedIn
                     conn.Open();
                     string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
                     SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", cmbJobID.Text);
+                    getIdcomm.Parameters.AddWithValue("@JobName", cbxCJJobName.Text);
                     int jobId = (int)getIdcomm.ExecuteScalar();
                     using (SqlCommand comm = new SqlCommand(sql, conn))
                     {
@@ -1536,8 +1536,6 @@ namespace LockedIn
             }
 
         }
-        
-
     }
 }
     

@@ -118,7 +118,7 @@
             this.calDateCompleted = new System.Windows.Forms.MonthCalendar();
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cmbJobID = new System.Windows.Forms.ComboBox();
+            this.cbxCJJobName = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tpJobs = new System.Windows.Forms.TabPage();
@@ -251,6 +251,7 @@
             this.label60 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel52 = new System.Windows.Forms.Panel();
+            this.btnMPBack = new System.Windows.Forms.Button();
             this.pnlMPChoices = new System.Windows.Forms.Panel();
             this.btnEditP = new System.Windows.Forms.Button();
             this.btnDeleteP = new System.Windows.Forms.Button();
@@ -289,7 +290,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnMPBack = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -1423,7 +1423,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel4.Controls.Add(this.cmbJobID);
+            this.panel4.Controls.Add(this.cbxCJJobName);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(427, 30);
@@ -1432,16 +1432,16 @@
             this.panel4.Size = new System.Drawing.Size(346, 162);
             this.panel4.TabIndex = 0;
             // 
-            // cmbJobID
+            // cbxCJJobName
             // 
-            this.cmbJobID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbJobID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbJobID.FormattingEnabled = true;
-            this.cmbJobID.Location = new System.Drawing.Point(102, 81);
-            this.cmbJobID.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbJobID.Name = "cmbJobID";
-            this.cmbJobID.Size = new System.Drawing.Size(220, 31);
-            this.cmbJobID.TabIndex = 2;
+            this.cbxCJJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxCJJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxCJJobName.FormattingEnabled = true;
+            this.cbxCJJobName.Location = new System.Drawing.Point(102, 81);
+            this.cbxCJJobName.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxCJJobName.Name = "cbxCJJobName";
+            this.cbxCJJobName.Size = new System.Drawing.Size(220, 31);
+            this.cbxCJJobName.TabIndex = 2;
             // 
             // label8
             // 
@@ -2962,6 +2962,19 @@
             this.panel52.Size = new System.Drawing.Size(1235, 594);
             this.panel52.TabIndex = 15;
             // 
+            // btnMPBack
+            // 
+            this.btnMPBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnMPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnMPBack.ForeColor = System.Drawing.Color.White;
+            this.btnMPBack.Location = new System.Drawing.Point(1159, 549);
+            this.btnMPBack.Name = "btnMPBack";
+            this.btnMPBack.Size = new System.Drawing.Size(72, 33);
+            this.btnMPBack.TabIndex = 30;
+            this.btnMPBack.Text = "Back";
+            this.btnMPBack.UseVisualStyleBackColor = false;
+            this.btnMPBack.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // pnlMPChoices
             // 
             this.pnlMPChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -3379,19 +3392,6 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
-            // btnMPBack
-            // 
-            this.btnMPBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnMPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnMPBack.ForeColor = System.Drawing.Color.White;
-            this.btnMPBack.Location = new System.Drawing.Point(1159, 549);
-            this.btnMPBack.Name = "btnMPBack";
-            this.btnMPBack.Size = new System.Drawing.Size(72, 33);
-            this.btnMPBack.TabIndex = 30;
-            this.btnMPBack.Text = "Back";
-            this.btnMPBack.UseVisualStyleBackColor = false;
-            this.btnMPBack.Click += new System.EventHandler(this.button3_Click_1);
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3777,7 +3777,7 @@
         private System.Windows.Forms.MonthCalendar calDateCompleted;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cmbJobID;
+        private System.Windows.Forms.ComboBox cbxCJJobName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBackEmp;
