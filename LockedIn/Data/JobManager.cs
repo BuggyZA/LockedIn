@@ -19,9 +19,9 @@ namespace LockedIn.Managers
             Job job = null;
 
             string query = @"SELECT JobID, EmployerID, JobName, JobDescription, JobLocation, 
-                            StartDate, EndDate, Completed, DurationPerDay 
-                     FROM JOB 
-                     WHERE JobID = @JobID";
+                StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay  
+         FROM JOB 
+         WHERE JobID = @JobID";
 
             try
             {
@@ -45,8 +45,9 @@ namespace LockedIn.Managers
                                     JobLocation = reader.GetString(4),
                                     StartDate = reader.GetDateTime(5),
                                     EndDate = reader.GetDateTime(6),
-                                    Completed = reader.GetBoolean(7),
-                                    DurationPerDay = reader.GetInt32(8)
+                                    PrisonersNeeded = reader.GetInt32(7),
+                                    Completed = reader.GetBoolean(8),
+                                    DurationPerDay = reader.GetInt32(9)
                                 };
                             }
                         }
@@ -145,5 +146,25 @@ namespace LockedIn.Managers
                 return false;
             }
         }
+
+        public static int CountPrisonersOnJob(Job job)
+        {
+            int count = 0;
+
+            string query = "SELECT COUNT(*) FROM PRISONER_ON_JOB WHERE JobID = @JobID";
+
+            using (SqlConnection conn = new SqlConnection(constr))
+            using (cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@JobID", job.JobID);
+
+                conn.Open();
+                count = (int)cmd.ExecuteScalar();
+            }
+
+            return count;
+        }
+
+
     }
 }

@@ -9,7 +9,7 @@ CREATE PROCEDURE dbo.AddJob
     @endDate DATETIME,
     @prisonersNeeded INT,
     @completed BIT,
-    @durationPerDay TIME(0)
+    @durationPerDay INT
 AS
 BEGIN
     IF @employerID IS NULL
@@ -37,7 +37,7 @@ CREATE PROCEDURE dbo.UpdateJob
     @endDate           DATETIME,
     @prisonersNeeded   INT,
     @completed         BIT,
-    @durationPerDay    TIME(0)
+    @durationPerDay    INT
 AS
 BEGIN
     UPDATE JOB

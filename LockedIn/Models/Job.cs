@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using LockedIn.Managers;
 
 namespace LockedIn.Models
 {
@@ -27,7 +28,7 @@ namespace LockedIn.Models
         public int PrisonersNeeded { get; set; }
         public bool Completed { get; set; }
         public int DurationPerDay { get; set; }
-        
+
 
         // Default constructor
         public Job(){}
@@ -53,7 +54,7 @@ namespace LockedIn.Models
         // Method to assign gaurds per 3 prisoners
         public int AssignedGuards()
         {
-            return (int)Math.Ceiling((double)PrisonersNeeded / 3);
+            return (int)Math.Ceiling((double)JobManager.CountPrisonersOnJob(this) / 3);
         }
 
         // Main validation method for new prisoner

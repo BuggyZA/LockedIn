@@ -27,6 +27,7 @@ namespace LockedIn
         static String sql;
         static DataSet ds;
         String EmployerID;
+        string EmpID; 
         public frmEmployer()
         {
             InitializeComponent();
@@ -86,7 +87,8 @@ namespace LockedIn
 
         private void frmEmployer_Load(object sender, EventArgs e)
         {
-
+            EmpID = SessionData.LoggedInEmployerID.ToString();
+            MessageBox.Show(EmpID);
             ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
 
 
@@ -269,7 +271,7 @@ namespace LockedIn
 
         private void btnMJBack_Click(object sender, EventArgs e)
         {
-            tcEmployer.SelectedIndex = 0;
+            BackButton();
         }
 
         private void ASJbtnBack_Click(object sender, EventArgs e)
@@ -304,6 +306,7 @@ namespace LockedIn
 
         private void PnlEmpInfo_VisibleChanged(object sender, EventArgs e)
         {
+            EmployerID = EmpID;
 
 
             //show panel to edit employer details with data auto filled in
@@ -388,7 +391,6 @@ namespace LockedIn
                         PnlEmpInfo.Visible = true;
 
                     }
-
                 }
             }
         }
@@ -397,7 +399,7 @@ namespace LockedIn
         {
             string empId = txtEmpID.Text;
             string newPass = txtEmpNew.Text;
-            string confirmPass = txtEmpLName.Text;
+            string confirmPass = txtEmpConfirm.Text;
 
             if (newPass != confirmPass)
             {
@@ -433,6 +435,133 @@ namespace LockedIn
                     }
                 }
             }
+        }
+
+        private void frmEmployer_Shown(object sender, EventArgs e)
+        {
+            tcEmployer.SelectedIndex = 0;
+        }
+
+        //START OF LOGOUT AND BACK BUTTON
+        private void BackButton()
+        {
+            if (SessionData.SelectedUser == 1)
+            {
+               frmAdmin admin = new frmAdmin();
+                admin.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 2)
+            {
+                frmPrisoner prisoner = new frmPrisoner();
+                prisoner.Show();
+                this.Hide();
+            }
+            else if (SessionData.SelectedUser == 3)
+            {
+                tcEmployer.SelectedIndex = 0;
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.logOut();
+            this.Hide();
+        }
+
+        private void btnMEmpBack_Click_1(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BackButton();
+            PnlEmpInfo.Visible = false;
+            pnlEmpPass.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BackButton();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            tcEmployer.SelectedIndex = 3;
+            PnlEmpInfo.Visible = true;
+        }
+
+        private void btnEmpDel_Click(object sender, EventArgs e)
+        {
+            string employerId = EmpID;
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                conn.Open();
+
+                string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
+                using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
+                {
+                    cmd1.Parameters.AddWithValue("@ID", employerId);
+                    SqlDataReader reader = cmd1.ExecuteReader();
+                    List<int> jobIds = new List<int>();
+                    while (reader.Read())
+                    {
+                        jobIds.Add(reader.GetInt32(0));
+                    }
+                    reader.Close();
+                    // Delete associated records in PRISONER_ON_JOB for each job
+                    foreach (int jobId in jobIds)
+                    {
+                        string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
+                        using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@JobID", jobId);
+                            cmd2.ExecuteNonQuery();
+                        }
+
+                        string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
+                        using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
+                        {
+                            cmd3.Parameters.AddWithValue("@JobID", jobId);
+                            cmd3.ExecuteNonQuery();
+                        }
+                    }
+                }
+                string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
+                using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
+                {
+                    cmd4.Parameters.AddWithValue("@ID", employerId);
+                    cmd4.ExecuteNonQuery();
+                }
+                string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
+                {
+                    cmd5.Parameters.AddWithValue("@ID", employerId);
+
+                    int rowsAffected = cmd5.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                        MessageBox.Show("Employer deleted successfully!");
+                    else
+                        MessageBox.Show("No matching employer found!");
+                }
+                conn.Close();
+                frmLogIn login = new frmLogIn();
+                login.logOut();
+                this.Hide();
+            }
+        }
+
+        private void panel6_VisibleChanged(object sender, EventArgs e)
+        {
+            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
         }
     }
 }
