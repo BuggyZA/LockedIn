@@ -332,6 +332,9 @@ namespace LockedIn
                         cmd = new SqlCommand("SELECT * FROM EMPLOYER WHERE EmployerID = @employerID AND Password = @password", conn);
                         cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                        
+
+
                     }
                     else
                     {
