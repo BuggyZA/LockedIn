@@ -558,5 +558,10 @@ namespace LockedIn
                 this.Hide();
             }
         }
+
+        private void panel6_VisibleChanged(object sender, EventArgs e)
+        {
+            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
+        }
     }
 }

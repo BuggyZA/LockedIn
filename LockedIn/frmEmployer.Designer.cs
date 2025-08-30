@@ -109,22 +109,19 @@
             this.MJbtnSave = new System.Windows.Forms.Button();
             this.EmpHome = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.lblEmployer = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pnlOutList = new System.Windows.Forms.Panel();
-            this.lstDisplay = new System.Windows.Forms.ListBox();
-            this.lblLstOutput = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
+            this.pnlOutList = new System.Windows.Forms.Panel();
+            this.lblLstOutput = new System.Windows.Forms.Label();
             this.pnlNavigate = new System.Windows.Forms.Panel();
             this.btnHpARJ = new System.Windows.Forms.Button();
             this.btnHpASTJ = new System.Windows.Forms.Button();
             this.btnHpMJ = new System.Windows.Forms.Button();
-            this.pnlCalender = new System.Windows.Forms.Panel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.lblCalendar = new System.Windows.Forms.Label();
             this.tcEmployer = new System.Windows.Forms.TabControl();
             this.tpProfile = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -143,6 +140,7 @@
             this.lblEmpNew = new System.Windows.Forms.Label();
             this.lblEmpConfirm = new System.Windows.Forms.Label();
             this.PnlEmpInfo = new System.Windows.Forms.Panel();
+            this.btnEmpDel = new System.Windows.Forms.Button();
             this.btnEmpSave = new System.Windows.Forms.Button();
             this.btnEmpEdit = new System.Windows.Forms.Button();
             this.btnEmpChangePass = new System.Windows.Forms.Button();
@@ -173,8 +171,7 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnEmpDel = new System.Windows.Forms.Button();
+            this.redDisplay = new System.Windows.Forms.RichTextBox();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -197,11 +194,11 @@
             this.panel37.SuspendLayout();
             this.EmpHome.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.pnlOutList.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.pnlOutList.SuspendLayout();
             this.pnlNavigate.SuspendLayout();
-            this.pnlCalender.SuspendLayout();
             this.tcEmployer.SuspendLayout();
             this.tpProfile.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -216,7 +213,6 @@
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -227,7 +223,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1387, 652);
+            this.tabPage1.Size = new System.Drawing.Size(1266, 652);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "AssignSkillstoJob";
             // 
@@ -477,7 +473,7 @@
             this.tabMaintainJobs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabMaintainJobs.Name = "tabMaintainJobs";
             this.tabMaintainJobs.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabMaintainJobs.Size = new System.Drawing.Size(1387, 652);
+            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 652);
             this.tabMaintainJobs.TabIndex = 1;
             this.tabMaintainJobs.Text = "MaintainJobs";
             // 
@@ -1133,6 +1129,17 @@
             this.panel5.Size = new System.Drawing.Size(1269, 60);
             this.panel5.TabIndex = 20;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::LockedIn.Properties.Resources.profile_user;
+            this.pictureBox6.Location = new System.Drawing.Point(1185, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(64, 57);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1178,49 +1185,18 @@
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
             // 
-            // pnlOutList
-            // 
-            this.pnlOutList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlOutList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlOutList.Controls.Add(this.lstDisplay);
-            this.pnlOutList.Controls.Add(this.lblLstOutput);
-            this.pnlOutList.Location = new System.Drawing.Point(644, 14);
-            this.pnlOutList.Name = "pnlOutList";
-            this.pnlOutList.Size = new System.Drawing.Size(570, 557);
-            this.pnlOutList.TabIndex = 3;
-            // 
-            // lstDisplay
-            // 
-            this.lstDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstDisplay.FormattingEnabled = true;
-            this.lstDisplay.ItemHeight = 24;
-            this.lstDisplay.Location = new System.Drawing.Point(17, 37);
-            this.lstDisplay.Name = "lstDisplay";
-            this.lstDisplay.Size = new System.Drawing.Size(538, 460);
-            this.lstDisplay.TabIndex = 1;
-            // 
-            // lblLstOutput
-            // 
-            this.lblLstOutput.AutoSize = true;
-            this.lblLstOutput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLstOutput.Location = new System.Drawing.Point(236, 15);
-            this.lblLstOutput.Name = "lblLstOutput";
-            this.lblLstOutput.Size = new System.Drawing.Size(113, 24);
-            this.lblLstOutput.TabIndex = 0;
-            this.lblLstOutput.Text = "Active Jobs";
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel6.Controls.Add(this.button7);
             this.panel6.Controls.Add(this.pnlOutList);
             this.panel6.Controls.Add(this.pnlNavigate);
-            this.panel6.Controls.Add(this.pnlCalender);
             this.panel6.Location = new System.Drawing.Point(14, 52);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1235, 594);
             this.panel6.TabIndex = 21;
+            this.panel6.VisibleChanged += new System.EventHandler(this.panel6_VisibleChanged);
             // 
             // button7
             // 
@@ -1235,6 +1211,28 @@
             this.button7.Text = "Back";
             this.button7.UseVisualStyleBackColor = false;
             // 
+            // pnlOutList
+            // 
+            this.pnlOutList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOutList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlOutList.Controls.Add(this.redDisplay);
+            this.pnlOutList.Controls.Add(this.lblLstOutput);
+            this.pnlOutList.Location = new System.Drawing.Point(8, 230);
+            this.pnlOutList.Name = "pnlOutList";
+            this.pnlOutList.Size = new System.Drawing.Size(1206, 341);
+            this.pnlOutList.TabIndex = 3;
+            // 
+            // lblLstOutput
+            // 
+            this.lblLstOutput.AutoSize = true;
+            this.lblLstOutput.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLstOutput.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLstOutput.Location = new System.Drawing.Point(543, 12);
+            this.lblLstOutput.Name = "lblLstOutput";
+            this.lblLstOutput.Size = new System.Drawing.Size(142, 30);
+            this.lblLstOutput.TabIndex = 0;
+            this.lblLstOutput.Text = "Active Jobs";
+            // 
             // pnlNavigate
             // 
             this.pnlNavigate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -1244,7 +1242,7 @@
             this.pnlNavigate.Controls.Add(this.btnHpMJ);
             this.pnlNavigate.Location = new System.Drawing.Point(8, 14);
             this.pnlNavigate.Name = "pnlNavigate";
-            this.pnlNavigate.Size = new System.Drawing.Size(619, 323);
+            this.pnlNavigate.Size = new System.Drawing.Size(1206, 186);
             this.pnlNavigate.TabIndex = 1;
             // 
             // btnHpARJ
@@ -1252,7 +1250,7 @@
             this.btnHpARJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnHpARJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnHpARJ.ForeColor = System.Drawing.Color.White;
-            this.btnHpARJ.Location = new System.Drawing.Point(39, 219);
+            this.btnHpARJ.Location = new System.Drawing.Point(604, 50);
             this.btnHpARJ.Name = "btnHpARJ";
             this.btnHpARJ.Size = new System.Drawing.Size(559, 46);
             this.btnHpARJ.TabIndex = 2;
@@ -1265,7 +1263,7 @@
             this.btnHpASTJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnHpASTJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnHpASTJ.ForeColor = System.Drawing.Color.White;
-            this.btnHpASTJ.Location = new System.Drawing.Point(39, 134);
+            this.btnHpASTJ.Location = new System.Drawing.Point(318, 120);
             this.btnHpASTJ.Name = "btnHpASTJ";
             this.btnHpASTJ.Size = new System.Drawing.Size(559, 46);
             this.btnHpASTJ.TabIndex = 1;
@@ -1285,33 +1283,6 @@
             this.btnHpMJ.Text = "Maintain Jobs";
             this.btnHpMJ.UseVisualStyleBackColor = false;
             this.btnHpMJ.Click += new System.EventHandler(this.btnHpMJ_Click);
-            // 
-            // pnlCalender
-            // 
-            this.pnlCalender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlCalender.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCalender.Controls.Add(this.monthCalendar1);
-            this.pnlCalender.Controls.Add(this.lblCalendar);
-            this.pnlCalender.Location = new System.Drawing.Point(8, 374);
-            this.pnlCalender.Name = "pnlCalender";
-            this.pnlCalender.Size = new System.Drawing.Size(619, 197);
-            this.pnlCalender.TabIndex = 2;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(361, 22);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 1;
-            // 
-            // lblCalendar
-            // 
-            this.lblCalendar.AutoSize = true;
-            this.lblCalendar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCalendar.Location = new System.Drawing.Point(35, 22);
-            this.lblCalendar.Name = "lblCalendar";
-            this.lblCalendar.Size = new System.Drawing.Size(226, 24);
-            this.lblCalendar.TabIndex = 0;
-            this.lblCalendar.Text = "Select a date to Display:";
             // 
             // tcEmployer
             // 
@@ -1539,6 +1510,20 @@
             this.PnlEmpInfo.Visible = false;
             this.PnlEmpInfo.VisibleChanged += new System.EventHandler(this.PnlEmpInfo_VisibleChanged);
             // 
+            // btnEmpDel
+            // 
+            this.btnEmpDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnEmpDel.ForeColor = System.Drawing.Color.White;
+            this.btnEmpDel.Location = new System.Drawing.Point(29, 362);
+            this.btnEmpDel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEmpDel.Name = "btnEmpDel";
+            this.btnEmpDel.Size = new System.Drawing.Size(313, 54);
+            this.btnEmpDel.TabIndex = 25;
+            this.btnEmpDel.Text = "Confirm Delete";
+            this.btnEmpDel.UseVisualStyleBackColor = false;
+            this.btnEmpDel.Click += new System.EventHandler(this.btnEmpDel_Click);
+            // 
             // btnEmpSave
             // 
             this.btnEmpSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1656,7 +1641,7 @@
             this.tabpage4.Location = new System.Drawing.Point(4, 33);
             this.tabpage4.Name = "tabpage4";
             this.tabpage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage4.Size = new System.Drawing.Size(1387, 652);
+            this.tabpage4.Size = new System.Drawing.Size(1266, 652);
             this.tabpage4.TabIndex = 6;
             this.tabpage4.Text = "Approve/Reject Job";
             // 
@@ -1873,30 +1858,13 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
-            // pictureBox6
+            // redDisplay
             // 
-            this.pictureBox6.Image = global::LockedIn.Properties.Resources.profile_user;
-            this.pictureBox6.Location = new System.Drawing.Point(1185, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(64, 57);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 30;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // btnEmpDel
-            // 
-            this.btnEmpDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnEmpDel.ForeColor = System.Drawing.Color.White;
-            this.btnEmpDel.Location = new System.Drawing.Point(29, 362);
-            this.btnEmpDel.Margin = new System.Windows.Forms.Padding(5);
-            this.btnEmpDel.Name = "btnEmpDel";
-            this.btnEmpDel.Size = new System.Drawing.Size(313, 54);
-            this.btnEmpDel.TabIndex = 25;
-            this.btnEmpDel.Text = "Confirm Delete";
-            this.btnEmpDel.UseVisualStyleBackColor = false;
-            this.btnEmpDel.Click += new System.EventHandler(this.btnEmpDel_Click);
+            this.redDisplay.Location = new System.Drawing.Point(40, 58);
+            this.redDisplay.Name = "redDisplay";
+            this.redDisplay.Size = new System.Drawing.Size(1124, 260);
+            this.redDisplay.TabIndex = 2;
+            this.redDisplay.Text = "";
             // 
             // frmEmployer
             // 
@@ -1945,13 +1913,12 @@
             this.EmpHome.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.pnlOutList.ResumeLayout(false);
             this.pnlOutList.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.pnlNavigate.ResumeLayout(false);
-            this.pnlCalender.ResumeLayout(false);
-            this.pnlCalender.PerformLayout();
             this.tcEmployer.ResumeLayout(false);
             this.tpProfile.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1971,7 +1938,6 @@
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2032,11 +1998,7 @@
         private System.Windows.Forms.Button MJbtnSave;
         private System.Windows.Forms.TabPage EmpHome;
         private System.Windows.Forms.Panel pnlOutList;
-        private System.Windows.Forms.ListBox lstDisplay;
         private System.Windows.Forms.Label lblLstOutput;
-        private System.Windows.Forms.Panel pnlCalender;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Label lblCalendar;
         private System.Windows.Forms.Panel pnlNavigate;
         private System.Windows.Forms.Button btnHpARJ;
         private System.Windows.Forms.Button btnHpASTJ;
@@ -2124,5 +2086,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnEmpDel;
+        private System.Windows.Forms.RichTextBox redDisplay;
     }
 }
