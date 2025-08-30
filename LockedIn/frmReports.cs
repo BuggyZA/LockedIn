@@ -23,7 +23,6 @@ namespace LockedIn
         DateTime endDate;
 
         String constr = DatabaseConfig.GetConStr();
-        SqlConnection conn;
         SqlDataAdapter adapter;
         DataSet ds;
         SqlCommand command;

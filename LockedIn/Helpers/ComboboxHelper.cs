@@ -7,10 +7,8 @@ using System.Windows.Forms;
 public static class ComboBoxHelper
 {
     static String constr = DatabaseConfig.GetConStr();
-    static SqlConnection conn;
     static SqlDataAdapter adapter;
     static String query;
-    static DataSet ds;
 
     //Methods to fill Comboboxes
     public static void PopulateEmployerNames(ComboBox comboBox)

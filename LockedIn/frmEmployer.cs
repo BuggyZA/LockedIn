@@ -22,10 +22,7 @@ namespace LockedIn
     public partial class frmEmployer : Form
     {
         static String constr = DatabaseConfig.GetConStr();
-        static SqlConnection conn;
-        static SqlDataAdapter adap;
         static String sql;
-        static DataSet ds;
         String EmployerID;
         string EmpID; 
         public frmEmployer()

@@ -13,8 +13,6 @@ namespace LockedIn.Models
     public class Job
     {
         static string constr = DatabaseConfig.GetConStr();
-        static SqlConnection conn;
-        static SqlCommand cmd;
         /*Get and set methods: E.g To use these in application 
          * Set method: prsnr.LastName = txt.Text; or
          * Get method: txt.Text = prsnr.LastName*/

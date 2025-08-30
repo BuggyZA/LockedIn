@@ -189,8 +189,9 @@ namespace LockedIn.Managers
             }
             catch (Exception ex)
             {
-                return false;
                 MessageBox.Show("Error deleting prisoner: " + ex.Message);
+                return false;
+                
             }
         }
 

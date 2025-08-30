@@ -35,8 +35,6 @@ namespace LockedIn
         string action = "";// this for maintain jobs to hold say if data needs to be edited, addded or deleted
         int selectedJobID = -1; // This will hold the selected JobID for Edit/Delete
 
-        int SelectedUser;
-
 
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
          * and they invoke the various indexchanged events and this causes several errors)*/
@@ -92,7 +90,7 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 2)
             {
-                ComboBoxHelper.PopulateJobNames(cmbJobID);
+                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
             else if (tcAdmin.SelectedIndex == 5)
@@ -854,36 +852,6 @@ namespace LockedIn
             pnlPInfo.Visible = true;
         }
 
-        private void btnMPBack_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                txtPNo.Clear();
-                txtFirstName.Clear();
-                txtLastName.Clear();
-                txtID.Clear();
-                ckbCleared.Checked = false;
-                lstMPCurrentSkills.ClearSelected();
-                lstMPAllSkills.ClearSelected();
-
-                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
-                cmbMPPrisonerNo.SelectedIndex = -1;
-                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
-                pnlPInfo.Enabled = true;
-                pnlModifyPPassword.Enabled = true;
-                pnlMPSkills.Enabled = true;
-
-                frmLogIn myLoginform = new frmLogIn();
-                this.Close();
-                myLoginform.ShowDialog();
-            }
-
-
-        }
-
-
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
             PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
@@ -893,34 +861,8 @@ namespace LockedIn
             isPopulating = false;
         }
 
-        private void btnASJAdd_Click(object sender, EventArgs e)
-        {
-            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
 
-            isPopulating = true;
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            isPopulating = false;
-        }
 
-        private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isPopulating || cbxASJJobName.SelectedIndex == -1)
-                return;
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-
-        }
-
-        private void btnASJRemove_Click(object sender, EventArgs e)
-        {
-            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
-
-            isPopulating = true;
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            isPopulating = false;
-        }
         private void pnlEmpDetails_VisibleChanged(object sender, EventArgs e)
         {
             //Populating the combobox with employer names on the visible change event of the pnlEmpDetails panel
@@ -1038,16 +980,6 @@ namespace LockedIn
 
 
         }
-
-
-
-        private void button32_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
 
         private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
         {
@@ -1445,13 +1377,6 @@ namespace LockedIn
 
         }
 
-       
-
-        private void frmAdmin_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbxJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlJobDetails.Visible = false;
@@ -1473,22 +1398,7 @@ namespace LockedIn
             pnlJobDetails.Visible = true;
         }
 
-        private void button18_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                frmLogIn myLoginform = new frmLogIn();
-                this.Close();
-                myLoginform.ShowDialog();
-            }
-            else
-            {
-                pnlGuardDetails.Visible = false;
-                pnlJobDetails.Visible = true;
-            }
-        }
+      
 
         //LOGOUT & BACK BUTTONS
 
@@ -1559,11 +1469,7 @@ namespace LockedIn
             BackButton();
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-            BackButton();
-        }
-
+        //END OF LOGOUT & BACK BUTTONS
         private void btnEmpBack_Click(object sender, EventArgs e)
         {
             pnlEmpMenu.Visible = true;
@@ -1575,8 +1481,62 @@ namespace LockedIn
             btnEmpSave.Visible = false;
         }
 
+        private void cbxASJJobName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (isPopulating || cbxASJJobName.SelectedIndex == -1)
+                return;
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
 
-        //END OF LOGOUT & BACK BUTTONS
+        }
+
+        private void btnASJRemove_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+        private void btnASJAdd_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                txtPNo.Clear();
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtID.Clear();
+                ckbCleared.Checked = false;
+                lstMPCurrentSkills.ClearSelected();
+                lstMPAllSkills.ClearSelected();
+
+                cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+                cmbMPPrisonerNo.SelectedIndex = -1;
+                cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+                pnlPInfo.Enabled = true;
+                pnlModifyPPassword.Enabled = true;
+                pnlMPSkills.Enabled = true;
+
+                frmLogIn myLoginform = new frmLogIn();
+                this.Close();
+                myLoginform.ShowDialog();
+            }
+
+        }
+        
 
     }
 }

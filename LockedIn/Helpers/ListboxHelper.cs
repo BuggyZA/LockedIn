@@ -11,10 +11,8 @@ namespace LockedIn.Helpers
     public static class ListboxHelper
     {
         static String constr = DatabaseConfig.GetConStr();
-        static SqlConnection conn;
         static SqlDataAdapter adapter;
         static String query;
-        static DataSet ds;
 
         //Methods to fill listBoxes with skills of Prisoners
         public static void PopulateAllPSkills(ListBox listBox)

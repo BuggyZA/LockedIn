@@ -11,7 +11,6 @@ namespace LockedIn.Managers
         static string constr = DatabaseConfig.GetConStr();
         static SqlConnection conn;
         static SqlCommand cmd;
-        static SqlDataReader reader;
 
         //Method to create a Job object directly from DB
         public static Job LoadJob(int jobID)
