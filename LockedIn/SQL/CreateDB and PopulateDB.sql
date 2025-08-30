@@ -135,16 +135,16 @@ INSERT INTO PRISONER (PrisonerNum, LastName, FirstName, SA_ID, Password, Cleared
 
 -- Insert test data for JOB table - Community Service Jobs (DurationPerDay converted to hours as INT)
 INSERT INTO JOB (EmployerID, JobName, JobDescription, JobLocation, StartDate, EndDate, PrisonersNeeded, Completed, DurationPerDay) VALUES
-(1, 'Park Cleanup', 'Cleaning and maintenance of Mandela Park', 'Mandela Park, Potchefstroom', '2024-09-01', '2024-11-30', 6, 0, 6),     -- was '06:00:00'
-(2, 'Hospital Construction', 'Assisting with new community hospital build', 'New Hospital Site, CBD', '2024-08-15', '2025-03-15', 12, 0, 8),   -- was '08:00:00'
-(3, 'Road Maintenance', 'Pothole repairs and road cleaning', 'Various Streets, Potchefstroom', '2024-09-10', '2024-12-10', 8, 0, 7),       -- was '07:00:00'
-(4, 'School Renovation', 'Painting and repairs at local primary school', 'Mooiriver Primary School', '2024-10-01', '2024-12-15', 5, 0, 8),    -- was '07:30:00' -> rounded to 8
-(5, 'Community Garden', 'Establishing vegetable gardens for soup kitchens', 'Ikageng Community Center', '2024-08-01', '2024-10-31', 4, 0, 6),  -- was '05:30:00' -> rounded to 6
-(6, 'Library Restoration', 'Renovation of old municipal library', 'Central Library, Church Street', '2024-07-15', '2024-09-30', 6, 1, 7),     -- was '07:00:00'
-(7, 'Elderly Home Support', 'Maintenance and landscaping services', 'Sunset Retirement Home', '2024-08-20', '2024-11-20', 3, 0, 6),           -- was '06:00:00'
-(8, 'Bridge Construction', 'Assisting with new pedestrian bridge', 'Mooi River Crossing', '2024-06-01', '2024-08-31', 10, 1, 8),              -- was '08:00:00'
-(1, 'Town Square Beautification', 'Landscaping and maintenance of town square', 'Central Town Square', '2024-09-15', '2024-12-31', 4, 0, 7),  -- was '06:30:00' -> rounded to 7
-(3, 'Homeless Shelter Repairs', 'Building repairs and maintenance', 'Hope Haven Shelter', '2024-10-05', '2025-01-05', 7, 0, 8);               -- was '07:30:00' -> rounded to 8
+(1, 'Park Cleanup', 'Cleaning and maintenance of Mandela Park', 'Mandela Park, Potchefstroom', '2025-09-01', '2025-11-30', 6, 0, 6),     -- was '06:00:00'
+(2, 'Hospital Construction', 'Assisting with new community hospital build', 'New Hospital Site, CBD', '2025-08-15', '2025-03-15', 12, 0, 8),   -- was '08:00:00'
+(3, 'Road Maintenance', 'Pothole repairs and road cleaning', 'Various Streets, Potchefstroom', '2025-09-10', '2025-12-10', 8, 0, 7),       -- was '07:00:00'
+(4, 'School Renovation', 'Painting and repairs at local primary school', 'Mooiriver Primary School', '2025-10-01', '2025-12-15', 5, 0, 8),    -- was '07:30:00' -> rounded to 8
+(5, 'Community Garden', 'Establishing vegetable gardens for soup kitchens', 'Ikageng Community Center', '2025-08-01', '2025-10-31', 4, 0, 6),  -- was '05:30:00' -> rounded to 6
+(6, 'Library Restoration', 'Renovation of old municipal library', 'Central Library, Church Street', '2025-07-15', '2025-09-30', 6, 1, 7),     -- was '07:00:00'
+(7, 'Elderly Home Support', 'Maintenance and landscaping services', 'Sunset Retirement Home', '2025-08-20', '2025-11-20', 3, 0, 6),           -- was '06:00:00'
+(8, 'Bridge Construction', 'Assisting with new pedestrian bridge', 'Mooi River Crossing', '2025-06-01', '2025-08-31', 10, 1, 8),              -- was '08:00:00'
+(1, 'Town Square Beautification', 'Landscaping and maintenance of town square', 'Central Town Square', '2025-09-15', '2025-12-31', 4, 0, 7),  -- was '06:30:00' -> rounded to 7
+(3, 'Homeless Shelter Repairs', 'Building repairs and maintenance', 'Hope Haven Shelter', '2025-10-05', '2025-01-05', 7, 0, 8);               -- was '07:30:00' -> rounded to 8
 
 -- Insert test data for PRISONER_ON_JOB table (community service assignments)
 INSERT INTO PRISONER_ON_JOB (JobID, PrisonerID, [Accepted/Rejeced], JobFinished, OnPremise) VALUES
