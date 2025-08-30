@@ -1,4 +1,4 @@
-﻿using LockedIn.Data;
+using LockedIn.Data;
 using LockedIn.Helpers;
 using LockedIn.Managers;
 using LockedIn.Models;
@@ -100,10 +100,12 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 3)
             {
-                panel40.Visible = false;
-                panel39.Visible = false;
-                panel41.Visible = false;
-                panel38.Visible = true;
+                pnladJobDetails.Visible = false;
+                pnlAdDate.Visible = false;
+                pnlAdSkills.Visible = false;
+                pnlAdFunctions.Visible = true;
+                ListboxHelper.PopulateAllPSkills(listBox1);
+                ListboxHelper.PopulateCurrentJobSkills(listBox21);
             }
 
 
@@ -1087,10 +1089,10 @@ namespace LockedIn
             try
             {
                 //making panels visible
-                panel40.Visible = true;
-                panel39.Visible = true;
-                panel41.Visible = true;
-                panel38.Visible = false;
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdSkills.Visible = true;
+                pnlAdFunctions.Visible = false;
                 cmbJobNAme.Visible = false;
 
                 selectedJobID = -1;
@@ -1110,10 +1112,10 @@ namespace LockedIn
             try
             {
                 //making panels visible
-                panel40.Visible = true;
-                panel39.Visible = true;
-                panel41.Visible = true;
-                panel38.Visible = false;
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdSkills.Visible = true;
+                pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
 
                 action = "EDIT";
@@ -1181,7 +1183,7 @@ namespace LockedIn
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-
+                    //add job
                     if (action == "ADD")
                     {
                         string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay)";
@@ -1205,6 +1207,7 @@ namespace LockedIn
 
                         MessageBox.Show("Job added successfully.");
                     }
+                    //edit job
                     else if (action == "EDIT")
                     {
                         string sql = "UPDATE JOB SET JobName= @jobName, JobDescription= @jobDescription, JobLocation= @jobLocation, StartDate = @startDate, EndDate = @endDate, PrisonersNeeded = @prisonersNeeded, Completed = @completed, DurationPerDay = @durationPerDay WHERE JobID = @jobID";
@@ -1232,6 +1235,7 @@ namespace LockedIn
 
                         MessageBox.Show("Job updated successfully.");
                     }
+                    //delete job
                     else if (action == "DELETE")
                     {
                         string sql = "DELETE FROM JOB WHERE JobID = @jobID";
@@ -1263,10 +1267,10 @@ namespace LockedIn
             try
             {
                 //making panels visible
-                panel40.Visible = true;
-                panel39.Visible = true;
-                panel41.Visible = true;
-                panel38.Visible = false;
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdSkills.Visible = true;
+                pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
 
                 action = "DELETE";
@@ -1535,6 +1539,23 @@ namespace LockedIn
                 myLoginform.ShowDialog();
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string skill = "";
+
+            skill = listBox1.SelectedItem.ToString();
+            listBox2.Items.Add(skill);
+            listBox1.SelectedItem = "";
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string skill = "";
+            skill = listBox2.SelectedItem.ToString();
+            listBox1.Items.Add(skill);
+            listBox2.SelectedItem = "";
         }
     }
 }
