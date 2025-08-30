@@ -229,6 +229,13 @@ namespace LockedIn
             }
         }
 
+        private void cbxEmployerID_TextChanged(object sender, EventArgs e)      //Very glitchy and doesnt work 
+        {
+            //cbxEmployerID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbxEmployerID.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+        }
+
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             
