@@ -1424,6 +1424,7 @@ namespace LockedIn
             else
             {
                 newPass = PasswordHasser.HashPassword(newPass);
+                MessageBox.Show(newPass);
 
                 using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {

@@ -173,6 +173,8 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnEmpDel = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -214,6 +216,7 @@
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -224,7 +227,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1266, 652);
+            this.tabPage1.Size = new System.Drawing.Size(1387, 652);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "AssignSkillstoJob";
             // 
@@ -474,7 +477,7 @@
             this.tabMaintainJobs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabMaintainJobs.Name = "tabMaintainJobs";
             this.tabMaintainJobs.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 652);
+            this.tabMaintainJobs.Size = new System.Drawing.Size(1387, 652);
             this.tabMaintainJobs.TabIndex = 1;
             this.tabMaintainJobs.Text = "MaintainJobs";
             // 
@@ -1107,7 +1110,6 @@
             // 
             this.EmpHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.EmpHome.Controls.Add(this.panel5);
-            this.EmpHome.Controls.Add(this.pnlOutList);
             this.EmpHome.Controls.Add(this.panel6);
             this.EmpHome.Location = new System.Drawing.Point(4, 33);
             this.EmpHome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -1120,6 +1122,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.lblEmployer);
             this.panel5.Controls.Add(this.label9);
@@ -1127,7 +1130,7 @@
             this.panel5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1269, 47);
+            this.panel5.Size = new System.Drawing.Size(1269, 60);
             this.panel5.TabIndex = 20;
             // 
             // button4
@@ -1137,7 +1140,7 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(16, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 33);
+            this.button4.Size = new System.Drawing.Size(99, 38);
             this.button4.TabIndex = 29;
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
@@ -1181,7 +1184,7 @@
             this.pnlOutList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.pnlOutList.Controls.Add(this.lstDisplay);
             this.pnlOutList.Controls.Add(this.lblLstOutput);
-            this.pnlOutList.Location = new System.Drawing.Point(653, 66);
+            this.pnlOutList.Location = new System.Drawing.Point(644, 14);
             this.pnlOutList.Name = "pnlOutList";
             this.pnlOutList.Size = new System.Drawing.Size(570, 557);
             this.pnlOutList.TabIndex = 3;
@@ -1210,6 +1213,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel6.Controls.Add(this.button7);
+            this.panel6.Controls.Add(this.pnlOutList);
             this.panel6.Controls.Add(this.pnlNavigate);
             this.panel6.Controls.Add(this.pnlCalender);
             this.panel6.Location = new System.Drawing.Point(14, 52);
@@ -1355,7 +1359,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(16, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 33);
+            this.button2.Size = new System.Drawing.Size(87, 33);
             this.button2.TabIndex = 29;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = false;
@@ -1515,6 +1519,7 @@
             // PnlEmpInfo
             // 
             this.PnlEmpInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.PnlEmpInfo.Controls.Add(this.btnEmpDel);
             this.PnlEmpInfo.Controls.Add(this.btnEmpSave);
             this.PnlEmpInfo.Controls.Add(this.btnEmpEdit);
             this.PnlEmpInfo.Controls.Add(this.btnEmpChangePass);
@@ -1538,7 +1543,7 @@
             // 
             this.btnEmpSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnEmpSave.ForeColor = System.Drawing.Color.White;
-            this.btnEmpSave.Location = new System.Drawing.Point(350, 363);
+            this.btnEmpSave.Location = new System.Drawing.Point(350, 301);
             this.btnEmpSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmpSave.Name = "btnEmpSave";
             this.btnEmpSave.Size = new System.Drawing.Size(313, 54);
@@ -1651,7 +1656,7 @@
             this.tabpage4.Location = new System.Drawing.Point(4, 33);
             this.tabpage4.Name = "tabpage4";
             this.tabpage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage4.Size = new System.Drawing.Size(1266, 652);
+            this.tabpage4.Size = new System.Drawing.Size(1387, 652);
             this.tabpage4.TabIndex = 6;
             this.tabpage4.Text = "Approve/Reject Job";
             // 
@@ -1868,12 +1873,37 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::LockedIn.Properties.Resources.profile_user;
+            this.pictureBox6.Location = new System.Drawing.Point(1185, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(64, 57);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // btnEmpDel
+            // 
+            this.btnEmpDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnEmpDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnEmpDel.ForeColor = System.Drawing.Color.White;
+            this.btnEmpDel.Location = new System.Drawing.Point(29, 362);
+            this.btnEmpDel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEmpDel.Name = "btnEmpDel";
+            this.btnEmpDel.Size = new System.Drawing.Size(313, 54);
+            this.btnEmpDel.TabIndex = 25;
+            this.btnEmpDel.Text = "Confirm Delete";
+            this.btnEmpDel.UseVisualStyleBackColor = false;
+            this.btnEmpDel.Click += new System.EventHandler(this.btnEmpDel_Click);
+            // 
             // frmEmployer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1447, 681);
             this.Controls.Add(this.tcEmployer);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1941,6 +1971,7 @@
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2091,5 +2122,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button btnEmpDel;
     }
 }
