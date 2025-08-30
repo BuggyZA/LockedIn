@@ -93,7 +93,6 @@ namespace LockedIn
             else if (tcAdmin.SelectedIndex == 2)
             {
                 ComboBoxHelper.PopulateJobNames(cmbJobID);
-                ComboBoxHelper.PopulatePrisonerNumbers(cmbPrisonerID);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
             else if (tcAdmin.SelectedIndex == 5)
@@ -762,7 +761,6 @@ namespace LockedIn
         private void btnClear_Click(object sender, EventArgs e)
         {
             //Clearing all the Job completed details
-            cmbPrisonerID.SelectedIndex = -1;
             cmbJobID.SelectedIndex = -1;
             calDateCompleted.SetDate(DateTime.Today);
             lstNotes.Items.Clear();
@@ -775,47 +773,37 @@ namespace LockedIn
 
                 if (cmbJobID.SelectedIndex != -1)
                 {
-                    if (cmbPrisonerID.SelectedIndex != -1)
+                    DateTime selectedDate = calDateCompleted.SelectionStart;
+                    if (selectedDate <= DateTime.Today)
                     {
-                        DateTime selectedDate = calDateCompleted.SelectionStart;
-                        if (selectedDate <= DateTime.Today)
-                        {
-                            string connStr = DatabaseConfig.GetConStr();
+                        string connStr = DatabaseConfig.GetConStr();
 
-                            SqlConnection conn = new SqlConnection(connStr);
+                        SqlConnection conn = new SqlConnection(connStr);
 
-                            conn.Open();
-                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                            SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                            getIdcomm.Parameters.AddWithValue("@JobName", cmbJobID.Text);
-                            int jobId = (int)getIdcomm.ExecuteScalar();
+                        conn.Open();
+                        string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
+                        SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
+                        getIdcomm.Parameters.AddWithValue("@JobName", cmbJobID.Text);
+                        int jobId = (int)getIdcomm.ExecuteScalar();
 
 
-                            string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = 1 WHERE JobID = @JobID; UPDATE PRISONER_ON_JOB SET JobFinished = 1 WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
-                            SqlCommand comm = new SqlCommand(sql, conn);
+                        string sql = "UPDATE JOB SET EndDate = @EndDate, Completed = 1 WHERE JobID = @JobID; UPDATE PRISONER_ON_JOB SET JobFinished = 1 WHERE JobID = @JobID";
+                        SqlCommand comm = new SqlCommand(sql, conn);
 
-                            comm.Parameters.AddWithValue("@EndDate", selectedDate);
-                            comm.Parameters.AddWithValue("@JobID", jobId);
-                            comm.Parameters.AddWithValue("@PrisonerID", cmbPrisonerID.SelectedValue);
-                            comm.ExecuteNonQuery();
+                        comm.Parameters.AddWithValue("@EndDate", selectedDate);
+                        comm.Parameters.AddWithValue("@JobID", jobId);
+                        comm.ExecuteNonQuery();
 
-                            MessageBox.Show("Job completed has been updated.");
+                        MessageBox.Show("Job completed has been updated.");
 
 
-                            conn.Close();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please select an date that is either today or in the past.");
-                        }
+                        conn.Close();
 
                     }
                     else
                     {
-                        MessageBox.Show("Please select an Prisoner Number.");
+                        MessageBox.Show("Please select an date that is either today or in the past.");
                     }
-
                 }
                 else
                 {
