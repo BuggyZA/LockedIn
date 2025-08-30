@@ -598,6 +598,5 @@ namespace LockedIn
             ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
             isPopulating = false;
         }
-
     }
 }

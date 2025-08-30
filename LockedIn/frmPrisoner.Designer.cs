@@ -64,6 +64,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.redDisplay = new System.Windows.Forms.RichTextBox();
             this.btnHPapplyForJobs = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHPmaintainPrisoner = new System.Windows.Forms.Button();
@@ -114,7 +115,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.redDisplay = new System.Windows.Forms.RichTextBox();
             this.tabPage4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -443,7 +443,7 @@
             this.panel1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(10, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1240, 131);
+            this.panel1.Size = new System.Drawing.Size(1269, 80);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -459,9 +459,9 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(191, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(322, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(875, 125);
+            this.pictureBox2.Size = new System.Drawing.Size(590, 75);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
@@ -480,7 +480,7 @@
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(14, 46);
+            this.btnLogOut.Location = new System.Drawing.Point(22, 23);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(104, 43);
             this.btnLogOut.TabIndex = 4;
@@ -522,6 +522,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1160, 440);
             this.panel3.TabIndex = 2;
+            // 
+            // redDisplay
+            // 
+            this.redDisplay.Location = new System.Drawing.Point(521, 68);
+            this.redDisplay.Name = "redDisplay";
+            this.redDisplay.Size = new System.Drawing.Size(591, 317);
+            this.redDisplay.TabIndex = 14;
+            this.redDisplay.Text = "";
             // 
             // btnHPapplyForJobs
             // 
@@ -1076,14 +1084,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
-            // 
-            // redDisplay
-            // 
-            this.redDisplay.Location = new System.Drawing.Point(521, 68);
-            this.redDisplay.Name = "redDisplay";
-            this.redDisplay.Size = new System.Drawing.Size(591, 317);
-            this.redDisplay.TabIndex = 14;
-            this.redDisplay.Text = "";
             // 
             // frmPrisoner
             // 

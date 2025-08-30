@@ -110,7 +110,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.lblEmployer = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -171,6 +170,7 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage1.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -212,6 +212,7 @@
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -504,9 +505,9 @@
             this.label1.Location = new System.Drawing.Point(520, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 39);
+            this.label1.Size = new System.Drawing.Size(161, 39);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Maintain Employers";
+            this.label1.Text = "Maintain Jobs";
             // 
             // label91
             // 
@@ -1111,15 +1112,15 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.lblEmployer);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.pictureBox5);
             this.panel5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1269, 60);
+            this.panel5.Size = new System.Drawing.Size(1269, 80);
             this.panel5.TabIndex = 20;
             // 
             // pictureBox6
@@ -1145,18 +1146,6 @@
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // lblEmployer
-            // 
-            this.lblEmployer.AutoSize = true;
-            this.lblEmployer.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmployer.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployer.Location = new System.Drawing.Point(520, 5);
-            this.lblEmployer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmployer.Name = "lblEmployer";
-            this.lblEmployer.Size = new System.Drawing.Size(115, 39);
-            this.lblEmployer.TabIndex = 13;
-            this.lblEmployer.Text = "Employer";
             // 
             // label9
             // 
@@ -1241,7 +1230,7 @@
             this.pnlNavigate.Controls.Add(this.btnHpARJ);
             this.pnlNavigate.Controls.Add(this.btnHpASTJ);
             this.pnlNavigate.Controls.Add(this.btnHpMJ);
-            this.pnlNavigate.Location = new System.Drawing.Point(8, 14);
+            this.pnlNavigate.Location = new System.Drawing.Point(8, 34);
             this.pnlNavigate.Name = "pnlNavigate";
             this.pnlNavigate.Size = new System.Drawing.Size(1206, 186);
             this.pnlNavigate.TabIndex = 1;
@@ -1681,9 +1670,9 @@
             this.label6.Location = new System.Drawing.Point(520, 5);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(223, 39);
+            this.label6.Size = new System.Drawing.Size(220, 39);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Maintain Employers";
+            this.label6.Text = "Approve/Reject Job";
             // 
             // label7
             // 
@@ -1860,6 +1849,16 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(330, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(590, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmEmployer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1934,6 +1933,7 @@
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2054,7 +2054,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblEmployer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel6;
@@ -2082,5 +2081,6 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
