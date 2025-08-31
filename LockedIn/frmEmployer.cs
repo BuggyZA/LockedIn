@@ -88,7 +88,6 @@ namespace LockedIn
         private void frmEmployer_Load(object sender, EventArgs e)
         {
             EmpID = SessionData.LoggedInEmployerID.ToString();
-            MessageBox.Show(EmpID);
             ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
 
 
