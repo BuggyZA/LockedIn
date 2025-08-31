@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
@@ -26,9 +27,17 @@ namespace LockedIn
         SqlDataAdapter adapter;
         DataSet ds;
         SqlCommand command;
-        public frmReports()
+
+        private PrintDocument printDocument;
+        private int currentRowIndex;
+        private DataGridView gridToPrint;
+        private int[] columnWidths = new int[] { 150, 325, 200, 150, 150 };
+
+    public frmReports()
         {
             InitializeComponent();
+            printDocument = new PrintDocument();
+            printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
         }
 
         private void frmReports_Load(object sender, EventArgs e)
@@ -291,21 +300,11 @@ namespace LockedIn
             pnlReports.Visible = false;
         }
 
-        private void lstPrisoners_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
-        private void calPrisonerStart_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
-              
-        }
-
-        private void calPrisonerEnd_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
-        }
+        
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -383,6 +382,106 @@ namespace LockedIn
             btnConfirm.Visible = true;
             btnRRNext.Visible = false;
             lblPrisonerNum.Visible = false;
+        }
+
+        private void btnPrintJobs_Click(object sender, EventArgs e)
+        {
+            gridToPrint = dbDisplayJobs;
+            currentRowIndex = 0;
+
+            printDocument.DefaultPageSettings.Landscape = true;
+
+
+            // Show printer selection dialog
+            using (PrintDialog printDlg = new PrintDialog())
+            {
+                printDlg.Document = printDocument;
+                printDlg.AllowSomePages = true;
+                printDlg.AllowSelection = true;
+
+                if (printDlg.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.PrinterSettings = printDlg.PrinterSettings; // use chosen printer
+                    printDocument.Print(); // send to printer
+                }
+            }
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (gridToPrint == null) return;
+
+            int x = 50, y = 50;
+            int cellHeight = 40;
+            int colCount = gridToPrint.Columns.Count;
+
+            // Ensure columnWidths array has enough values
+            if (columnWidths == null || columnWidths.Length < colCount)
+            {
+                columnWidths = Enumerable.Repeat(150, colCount).ToArray();
+            }
+
+            // Print headers
+            for (int i = 0; i < colCount; i++)
+            {
+                e.Graphics.DrawString(gridToPrint.Columns[i].HeaderText,
+                                      new Font("Arial", 10, FontStyle.Bold),
+                                      Brushes.Black, x, y);
+                x += columnWidths[i];  // use custom width
+            }
+
+            y += cellHeight;
+            x = 50;
+
+            // Print rows
+            while (currentRowIndex < gridToPrint.Rows.Count)
+            {
+                DataGridViewRow row = gridToPrint.Rows[currentRowIndex];
+
+                for (int i = 0; i < colCount; i++)
+                {
+                    string text = row.Cells[i].Value?.ToString() ?? "";
+                    e.Graphics.DrawString(text,
+                                          new Font("Arial", 10),
+                                          Brushes.Black, x, y);
+                    x += columnWidths[i];  // use custom width
+                }
+
+                y += cellHeight;
+                x = 50;
+                currentRowIndex++;
+
+                if (y > e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+            currentRowIndex = 0;
+            e.HasMorePages = false;
+        }
+
+        private void btnPrintPrisoners_Click(object sender, EventArgs e)
+        {
+            gridToPrint = dbDisplayPrisoners;
+            currentRowIndex = 0;
+
+            printDocument.DefaultPageSettings.Landscape = true;
+
+            // Show printer selection dialog
+            using (PrintDialog printDlg = new PrintDialog())
+            {
+                printDlg.Document = printDocument;
+                printDlg.AllowSomePages = true;
+                printDlg.AllowSelection = true;
+
+                if (printDlg.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.PrinterSettings = printDlg.PrinterSettings; // use chosen printer
+                    printDocument.Print(); // send to printer
+                }
+            }
         }
     }
 }
