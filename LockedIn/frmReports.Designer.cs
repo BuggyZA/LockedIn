@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReports));
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.pnlDisplayPrisoners = new System.Windows.Forms.Panel();
@@ -79,7 +78,10 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
-            this.panel26.SuspendLayout();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.pnlDisplayPrisoners.SuspendLayout();
@@ -95,6 +97,8 @@
             this.pnlPrisonerDetails.SuspendLayout();
             this.pnlJobsCompleted.SuspendLayout();
             this.pnlReports.SuspendLayout();
+            this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel26
@@ -135,7 +139,6 @@
             this.panel29.Controls.Add(this.pnlDisplayJobs);
             this.panel29.Controls.Add(this.pnlPrisonerDetails);
             this.panel29.Controls.Add(this.pnlJobsCompleted);
-            this.panel29.Controls.Add(this.button21);
             this.panel29.Controls.Add(this.pnlReports);
             this.panel29.Location = new System.Drawing.Point(12, 22);
             this.panel29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -688,6 +691,53 @@
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
             this.btnPrisonerRecord.Click += new System.EventHandler(this.btnPrisonerRecord_Click);
             // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel25.Controls.Add(this.label27);
+            this.panel25.Controls.Add(this.label51);
+            this.panel25.Controls.Add(this.pictureBox8);
+            this.panel25.Controls.Add(this.button21);
+            this.panel25.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel25.Location = new System.Drawing.Point(5, 0);
+            this.panel25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(1900, 72);
+            this.panel25.TabIndex = 16;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(753, 8);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(285, 58);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Request Reports";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(2548, 132);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(241, 35);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "First + Last name";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(2625, 28);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(75, 78);
+            this.pictureBox8.TabIndex = 5;
+            this.pictureBox8.TabStop = false;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -699,8 +749,6 @@
             this.Name = "frmReports";
             this.Text = "frmReports";
             this.Load += new System.EventHandler(this.frmReports_Load);
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.pnlDisplayPrisoners.ResumeLayout(false);
@@ -722,14 +770,14 @@
             this.pnlJobsCompleted.PerformLayout();
             this.pnlReports.ResumeLayout(false);
             this.pnlReports.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel pnlDisplayPrisoners;
