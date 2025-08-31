@@ -843,6 +843,7 @@ namespace LockedIn
 
         private void btnReqReports_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmReports ReportForm = new frmReports();
             ReportForm.ShowDialog();
         }

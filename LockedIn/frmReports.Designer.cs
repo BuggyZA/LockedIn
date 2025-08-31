@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReports));
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.pnlDisplayJobs = new System.Windows.Forms.Panel();
@@ -37,17 +36,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dbDisplayJobs = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlPrisonerDetails = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.calPrisonerEnd = new System.Windows.Forms.MonthCalendar();
-            this.calPrisonerStart = new System.Windows.Forms.MonthCalendar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnRRNext = new System.Windows.Forms.Button();
-            this.cmbRRPrisonerNum = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.lblPrisonerNum = new System.Windows.Forms.Label();
             this.pnlDisplayPrisoners = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -65,6 +53,17 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dbDisplayPrisoners = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.pnlPrisonerDetails = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.calPrisonerEnd = new System.Windows.Forms.MonthCalendar();
+            this.calPrisonerStart = new System.Windows.Forms.MonthCalendar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnRRNext = new System.Windows.Forms.Button();
+            this.cmbRRPrisonerNum = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblPrisonerNum = new System.Windows.Forms.Label();
             this.pnlJobsCompleted = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.calRREndDate = new System.Windows.Forms.MonthCalendar();
@@ -77,13 +76,15 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnJobsCompleted = new System.Windows.Forms.Button();
             this.btnPrisonerRecord = new System.Windows.Forms.Button();
-            this.panel26.SuspendLayout();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.pnlDisplayJobs.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplayJobs)).BeginInit();
-            this.pnlPrisonerDetails.SuspendLayout();
             this.pnlDisplayPrisoners.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -91,29 +92,12 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplayPrisoners)).BeginInit();
+            this.pnlPrisonerDetails.SuspendLayout();
             this.pnlJobsCompleted.SuspendLayout();
             this.pnlReports.SuspendLayout();
+            this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel26
-            // 
-            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel26.Controls.Add(this.label26);
-            this.panel26.Location = new System.Drawing.Point(5, 5);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(1898, 57);
-            this.panel26.TabIndex = 17;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(0, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(293, 58);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Request Reports:";
             // 
             // panel28
             // 
@@ -131,7 +115,6 @@
             this.panel29.Controls.Add(this.pnlDisplayPrisoners);
             this.panel29.Controls.Add(this.pnlPrisonerDetails);
             this.panel29.Controls.Add(this.pnlJobsCompleted);
-            this.panel29.Controls.Add(this.button21);
             this.panel29.Controls.Add(this.pnlReports);
             this.panel29.Location = new System.Drawing.Point(14, 28);
             this.panel29.Name = "panel29";
@@ -191,129 +174,6 @@
             this.label1.Size = new System.Drawing.Size(91, 39);
             this.label1.TabIndex = 10;
             this.label1.Text = "Report:";
-            // 
-            // pnlPrisonerDetails
-            // 
-            this.pnlPrisonerDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlPrisonerDetails.Controls.Add(this.btnBack);
-            this.pnlPrisonerDetails.Controls.Add(this.btnConfirm);
-            this.pnlPrisonerDetails.Controls.Add(this.calPrisonerEnd);
-            this.pnlPrisonerDetails.Controls.Add(this.calPrisonerStart);
-            this.pnlPrisonerDetails.Controls.Add(this.label5);
-            this.pnlPrisonerDetails.Controls.Add(this.label4);
-            this.pnlPrisonerDetails.Controls.Add(this.btnRRNext);
-            this.pnlPrisonerDetails.Controls.Add(this.cmbRRPrisonerNum);
-            this.pnlPrisonerDetails.Controls.Add(this.label31);
-            this.pnlPrisonerDetails.Controls.Add(this.lblPrisonerNum);
-            this.pnlPrisonerDetails.Location = new System.Drawing.Point(105, 249);
-            this.pnlPrisonerDetails.Name = "pnlPrisonerDetails";
-            this.pnlPrisonerDetails.Size = new System.Drawing.Size(1297, 443);
-            this.pnlPrisonerDetails.TabIndex = 13;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(1041, 361);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(238, 58);
-            this.btnBack.TabIndex = 18;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(513, 327);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(238, 58);
-            this.btnConfirm.TabIndex = 17;
-            this.btnConfirm.Text = "Confirm Dates";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // calPrisonerEnd
-            // 
-            this.calPrisonerEnd.Location = new System.Drawing.Point(740, 52);
-            this.calPrisonerEnd.Name = "calPrisonerEnd";
-            this.calPrisonerEnd.TabIndex = 16;
-            this.calPrisonerEnd.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calPrisonerEnd_DateChanged);
-            // 
-            // calPrisonerStart
-            // 
-            this.calPrisonerStart.Location = new System.Drawing.Point(189, 52);
-            this.calPrisonerStart.Name = "calPrisonerStart";
-            this.calPrisonerStart.TabIndex = 15;
-            this.calPrisonerStart.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calPrisonerStart_DateChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(27, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 39);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Start Date:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(598, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 39);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "End Date:";
-            // 
-            // btnRRNext
-            // 
-            this.btnRRNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnRRNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnRRNext.ForeColor = System.Drawing.Color.White;
-            this.btnRRNext.Location = new System.Drawing.Point(796, 361);
-            this.btnRRNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRRNext.Name = "btnRRNext";
-            this.btnRRNext.Size = new System.Drawing.Size(238, 58);
-            this.btnRRNext.TabIndex = 12;
-            this.btnRRNext.Text = "Next";
-            this.btnRRNext.UseVisualStyleBackColor = false;
-            this.btnRRNext.Click += new System.EventHandler(this.btnRRNext_Click);
-            // 
-            // cmbRRPrisonerNum
-            // 
-            this.cmbRRPrisonerNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbRRPrisonerNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbRRPrisonerNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRRPrisonerNum.FormattingEnabled = true;
-            this.cmbRRPrisonerNum.Location = new System.Drawing.Point(189, 340);
-            this.cmbRRPrisonerNum.Name = "cmbRRPrisonerNum";
-            this.cmbRRPrisonerNum.Size = new System.Drawing.Size(298, 37);
-            this.cmbRRPrisonerNum.TabIndex = 2;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(4, 5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(190, 39);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Prisoner Details:";
-            // 
-            // lblPrisonerNum
-            // 
-            this.lblPrisonerNum.AutoSize = true;
-            this.lblPrisonerNum.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.lblPrisonerNum.Location = new System.Drawing.Point(28, 343);
-            this.lblPrisonerNum.Name = "lblPrisonerNum";
-            this.lblPrisonerNum.Size = new System.Drawing.Size(146, 34);
-            this.lblPrisonerNum.TabIndex = 0;
-            this.lblPrisonerNum.Text = "Prisoner Num:";
             // 
             // pnlDisplayPrisoners
             // 
@@ -449,7 +309,7 @@
             this.lstPrisonersJobsCompleted.Name = "lstPrisonersJobsCompleted";
             this.lstPrisonersJobsCompleted.Size = new System.Drawing.Size(352, 121);
             this.lstPrisonersJobsCompleted.TabIndex = 18;
-            this.lstPrisonersJobsCompleted.SelectedIndexChanged += new System.EventHandler(this.lstPrisoners_SelectedIndexChanged);
+            
             // 
             // btnPrisonersReportBack
             // 
@@ -493,6 +353,129 @@
             this.label3.Size = new System.Drawing.Size(199, 39);
             this.label3.TabIndex = 11;
             this.label3.Text = "Summary Report:";
+            // 
+            // pnlPrisonerDetails
+            // 
+            this.pnlPrisonerDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlPrisonerDetails.Controls.Add(this.btnBack);
+            this.pnlPrisonerDetails.Controls.Add(this.btnConfirm);
+            this.pnlPrisonerDetails.Controls.Add(this.calPrisonerEnd);
+            this.pnlPrisonerDetails.Controls.Add(this.calPrisonerStart);
+            this.pnlPrisonerDetails.Controls.Add(this.label5);
+            this.pnlPrisonerDetails.Controls.Add(this.label4);
+            this.pnlPrisonerDetails.Controls.Add(this.btnRRNext);
+            this.pnlPrisonerDetails.Controls.Add(this.cmbRRPrisonerNum);
+            this.pnlPrisonerDetails.Controls.Add(this.label31);
+            this.pnlPrisonerDetails.Controls.Add(this.lblPrisonerNum);
+            this.pnlPrisonerDetails.Location = new System.Drawing.Point(105, 249);
+            this.pnlPrisonerDetails.Name = "pnlPrisonerDetails";
+            this.pnlPrisonerDetails.Size = new System.Drawing.Size(1297, 443);
+            this.pnlPrisonerDetails.TabIndex = 13;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(1041, 361);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(238, 58);
+            this.btnBack.TabIndex = 18;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.Location = new System.Drawing.Point(513, 327);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(238, 58);
+            this.btnConfirm.TabIndex = 17;
+            this.btnConfirm.Text = "Confirm Dates";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // calPrisonerEnd
+            // 
+            this.calPrisonerEnd.Location = new System.Drawing.Point(740, 52);
+            this.calPrisonerEnd.Name = "calPrisonerEnd";
+            this.calPrisonerEnd.TabIndex = 16;
+            
+            // 
+            // calPrisonerStart
+            // 
+            this.calPrisonerStart.Location = new System.Drawing.Point(189, 52);
+            this.calPrisonerStart.Name = "calPrisonerStart";
+            this.calPrisonerStart.TabIndex = 15;
+            
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(27, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 39);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Start Date:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(598, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 39);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "End Date:";
+            // 
+            // btnRRNext
+            // 
+            this.btnRRNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnRRNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnRRNext.ForeColor = System.Drawing.Color.White;
+            this.btnRRNext.Location = new System.Drawing.Point(796, 361);
+            this.btnRRNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRRNext.Name = "btnRRNext";
+            this.btnRRNext.Size = new System.Drawing.Size(238, 58);
+            this.btnRRNext.TabIndex = 12;
+            this.btnRRNext.Text = "Next";
+            this.btnRRNext.UseVisualStyleBackColor = false;
+            this.btnRRNext.Click += new System.EventHandler(this.btnRRNext_Click);
+            // 
+            // cmbRRPrisonerNum
+            // 
+            this.cmbRRPrisonerNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRRPrisonerNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbRRPrisonerNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRRPrisonerNum.FormattingEnabled = true;
+            this.cmbRRPrisonerNum.Location = new System.Drawing.Point(189, 340);
+            this.cmbRRPrisonerNum.Name = "cmbRRPrisonerNum";
+            this.cmbRRPrisonerNum.Size = new System.Drawing.Size(298, 37);
+            this.cmbRRPrisonerNum.TabIndex = 2;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(4, 5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(190, 39);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Prisoner Details:";
+            // 
+            // lblPrisonerNum
+            // 
+            this.lblPrisonerNum.AutoSize = true;
+            this.lblPrisonerNum.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.lblPrisonerNum.Location = new System.Drawing.Point(28, 343);
+            this.lblPrisonerNum.Name = "lblPrisonerNum";
+            this.lblPrisonerNum.Size = new System.Drawing.Size(146, 34);
+            this.lblPrisonerNum.TabIndex = 0;
+            this.lblPrisonerNum.Text = "Prisoner Num:";
             // 
             // pnlJobsCompleted
             // 
@@ -573,7 +556,7 @@
             this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(1706, 807);
+            this.button21.Location = new System.Drawing.Point(28, 11);
             this.button21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(108, 51);
@@ -631,26 +614,69 @@
             this.btnPrisonerRecord.UseVisualStyleBackColor = false;
             this.btnPrisonerRecord.Click += new System.EventHandler(this.btnPrisonerRecord_Click);
             // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel25.Controls.Add(this.label27);
+            this.panel25.Controls.Add(this.label51);
+            this.panel25.Controls.Add(this.pictureBox8);
+            this.panel25.Controls.Add(this.button21);
+            this.panel25.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel25.Location = new System.Drawing.Point(5, 0);
+            this.panel25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(1900, 72);
+            this.panel25.TabIndex = 16;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(753, 8);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(285, 58);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Request Reports";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(2548, 132);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(241, 35);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "First + Last name";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(2625, 28);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(75, 78);
+            this.pictureBox8.TabIndex = 5;
+            this.pictureBox8.TabStop = false;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1867, 984);
+            this.Controls.Add(this.panel25);
             this.Controls.Add(this.panel28);
-            this.Controls.Add(this.panel26);
             this.Name = "frmReports";
             this.Text = "frmReports";
             this.Load += new System.EventHandler(this.frmReports_Load);
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.pnlDisplayJobs.ResumeLayout(false);
             this.pnlDisplayJobs.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplayJobs)).EndInit();
-            this.pnlPrisonerDetails.ResumeLayout(false);
-            this.pnlPrisonerDetails.PerformLayout();
             this.pnlDisplayPrisoners.ResumeLayout(false);
             this.pnlDisplayPrisoners.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -660,18 +686,20 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplayPrisoners)).EndInit();
+            this.pnlPrisonerDetails.ResumeLayout(false);
+            this.pnlPrisonerDetails.PerformLayout();
             this.pnlJobsCompleted.ResumeLayout(false);
             this.pnlJobsCompleted.PerformLayout();
             this.pnlReports.ResumeLayout(false);
             this.pnlReports.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel pnlDisplayPrisoners;
@@ -719,5 +747,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

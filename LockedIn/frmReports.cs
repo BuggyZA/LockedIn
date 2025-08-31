@@ -59,9 +59,9 @@ namespace LockedIn
                     {
                         conn.Open();
 
-                        string sql1 = "SELECT p.FirstName + ' ' + p.LastName AS FullName " +
-                         "FROM PRISONER p " +
-                         "WHERE p.PrisonerNum = @prisonerNum";
+                        string sql1 = "SELECT FirstName + ' ' + LastName AS FullName " +
+                         "FROM PRISONER " +
+                         "WHERE PrisonerNum = @prisonerNum";
 
                         using (command = new SqlCommand(sql1, conn))
                         {
@@ -170,7 +170,7 @@ namespace LockedIn
                     {
                         conn.Open();
 
-                        string sql4 = " SELECT CAST(SUM(DATEDIFF(day, j.StartDate, j.EndDate) * j.DurationPerDay) AS DECIMAL(10,0))AS TotalHoursWorked" +
+                        string sql4 = "SELECT CAST(SUM(DATEDIFF(day, j.StartDate, j.EndDate) * j.DurationPerDay) AS DECIMAL(10,0))AS TotalHoursWorked" +
                             " FROM PRISONER p, PRISONER_ON_JOB poj, JOB j" +
                             " WHERE p.PrisonerID = poj.PrisonerID" +
                             " AND j.JobID = poj.JobID AND p.PrisonerNum = @prisonerNum  AND poj.JobFinished = 1 " +
@@ -291,22 +291,6 @@ namespace LockedIn
             pnlReports.Visible = false;
         }
 
-        private void lstPrisoners_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void calPrisonerStart_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
-              
-        }
-
-        private void calPrisonerEnd_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
-        }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to select these dates?", "Confirm dates", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -357,6 +341,13 @@ namespace LockedIn
                 {
                     MessageBox.Show("Error displaying prisoner report: " + ex.Message);
                 }
+
+                if (cmbRRPrisonerNum.SelectedIndex == -1)
+                {
+                    btnRRNext.Visible = false;
+                    MessageBox.Show("There are no prisoners that have completed jobs within this time period");
+                }
+                
             }
             else
             {
@@ -368,8 +359,10 @@ namespace LockedIn
 
         private void button21_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmAdmin myForm = new frmAdmin();
             myForm.ShowDialog();
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
