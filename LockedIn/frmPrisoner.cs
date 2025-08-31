@@ -56,7 +56,11 @@ namespace LockedIn
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcPrisoner.SelectedIndex == 1)
+            if (tcPrisoner.SelectedIndex == 0)
+            {
+                ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
+            }
+            else if (tcPrisoner.SelectedIndex == 1)
             {
 
                 pnlPInfo.Visible = false;
@@ -71,7 +75,7 @@ namespace LockedIn
         {
             //frmLogIn loginForm = new frmLogIn();                                          //Unnessecary??
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
-
+            ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
             //Tab control 
             tcPrisoner.Appearance = TabAppearance.FlatButtons;
             tcPrisoner.ItemSize = new Size(0, 1);
@@ -443,6 +447,11 @@ namespace LockedIn
         {
             txtNewPassword.UseSystemPasswordChar = true;
             imgMPpass.Image = Properties.Resources.view;
+        }
+
+        private void txtAFJjobDuration_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

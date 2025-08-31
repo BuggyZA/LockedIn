@@ -113,6 +113,53 @@ namespace LockedIn.Helpers
             }
         }
 
+
+        public static void PopulatePrisonersUpcomingJobs(RichTextBox richTextBox)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(constr))
+                {
+                    conn.Open();
+
+                    // SQL query to get upcoming or incomplete jobs for the logged-in employer
+                    string sql = @"SELECT JobID, JobName, StartDate, EndDate, JobLocation, PrisonersNeeded, 
+                          CASE WHEN StartDate > GETDATE() THEN 'Upcoming' 
+                               WHEN Completed = 0 THEN 'In Progress' 
+                               ELSE 'Unknown' END as Status
+                          FROM JOB 
+                          WHERE (StartDate > GETDATE() OR Completed = 0)
+                          ORDER BY StartDate";
+
+                    using (SqlCommand comm = new SqlCommand(sql, conn))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                        DataTable jobsTable = new DataTable();
+                        adapter.Fill(jobsTable);
+
+                        // Clear the RichTextBox first
+                        richTextBox.Clear();
+
+                        if (jobsTable.Rows.Count > 0)
+                        {
+                            // Create formatted text display
+                            FormatRichTextBoxDisplay(richTextBox, jobsTable);
+                        }
+                        else
+                        {
+                            // Add a message if no jobs found
+                            richTextBox.Text = "No upcoming or incomplete jobs found.";
+                            richTextBox.ForeColor = Color.Gray;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading jobs: " + ex.Message);
+            }
+        }
+
         // Helper method to format the RichTextBox display
         private static void FormatRichTextBoxDisplay(RichTextBox richTextBox, DataTable jobsTable)
         {

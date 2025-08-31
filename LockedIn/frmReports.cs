@@ -486,5 +486,12 @@ namespace LockedIn
                 }
             }
         }
+
+        private void btnMEmpBack_Click(object sender, EventArgs e)
+        {
+            frmAdmin admin = new frmAdmin();
+            this.Hide();
+            admin.Show();
+        }
     }
 }
