@@ -1438,11 +1438,6 @@ namespace LockedIn
 
                     }
                 }
-            
-
-
-
-
         }
 
         private void cbxJobName_SelectedIndexChanged(object sender, EventArgs e)
@@ -1477,64 +1472,43 @@ namespace LockedIn
             this.Hide();
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                tcAdmin.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                frmPrisoner prisoner = new frmPrisoner();
-                prisoner.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
         private void btnMEmpBack_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         //END OF LOGOUT & BACK BUTTONS

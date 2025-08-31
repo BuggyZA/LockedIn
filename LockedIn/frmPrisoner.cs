@@ -401,40 +401,19 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 0;
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                frmAdmin admin = new frmAdmin();
-                admin.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                tcPrisoner.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
@@ -448,17 +427,5 @@ namespace LockedIn
             txtNewPassword.UseSystemPasswordChar = true;
             imgMPpass.Image = Properties.Resources.view;
         }
-
-        private void txtAFJjobDuration_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-
-        //END OF LOGOUT AND BACK BUTTON
     }
 }

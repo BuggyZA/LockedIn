@@ -372,7 +372,6 @@
             this.txtAFJjobDuration.Name = "txtAFJjobDuration";
             this.txtAFJjobDuration.Size = new System.Drawing.Size(128, 30);
             this.txtAFJjobDuration.TabIndex = 6;
-            this.txtAFJjobDuration.TextChanged += new System.EventHandler(this.txtAFJjobDuration_TextChanged);
             // 
             // label21
             // 
