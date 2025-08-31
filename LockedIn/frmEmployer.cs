@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,6 @@ namespace LockedIn
         {
             InitializeComponent();
         }
-
 
         private void ARJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -88,7 +88,8 @@ namespace LockedIn
         private void frmEmployer_Load(object sender, EventArgs e)
         {
             EmpID = SessionData.LoggedInEmployerID.ToString();
-            ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
+            MessageBox.Show(EmpID);
+            //ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
 
 
 
@@ -97,6 +98,7 @@ namespace LockedIn
 
 
             ARJcmbSelectApplication.SelectedIndex = -1;
+           
 
         }
 
@@ -186,29 +188,30 @@ namespace LockedIn
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 conn.Open();
-
-                string sql = "UPDATE PRISONER_ON_JOB SET [Accepted/Rejeced] = @Status WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+                string sql;
+                if(isApproved == true)
+                {
+                     sql = "UPDATE JOB SET PrisonersNeeded = PrisonersNeeded - 1 WHERE JobID = @JobID";
+                }
+                else
+                {
+                     sql = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+                }
+                   
 
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
-                    comm.Parameters.AddWithValue("@Status", isApproved ? 1 : 0);
+
                     comm.Parameters.AddWithValue("@JobID", jobId);
                     comm.Parameters.AddWithValue("@PrisonerID", prisonerId);
+                    comm.ExecuteNonQuery();
 
-                    int rowsAffected = comm.ExecuteNonQuery();
+                    tcEmployer.SelectedIndex = 4;
 
-                    string statusText = isApproved ? "approved" : "rejected";
 
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Application " + statusText + " successfully!");
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("No application found to " + statusText.Replace("ed", "") + ".");
-                    }
                 }
+    
             }
         }
 
@@ -225,6 +228,8 @@ namespace LockedIn
 
         private void ARJbtnApprove_Click(object sender, EventArgs e)
         {
+            
+
             int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
             int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
             UpdateApplicationStatus(jobId, prisonerId, true);
@@ -232,6 +237,7 @@ namespace LockedIn
 
         private void ARJbtnReject_Click(object sender, EventArgs e)
         {
+            
             int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
             int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
             UpdateApplicationStatus(jobId, prisonerId, false);
@@ -251,6 +257,7 @@ namespace LockedIn
         private void btnHpARJ_Click(object sender, EventArgs e)
         {
             tcEmployer.SelectedIndex = 4;
+
         }
 
         private void imgProfile_Click(object sender, EventArgs e)
@@ -565,6 +572,7 @@ namespace LockedIn
 
         private void tcEmployer_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             isPopulating = true;
             if (tcEmployer.SelectedIndex == 2)
             {
@@ -591,11 +599,47 @@ namespace LockedIn
                     }
                 }
                 catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading skill names: " + ex.Message);
+                    }
+            }
+            else if(tcEmployer.SelectedIndex == 4)
+            {
+                ARJcmbJobName.SelectedIndex = -1;
+                ARJcmbSelectApplication.SelectedIndex = -1;
+                ARJtxtPrisonerName.Text = "";
+                ARJlsbCurrentSkills.DataSource = null;
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+                        string sql = "SELECT JobID ,JobName FROM JOB WHERE EmployerID = @EmpID";
+                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        {
+                            comm.Parameters.AddWithValue("@EmpID", Convert.ToInt32(EmpID));
+
+
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataSet ds = new DataSet();
+                            adapter.Fill(ds, "JOB");
+
+                            ARJcmbJobName.DataSource = ds.Tables["JOB"];
+                            ARJcmbJobName.DisplayMember = "JobName";
+                            ARJcmbJobName.ValueMember = "JobID";
+
+                            ARJcmbJobName.SelectedIndex = -1;
+                        }
+
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error loading skill names: " + ex.Message);
                 }
             }
-            isPopulating = false;
+                isPopulating = false;
         }
 
         private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)

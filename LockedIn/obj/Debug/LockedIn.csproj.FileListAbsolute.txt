@@ -126,3 +126,4 @@ C:\CMPG223\LockedIn\obj\Debug\LockedIn.exe
 C:\CMPG223\LockedIn\obj\Debug\LockedIn.pdb
 C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB.mdf
 C:\!Github\LockedIn\LockedIn\LockedIn\bin\Debug\LockedInDB_log.ldf
+C:\CMPG223 Project\LockedIn\LockedIn\obj\Debug\LockedIn.exe.config

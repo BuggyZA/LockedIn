@@ -171,6 +171,7 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.ARJlblPeopleNeeded = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -387,7 +388,7 @@
             this.lstASJAllSkills.ItemHeight = 19;
             this.lstASJAllSkills.Location = new System.Drawing.Point(410, 96);
             this.lstASJAllSkills.Name = "lstASJAllSkills";
-            this.lstASJAllSkills.Size = new System.Drawing.Size(216, 251);
+            this.lstASJAllSkills.Size = new System.Drawing.Size(216, 232);
             this.lstASJAllSkills.TabIndex = 1;
             // 
             // lstASJCurrentSkillOfJob
@@ -396,7 +397,7 @@
             this.lstASJCurrentSkillOfJob.ItemHeight = 19;
             this.lstASJCurrentSkillOfJob.Location = new System.Drawing.Point(19, 96);
             this.lstASJCurrentSkillOfJob.Name = "lstASJCurrentSkillOfJob";
-            this.lstASJCurrentSkillOfJob.Size = new System.Drawing.Size(216, 251);
+            this.lstASJCurrentSkillOfJob.Size = new System.Drawing.Size(216, 232);
             this.lstASJCurrentSkillOfJob.TabIndex = 0;
             // 
             // panel46
@@ -718,7 +719,7 @@
             this.MJlstSkillsNeeded.Location = new System.Drawing.Point(9, 85);
             this.MJlstSkillsNeeded.Margin = new System.Windows.Forms.Padding(4);
             this.MJlstSkillsNeeded.Name = "MJlstSkillsNeeded";
-            this.MJlstSkillsNeeded.Size = new System.Drawing.Size(288, 42);
+            this.MJlstSkillsNeeded.Size = new System.Drawing.Size(288, 23);
             this.MJlstSkillsNeeded.TabIndex = 10;
             // 
             // MJlblSkillDetails
@@ -1735,6 +1736,7 @@
             // ARJpnlApproveReject
             // 
             this.ARJpnlApproveReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.ARJpnlApproveReject.Controls.Add(this.ARJlblPeopleNeeded);
             this.ARJpnlApproveReject.Controls.Add(this.ARJlsbCurrentSkills);
             this.ARJpnlApproveReject.Controls.Add(this.ARJbtnReject);
             this.ARJpnlApproveReject.Controls.Add(this.ARJbtnApprove);
@@ -1755,9 +1757,9 @@
             // 
             this.ARJlsbCurrentSkills.FormattingEnabled = true;
             this.ARJlsbCurrentSkills.ItemHeight = 19;
-            this.ARJlsbCurrentSkills.Location = new System.Drawing.Point(73, 320);
+            this.ARJlsbCurrentSkills.Location = new System.Drawing.Point(308, 77);
             this.ARJlsbCurrentSkills.Name = "ARJlsbCurrentSkills";
-            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(233, 23);
+            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(187, 232);
             this.ARJlsbCurrentSkills.TabIndex = 15;
             // 
             // ARJbtnReject
@@ -1813,7 +1815,7 @@
             // ARJlblPrisonerSkill1
             // 
             this.ARJlblPrisonerSkill1.AutoSize = true;
-            this.ARJlblPrisonerSkill1.Location = new System.Drawing.Point(69, 293);
+            this.ARJlblPrisonerSkill1.Location = new System.Drawing.Point(304, 50);
             this.ARJlblPrisonerSkill1.Name = "ARJlblPrisonerSkill1";
             this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(191, 19);
             this.ARJlblPrisonerSkill1.TabIndex = 6;
@@ -1821,6 +1823,7 @@
             // 
             // ARJtxtPrisonerName
             // 
+            this.ARJtxtPrisonerName.Enabled = false;
             this.ARJtxtPrisonerName.Location = new System.Drawing.Point(73, 248);
             this.ARJtxtPrisonerName.Name = "ARJtxtPrisonerName";
             this.ARJtxtPrisonerName.Size = new System.Drawing.Size(168, 27);
@@ -1865,6 +1868,15 @@
             this.button11.TabIndex = 11;
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
+            // 
+            // ARJlblPeopleNeeded
+            // 
+            this.ARJlblPeopleNeeded.AutoSize = true;
+            this.ARJlblPeopleNeeded.Location = new System.Drawing.Point(69, 290);
+            this.ARJlblPeopleNeeded.Name = "ARJlblPeopleNeeded";
+            this.ARJlblPeopleNeeded.Size = new System.Drawing.Size(189, 19);
+            this.ARJlblPeopleNeeded.TabIndex = 16;
+            this.ARJlblPeopleNeeded.Text = "Prisoners needed for job";
             // 
             // frmEmployer
             // 
@@ -2089,5 +2101,6 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label ARJlblPeopleNeeded;
     }
 }
