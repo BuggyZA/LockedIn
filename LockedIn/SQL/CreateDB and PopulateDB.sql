@@ -13,9 +13,9 @@ GO
 --Change file paths to your local github files
 CREATE DATABASE LockedIn
 ON (NAME = LockedInDB, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB.mdf')
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedIn\LockedInDB.mdf')
 LOG ON (NAME = LockedInDB_log, 
-    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedInDB_log.ldf');
+    FILENAME = 'C:\!Github\LockedIn\LockedIn\LockedIn\LockedInDB_log.ldf');
 GO
 
 USE LockedIn
