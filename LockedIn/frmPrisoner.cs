@@ -433,6 +433,36 @@ namespace LockedIn
             BackButton();
         }
 
+        private void lstAFJskillsRequired_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtxjobDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAFJworkersNeeded_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAFJjobLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAFJjobDuration_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
