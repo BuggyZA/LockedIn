@@ -569,7 +569,32 @@ namespace LockedIn
             isPopulating = true;
             if (tcEmployer.SelectedIndex == 2)
             {
-                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+
+                        String query = "SELECT JobID ,JobName FROM JOB WHERE EmployerID = @employerID";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@employerID", SessionData.LoggedInEmployerID);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+
+                        adapter.Fill(ds, "JOB");
+
+                        cbxASJJobName.DataSource = ds.Tables["JOB"];
+                        cbxASJJobName.DisplayMember = "JobName";
+                        cbxASJJobName.ValueMember = "JobID";
+
+
+                        cbxASJJobName.SelectedIndex = -1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading skill names: " + ex.Message);
+                }
             }
             isPopulating = false;
         }
@@ -841,6 +866,11 @@ namespace LockedIn
                 MJcmbJobName.Items.Add(skill);
                 MJlstSkillsNeeded.SelectedItem = null;
             }
+        }
+
+        private void MJbtnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
