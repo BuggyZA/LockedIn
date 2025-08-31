@@ -40,11 +40,7 @@ namespace LockedIn
             btnRRNext.Visible = false;
             cmbRRPrisonerNum.Visible = false;
             lblPrisonerNum.Visible=false;
-
-           // ComboBoxHelper.PopulatePrisonerNumbers(cmbRRPrisonerNum);
-
-            
-
+            cmbRRPrisonerNum.SelectedIndex = -1;
         }
 
         private void btnRRNext_Click(object sender, EventArgs e)
@@ -53,175 +49,187 @@ namespace LockedIn
             {
                 DataRowView selectedRow = (DataRowView)cmbRRPrisonerNum.SelectedItem;
                 prisonerNum = selectedRow["PrisonerNum"].ToString();
-            }
-            startDate = calPrisonerStart.SelectionRange.Start;
-            endDate = calPrisonerEnd.SelectionRange.Start;
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(constr))
+                startDate = calPrisonerStart.SelectionRange.Start;
+                endDate = calPrisonerEnd.SelectionRange.Start;
+
+                try
                 {
-                    conn.Open();
-
-                    string sql1 = "SELECT p.FirstName + ' ' + p.LastName AS FullName " +
-                     "FROM PRISONER p " +
-                     "WHERE p.PrisonerNum = @prisonerNum"; 
-
-                    using (command = new SqlCommand(sql1, conn))
+                    using (SqlConnection conn = new SqlConnection(constr))
                     {
-                        command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
+                        conn.Open();
+
+                        string sql1 = "SELECT p.FirstName + ' ' + p.LastName AS FullName " +
+                         "FROM PRISONER p " +
+                         "WHERE p.PrisonerNum = @prisonerNum";
+
+                        using (command = new SqlCommand(sql1, conn))
+                        {
+                            command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
+                        }
+
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            lblDetails.Text = result.ToString();
+                        }
+                        else
+                        {
+                            lblDetails.Text = "Prisoner not found";
+                        }
+
+                        conn.Close();
+
                     }
-
-
-                    object result = command.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        lblDetails.Text = result.ToString();  
-                    }
-                    else
-                    {
-                        lblDetails.Text = "Prisoner not found";
-                    }
-
-                    conn.Close();
-                    
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying prisoner report: " + ex.Message);
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(constr))
+                catch (Exception ex)
                 {
-                    conn.Open();
-
-                    string sql2 = "SELECT j.JobName, j.JobDescription, j.StartDate, j.EndDate, poj.JobFinished " +
-                                 "FROM PRISONER p, PRISONER_ON_JOB poj, JOB j " +
-                                 "WHERE p.PrisonerID = poj.PrisonerID AND j.JobID = poj.JobID " +
-                                 "AND p.PrisonerNum = @prisonerNum AND poj.JobFinished = 1" +
-                                 " AND (j.StartDate BETWEEN @startDate AND @endDate" +
-                                 " AND j.EndDate BETWEEN @startDate AND @endDate)" +
-                                 //" OR (j.StartDate <= @startDate AND j.EndDate >= @endDate))" +
-                                 " ORDER BY j.StartDate";
-                    
-
-                    using (command = new SqlCommand(sql2, conn))
-                    {
-                        command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
-                        command.Parameters.AddWithValue("@startDate", startDate);
-                        command.Parameters.AddWithValue("@endDate", endDate);
-                    }
-
-
-                    ds = new DataSet();
-                    adapter = new SqlDataAdapter(command);
-                    adapter.Fill(ds, "Prisoners");
-                    dbDisplayPrisoners.DataSource = ds;
-                    dbDisplayPrisoners.DataMember = "Prisoners";
-
-                    conn.Close();
+                    MessageBox.Show("Error displaying prisoner report: " + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying prisoner report: " + ex.Message);
-            }
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(constr))
+                try
                 {
-                    conn.Open();
-
-                    string sql3 = "SELECT COUNT(*) AS CompletedJobsCount" +
-                                   " FROM PRISONER p, PRISONER_ON_JOB poj, JOB j" +
-                                   " WHERE p.PrisonerID = poj.PrisonerID" +
-                                   " AND j.JobID = poj.JobID" +
-                                   " AND p.PrisonerNum = @prisonerNum " +
-                                   " AND poj.JobFinished = 1" +
-                                   " AND (j.StartDate BETWEEN @startDate AND @endDate" +
-                                   " AND j.EndDate BETWEEN @startDate AND @endDate)";
-                                   //" AND (j.StartDate <= @startDate AND j.EndDate >= @endDate))";
-
-
-                    using (command = new SqlCommand(sql3, conn))
+                    using (SqlConnection conn = new SqlConnection(constr))
                     {
-                        command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
-                        command.Parameters.AddWithValue("@startDate", startDate);
-                        command.Parameters.AddWithValue("@endDate", endDate);
+                        conn.Open();
+
+                        string sql2 = "SELECT j.JobName, j.JobDescription, j.StartDate, j.EndDate, poj.JobFinished " +
+                                     "FROM PRISONER p, PRISONER_ON_JOB poj, JOB j " +
+                                     "WHERE p.PrisonerID = poj.PrisonerID AND j.JobID = poj.JobID " +
+                                     "AND p.PrisonerNum = @prisonerNum AND poj.JobFinished = 1" +
+                                     " AND (j.StartDate BETWEEN @startDate AND @endDate" +
+                                     " AND j.EndDate BETWEEN @startDate AND @endDate)" +
+                                     " ORDER BY j.StartDate";
+
+
+                        using (command = new SqlCommand(sql2, conn))
+                        {
+                            command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
+                            command.Parameters.AddWithValue("@startDate", startDate);
+                            command.Parameters.AddWithValue("@endDate", endDate);
+                        }
+
+
+                        ds = new DataSet();
+                        adapter = new SqlDataAdapter(command);
+                        adapter.Fill(ds, "Prisoners");
+                        dbDisplayPrisoners.DataSource = ds;
+                        dbDisplayPrisoners.DataMember = "Prisoners";
+
+                        conn.Close();
                     }
-
-
-                    ds = new DataSet();
-                    adapter = new SqlDataAdapter(command);
-                    adapter.Fill(ds, "CompletedJobs");
-                    lstPrisonersJobsCompleted.DataSource = ds.Tables["CompletedJobs"];
-                    lstPrisonersJobsCompleted.DisplayMember = "CompletedJobsCount";
-
-                    conn.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying prisoner report: " + ex.Message);
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(constr))
+                catch (Exception ex)
                 {
-                    conn.Open();
-
-                    string sql4 = " SELECT CAST(SUM(DATEDIFF(day, j.StartDate, j.EndDate) * (DATEPART(hour, j.DurationPerDay) + DATEPART(minute, j.DurationPerDay) / 60.0)) AS DECIMAL(10,0)) AS TotalHoursWorked" +
-                        " FROM PRISONER p, PRISONER_ON_JOB poj, JOB j" +
-                        " WHERE p.PrisonerID = poj.PrisonerID" +
-                        " AND j.JobID = poj.JobID AND p.PrisonerNum = @prisonerNum  AND poj.JobFinished = 1 " +
-                        " AND (j.StartDate BETWEEN @startDate AND @endDate" +
-                        " AND j.EndDate BETWEEN @startDate AND @endDate)";
-                       // " AND (j.StartDate <= @startDate AND j.EndDate >= @endDate))";
-
-                    using (command = new SqlCommand(sql4, conn))
-                    {
-                        command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
-                        command.Parameters.AddWithValue("@startDate", startDate);
-                        command.Parameters.AddWithValue("@endDate", endDate);
-                    }
-
-
-                    ds = new DataSet();
-                    adapter = new SqlDataAdapter(command);
-                    adapter.Fill(ds, "HoursWorked");
-                    lstTotalHours.DataSource = ds.Tables["HoursWorked"];
-                    lstTotalHours.DisplayMember = "TotalHoursWorked";
-
-                    conn.Close();
+                    MessageBox.Show("Error displaying prisoner report: " + ex.Message);
                 }
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+
+                        string sql3 = "SELECT COUNT(*) AS CompletedJobsCount" +
+                                       " FROM PRISONER p, PRISONER_ON_JOB poj, JOB j" +
+                                       " WHERE p.PrisonerID = poj.PrisonerID" +
+                                       " AND j.JobID = poj.JobID" +
+                                       " AND p.PrisonerNum = @prisonerNum " +
+                                       " AND poj.JobFinished = 1" +
+                                       " AND (j.StartDate BETWEEN @startDate AND @endDate" +
+                                       " AND j.EndDate BETWEEN @startDate AND @endDate)";
+
+
+                        using (command = new SqlCommand(sql3, conn))
+                        {
+                            command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
+                            command.Parameters.AddWithValue("@startDate", startDate);
+                            command.Parameters.AddWithValue("@endDate", endDate);
+                        }
+
+
+                        ds = new DataSet();
+                        adapter = new SqlDataAdapter(command);
+                        adapter.Fill(ds, "CompletedJobs");
+                        lstPrisonersJobsCompleted.DataSource = ds.Tables["CompletedJobs"];
+                        lstPrisonersJobsCompleted.DisplayMember = "CompletedJobsCount";
+
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error displaying prisoner report: " + ex.Message);
+                }
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+
+                        string sql4 = " SELECT CAST(SUM(DATEDIFF(day, j.StartDate, j.EndDate) * j.DurationPerDay) AS DECIMAL(10,0))AS TotalHoursWorked" +
+                            " FROM PRISONER p, PRISONER_ON_JOB poj, JOB j" +
+                            " WHERE p.PrisonerID = poj.PrisonerID" +
+                            " AND j.JobID = poj.JobID AND p.PrisonerNum = @prisonerNum  AND poj.JobFinished = 1 " +
+                            " AND (j.StartDate BETWEEN @startDate AND @endDate" +
+                            " AND j.EndDate BETWEEN @startDate AND @endDate)";
+
+                        using (command = new SqlCommand(sql4, conn))
+                        {
+                            command.Parameters.AddWithValue("@prisonerNum", prisonerNum);
+                            command.Parameters.AddWithValue("@startDate", startDate);
+                            command.Parameters.AddWithValue("@endDate", endDate);
+                        }
+
+
+                        ds = new DataSet();
+                        adapter = new SqlDataAdapter(command);
+                        adapter.Fill(ds, "HoursWorked");
+                        lstTotalHours.DataSource = ds.Tables["HoursWorked"];
+                        lstTotalHours.DisplayMember = "TotalHoursWorked";
+
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error displaying prisoner report: " + ex.Message);
+                }
+
+
+
+                pnlPrisonerDetails.Visible = false;
+                pnlDisplayPrisoners.Visible = true;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error displaying prisoner report: " + ex.Message);
+                MessageBox.Show("Please select a prisoner number.");
             }
-
-
-
-            pnlPrisonerDetails.Visible = false;
-            pnlDisplayPrisoners.Visible = true;
+            
         }
 
         private void btnPrisonersReportBack_Click(object sender, EventArgs e)
         {
             pnlReports.Visible = true;
             pnlDisplayPrisoners.Visible = false;
+            calPrisonerStart.SetDate(DateTime.Now);
+            calPrisonerEnd.SetDate(DateTime.Now);
+            cmbRRPrisonerNum.SelectedIndex = -1;
+            cmbRRPrisonerNum.Visible = false;
+            btnConfirm.Visible = true;
+            btnRRNext.Visible = false;
+            lblPrisonerNum.Visible = false;
         }
 
         private void btnReportBack_Click(object sender, EventArgs e)
         {
             pnlDisplayJobs.Visible = false;
             pnlReports.Visible = true;
+            calRRStartDate.SetDate(DateTime.Now);
+            calRREndDate.SetDate(DateTime.Now);
         }
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
@@ -239,7 +247,6 @@ namespace LockedIn
                     string sql = "SELECT JobName, JobDescription, JobLocation, StartDate, EndDate FROM JOB WHERE Completed = 1" +
                         " AND (StartDate BETWEEN @startDate AND @endDate" +
                         " AND EndDate BETWEEN @startDate AND @endDate)";
-                       // " AND (StartDate <= @startDate AND EndDate >= @endDate))";
 
                     command = new SqlCommand(sql, conn);
 
@@ -268,6 +275,8 @@ namespace LockedIn
         {
             pnlJobsCompleted.Visible = false;
             pnlReports.Visible = true;
+            calRRStartDate.SetDate(DateTime.Now);
+            calRREndDate.SetDate(DateTime.Now);
         }
 
         private void btnJobsCompleted_Click(object sender, EventArgs e)
@@ -330,7 +339,6 @@ namespace LockedIn
 
                         using (command = new SqlCommand(sql, conn))
                         {
-                            //command.Parameters.AddWithValue("@prisonerID", prisonerID);
                             command.Parameters.AddWithValue("@startDate", startDate);
                             command.Parameters.AddWithValue("@endDate", endDate);
                         }
@@ -368,6 +376,13 @@ namespace LockedIn
         {
             pnlReports.Visible = true;
             pnlPrisonerDetails.Visible = false;
+            calPrisonerStart.SetDate(DateTime.Now);
+            calPrisonerEnd.SetDate(DateTime.Now);
+            cmbRRPrisonerNum.SelectedIndex = -1;
+            cmbRRPrisonerNum.Visible = false;
+            btnConfirm.Visible = true;
+            btnRRNext.Visible = false;
+            lblPrisonerNum.Visible = false;
         }
     }
 }
