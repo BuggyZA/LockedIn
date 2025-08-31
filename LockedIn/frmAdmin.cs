@@ -104,8 +104,7 @@ namespace LockedIn
                 pnlAdDate.Visible = false;
                 pnlAdSkills.Visible = false;
                 pnlAdFunctions.Visible = true;
-                ListboxHelper.PopulateAllPSkills(listBox1);
-                ListboxHelper.PopulateCurrentJobSkills(listBox21);
+                
             }
 
 
@@ -1117,6 +1116,7 @@ namespace LockedIn
                 pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
 
                 action = "EDIT";
 
@@ -1127,8 +1127,10 @@ namespace LockedIn
                     conn.Open();
                     string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
                     SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", cbxCJJobName.Text);
+                    getIdcomm.Parameters.AddWithValue("@JobName", cbxCJJobName.SelectedItem.ToString());
                     int jobId = (int)getIdcomm.ExecuteScalar();
+                    ListboxHelper.PopulateAllPSkills(listBox1);
+                    ListboxHelper.PopulateCurrentJobSkills(listBox2,jobId);
                     using (SqlCommand comm = new SqlCommand(sql, conn))
                     {
                         comm.Parameters.AddWithValue("@JobID", jobId);
@@ -1147,8 +1149,7 @@ namespace LockedIn
                             cbJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
                             numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
 
-                            // Skills: load from SKILL_OF_JOB join table
-                            //LoadJobSkills(jobId);
+                        
                         }
                     }
                 }
@@ -1272,11 +1273,45 @@ namespace LockedIn
                 pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
 
                 action = "DELETE";
+                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
+                string connStr = DatabaseConfig.GetConStr();
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+                    string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
+                    SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
+                    getIdcomm.Parameters.AddWithValue("@JobName", cbxCJJobName.SelectedItem.ToString());
+                    int jobId = (int)getIdcomm.ExecuteScalar();
+                    ListboxHelper.PopulateAllPSkills(listBox1);
+                    ListboxHelper.PopulateCurrentJobSkills(listBox2, jobId);
+                    using (SqlCommand comm = new SqlCommand(sql, conn))
+                    {
+                        comm.Parameters.AddWithValue("@JobID", jobId);
+
+                        SqlDataReader reader = comm.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            // Populating the form tools
+                            cmbJobNAme.Text = reader["JobName"].ToString();
+                            rtbJobDescription.Text = reader["JobDescription"].ToString();
+                            rtbJobLocation.Text = reader["JobLocation"].ToString();
+                            calStartDate.SelectionStart = Convert.ToDateTime(reader["StartDate"]);
+                            calEndDate.SelectionStart = Convert.ToDateTime(reader["EndDate"]);
+                            nudDuration.Value = Convert.ToDecimal(((TimeSpan)reader["DurationPerDay"]).TotalHours);
+                            cbJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
+                            numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
+
+                          
+                        }
+                    }
 
 
 
+                }
             }
             catch (Exception ex)
             {
