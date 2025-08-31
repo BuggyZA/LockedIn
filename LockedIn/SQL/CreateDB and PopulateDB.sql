@@ -149,7 +149,7 @@ INSERT INTO JOB (EmployerID, JobName, JobDescription, JobLocation, StartDate, En
 -- Insert test data for PRISONER_ON_JOB table (community service assignments)
 INSERT INTO PRISONER_ON_JOB (JobID, PrisonerID, [Accepted/Rejeced], JobFinished, OnPremise) VALUES
 -- Park Cleanup (Job 1)
-(1, 1, 1, 0, 0),
+(1, 1, null, 0, 0),
 (1, 3, 1, 0, 0),
 (1, 5, 1, 0, 0),
 (1, 9, 1, 0, 0),
@@ -157,54 +157,54 @@ INSERT INTO PRISONER_ON_JOB (JobID, PrisonerID, [Accepted/Rejeced], JobFinished,
 (1, 12, 0, 0, 1),
 
 -- Hospital Construction (Job 2)
-(2, 2, 1, 0, 0),
-(2, 6, 1, 0, 0),
-(2, 7, 1, 0, 0),
+(2, 2, null, 0, 0),
+(2, 6, null, 0, 0),
+(2, 7, null, 0, 0),
 (2, 10, 1, 0, 0),
 (2, 11, 1, 0, 0),
 (2, 12, 1, 0, 0),
 
 -- Road Maintenance (Job 3)
-(3, 1, 1, 0, 0),
+(3, 1, null, 0, 0),
 (3, 5, 1, 0, 0),
 (3, 7, 1, 0, 0),
 (3, 9, 1, 0, 0),
 
 -- School Renovation (Job 4)
-(4, 3, 1, 0, 0),
+(4, 3, null, 0, 0),
 (4, 6, 1, 0, 0),
 (4, 11, 1, 0, 0),
 (4, 12, 0, 0, 1),
 
 -- Community Garden (Job 5)
-(5, 1, 1, 0, 0),
+(5, 1, null, 0, 0),
 (5, 5, 1, 0, 0),
 (5, 9, 1, 0, 0),
 
 -- Library Restoration (Job 6) - Completed
-(6, 2, 1, 1, 1),
+(6, 2, null, 1, 1),
 (6, 3, 1, 1, 1),
 (6, 7, 1, 1, 1),
 (6, 10, 1, 1, 1),
 
 -- Elderly Home Support (Job 7)
-(7, 5, 1, 0, 0),
+(7, 5, null, 0, 0),
 (7, 9, 1, 0, 0),
 (7, 11, 1, 0, 0),
 
 -- Bridge Construction (Job 8) - Completed
-(8, 2, 1, 1, 1),
+(8, 2, null, 1, 1),
 (8, 6, 1, 1, 1),
 (8, 7, 1, 1, 1),
 (8, 12, 1, 1, 1),
 
 -- Town Square Beautification (Job 9)
-(9, 1, 1, 0, 0),
-(9, 5, 1, 0, 0),
+(9, 1, null, 0, 0),
+(9, 5, null, 0, 0),
 (9, 10, 0, 0, 1),
 
 -- Homeless Shelter Repairs (Job 10)
-(10, 3, 1, 0, 0),
+(10, 3, null, 0, 0),
 (10, 6, 1, 0, 0),
 (10, 11, 1, 0, 0);
 
