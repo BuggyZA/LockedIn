@@ -90,7 +90,8 @@ namespace LockedIn
             EmpID = SessionData.LoggedInEmployerID.ToString();
             MessageBox.Show(EmpID);
             //ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
-
+            tcEmployer.SelectedIndex = 0;
+            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
 
 
             ARJtxtPrisonerName.Text = "";
@@ -584,16 +585,17 @@ namespace LockedIn
 
         }
 
-        private void panel6_VisibleChanged(object sender, EventArgs e)
-        {
-            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
-        }
+        
 
         private void tcEmployer_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             isPopulating = true;
-            if (tcEmployer.SelectedIndex == 2)
+            if (tcEmployer.SelectedIndex == 0)
+            {
+                ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
+            }
+            else if (tcEmployer.SelectedIndex == 2)
             {
                 try
                 {
@@ -618,11 +620,11 @@ namespace LockedIn
                     }
                 }
                 catch (Exception ex)
-                    {
-                        MessageBox.Show("Error loading skill names: " + ex.Message);
-                    }
+                {
+                    MessageBox.Show("Error loading skill names: " + ex.Message);
+                }
             }
-            else if(tcEmployer.SelectedIndex == 4)
+            else if (tcEmployer.SelectedIndex == 4)
             {
                 ARJcmbJobName.SelectedIndex = -1;
                 ARJcmbSelectApplication.SelectedIndex = -1;
@@ -930,8 +932,18 @@ namespace LockedIn
             }
         }
 
-        
+        private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = false;
+            imgFMENewshow.Image = Properties.Resources.hide;
+        }
 
-        
+        private void imgFMENewshow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = true;
+            imgFMENewshow.Image = Properties.Resources.view;
+        }
+
+       
     }
 }

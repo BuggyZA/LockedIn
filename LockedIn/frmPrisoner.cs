@@ -433,6 +433,18 @@ namespace LockedIn
             BackButton();
         }
 
+        private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = false;
+            imgMPpass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMPpass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = true;
+            imgMPpass.Image = Properties.Resources.view;
+        }
+
 
 
 

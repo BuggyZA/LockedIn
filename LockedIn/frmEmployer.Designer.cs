@@ -35,7 +35,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel44 = new System.Windows.Forms.Panel();
             this.panel45 = new System.Windows.Forms.Panel();
             this.btnASJRemove = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@
             this.btnMEmpBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.MJbtnDelete = new System.Windows.Forms.Button();
@@ -108,11 +106,8 @@
             this.MJbtnSave = new System.Windows.Forms.Button();
             this.EmpHome = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.pnlOutList = new System.Windows.Forms.Panel();
@@ -128,7 +123,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.EPpnl1 = new System.Windows.Forms.Panel();
             this.EPpnl2 = new System.Windows.Forms.Panel();
             this.pnlEmpPass = new System.Windows.Forms.Panel();
@@ -156,7 +150,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ARJpbl1 = new System.Windows.Forms.Panel();
             this.ARJpnl2 = new System.Windows.Forms.Panel();
             this.ARJpnlApproveReject = new System.Windows.Forms.Panel();
@@ -172,16 +165,22 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.imgFMENewshow = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabPage1.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel44.SuspendLayout();
             this.panel45.SuspendLayout();
             this.panel46.SuspendLayout();
             this.tabMaintainJobs.SuspendLayout();
             this.pnlEmpHeading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel35.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MJpnlEMployerDetails.SuspendLayout();
@@ -194,26 +193,29 @@
             this.panel37.SuspendLayout();
             this.EmpHome.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel6.SuspendLayout();
             this.pnlOutList.SuspendLayout();
             this.pnlNavigate.SuspendLayout();
             this.tcEmployer.SuspendLayout();
             this.tpProfile.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.EPpnl1.SuspendLayout();
             this.EPpnl2.SuspendLayout();
             this.pnlEmpPass.SuspendLayout();
             this.PnlEmpInfo.SuspendLayout();
             this.tabpage4.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFMENewshow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -283,17 +285,6 @@
             this.label52.Size = new System.Drawing.Size(200, 29);
             this.label52.TabIndex = 12;
             this.label52.Text = "First + Last name";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(1750, 18);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox9.TabIndex = 5;
-            this.pictureBox9.TabStop = false;
             // 
             // panel44
             // 
@@ -518,17 +509,6 @@
             this.label91.Size = new System.Drawing.Size(200, 29);
             this.label91.TabIndex = 12;
             this.label91.Text = "First + Last name";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1750, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // panel35
             // 
@@ -1130,27 +1110,6 @@
             this.panel5.Size = new System.Drawing.Size(1269, 80);
             this.panel5.TabIndex = 20;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(330, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(590, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::LockedIn.Properties.Resources.profile_user;
-            this.pictureBox6.Location = new System.Drawing.Point(1185, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(64, 57);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 30;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1158,7 +1117,7 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(16, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 38);
+            this.button4.Size = new System.Drawing.Size(125, 38);
             this.button4.TabIndex = 29;
             this.button4.Text = "Log Out";
             this.button4.UseVisualStyleBackColor = false;
@@ -1173,17 +1132,6 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "First + Last name";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(1750, 18);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
@@ -1195,7 +1143,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1235, 594);
             this.panel6.TabIndex = 21;
-            this.panel6.VisibleChanged += new System.EventHandler(this.panel6_VisibleChanged);
             // 
             // button7
             // 
@@ -1366,17 +1313,6 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "First + Last name";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1750, 18);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
             // EPpnl1
             // 
             this.EPpnl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1401,6 +1337,7 @@
             // pnlEmpPass
             // 
             this.pnlEmpPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlEmpPass.Controls.Add(this.imgFMENewshow);
             this.pnlEmpPass.Controls.Add(this.btnEmpCancel);
             this.pnlEmpPass.Controls.Add(this.lblModifyPass);
             this.pnlEmpPass.Controls.Add(this.btnEmpSavePass);
@@ -1458,19 +1395,19 @@
             // 
             // txtEmpNew
             // 
-            this.txtEmpNew.Location = new System.Drawing.Point(276, 88);
+            this.txtEmpNew.Location = new System.Drawing.Point(241, 88);
             this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(231, 32);
+            this.txtEmpNew.Size = new System.Drawing.Size(217, 32);
             this.txtEmpNew.TabIndex = 1;
             this.txtEmpNew.UseSystemPasswordChar = true;
             // 
             // txtEmpConfirm
             // 
-            this.txtEmpConfirm.Location = new System.Drawing.Point(276, 161);
+            this.txtEmpConfirm.Location = new System.Drawing.Point(241, 161);
             this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(231, 32);
+            this.txtEmpConfirm.Size = new System.Drawing.Size(217, 32);
             this.txtEmpConfirm.TabIndex = 2;
             this.txtEmpConfirm.UseSystemPasswordChar = true;
             // 
@@ -1481,9 +1418,9 @@
             this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
             this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpNew.Name = "lblEmpNew";
-            this.lblEmpNew.Size = new System.Drawing.Size(144, 24);
+            this.lblEmpNew.Size = new System.Drawing.Size(149, 24);
             this.lblEmpNew.TabIndex = 25;
-            this.lblEmpNew.Text = "New Password";
+            this.lblEmpNew.Text = "New Password:";
             // 
             // lblEmpConfirm
             // 
@@ -1492,9 +1429,9 @@
             this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
             this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpConfirm.Name = "lblEmpConfirm";
-            this.lblEmpConfirm.Size = new System.Drawing.Size(175, 24);
+            this.lblEmpConfirm.Size = new System.Drawing.Size(180, 24);
             this.lblEmpConfirm.TabIndex = 27;
-            this.lblEmpConfirm.Text = "Confirm Password";
+            this.lblEmpConfirm.Text = "Confirm Password:";
             // 
             // PnlEmpInfo
             // 
@@ -1701,17 +1638,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "First + Last name";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1750, 18);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
             // ARJpbl1
             // 
             this.ARJpbl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
@@ -1878,6 +1804,94 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(330, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(590, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::LockedIn.Properties.Resources.profile_user;
+            this.pictureBox6.Location = new System.Drawing.Point(1185, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(64, 57);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox9.TabIndex = 5;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // imgFMENewshow
+            // 
+            this.imgFMENewshow.Image = global::LockedIn.Properties.Resources.view;
+            this.imgFMENewshow.Location = new System.Drawing.Point(465, 88);
+            this.imgFMENewshow.Name = "imgFMENewshow";
+            this.imgFMENewshow.Size = new System.Drawing.Size(43, 32);
+            this.imgFMENewshow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgFMENewshow.TabIndex = 35;
+            this.imgFMENewshow.TabStop = false;
+            this.imgFMENewshow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgFMENewshow_MouseDown);
+            this.imgFMENewshow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgFMENewshow_MouseUp);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1750, 18);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
             // frmEmployer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1898,7 +1912,6 @@
             this.panel43.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel44.ResumeLayout(false);
             this.panel45.ResumeLayout(false);
             this.panel45.PerformLayout();
@@ -1907,7 +1920,6 @@
             this.tabMaintainJobs.ResumeLayout(false);
             this.pnlEmpHeading.ResumeLayout(false);
             this.pnlEmpHeading.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel35.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.MJpnlEMployerDetails.ResumeLayout(false);
@@ -1927,9 +1939,6 @@
             this.EmpHome.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel6.ResumeLayout(false);
             this.pnlOutList.ResumeLayout(false);
             this.pnlOutList.PerformLayout();
@@ -1938,7 +1947,6 @@
             this.tpProfile.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.EPpnl1.ResumeLayout(false);
             this.EPpnl2.ResumeLayout(false);
             this.pnlEmpPass.ResumeLayout(false);
@@ -1948,11 +1956,18 @@
             this.tabpage4.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ARJpbl1.ResumeLayout(false);
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFMENewshow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2102,5 +2117,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ARJlblPeopleNeeded;
+        private System.Windows.Forms.PictureBox imgFMENewshow;
     }
 }
