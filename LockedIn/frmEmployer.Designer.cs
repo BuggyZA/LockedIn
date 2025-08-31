@@ -101,10 +101,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.button32 = new System.Windows.Forms.Button();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.MJbtnSave = new System.Windows.Forms.Button();
             this.EmpHome = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -190,7 +186,6 @@
             this.MJpnlJobDetails.SuspendLayout();
             this.panel38.SuspendLayout();
             this.panel36.SuspendLayout();
-            this.panel37.SuspendLayout();
             this.EmpHome.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -540,7 +535,6 @@
             this.panel35.Controls.Add(this.MJpnlDate);
             this.panel35.Controls.Add(this.MJpnlJobDetails);
             this.panel35.Controls.Add(this.panel38);
-            this.panel35.Controls.Add(this.panel37);
             this.panel35.Controls.Add(this.MJbtnSave);
             this.panel35.Location = new System.Drawing.Point(14, 52);
             this.panel35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -552,7 +546,7 @@
             // 
             this.panel2.Controls.Add(this.MJbtnDelete);
             this.panel2.Controls.Add(this.MJpnlEMployerDetails);
-            this.panel2.Location = new System.Drawing.Point(14, 12);
+            this.panel2.Location = new System.Drawing.Point(24, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(532, 259);
             this.panel2.TabIndex = 24;
@@ -642,6 +636,7 @@
             this.MJpnlSkillDetails.Name = "MJpnlSkillDetails";
             this.MJpnlSkillDetails.Size = new System.Drawing.Size(718, 257);
             this.MJpnlSkillDetails.TabIndex = 20;
+            this.MJpnlSkillDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.MJpnlSkillDetails_Paint);
             // 
             // MJlblSkillToAdd
             // 
@@ -1045,48 +1040,6 @@
             this.button32.TabIndex = 7;
             this.button32.Text = "Add New Job";
             this.button32.UseVisualStyleBackColor = false;
-            // 
-            // panel37
-            // 
-            this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel37.Controls.Add(this.comboBox7);
-            this.panel37.Controls.Add(this.label34);
-            this.panel37.Controls.Add(this.label38);
-            this.panel37.Location = new System.Drawing.Point(24, 20);
-            this.panel37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(487, 142);
-            this.panel37.TabIndex = 16;
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(175, 62);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(292, 28);
-            this.comboBox7.TabIndex = 4;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(4, 4);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(169, 33);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Employer Details:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(23, 63);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(142, 29);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Employer Name:";
             // 
             // MJbtnSave
             // 
@@ -1909,8 +1862,6 @@
             this.panel38.ResumeLayout(false);
             this.panel36.ResumeLayout(false);
             this.panel36.PerformLayout();
-            this.panel37.ResumeLayout(false);
-            this.panel37.PerformLayout();
             this.EmpHome.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1993,10 +1944,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button MJbtnSave;
         private System.Windows.Forms.TabPage EmpHome;
         private System.Windows.Forms.Panel pnlOutList;

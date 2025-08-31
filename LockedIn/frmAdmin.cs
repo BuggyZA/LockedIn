@@ -100,15 +100,14 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 3)
             {
-                pnladJobDetails.Visible = false;
-                pnlAdDate.Visible = false;
-                pnlAdSkills.Visible = false;
-                pnlAdFunctions.Visible = true;
-                
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+            
             }
 
 
-            isPopulating = false;
+
+
+                isPopulating = false;
         }
 
 
@@ -1116,7 +1115,7 @@ namespace LockedIn
                 pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
-                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+                
 
                 action = "EDIT";
 
@@ -1255,6 +1254,7 @@ namespace LockedIn
                         MessageBox.Show("Job deleted successfully.");
                     }
                 }
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
             }
             catch (Exception ex)
             {
@@ -1273,7 +1273,7 @@ namespace LockedIn
                 pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
                 txtMJJobName.Visible = false;
-                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+                
 
                 action = "DELETE";
                 string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
@@ -1591,6 +1591,14 @@ namespace LockedIn
             skill = listBox2.SelectedItem.ToString();
             listBox1.Items.Add(skill);
             listBox2.SelectedItem = "";
+        }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+            pnladJobDetails.Visible = false;
+            pnlAdDate.Visible = false;
+            pnlAdSkills.Visible = false;
+            
         }
     }
 }

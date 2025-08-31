@@ -571,7 +571,22 @@ namespace LockedIn
             {
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
             }
-            isPopulating = false;
+            else if (tcEmployer.SelectedIndex == 1)
+            {
+                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
+                string connStr = DatabaseConfig.GetConStr();
+                SqlConnection conn = new SqlConnection(connStr);
+               
+                conn.Open();
+                string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
+                SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
+                getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
+                int jobId = (int)getIdcomm.ExecuteScalar();
+                
+                ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
+                ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
+            }
+                isPopulating = false;
         }
 
         private void cbxASJJobName_SelectedIndexChanged(object sender, EventArgs e)
@@ -618,8 +633,7 @@ namespace LockedIn
                     SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
                     getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
                     int jobId = (int)getIdcomm.ExecuteScalar();
-                    ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
+                   
                     using (SqlCommand comm = new SqlCommand(sql, conn))
                     {
                         comm.Parameters.AddWithValue("@JobID", jobId);
@@ -657,8 +671,8 @@ namespace LockedIn
             //Edit existing job
             try
             {
-                //making panels visible
-                ComboBoxHelper.PopulateJobNames(MJcmbJobName);
+                
+                
 
                 action = "EDIT";
 
@@ -671,8 +685,7 @@ namespace LockedIn
                     SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
                     getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
                     int jobId = (int)getIdcomm.ExecuteScalar();
-                    ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
+                    
                     using (SqlCommand comm = new SqlCommand(sql, conn))
                     {
                         comm.Parameters.AddWithValue("@JobID", jobId);
@@ -841,6 +854,11 @@ namespace LockedIn
                 MJcmbJobName.Items.Add(skill);
                 MJlstSkillsNeeded.SelectedItem = null;
             }
+        }
+
+        private void MJpnlSkillDetails_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
