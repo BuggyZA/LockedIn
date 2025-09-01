@@ -67,10 +67,8 @@
             this.MJpnlSkillDetails = new System.Windows.Forms.Panel();
             this.MJlblSkillToAdd = new System.Windows.Forms.Label();
             this.MJbtnRemoveSkill = new System.Windows.Forms.Button();
-            this.MJcmbSkillName = new System.Windows.Forms.ComboBox();
             this.MJbtnAddSkill = new System.Windows.Forms.Button();
             this.MJlblSkillsNeeded = new System.Windows.Forms.Label();
-            this.MJlblSkillName = new System.Windows.Forms.Label();
             this.MJlstSkillsNeeded = new System.Windows.Forms.ListBox();
             this.MJlblSkillDetails = new System.Windows.Forms.Label();
             this.MJbtnDelete2 = new System.Windows.Forms.Button();
@@ -173,6 +171,10 @@
             this.ARJlblPrisonerApplication = new System.Windows.Forms.Label();
             this.ARJlblJobName = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtJobName = new System.Windows.Forms.RichTextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -216,16 +218,17 @@
             this.ARJpbl1.SuspendLayout();
             this.ARJpnl2.SuspendLayout();
             this.ARJpnlApproveReject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tabPage1.Controls.Add(this.panel43);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1266, 657);
+            this.tabPage1.Size = new System.Drawing.Size(1266, 652);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "AssignSkillstoJob";
             // 
@@ -274,7 +277,7 @@
             this.label46.Location = new System.Drawing.Point(510, 5);
             this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(221, 39);
+            this.label46.Size = new System.Drawing.Size(276, 48);
             this.label46.TabIndex = 13;
             this.label46.Text = "Assign Skills To Job";
             // 
@@ -283,7 +286,7 @@
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(1699, 86);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(159, 23);
+            this.label52.Size = new System.Drawing.Size(200, 29);
             this.label52.TabIndex = 12;
             this.label52.Text = "First + Last name";
             // 
@@ -359,7 +362,7 @@
             this.label45.Location = new System.Drawing.Point(406, 70);
             this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(68, 23);
+            this.label45.Size = new System.Drawing.Size(91, 29);
             this.label45.TabIndex = 31;
             this.label45.Text = "All Skills:";
             // 
@@ -370,7 +373,7 @@
             this.label47.Location = new System.Drawing.Point(19, 65);
             this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(139, 23);
+            this.label47.Size = new System.Drawing.Size(177, 29);
             this.label47.TabIndex = 30;
             this.label47.Text = "Current Skills of Job";
             // 
@@ -381,26 +384,26 @@
             this.label48.Location = new System.Drawing.Point(2, 3);
             this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(102, 27);
+            this.label48.Size = new System.Drawing.Size(127, 33);
             this.label48.TabIndex = 29;
             this.label48.Text = "Skill Details:";
             // 
             // lstASJAllSkills
             // 
             this.lstASJAllSkills.FormattingEnabled = true;
-            this.lstASJAllSkills.ItemHeight = 19;
+            this.lstASJAllSkills.ItemHeight = 24;
             this.lstASJAllSkills.Location = new System.Drawing.Point(410, 96);
             this.lstASJAllSkills.Name = "lstASJAllSkills";
-            this.lstASJAllSkills.Size = new System.Drawing.Size(216, 213);
+            this.lstASJAllSkills.Size = new System.Drawing.Size(216, 196);
             this.lstASJAllSkills.TabIndex = 1;
             // 
             // lstASJCurrentSkillOfJob
             // 
             this.lstASJCurrentSkillOfJob.FormattingEnabled = true;
-            this.lstASJCurrentSkillOfJob.ItemHeight = 19;
+            this.lstASJCurrentSkillOfJob.ItemHeight = 24;
             this.lstASJCurrentSkillOfJob.Location = new System.Drawing.Point(19, 96);
             this.lstASJCurrentSkillOfJob.Name = "lstASJCurrentSkillOfJob";
-            this.lstASJCurrentSkillOfJob.Size = new System.Drawing.Size(216, 213);
+            this.lstASJCurrentSkillOfJob.Size = new System.Drawing.Size(216, 196);
             this.lstASJCurrentSkillOfJob.TabIndex = 0;
             // 
             // panel46
@@ -424,7 +427,7 @@
             this.cbxASJJobName.Location = new System.Drawing.Point(132, 47);
             this.cbxASJJobName.Margin = new System.Windows.Forms.Padding(2);
             this.cbxASJJobName.Name = "cbxASJJobName";
-            this.cbxASJJobName.Size = new System.Drawing.Size(220, 24);
+            this.cbxASJJobName.Size = new System.Drawing.Size(220, 28);
             this.cbxASJJobName.TabIndex = 13;
             this.cbxASJJobName.SelectedIndexChanged += new System.EventHandler(this.cbxASJJobName_SelectedIndexChanged);
             // 
@@ -435,7 +438,7 @@
             this.label49.Location = new System.Drawing.Point(22, 44);
             this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(74, 23);
+            this.label49.Size = new System.Drawing.Size(94, 29);
             this.label49.TabIndex = 6;
             this.label49.Text = "Job Name:";
             // 
@@ -446,7 +449,7 @@
             this.label50.Location = new System.Drawing.Point(2, 4);
             this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(95, 27);
+            this.label50.Size = new System.Drawing.Size(118, 33);
             this.label50.TabIndex = 9;
             this.label50.Text = "Job Details:";
             // 
@@ -467,11 +470,11 @@
             this.tabMaintainJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.tabMaintainJobs.Controls.Add(this.pnlEmpHeading);
             this.tabMaintainJobs.Controls.Add(this.panel35);
-            this.tabMaintainJobs.Location = new System.Drawing.Point(4, 28);
+            this.tabMaintainJobs.Location = new System.Drawing.Point(4, 33);
             this.tabMaintainJobs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabMaintainJobs.Name = "tabMaintainJobs";
             this.tabMaintainJobs.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 657);
+            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 652);
             this.tabMaintainJobs.TabIndex = 1;
             this.tabMaintainJobs.Text = "MaintainJobs";
             // 
@@ -509,7 +512,7 @@
             this.label1.Location = new System.Drawing.Point(520, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 39);
+            this.label1.Size = new System.Drawing.Size(202, 48);
             this.label1.TabIndex = 13;
             this.label1.Text = "Maintain Jobs";
             // 
@@ -518,7 +521,7 @@
             this.label91.AutoSize = true;
             this.label91.Location = new System.Drawing.Point(1699, 86);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(159, 23);
+            this.label91.Size = new System.Drawing.Size(200, 29);
             this.label91.TabIndex = 12;
             this.label91.Text = "First + Last name";
             // 
@@ -577,6 +580,7 @@
             // MJpnlEMployerDetails
             // 
             this.MJpnlEMployerDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.MJpnlEMployerDetails.Controls.Add(this.txtJobName);
             this.MJpnlEMployerDetails.Controls.Add(this.lblMJJobName);
             this.MJpnlEMployerDetails.Controls.Add(this.MJcmbJobName);
             this.MJpnlEMployerDetails.Controls.Add(this.lblMJEmployerDetails);
@@ -590,9 +594,9 @@
             // 
             this.lblMJJobName.AutoSize = true;
             this.lblMJJobName.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMJJobName.Location = new System.Drawing.Point(35, 62);
+            this.lblMJJobName.Location = new System.Drawing.Point(27, 62);
             this.lblMJJobName.Name = "lblMJJobName";
-            this.lblMJJobName.Size = new System.Drawing.Size(74, 23);
+            this.lblMJJobName.Size = new System.Drawing.Size(94, 29);
             this.lblMJJobName.TabIndex = 7;
             this.lblMJJobName.Text = "Job Name:";
             // 
@@ -600,11 +604,12 @@
             // 
             this.MJcmbJobName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MJcmbJobName.FormattingEnabled = true;
-            this.MJcmbJobName.Location = new System.Drawing.Point(175, 62);
+            this.MJcmbJobName.Location = new System.Drawing.Point(182, 67);
             this.MJcmbJobName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MJcmbJobName.Name = "MJcmbJobName";
-            this.MJcmbJobName.Size = new System.Drawing.Size(292, 24);
+            this.MJcmbJobName.Size = new System.Drawing.Size(292, 28);
             this.MJcmbJobName.TabIndex = 4;
+            this.MJcmbJobName.SelectedIndexChanged += new System.EventHandler(this.MJcmbJobName_SelectedIndexChanged);
             // 
             // lblMJEmployerDetails
             // 
@@ -612,7 +617,7 @@
             this.lblMJEmployerDetails.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMJEmployerDetails.Location = new System.Drawing.Point(4, 4);
             this.lblMJEmployerDetails.Name = "lblMJEmployerDetails";
-            this.lblMJEmployerDetails.Size = new System.Drawing.Size(138, 27);
+            this.lblMJEmployerDetails.Size = new System.Drawing.Size(169, 33);
             this.lblMJEmployerDetails.TabIndex = 0;
             this.lblMJEmployerDetails.Text = "Employer Details:";
             // 
@@ -633,27 +638,26 @@
             // MJpnlSkillDetails
             // 
             this.MJpnlSkillDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.MJpnlSkillDetails.Controls.Add(this.listBox1);
             this.MJpnlSkillDetails.Controls.Add(this.MJlblSkillToAdd);
             this.MJpnlSkillDetails.Controls.Add(this.MJbtnRemoveSkill);
-            this.MJpnlSkillDetails.Controls.Add(this.MJcmbSkillName);
             this.MJpnlSkillDetails.Controls.Add(this.MJbtnAddSkill);
             this.MJpnlSkillDetails.Controls.Add(this.MJlblSkillsNeeded);
-            this.MJpnlSkillDetails.Controls.Add(this.MJlblSkillName);
             this.MJpnlSkillDetails.Controls.Add(this.MJlstSkillsNeeded);
             this.MJpnlSkillDetails.Controls.Add(this.MJlblSkillDetails);
-            this.MJpnlSkillDetails.Location = new System.Drawing.Point(510, 288);
+            this.MJpnlSkillDetails.Location = new System.Drawing.Point(510, 335);
             this.MJpnlSkillDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MJpnlSkillDetails.Name = "MJpnlSkillDetails";
-            this.MJpnlSkillDetails.Size = new System.Drawing.Size(718, 257);
+            this.MJpnlSkillDetails.Size = new System.Drawing.Size(718, 210);
             this.MJpnlSkillDetails.TabIndex = 20;
             // 
             // MJlblSkillToAdd
             // 
             this.MJlblSkillToAdd.AutoSize = true;
             this.MJlblSkillToAdd.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MJlblSkillToAdd.Location = new System.Drawing.Point(355, 34);
+            this.MJlblSkillToAdd.Location = new System.Drawing.Point(355, 40);
             this.MJlblSkillToAdd.Name = "MJlblSkillToAdd";
-            this.MJlblSkillToAdd.Size = new System.Drawing.Size(139, 23);
+            this.MJlblSkillToAdd.Size = new System.Drawing.Size(178, 29);
             this.MJlblSkillToAdd.TabIndex = 22;
             this.MJlblSkillToAdd.Text = "Select a Skill to add:";
             // 
@@ -662,7 +666,7 @@
             this.MJbtnRemoveSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.MJbtnRemoveSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.MJbtnRemoveSkill.ForeColor = System.Drawing.Color.White;
-            this.MJbtnRemoveSkill.Location = new System.Drawing.Point(9, 203);
+            this.MJbtnRemoveSkill.Location = new System.Drawing.Point(20, 150);
             this.MJbtnRemoveSkill.Margin = new System.Windows.Forms.Padding(4);
             this.MJbtnRemoveSkill.Name = "MJbtnRemoveSkill";
             this.MJbtnRemoveSkill.Size = new System.Drawing.Size(294, 41);
@@ -671,21 +675,12 @@
             this.MJbtnRemoveSkill.UseVisualStyleBackColor = false;
             this.MJbtnRemoveSkill.Click += new System.EventHandler(this.MJbtnRemoveSkill_Click);
             // 
-            // MJcmbSkillName
-            // 
-            this.MJcmbSkillName.FormattingEnabled = true;
-            this.MJcmbSkillName.Location = new System.Drawing.Point(465, 110);
-            this.MJcmbSkillName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MJcmbSkillName.Name = "MJcmbSkillName";
-            this.MJcmbSkillName.Size = new System.Drawing.Size(215, 27);
-            this.MJcmbSkillName.TabIndex = 2;
-            // 
             // MJbtnAddSkill
             // 
             this.MJbtnAddSkill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.MJbtnAddSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.MJbtnAddSkill.ForeColor = System.Drawing.Color.White;
-            this.MJbtnAddSkill.Location = new System.Drawing.Point(360, 197);
+            this.MJbtnAddSkill.Location = new System.Drawing.Point(357, 150);
             this.MJbtnAddSkill.Margin = new System.Windows.Forms.Padding(4);
             this.MJbtnAddSkill.Name = "MJbtnAddSkill";
             this.MJbtnAddSkill.Size = new System.Drawing.Size(294, 41);
@@ -698,39 +693,29 @@
             // 
             this.MJlblSkillsNeeded.AutoSize = true;
             this.MJlblSkillsNeeded.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MJlblSkillsNeeded.Location = new System.Drawing.Point(4, 52);
+            this.MJlblSkillsNeeded.Location = new System.Drawing.Point(10, 40);
             this.MJlblSkillsNeeded.Name = "MJlblSkillsNeeded";
-            this.MJlblSkillsNeeded.Size = new System.Drawing.Size(225, 23);
+            this.MJlblSkillsNeeded.Size = new System.Drawing.Size(287, 29);
             this.MJlblSkillsNeeded.TabIndex = 14;
             this.MJlblSkillsNeeded.Text = "Current Skills Needed For The Job:";
-            // 
-            // MJlblSkillName
-            // 
-            this.MJlblSkillName.AutoSize = true;
-            this.MJlblSkillName.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.MJlblSkillName.Location = new System.Drawing.Point(355, 110);
-            this.MJlblSkillName.Name = "MJlblSkillName";
-            this.MJlblSkillName.Size = new System.Drawing.Size(80, 23);
-            this.MJlblSkillName.TabIndex = 0;
-            this.MJlblSkillName.Text = "Skill Name:";
             // 
             // MJlstSkillsNeeded
             // 
             this.MJlstSkillsNeeded.FormattingEnabled = true;
-            this.MJlstSkillsNeeded.ItemHeight = 19;
-            this.MJlstSkillsNeeded.Location = new System.Drawing.Point(9, 85);
+            this.MJlstSkillsNeeded.ItemHeight = 24;
+            this.MJlstSkillsNeeded.Location = new System.Drawing.Point(19, 73);
             this.MJlstSkillsNeeded.Margin = new System.Windows.Forms.Padding(4);
             this.MJlstSkillsNeeded.Name = "MJlstSkillsNeeded";
-            this.MJlstSkillsNeeded.Size = new System.Drawing.Size(288, 4);
+            this.MJlstSkillsNeeded.Size = new System.Drawing.Size(288, 76);
             this.MJlstSkillsNeeded.TabIndex = 10;
             // 
             // MJlblSkillDetails
             // 
             this.MJlblSkillDetails.AutoSize = true;
             this.MJlblSkillDetails.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MJlblSkillDetails.Location = new System.Drawing.Point(3, 7);
+            this.MJlblSkillDetails.Location = new System.Drawing.Point(9, 7);
             this.MJlblSkillDetails.Name = "MJlblSkillDetails";
-            this.MJlblSkillDetails.Size = new System.Drawing.Size(102, 27);
+            this.MJlblSkillDetails.Size = new System.Drawing.Size(127, 33);
             this.MJlblSkillDetails.TabIndex = 9;
             this.MJlblSkillDetails.Text = "Skill Details:";
             // 
@@ -785,7 +770,7 @@
             this.MJcbxJobCompleted.Location = new System.Drawing.Point(456, 267);
             this.MJcbxJobCompleted.Margin = new System.Windows.Forms.Padding(4);
             this.MJcbxJobCompleted.Name = "MJcbxJobCompleted";
-            this.MJcbxJobCompleted.Size = new System.Drawing.Size(121, 27);
+            this.MJcbxJobCompleted.Size = new System.Drawing.Size(151, 33);
             this.MJcbxJobCompleted.TabIndex = 14;
             this.MJcbxJobCompleted.Text = "Job Completed";
             this.MJcbxJobCompleted.UseVisualStyleBackColor = true;
@@ -796,7 +781,7 @@
             this.MJlblEndDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MJlblEndDate.Location = new System.Drawing.Point(334, 5);
             this.MJlblEndDate.Name = "MJlblEndDate";
-            this.MJlblEndDate.Size = new System.Drawing.Size(79, 27);
+            this.MJlblEndDate.Size = new System.Drawing.Size(97, 33);
             this.MJlblEndDate.TabIndex = 11;
             this.MJlblEndDate.Text = "End Date:";
             // 
@@ -814,7 +799,7 @@
             this.MJnudDuration.Location = new System.Drawing.Point(237, 273);
             this.MJnudDuration.Margin = new System.Windows.Forms.Padding(4);
             this.MJnudDuration.Name = "MJnudDuration";
-            this.MJnudDuration.Size = new System.Drawing.Size(75, 23);
+            this.MJnudDuration.Size = new System.Drawing.Size(75, 26);
             this.MJnudDuration.TabIndex = 13;
             // 
             // MJlblDuration
@@ -823,7 +808,7 @@
             this.MJlblDuration.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MJlblDuration.Location = new System.Drawing.Point(4, 268);
             this.MJlblDuration.Name = "MJlblDuration";
-            this.MJlblDuration.Size = new System.Drawing.Size(174, 27);
+            this.MJlblDuration.Size = new System.Drawing.Size(214, 33);
             this.MJlblDuration.TabIndex = 12;
             this.MJlblDuration.Text = "Duration Per Day (hrs):";
             // 
@@ -833,7 +818,7 @@
             this.MJlblStartDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MJlblStartDate.Location = new System.Drawing.Point(3, 5);
             this.MJlblStartDate.Name = "MJlblStartDate";
-            this.MJlblStartDate.Size = new System.Drawing.Size(90, 27);
+            this.MJlblStartDate.Size = new System.Drawing.Size(110, 33);
             this.MJlblStartDate.TabIndex = 9;
             this.MJlblStartDate.Text = "Start Date:";
             // 
@@ -848,6 +833,8 @@
             // MJpnlJobDetails
             // 
             this.MJpnlJobDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.MJpnlJobDetails.Controls.Add(this.numericUpDown1);
+            this.MJpnlJobDetails.Controls.Add(this.label2);
             this.MJpnlJobDetails.Controls.Add(this.txtMJJobTitle);
             this.MJpnlJobDetails.Controls.Add(this.MJlblJobLocation);
             this.MJpnlJobDetails.Controls.Add(this.MJlblJobDescription);
@@ -867,16 +854,16 @@
             this.txtMJJobTitle.Location = new System.Drawing.Point(128, 78);
             this.txtMJJobTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtMJJobTitle.Name = "txtMJJobTitle";
-            this.txtMJJobTitle.Size = new System.Drawing.Size(273, 23);
+            this.txtMJJobTitle.Size = new System.Drawing.Size(273, 26);
             this.txtMJJobTitle.TabIndex = 13;
             // 
             // MJlblJobLocation
             // 
             this.MJlblJobLocation.AutoSize = true;
             this.MJlblJobLocation.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MJlblJobLocation.Location = new System.Drawing.Point(23, 277);
+            this.MJlblJobLocation.Location = new System.Drawing.Point(26, 242);
             this.MJlblJobLocation.Name = "MJlblJobLocation";
-            this.MJlblJobLocation.Size = new System.Drawing.Size(92, 23);
+            this.MJlblJobLocation.Size = new System.Drawing.Size(116, 29);
             this.MJlblJobLocation.TabIndex = 12;
             this.MJlblJobLocation.Text = "Job Location:";
             // 
@@ -884,9 +871,9 @@
             // 
             this.MJlblJobDescription.AutoSize = true;
             this.MJlblJobDescription.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MJlblJobDescription.Location = new System.Drawing.Point(23, 136);
+            this.MJlblJobDescription.Location = new System.Drawing.Point(23, 121);
             this.MJlblJobDescription.Name = "MJlblJobDescription";
-            this.MJlblJobDescription.Size = new System.Drawing.Size(110, 23);
+            this.MJlblJobDescription.Size = new System.Drawing.Size(139, 29);
             this.MJlblJobDescription.TabIndex = 5;
             this.MJlblJobDescription.Text = "Job Description:";
             // 
@@ -896,13 +883,13 @@
             this.label42.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(23, 78);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(74, 23);
+            this.label42.Size = new System.Drawing.Size(94, 29);
             this.label42.TabIndex = 6;
             this.label42.Text = "Job Name:";
             // 
             // MJtxtJobLocation
             // 
-            this.MJtxtJobLocation.Location = new System.Drawing.Point(28, 310);
+            this.MJtxtJobLocation.Location = new System.Drawing.Point(28, 275);
             this.MJtxtJobLocation.Margin = new System.Windows.Forms.Padding(4);
             this.MJtxtJobLocation.Name = "MJtxtJobLocation";
             this.MJtxtJobLocation.Size = new System.Drawing.Size(373, 88);
@@ -911,7 +898,7 @@
             // 
             // MJtxtJobDescription
             // 
-            this.MJtxtJobDescription.Location = new System.Drawing.Point(28, 173);
+            this.MJtxtJobDescription.Location = new System.Drawing.Point(28, 150);
             this.MJtxtJobDescription.Margin = new System.Windows.Forms.Padding(4);
             this.MJtxtJobDescription.Name = "MJtxtJobDescription";
             this.MJtxtJobDescription.Size = new System.Drawing.Size(373, 88);
@@ -924,7 +911,7 @@
             this.label43.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(3, 5);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(95, 27);
+            this.label43.Size = new System.Drawing.Size(118, 33);
             this.label43.TabIndex = 9;
             this.label43.Text = "Job Details:";
             // 
@@ -988,7 +975,7 @@
             this.comboBox6.Location = new System.Drawing.Point(149, 69);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(301, 28);
+            this.comboBox6.Size = new System.Drawing.Size(301, 33);
             this.comboBox6.TabIndex = 14;
             // 
             // button33
@@ -1023,7 +1010,7 @@
             this.label36.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(4, 4);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(95, 27);
+            this.label36.Size = new System.Drawing.Size(118, 33);
             this.label36.TabIndex = 0;
             this.label36.Text = "Job Details:";
             // 
@@ -1033,7 +1020,7 @@
             this.label37.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.Location = new System.Drawing.Point(25, 69);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(74, 23);
+            this.label37.Size = new System.Drawing.Size(94, 29);
             this.label37.TabIndex = 0;
             this.label37.Text = "Job Name:";
             // 
@@ -1069,7 +1056,7 @@
             this.comboBox7.Location = new System.Drawing.Point(175, 62);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(292, 24);
+            this.comboBox7.Size = new System.Drawing.Size(292, 28);
             this.comboBox7.TabIndex = 4;
             // 
             // label34
@@ -1078,7 +1065,7 @@
             this.label34.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(4, 4);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(138, 27);
+            this.label34.Size = new System.Drawing.Size(169, 33);
             this.label34.TabIndex = 0;
             this.label34.Text = "Employer Details:";
             // 
@@ -1088,7 +1075,7 @@
             this.label38.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(23, 63);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(110, 23);
+            this.label38.Size = new System.Drawing.Size(142, 29);
             this.label38.TabIndex = 1;
             this.label38.Text = "Employer Name:";
             // 
@@ -1111,11 +1098,11 @@
             this.EmpHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.EmpHome.Controls.Add(this.panel5);
             this.EmpHome.Controls.Add(this.panel6);
-            this.EmpHome.Location = new System.Drawing.Point(4, 28);
+            this.EmpHome.Location = new System.Drawing.Point(4, 33);
             this.EmpHome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.EmpHome.Name = "EmpHome";
             this.EmpHome.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.EmpHome.Size = new System.Drawing.Size(1266, 657);
+            this.EmpHome.Size = new System.Drawing.Size(1266, 652);
             this.EmpHome.TabIndex = 0;
             this.EmpHome.Text = "HomePage";
             // 
@@ -1172,7 +1159,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1699, 86);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 23);
+            this.label9.Size = new System.Drawing.Size(200, 29);
             this.label9.TabIndex = 12;
             this.label9.Text = "First + Last name";
             // 
@@ -1239,7 +1226,7 @@
             this.lblLstOutput.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblLstOutput.Location = new System.Drawing.Point(543, 12);
             this.lblLstOutput.Name = "lblLstOutput";
-            this.lblLstOutput.Size = new System.Drawing.Size(113, 24);
+            this.lblLstOutput.Size = new System.Drawing.Size(142, 30);
             this.lblLstOutput.TabIndex = 0;
             this.lblLstOutput.Text = "Active Jobs";
             // 
@@ -1314,10 +1301,10 @@
             this.tpProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tpProfile.Controls.Add(this.panel3);
             this.tpProfile.Controls.Add(this.EPpnl1);
-            this.tpProfile.Location = new System.Drawing.Point(4, 28);
+            this.tpProfile.Location = new System.Drawing.Point(4, 33);
             this.tpProfile.Name = "tpProfile";
             this.tpProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProfile.Size = new System.Drawing.Size(1266, 657);
+            this.tpProfile.Size = new System.Drawing.Size(1266, 652);
             this.tpProfile.TabIndex = 5;
             this.tpProfile.Text = "EmpProfile";
             // 
@@ -1355,7 +1342,7 @@
             this.label4.Location = new System.Drawing.Point(520, 5);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 39);
+            this.label4.Size = new System.Drawing.Size(280, 48);
             this.label4.TabIndex = 13;
             this.label4.Text = "Maintain Employers";
             // 
@@ -1364,7 +1351,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1699, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 23);
+            this.label5.Size = new System.Drawing.Size(200, 29);
             this.label5.TabIndex = 12;
             this.label5.Text = "First + Last name";
             // 
@@ -1454,7 +1441,7 @@
             this.lblModifyPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblModifyPass.Name = "lblModifyPass";
             this.lblModifyPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblModifyPass.Size = new System.Drawing.Size(180, 27);
+            this.lblModifyPass.Size = new System.Drawing.Size(223, 33);
             this.lblModifyPass.TabIndex = 34;
             this.lblModifyPass.Text = "Modify Password";
             // 
@@ -1476,7 +1463,7 @@
             this.txtEmpNew.Location = new System.Drawing.Point(241, 88);
             this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(217, 27);
+            this.txtEmpNew.Size = new System.Drawing.Size(217, 32);
             this.txtEmpNew.TabIndex = 1;
             this.txtEmpNew.UseSystemPasswordChar = true;
             // 
@@ -1485,7 +1472,7 @@
             this.txtEmpConfirm.Location = new System.Drawing.Point(241, 161);
             this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(217, 27);
+            this.txtEmpConfirm.Size = new System.Drawing.Size(217, 32);
             this.txtEmpConfirm.TabIndex = 2;
             this.txtEmpConfirm.UseSystemPasswordChar = true;
             // 
@@ -1496,7 +1483,7 @@
             this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
             this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpNew.Name = "lblEmpNew";
-            this.lblEmpNew.Size = new System.Drawing.Size(121, 19);
+            this.lblEmpNew.Size = new System.Drawing.Size(149, 24);
             this.lblEmpNew.TabIndex = 25;
             this.lblEmpNew.Text = "New Password:";
             // 
@@ -1507,7 +1494,7 @@
             this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
             this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpConfirm.Name = "lblEmpConfirm";
-            this.lblEmpConfirm.Size = new System.Drawing.Size(147, 19);
+            this.lblEmpConfirm.Size = new System.Drawing.Size(180, 24);
             this.lblEmpConfirm.TabIndex = 27;
             this.lblEmpConfirm.Text = "Confirm Password:";
             // 
@@ -1594,7 +1581,7 @@
             this.lblEmpInfo.Location = new System.Drawing.Point(7, 5);
             this.lblEmpInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpInfo.Name = "lblEmpInfo";
-            this.lblEmpInfo.Size = new System.Drawing.Size(168, 19);
+            this.lblEmpInfo.Size = new System.Drawing.Size(207, 24);
             this.lblEmpInfo.TabIndex = 24;
             this.lblEmpInfo.Text = "Employer Information";
             // 
@@ -1604,7 +1591,7 @@
             this.txtEmpID.Location = new System.Drawing.Point(277, 66);
             this.txtEmpID.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmpID.Name = "txtEmpID";
-            this.txtEmpID.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpID.Size = new System.Drawing.Size(257, 32);
             this.txtEmpID.TabIndex = 1;
             // 
             // lblEmpFName
@@ -1613,7 +1600,7 @@
             this.lblEmpFName.Location = new System.Drawing.Point(29, 142);
             this.lblEmpFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpFName.Name = "lblEmpFName";
-            this.lblEmpFName.Size = new System.Drawing.Size(93, 19);
+            this.lblEmpFName.Size = new System.Drawing.Size(115, 24);
             this.lblEmpFName.TabIndex = 15;
             this.lblEmpFName.Text = "First Name:";
             // 
@@ -1623,7 +1610,7 @@
             this.txtEmpFName.Location = new System.Drawing.Point(277, 139);
             this.txtEmpFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpFName.Name = "txtEmpFName";
-            this.txtEmpFName.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpFName.Size = new System.Drawing.Size(257, 32);
             this.txtEmpFName.TabIndex = 2;
             // 
             // lblEmpLName
@@ -1633,7 +1620,7 @@
             this.lblEmpLName.Location = new System.Drawing.Point(29, 218);
             this.lblEmpLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpLName.Name = "lblEmpLName";
-            this.lblEmpLName.Size = new System.Drawing.Size(91, 19);
+            this.lblEmpLName.Size = new System.Drawing.Size(112, 24);
             this.lblEmpLName.TabIndex = 17;
             this.lblEmpLName.Text = "Last Name:";
             // 
@@ -1644,7 +1631,7 @@
             this.txtEmpLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpLName.MaxLength = 13;
             this.txtEmpLName.Name = "txtEmpLName";
-            this.txtEmpLName.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpLName.Size = new System.Drawing.Size(257, 32);
             this.txtEmpLName.TabIndex = 3;
             // 
             // lblEmpID
@@ -1653,7 +1640,7 @@
             this.lblEmpID.Location = new System.Drawing.Point(29, 69);
             this.lblEmpID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpID.Name = "lblEmpID";
-            this.lblEmpID.Size = new System.Drawing.Size(103, 19);
+            this.lblEmpID.Size = new System.Drawing.Size(125, 24);
             this.lblEmpID.TabIndex = 19;
             this.lblEmpID.Text = "Employer ID:";
             // 
@@ -1662,10 +1649,10 @@
             this.tabpage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tabpage4.Controls.Add(this.panel4);
             this.tabpage4.Controls.Add(this.ARJpbl1);
-            this.tabpage4.Location = new System.Drawing.Point(4, 28);
+            this.tabpage4.Location = new System.Drawing.Point(4, 33);
             this.tabpage4.Name = "tabpage4";
             this.tabpage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage4.Size = new System.Drawing.Size(1266, 657);
+            this.tabpage4.Size = new System.Drawing.Size(1266, 652);
             this.tabpage4.TabIndex = 6;
             this.tabpage4.Text = "Approve/Reject Job";
             // 
@@ -1703,7 +1690,7 @@
             this.label6.Location = new System.Drawing.Point(520, 5);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 39);
+            this.label6.Size = new System.Drawing.Size(276, 48);
             this.label6.TabIndex = 13;
             this.label6.Text = "Approve/Reject Job";
             // 
@@ -1712,7 +1699,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1699, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 23);
+            this.label7.Size = new System.Drawing.Size(200, 29);
             this.label7.TabIndex = 12;
             this.label7.Text = "First + Last name";
             // 
@@ -1773,17 +1760,17 @@
             this.ARJlblPeopleNeeded.AutoSize = true;
             this.ARJlblPeopleNeeded.Location = new System.Drawing.Point(69, 290);
             this.ARJlblPeopleNeeded.Name = "ARJlblPeopleNeeded";
-            this.ARJlblPeopleNeeded.Size = new System.Drawing.Size(189, 19);
+            this.ARJlblPeopleNeeded.Size = new System.Drawing.Size(232, 24);
             this.ARJlblPeopleNeeded.TabIndex = 16;
             this.ARJlblPeopleNeeded.Text = "Prisoners needed for job";
             // 
             // ARJlsbCurrentSkills
             // 
             this.ARJlsbCurrentSkills.FormattingEnabled = true;
-            this.ARJlsbCurrentSkills.ItemHeight = 19;
+            this.ARJlsbCurrentSkills.ItemHeight = 24;
             this.ARJlsbCurrentSkills.Location = new System.Drawing.Point(308, 77);
             this.ARJlsbCurrentSkills.Name = "ARJlsbCurrentSkills";
-            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(187, 213);
+            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(187, 196);
             this.ARJlsbCurrentSkills.TabIndex = 15;
             // 
             // ARJbtnReject
@@ -1821,7 +1808,7 @@
             this.ARJcmbSelectApplication.FormattingEnabled = true;
             this.ARJcmbSelectApplication.Location = new System.Drawing.Point(73, 161);
             this.ARJcmbSelectApplication.Name = "ARJcmbSelectApplication";
-            this.ARJcmbSelectApplication.Size = new System.Drawing.Size(163, 27);
+            this.ARJcmbSelectApplication.Size = new System.Drawing.Size(163, 32);
             this.ARJcmbSelectApplication.TabIndex = 9;
             this.ARJcmbSelectApplication.SelectedIndexChanged += new System.EventHandler(this.ARJcmbSelectApplication_SelectedIndexChanged);
             // 
@@ -1832,7 +1819,7 @@
             this.ARJcmbJobName.FormattingEnabled = true;
             this.ARJcmbJobName.Location = new System.Drawing.Point(73, 77);
             this.ARJcmbJobName.Name = "ARJcmbJobName";
-            this.ARJcmbJobName.Size = new System.Drawing.Size(163, 27);
+            this.ARJcmbJobName.Size = new System.Drawing.Size(163, 32);
             this.ARJcmbJobName.TabIndex = 8;
             this.ARJcmbJobName.SelectedIndexChanged += new System.EventHandler(this.ARJcmbJobName_SelectedIndexChanged);
             // 
@@ -1841,7 +1828,7 @@
             this.ARJlblPrisonerSkill1.AutoSize = true;
             this.ARJlblPrisonerSkill1.Location = new System.Drawing.Point(304, 50);
             this.ARJlblPrisonerSkill1.Name = "ARJlblPrisonerSkill1";
-            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(191, 19);
+            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(237, 24);
             this.ARJlblPrisonerSkill1.TabIndex = 6;
             this.ARJlblPrisonerSkill1.Text = "Current skills of prisoner";
             // 
@@ -1850,7 +1837,7 @@
             this.ARJtxtPrisonerName.Enabled = false;
             this.ARJtxtPrisonerName.Location = new System.Drawing.Point(73, 248);
             this.ARJtxtPrisonerName.Name = "ARJtxtPrisonerName";
-            this.ARJtxtPrisonerName.Size = new System.Drawing.Size(168, 27);
+            this.ARJtxtPrisonerName.Size = new System.Drawing.Size(168, 32);
             this.ARJtxtPrisonerName.TabIndex = 5;
             // 
             // ARJlblPrisonerName
@@ -1858,7 +1845,7 @@
             this.ARJlblPrisonerName.AutoSize = true;
             this.ARJlblPrisonerName.Location = new System.Drawing.Point(69, 211);
             this.ARJlblPrisonerName.Name = "ARJlblPrisonerName";
-            this.ARJlblPrisonerName.Size = new System.Drawing.Size(127, 19);
+            this.ARJlblPrisonerName.Size = new System.Drawing.Size(156, 24);
             this.ARJlblPrisonerName.TabIndex = 2;
             this.ARJlblPrisonerName.Text = "Prisoners Name";
             // 
@@ -1867,7 +1854,7 @@
             this.ARJlblPrisonerApplication.AutoSize = true;
             this.ARJlblPrisonerApplication.Location = new System.Drawing.Point(69, 134);
             this.ARJlblPrisonerApplication.Name = "ARJlblPrisonerApplication";
-            this.ARJlblPrisonerApplication.Size = new System.Drawing.Size(215, 19);
+            this.ARJlblPrisonerApplication.Size = new System.Drawing.Size(266, 24);
             this.ARJlblPrisonerApplication.TabIndex = 1;
             this.ARJlblPrisonerApplication.Text = "Select Prisoners Application";
             // 
@@ -1876,7 +1863,7 @@
             this.ARJlblJobName.AutoSize = true;
             this.ARJlblJobName.Location = new System.Drawing.Point(69, 50);
             this.ARJlblJobName.Name = "ARJlblJobName";
-            this.ARJlblJobName.Size = new System.Drawing.Size(136, 19);
+            this.ARJlblJobName.Size = new System.Drawing.Size(167, 24);
             this.ARJlblJobName.TabIndex = 0;
             this.ARJlblJobName.Text = "Select Job Name:";
             // 
@@ -1893,12 +1880,50 @@
             this.button11.Text = "Back";
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 24;
+            this.listBox1.Location = new System.Drawing.Point(357, 73);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(357, 76);
+            this.listBox1.TabIndex = 23;
+            // 
+            // txtJobName
+            // 
+            this.txtJobName.Location = new System.Drawing.Point(178, 66);
+            this.txtJobName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtJobName.Name = "txtJobName";
+            this.txtJobName.Size = new System.Drawing.Size(296, 28);
+            this.txtJobName.TabIndex = 11;
+            this.txtJobName.Text = "";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(188, 378);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(75, 26);
+            this.numericUpDown1.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 372);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 29);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Prisoners needed:";
+            // 
             // frmEmployer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.ClientSize = new System.Drawing.Size(1264, 748);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.tcEmployer);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1969,6 +1994,7 @@
             this.ARJpnl2.ResumeLayout(false);
             this.ARJpnlApproveReject.ResumeLayout(false);
             this.ARJpnlApproveReject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1990,10 +2016,8 @@
         private System.Windows.Forms.Panel MJpnlSkillDetails;
         private System.Windows.Forms.Label MJlblSkillToAdd;
         private System.Windows.Forms.Button MJbtnRemoveSkill;
-        private System.Windows.Forms.ComboBox MJcmbSkillName;
         private System.Windows.Forms.Button MJbtnAddSkill;
         private System.Windows.Forms.Label MJlblSkillsNeeded;
-        private System.Windows.Forms.Label MJlblSkillName;
         private System.Windows.Forms.ListBox MJlstSkillsNeeded;
         private System.Windows.Forms.Label MJlblSkillDetails;
         private System.Windows.Forms.Panel MJpnlDate;
@@ -2119,5 +2143,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ARJlblPeopleNeeded;
         private System.Windows.Forms.PictureBox imgFMENewshow;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox txtJobName;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label2;
     }
 }

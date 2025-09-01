@@ -1,5 +1,6 @@
 ﻿using LockedIn.Data;
 using LockedIn.Helpers;
+using LockedIn.Managers;
 using LockedIn.Models;
 using System;
 using System.Collections;
@@ -668,48 +669,20 @@ namespace LockedIn
 
         private void MJbtnDelete2_Click(object sender, EventArgs e)
         {
-            //Delete existing job
+            // Delete existing job
             try
             {
-                MJtxtJobName.Visible = false;
+
                 ComboBoxHelper.PopulateJobNames(MJcmbJobName);
+                MJtxtJobDescription.Clear();
+                MJtxtJobLocation.Clear();
+                MJcalStartDate.SelectionStart = DateTime.Today;
+                MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                MJnudDuration.Value = 8;
+                MJcbxJobCompleted.Checked = false;
+                numericUpDown1.Value = 1;
+
                 action = "DELETE";
-                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                    SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
-                    int jobId = (int)getIdcomm.ExecuteScalar();
-                    ListboxHelper.PopulateAllPSkills(MJlstSkills);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
-                    using (SqlCommand comm = new SqlCommand(sql, conn))
-                    {
-                        comm.Parameters.AddWithValue("@JobID", jobId);
-
-                        SqlDataReader reader = comm.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            // Populating the form tools
-                            MJcmbJobName.Text = reader["JobName"].ToString();
-                            MJtxtJobDescription.Text = reader["JobDescription"].ToString();
-                            MJtxtJobLocation.Text = reader["JobLocation"].ToString();
-                            MJcalStartDate.SelectionStart = Convert.ToDateTime(reader["StartDate"]);
-                            MJcalEndDate.SelectionStart = Convert.ToDateTime(reader["EndDate"]);
-                            MJnudDuration.Value = Convert.ToDecimal(((TimeSpan)reader["DurationPerDay"]).TotalHours);
-                            MJcbxJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
-                            numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
-
-
-                        }
-                    }
-
-
-
-                }
             }
             catch (Exception ex)
             {
@@ -719,49 +692,13 @@ namespace LockedIn
 
         private void MJbtnEdit_Click(object sender, EventArgs e)
         {
-            //Edit existing job
+            // Edit existing job
             try
             {
+
                 ComboBoxHelper.PopulateJobNames(MJcmbJobName);
-                MJtxtJobName.Visible = false;
 
                 action = "EDIT";
-
-                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                    SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
-                    int jobId = (int)getIdcomm.ExecuteScalar();
-                    ListboxHelper.PopulateAllPSkills(MJlstSkills);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
-                    using (SqlCommand comm = new SqlCommand(sql, conn))
-                    {
-                        comm.Parameters.AddWithValue("@JobID", jobId);
-
-                        SqlDataReader reader = comm.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            // Populating the form tools
-                            MJcmbJobName.Text = reader["JobName"].ToString();
-                            MJtxtJobDescription.Text = reader["JobDescription"].ToString();
-                            MJtxtJobLocation.Text = reader["JobLocation"].ToString();
-                            MJcalStartDate.SelectionStart = Convert.ToDateTime(reader["StartDate"]);
-                            MJcalEndDate.SelectionStart = Convert.ToDateTime(reader["EndDate"]);
-                            MJnudDuration.Value = Convert.ToDecimal(((TimeSpan)reader["DurationPerDay"]).TotalHours);
-                            MJcbxJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
-                            numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
-
-
-                        }
-                    }
-                }
-
-
             }
             catch (Exception ex)
             {
@@ -771,180 +708,205 @@ namespace LockedIn
 
         private void MJbtnCreate_Click(object sender, EventArgs e)
         {
-            //Add job button
-
+            // Add job button
             try
             {
-                MJcmbJobName.Visible = false;
+
+                // Clear all fields for new job
+                txtJobName.Clear();
+                MJtxtJobDescription.Clear();
+                MJtxtJobLocation.Clear();
+                MJcalStartDate.SelectionStart = DateTime.Today;
+                MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                MJnudDuration.Value = 8;
+                MJcbxJobCompleted.Checked = false;
+                numericUpDown1.Value = 1;
+
                 selectedJobID = -1;
                 action = "ADD";
-
-                string connStr = DatabaseConfig.GetConStr();
-                SqlConnection conn = new SqlConnection(connStr);
-                conn.Open();
-
-                string getSkillsSql = "SELECT SkillID, SkillName FROM SKILL ORDER BY SkillName";
-                SqlCommand comm = new SqlCommand(getSkillsSql, conn);
-
-                // Clear listbox
-                MJlstSkills.Items.Clear();
-
-                using (SqlDataReader reader = comm.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-
-                        string skillName = reader["SkillName"].ToString();
-                        MJlstSkills.Items.Add(skillName);
-
-
-                    }
-                }
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-
-        private void MJbtnSave_Click(object sender, EventArgs e)
+        private void ResetJobForm()
         {
-            //save button  
+            txtJobName.Clear();
+            MJtxtJobDescription.Clear();
+            MJtxtJobLocation.Clear();
+            MJcalStartDate.SelectionStart = DateTime.Today;
+            MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+            MJnudDuration.Value = 8;
+            MJcbxJobCompleted.Checked = false;
+            numericUpDown1.Value = 1;
+            selectedJobID = -1;
+            action = "";
+
+            
+
+            txtJobName.ReadOnly = false;
+            MJtxtJobDescription.ReadOnly = false;
+            MJtxtJobLocation.ReadOnly = false;
+
+            MJcmbJobName.SelectedIndex = -1;
+        }
+        private int GetEmployerIDByName()
+        {
             try
             {
-                //setting values into variables
-                string job_name = MJtxtJobName.Text;
-                string job_description = MJtxtJobDescription.Text;
-                string job_location = MJtxtJobDescription.Text;
+                string employerName = MJcmbJobName.Text.Trim();
+
+                if (string.IsNullOrEmpty(employerName))
+                {
+                    MessageBox.Show("Please enter an employer name.");
+                    return -1;
+                }
+
+                string connStr = DatabaseConfig.GetConStr();
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    string query = @"SELECT EmployerID FROM EMPLOYER WHERE CONCAT(FirstName, ' ', LastName) = @EmployerName OR FirstName = @EmployerName OR LastName = @EmployerName";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@EmployerName", employerName);
+                        conn.Open();
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Employer '{employerName}' not found in database.");
+                            return -1;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving employer ID: {ex.Message}");
+                return -1;
+            }
+        }
+        private void MJbtnSave_Click(object sender, EventArgs e)
+        {
+            // Save button  
+            try
+            {
+                // Setting values into variables
+                string job_name = txtJobName.Text.Trim();
+                string job_description = MJtxtJobDescription.Text.Trim();
+                string job_location = MJtxtJobLocation.Text.Trim();
                 DateTime startDate = MJcalStartDate.SelectionStart;
                 DateTime endDate = MJcalEndDate.SelectionStart;
                 decimal duration = MJnudDuration.Value;
                 bool job_completed = MJcbxJobCompleted.Checked;
                 decimal prisoners = numericUpDown1.Value;
 
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
+                // Validation
+                if (string.IsNullOrEmpty(job_name))
                 {
-                    conn.Open();
-                    //add job
-                    if (action == "ADD")
+                    MessageBox.Show("Job name is required.");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(job_description))
+                {
+                    MessageBox.Show("Job description is required.");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(job_location))
+                {
+                    MessageBox.Show("Job location is required.");
+                    return;
+                }
+
+                if (startDate >= endDate)
+                {
+                    MessageBox.Show("End date must be after start date.");
+                    return;
+                }
+
+                // Add job
+                if (action == "ADD")
+                {
+
+                    int employerID = GetEmployerIDByName();
+                    if (employerID <= 0)
                     {
-
-                        string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay) SELECT SCOPE_IDENTITY()";
-
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
-                        {
-                            comm.Parameters.AddWithValue("@EmployerID", SessionEmployerID.EmployerID);
-                            comm.Parameters.AddWithValue("@JobName", job_name);
-                            comm.Parameters.AddWithValue("@JobDescription", job_description);
-                            comm.Parameters.AddWithValue("@JobLocation", job_location);
-                            comm.Parameters.AddWithValue("@StartDate", startDate);
-                            comm.Parameters.AddWithValue("@EndDate", endDate);
-                            comm.Parameters.AddWithValue("@PrisonersNeeded", prisoners);
-                            comm.Parameters.AddWithValue("@Completed", job_completed);
-                            comm.Parameters.AddWithValue("@DurationPerDay", duration);
-
-                            //getting new job Id for the new job added
-                            int newJobId = Convert.ToInt32(comm.ExecuteScalar());
-
-                            // skills for job
-                            foreach (var item in MJlstSkillsNeeded.Items)
-                            {
-                                string skillName = item.ToString();
-
-                                string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
-                                SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
-                                getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
-                                int skillId = (int)getSkillComm.ExecuteScalar();
-
-                                string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
-                                SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
-                                insertComm.Parameters.AddWithValue("@JobID", newJobId);
-                                insertComm.Parameters.AddWithValue("@SkillID", skillId);
-                                insertComm.ExecuteNonQuery();
-                            }
-                        }
-
-                        MessageBox.Show("Job added successfully.");
+                        MessageBox.Show("Invalid employer selected. Please check the employer name.");
+                        return;
                     }
-
-
-
-                    //edit job
-                    else if (action == "EDIT")
+                    Job newJob = new Job
                     {
-                        string sql = "UPDATE JOB SET JobName= @jobName, JobDescription= @jobDescription, JobLocation= @jobLocation,StartDate = @startDate, EndDate = @endDate, PrisonersNeeded = @prisonersNeeded,Completed = @completed, DurationPerDay = @durationPerDay WHERE JobID = @jobID";
+                        EmployerID = employerID,
+                        JobName = job_name,
+                        JobDescription = job_description,
+                        JobLocation = job_location,
+                        StartDate = startDate,
+                        EndDate = endDate,
+                        PrisonersNeeded = (int)prisoners,
+                        Completed = job_completed,
+                        DurationPerDay = (int)duration
+                    };
 
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
-                        {
-                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                            SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                            getIdcomm.Parameters.AddWithValue("@JobName", MJtxtJobName.Text);
-                            int selectedJobId = (int)getIdcomm.ExecuteScalar();
+                    int newJobID = JobManager.AddJob(newJob);
 
-                            comm.Parameters.AddWithValue("@jobID", selectedJobId);
-                            comm.Parameters.AddWithValue("@jobName", MJtxtJobName.Text);
-                            comm.Parameters.AddWithValue("@jobDescription", job_description);
-                            comm.Parameters.AddWithValue("@jobLocation", job_location);
-                            comm.Parameters.AddWithValue("@startDate", startDate);
-                            comm.Parameters.AddWithValue("@endDate", endDate);
-                            comm.Parameters.AddWithValue("@prisonersNeeded", prisoners);
-                            comm.Parameters.AddWithValue("@completed", job_completed);
-                            comm.Parameters.AddWithValue("@durationPerDay", duration);
-
-                            comm.ExecuteNonQuery();
-
-                            // Delete old skills
-                            string deleteSkillsSql = "DELETE FROM JOB_SKILL WHERE JobID = @JobID";
-                            SqlCommand deleteComm = new SqlCommand(deleteSkillsSql, conn);
-                            deleteComm.Parameters.AddWithValue("@JobID", selectedJobId);
-                            deleteComm.ExecuteNonQuery();
-
-                            // Insert new skills
-                            foreach (var item in MJlstSkillsNeeded.Items)
-                            {
-                                string skillName = item.ToString();
-
-                                string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
-                                SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
-                                getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
-                                int skillId = (int)getSkillComm.ExecuteScalar();
-
-                                string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
-                                SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
-                                insertComm.Parameters.AddWithValue("@JobID", selectedJobId);
-                                insertComm.Parameters.AddWithValue("@SkillID", skillId);
-                                insertComm.ExecuteNonQuery();
-                            }
-                        }
-
-                        MessageBox.Show("Job updated successfully.");
+                    if (newJobID > 0)
+                    {
+                        MessageBox.Show($"Job added successfully with ID: {newJobID}");
+                        selectedJobID = newJobID;
                     }
-                    //delete job
-                    else if (action == "DELETE")
+                    else
                     {
-                        string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                        SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                        getIdcomm.Parameters.AddWithValue("@JobName", MJtxtJobName.Text);
-                        int selectedJobID = (int)getIdcomm.ExecuteScalar();
-
-                        // Delete job skills first
-                        string deleteSkillsSql = "DELETE FROM JOB_SKILL WHERE JobID = @JobID";
-                        SqlCommand deleteSkillsComm = new SqlCommand(deleteSkillsSql, conn);
-                        deleteSkillsComm.Parameters.AddWithValue("@JobID", selectedJobID);
-                        deleteSkillsComm.ExecuteNonQuery();
-
-                        // Delete the job itself
-                        string sql = "DELETE FROM JOB WHERE JobID = @jobID";
-                        SqlCommand comm = new SqlCommand(sql, conn);
-                        comm.Parameters.AddWithValue("@jobID", selectedJobID);
-                        comm.ExecuteNonQuery();
-
-                        MessageBox.Show("Job deleted successfully.");
+                        MessageBox.Show("Failed to add job.");
+                        return;
                     }
                 }
-              
+                // Edit job
+                else if (action == "EDIT")
+                {
+                    if (selectedJobID <= 0)
+                    {
+                        MessageBox.Show("Please select a job to edit.");
+                        return;
+                    }
+
+                    bool success = JobManager.UpdateJob(selectedJobID, job_name, job_description, job_location, startDate, endDate, duration, job_completed, (int)prisoners);
+
+                    if (success)
+                    {
+                        MessageBox.Show("Job updated successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update job.");
+                        return;
+                    }
+                }
+                // Delete job
+                else if (action == "DELETE")
+                {
+                    if (selectedJobID <= 0)
+                    {
+                        MessageBox.Show("Please select a job to delete.");
+                        return;
+                    }
+                    else
+                    {
+                        JobManager.DeleteJob(selectedJobID);
+                    }
+
+
+                }
+
+                ResetJobForm();
+
                 ComboBoxHelper.PopulateJobNames(MJcmbJobName);
             }
             catch (Exception ex)
@@ -956,21 +918,22 @@ namespace LockedIn
 
         private void MJbtnRemoveSkill_Click(object sender, EventArgs e)
         {
-            //removing skill from job
             string skill = "";
+
             skill = MJlstSkillsNeeded.SelectedItem.ToString();
-            MJlstSkills.Items.Add(skill);
+            listBox1.Items.Add(skill);
             MJlstSkillsNeeded.Items.RemoveAt(MJlstSkillsNeeded.SelectedIndex);
+            //JobSkillManager.RemoveJobSkill(JobID,skill);
         }
 
         private void MJbtnAddSkill_Click(object sender, EventArgs e)
         {
-            //adding skill to job
             string skill = "";
 
-            skill = MJlstSkills.SelectedItem.ToString();
+            skill = listBox1.SelectedItem.ToString();
             MJlstSkillsNeeded.Items.Add(skill);
-            MJlstSkills.Items.RemoveAt(MJlstSkills.SelectedIndex);
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            //JobSkillManager.AddJobSkill(JobID, skill);
         }
 
         private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
@@ -991,6 +954,11 @@ namespace LockedIn
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
