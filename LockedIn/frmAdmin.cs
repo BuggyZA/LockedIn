@@ -90,7 +90,7 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 2)
             {
-                ComboBoxHelper.PopulateJobNames(cbxCJJobName);
+                ComboBoxHelper.PopulateUncompletedJobNames(cbxCJJobName);
                 calDateCompleted.MaxDate = DateTime.Today;
             }
             else if (tcAdmin.SelectedIndex == 5)
@@ -795,7 +795,6 @@ namespace LockedIn
             //Clearing all the Job completed details
             cbxCJJobName.SelectedIndex = -1;
             calDateCompleted.SetDate(DateTime.Today);
-            lstNotes.Items.Clear();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -826,7 +825,15 @@ namespace LockedIn
                         comm.Parameters.AddWithValue("@JobID", jobId);
                         comm.ExecuteNonQuery();
 
+                        
+                        ComboBoxHelper.PopulateUncompletedJobNames(cbxCJJobName);
+
+                        //Clearing all the Job completed details
+                        cbxCJJobName.SelectedIndex = -1;
+                        calDateCompleted.SetDate(DateTime.Today);
+
                         MessageBox.Show("Job completed has been updated.");
+
 
 
                         conn.Close();
@@ -1638,7 +1645,7 @@ namespace LockedIn
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear all the input? Some changes will be lost", "Confirm Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to go back? Some changes will be lost", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

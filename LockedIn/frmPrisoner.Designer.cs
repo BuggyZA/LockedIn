@@ -966,7 +966,7 @@
             this.btnMPBack.Name = "btnMPBack";
             this.btnMPBack.Size = new System.Drawing.Size(72, 33);
             this.btnMPBack.TabIndex = 28;
-            this.btnMPBack.Text = "Clear";
+            this.btnMPBack.Text = "Back";
             this.btnMPBack.UseVisualStyleBackColor = false;
             this.btnMPBack.Click += new System.EventHandler(this.btnMPBack_Click);
             // 

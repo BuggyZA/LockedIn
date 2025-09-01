@@ -112,17 +112,12 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.lstNotes = new System.Windows.Forms.ListBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbxCJJobName = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.calDateCompleted = new System.Windows.Forms.MonthCalendar();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cbxCJJobName = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.tpJobs = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
@@ -320,8 +315,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.tpJobs.SuspendLayout();
             this.panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -1357,7 +1350,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.btnSubmit);
             this.panel3.Location = new System.Drawing.Point(19, 68);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
@@ -1367,78 +1360,52 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel6.Controls.Add(this.lstNotes);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.cbxCJJobName);
+            this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.calDateCompleted);
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Location = new System.Drawing.Point(155, 214);
+            this.panel6.Location = new System.Drawing.Point(250, 119);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(900, 332);
+            this.panel6.Size = new System.Drawing.Size(741, 262);
             this.panel6.TabIndex = 2;
             // 
-            // lstNotes
+            // label8
             // 
-            this.lstNotes.FormattingEnabled = true;
-            this.lstNotes.ItemHeight = 23;
-            this.lstNotes.Location = new System.Drawing.Point(501, 16);
-            this.lstNotes.Margin = new System.Windows.Forms.Padding(2);
-            this.lstNotes.Name = "lstNotes";
-            this.lstNotes.ScrollAlwaysVisible = true;
-            this.lstNotes.Size = new System.Drawing.Size(343, 50);
-            this.lstNotes.TabIndex = 7;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 31);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 27);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Job Details:";
             // 
-            // panel7
+            // cbxCJJobName
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.panel7.Controls.Add(this.btnSubmit);
-            this.panel7.Controls.Add(this.btnClear);
-            this.panel7.Location = new System.Drawing.Point(300, 265);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(255, 59);
-            this.panel7.TabIndex = 6;
+            this.cbxCJJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxCJJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxCJJobName.FormattingEnabled = true;
+            this.cbxCJJobName.Location = new System.Drawing.Point(132, 134);
+            this.cbxCJJobName.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxCJJobName.Name = "cbxCJJobName";
+            this.cbxCJJobName.Size = new System.Drawing.Size(166, 31);
+            this.cbxCJJobName.TabIndex = 2;
             // 
-            // btnSubmit
+            // label4
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(14, 12);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(105, 37);
-            this.btnSubmit.TabIndex = 4;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(138, 12);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(105, 37);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(369, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Additional Notes:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 137);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 23);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Job Name:";
             // 
             // calDateCompleted
             // 
-            this.calDateCompleted.Location = new System.Drawing.Point(132, 4);
+            this.calDateCompleted.Location = new System.Drawing.Point(462, 78);
             this.calDateCompleted.Margin = new System.Windows.Forms.Padding(6);
             this.calDateCompleted.Name = "calDateCompleted";
             this.calDateCompleted.TabIndex = 1;
@@ -1446,56 +1413,26 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 16);
+            this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(403, 31);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 23);
+            this.label9.Size = new System.Drawing.Size(125, 25);
             this.label9.TabIndex = 0;
             this.label9.Text = "Date Completed:";
             // 
-            // panel4
+            // btnSubmit
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel4.Controls.Add(this.cbxCJJobName);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(427, 30);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(346, 162);
-            this.panel4.TabIndex = 0;
-            // 
-            // cbxCJJobName
-            // 
-            this.cbxCJJobName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbxCJJobName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxCJJobName.FormattingEnabled = true;
-            this.cbxCJJobName.Location = new System.Drawing.Point(134, 56);
-            this.cbxCJJobName.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxCJJobName.Name = "cbxCJJobName";
-            this.cbxCJJobName.Size = new System.Drawing.Size(166, 31);
-            this.cbxCJJobName.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 3);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 27);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Job Details:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 59);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 23);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Job Name:";
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(1079, 538);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(120, 37);
+            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.Text = "Complete Job";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // tpJobs
             // 
@@ -2980,7 +2917,7 @@
             this.btnMPBack.Name = "btnMPBack";
             this.btnMPBack.Size = new System.Drawing.Size(83, 33);
             this.btnMPBack.TabIndex = 30;
-            this.btnMPBack.Text = "Clear";
+            this.btnMPBack.Text = "Back";
             this.btnMPBack.UseVisualStyleBackColor = false;
             this.btnMPBack.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -3469,9 +3406,6 @@
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.tpJobs.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
@@ -3796,14 +3730,9 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ListBox lstNotes;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MonthCalendar calDateCompleted;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbxCJJobName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;

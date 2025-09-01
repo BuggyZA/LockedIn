@@ -357,7 +357,7 @@ namespace LockedIn
 
         private void btnMPBack_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear all the input? Some changes will be lost", "Confirm Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to go back? Some changes will be lost", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)            
             {
