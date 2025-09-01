@@ -73,9 +73,11 @@ namespace LockedIn
             }
 
             // Insert application
+            // Insert application (Accepted/Rejeced left out → NULL, JobFinished + OnPremises = 0)
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
-                string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, [Accepted/Rejeced]) VALUES (@PrisonerID, @JobID, 0)"; 
+                string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, JobFinished, OnPremises) 
+                                       VALUES (@PrisonerID, @JobID, 0, 0)";
                 SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                 insertCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
                 insertCmd.Parameters.AddWithValue("@JobID", jobID);
@@ -125,14 +127,8 @@ namespace LockedIn
 
             //Calendar
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
-            {                                                                               //Put SQL in word doc if correct
-                string query = @"SELECT j.JobID, j.StartDate, j.EndDate             
-                                FROM JOB j
-                                INNER JOIN PRISONER_ON_JOB poj 
-                                    ON j.JobID = poj.JobID
-                                WHERE poj.PrisonerID = @PrisonerID
-                                  AND poj.[Accepted/Rejeced] = 1
-                                 ;";
+            {                                                                             
+                string query = @"SELECT j.JobID, j.StartDate, j.EndDate FROM JOB j INNER JOIN PRISONER_ON_JOB poj ON j.JobID = poj.JobID WHERE poj.PrisonerID = @PrisonerID AND poj.[Accepted/Rejeced] = 1;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@PrisonerID", SessionData.LoggedInPrisonerID);
@@ -143,6 +139,7 @@ namespace LockedIn
                 List<DateTime> activeDates = new List<DateTime>();
 
                 DateTime start = DateTime.Now, end = DateTime.Now;
+
                 while (reader.Read())
                 {
                     start = Convert.ToDateTime(reader["StartDate"]);
