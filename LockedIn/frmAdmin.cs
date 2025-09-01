@@ -208,6 +208,7 @@ namespace LockedIn
         //Edit Prisoner
         private void button46_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Save";
             isupdatingPrisoner = true;
 
             txtID.Enabled = false;
@@ -222,6 +223,8 @@ namespace LockedIn
         //Delete Prisoner
         private void button47_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Delete";
+
             isDeletingPrisoner = true;
 
             txtID.Enabled = false;
@@ -236,6 +239,8 @@ namespace LockedIn
         //Add Prisoner
         private void button53_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Add";
+
             isAddingPrisoner = true;
 
             txtID.Enabled = true;
@@ -337,6 +342,8 @@ namespace LockedIn
             {
                 MessageBox.Show("Prisoner data saved!!");
             }
+
+            btnMPSave.Text = "Save";
 
             lstMPAllSkills.DataSource = null;
             lstMPAllSkills.Items.Clear();
@@ -1567,6 +1574,26 @@ namespace LockedIn
         private void button13_Click(object sender, EventArgs e)
         {
             tcAdmin.SelectedIndex = 0;;
+
+            lstMPAllSkills.DataSource = null;
+            lstMPAllSkills.Items.Clear();
+            lstMPCurrentSkills.DataSource = null;
+            lstMPCurrentSkills.Items.Clear();
+
+            pnlPInfo.Visible = false;
+            pnlMPSkills.Visible = false;
+            cmbMPPrisonerNo.Visible = false;
+            pnlMPChoices.Visible = true;
+
+            cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
+            ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
+            cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+
+            isAddingPrisoner = false;
+            isDeletingPrisoner = false;
+            isupdatingPrisoner = false;
+            Ppassword = "";
+
         }
 
         //END OF LOGOUT & BACK BUTTONS
@@ -1611,30 +1638,31 @@ namespace LockedIn
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all the input? Some changes will be lost", "Confirm Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                txtPNo.Clear();
-                txtFirstName.Clear();
-                txtLastName.Clear();
-                txtID.Clear();
-                ckbCleared.Checked = false;
-                lstMPCurrentSkills.ClearSelected();
-                lstMPAllSkills.ClearSelected();
+                lstMPAllSkills.DataSource = null;
+                lstMPAllSkills.Items.Clear();
+                lstMPCurrentSkills.DataSource = null;
+                lstMPCurrentSkills.Items.Clear();
+
+                pnlPInfo.Visible = false;
+                pnlMPSkills.Visible = false;
+                cmbMPPrisonerNo.Visible = false;
+                pnlMPChoices.Visible = true;
 
                 cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
-                cmbMPPrisonerNo.SelectedIndex = -1;
+                ComboBoxHelper.PopulatePrisonerNumbers(cmbMPPrisonerNo);
                 cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
-                pnlPInfo.Enabled = true;
-                pnlModifyPPassword.Enabled = true;
-                pnlMPSkills.Enabled = true;
 
-                frmLogIn myLoginform = new frmLogIn();
-                this.Close();
-                myLoginform.ShowDialog();
+                isAddingPrisoner = false;
+                isDeletingPrisoner = false;
+                isupdatingPrisoner = false;
+                Ppassword = "";
             }
 
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

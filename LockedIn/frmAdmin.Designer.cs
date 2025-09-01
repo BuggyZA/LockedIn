@@ -199,7 +199,6 @@
             this.cbxASJJobName = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.tpSkills = new System.Windows.Forms.TabPage();
             this.panel23 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
@@ -244,7 +243,6 @@
             this.cmbPrisonerName = new System.Windows.Forms.ComboBox();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.button40 = new System.Windows.Forms.Button();
             this.tpPrisoner = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
@@ -2217,7 +2215,6 @@
             this.panel44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel44.Controls.Add(this.panel45);
             this.panel44.Controls.Add(this.panel46);
-            this.panel44.Controls.Add(this.button6);
             this.panel44.Location = new System.Drawing.Point(17, 58);
             this.panel44.Margin = new System.Windows.Forms.Padding(2);
             this.panel44.Name = "panel44";
@@ -2361,18 +2358,6 @@
             this.label50.Size = new System.Drawing.Size(95, 27);
             this.label50.TabIndex = 9;
             this.label50.Text = "Job Details:";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(1015, 551);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(142, 33);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = false;
             // 
             // tpSkills
             // 
@@ -2738,7 +2723,6 @@
             this.panel49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel49.Controls.Add(this.panel58);
             this.panel49.Controls.Add(this.panel51);
-            this.panel49.Controls.Add(this.button40);
             this.panel49.Location = new System.Drawing.Point(15, 57);
             this.panel49.Margin = new System.Windows.Forms.Padding(2);
             this.panel49.Name = "panel49";
@@ -2889,19 +2873,6 @@
             this.label62.TabIndex = 9;
             this.label62.Text = "Prisoner Details:";
             // 
-            // button40
-            // 
-            this.button40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button40.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button40.ForeColor = System.Drawing.Color.White;
-            this.button40.Location = new System.Drawing.Point(1015, 551);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(142, 33);
-            this.button40.TabIndex = 15;
-            this.button40.Text = "Save";
-            this.button40.UseVisualStyleBackColor = false;
-            this.button40.Click += new System.EventHandler(this.button40_Click);
-            // 
             // tpPrisoner
             // 
             this.tpPrisoner.Controls.Add(this.panel57);
@@ -3004,12 +2975,12 @@
             this.btnMPBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPBack.ForeColor = System.Drawing.Color.White;
-            this.btnMPBack.Location = new System.Drawing.Point(923, 549);
+            this.btnMPBack.Location = new System.Drawing.Point(1069, 541);
             this.btnMPBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnMPBack.Name = "btnMPBack";
             this.btnMPBack.Size = new System.Drawing.Size(83, 33);
             this.btnMPBack.TabIndex = 30;
-            this.btnMPBack.Text = "Back";
+            this.btnMPBack.Text = "Clear";
             this.btnMPBack.UseVisualStyleBackColor = false;
             this.btnMPBack.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -3079,7 +3050,7 @@
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(104, 230);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 220);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
@@ -3285,7 +3256,7 @@
             this.btnMPSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPSave.ForeColor = System.Drawing.Color.White;
-            this.btnMPSave.Location = new System.Drawing.Point(1011, 549);
+            this.btnMPSave.Location = new System.Drawing.Point(922, 541);
             this.btnMPSave.Name = "btnMPSave";
             this.btnMPSave.Size = new System.Drawing.Size(142, 33);
             this.btnMPSave.TabIndex = 29;
@@ -3668,7 +3639,6 @@
         private System.Windows.Forms.ComboBox cmbPrisonerName;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Button button40;
         private System.Windows.Forms.Panel panel52;
         private System.Windows.Forms.Panel pnlModifyPPassword;
         private System.Windows.Forms.Label label63;
@@ -3775,7 +3745,6 @@
         private System.Windows.Forms.ComboBox cbxASJJobName;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtEmpPass;
         private System.Windows.Forms.Label lblEmpPass;
         private System.Windows.Forms.TextBox txtMJJobName;

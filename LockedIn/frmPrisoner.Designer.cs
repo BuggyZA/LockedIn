@@ -949,7 +949,7 @@
             this.btnMPSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPSave.ForeColor = System.Drawing.Color.White;
-            this.btnMPSave.Location = new System.Drawing.Point(1011, 549);
+            this.btnMPSave.Location = new System.Drawing.Point(933, 549);
             this.btnMPSave.Name = "btnMPSave";
             this.btnMPSave.Size = new System.Drawing.Size(142, 33);
             this.btnMPSave.TabIndex = 29;
@@ -962,11 +962,11 @@
             this.btnMPBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.btnMPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnMPBack.ForeColor = System.Drawing.Color.White;
-            this.btnMPBack.Location = new System.Drawing.Point(1159, 549);
+            this.btnMPBack.Location = new System.Drawing.Point(1081, 549);
             this.btnMPBack.Name = "btnMPBack";
             this.btnMPBack.Size = new System.Drawing.Size(72, 33);
             this.btnMPBack.TabIndex = 28;
-            this.btnMPBack.Text = "Back";
+            this.btnMPBack.Text = "Clear";
             this.btnMPBack.UseVisualStyleBackColor = false;
             this.btnMPBack.Click += new System.EventHandler(this.btnMPBack_Click);
             // 

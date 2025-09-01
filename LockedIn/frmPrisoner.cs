@@ -174,6 +174,7 @@ namespace LockedIn
 
         private void btnEditP_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Save";
             isUpdatingPrisoner = true;
             this.PopulateMaintainControls();
 
@@ -227,6 +228,8 @@ namespace LockedIn
 
         private void btnDeleteP_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Delete";
+            
             isDeletingPrisoner = true;
             this.PopulateMaintainControls();
             this.DisableMaintainControls();
@@ -293,6 +296,8 @@ namespace LockedIn
                 }
             }
 
+            btnMPSave.Text = "Save";
+
             lstMPAllSkills.DataSource = null;
             lstMPAllSkills.Items.Clear();
             lstMPCurrentSkills.DataSource = null;
@@ -352,17 +357,9 @@ namespace LockedIn
 
         private void btnMPBack_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all the input? Some changes will be lost", "Confirm Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)             //Change to tcPrisoner.SelectedIndex = 0
-            {
-                this.ClearMaintainControls();
-
-                frmLogIn myLoginform = new frmLogIn();
-                this.Close();
-                myLoginform.ShowDialog();
-            }
-            else
+            if (result == DialogResult.Yes)            
             {
                 this.ClearMaintainControls();
 
@@ -379,7 +376,6 @@ namespace LockedIn
 
                 isDeletingPrisoner = false;
                 isUpdatingPrisoner = false;
-
             }
         }
 
