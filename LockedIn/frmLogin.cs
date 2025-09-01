@@ -236,6 +236,30 @@ namespace LockedIn
 
         }
 
+        private void imgPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = false;
+            imgPass.Image = Properties.Resources.hide;
+        }
+
+        private void imgPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+            imgPass.Image = Properties.Resources.view;
+        }
+
+        private void imgPass2_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtSUPassword.UseSystemPasswordChar = false;
+            imgPass2.Image = Properties.Resources.hide;
+        }
+
+        private void imgPass2_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtSUPassword.UseSystemPasswordChar = true;
+            imgPass2.Image = Properties.Resources.view;
+        }
+
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             

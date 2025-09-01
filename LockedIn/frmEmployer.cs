@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,6 @@ namespace LockedIn
         {
             InitializeComponent();
         }
-
 
         private void ARJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -89,8 +89,9 @@ namespace LockedIn
         {
             EmpID = SessionData.LoggedInEmployerID.ToString();
             MessageBox.Show(EmpID);
-            ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
-
+            //ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
+            tcEmployer.SelectedIndex = 0;
+            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
 
 
             ARJtxtPrisonerName.Text = "";
@@ -98,6 +99,7 @@ namespace LockedIn
 
 
             ARJcmbSelectApplication.SelectedIndex = -1;
+           
 
         }
 
@@ -187,29 +189,30 @@ namespace LockedIn
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 conn.Open();
-
-                string sql = "UPDATE PRISONER_ON_JOB SET [Accepted/Rejeced] = @Status WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+                string sql;
+                if(isApproved == true)
+                {
+                     sql = "UPDATE JOB SET PrisonersNeeded = PrisonersNeeded - 1 WHERE JobID = @JobID";
+                }
+                else
+                {
+                     sql = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+                }
+                   
 
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
-                    comm.Parameters.AddWithValue("@Status", isApproved ? 1 : 0);
+
                     comm.Parameters.AddWithValue("@JobID", jobId);
                     comm.Parameters.AddWithValue("@PrisonerID", prisonerId);
+                    comm.ExecuteNonQuery();
 
-                    int rowsAffected = comm.ExecuteNonQuery();
+                    tcEmployer.SelectedIndex = 4;
 
-                    string statusText = isApproved ? "approved" : "rejected";
 
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Application " + statusText + " successfully!");
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("No application found to " + statusText.Replace("ed", "") + ".");
-                    }
                 }
+    
             }
         }
 
@@ -218,14 +221,10 @@ namespace LockedIn
             tcEmployer.SelectedIndex = 0;
         }
 
-
-
-
-
-
-
         private void ARJbtnApprove_Click(object sender, EventArgs e)
         {
+            
+
             int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
             int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
             UpdateApplicationStatus(jobId, prisonerId, true);
@@ -233,6 +232,7 @@ namespace LockedIn
 
         private void ARJbtnReject_Click(object sender, EventArgs e)
         {
+            
             int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
             int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
             UpdateApplicationStatus(jobId, prisonerId, false);
@@ -252,6 +252,7 @@ namespace LockedIn
         private void btnHpARJ_Click(object sender, EventArgs e)
         {
             tcEmployer.SelectedIndex = 4;
+
         }
 
         private void imgProfile_Click(object sender, EventArgs e)
@@ -271,7 +272,7 @@ namespace LockedIn
 
         private void btnMJBack_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void ASJbtnBack_Click(object sender, EventArgs e)
@@ -361,7 +362,11 @@ namespace LockedIn
         private void btnEmpSave_Click(object sender, EventArgs e)
         {
             //save edited employer details
-
+            if (txtEmpFName.Text == "" || txtEmpLName.Text == "" )
+            {
+                MessageBox.Show("Please enter all the details for the employer!");
+                return;
+            }
             //Update employer details
             string empId = txtEmpID.Text;
             string fName = txtEmpFName.Text;
@@ -406,8 +411,12 @@ namespace LockedIn
                 MessageBox.Show("passwords do not match!");
                 return;
             }
-            else
+            else if (txtEmpNew.Text.Trim().Length < 6)
             {
+                MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
                 newPass = PasswordHasser.HashPassword(newPass);
 
                 using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
@@ -434,7 +443,7 @@ namespace LockedIn
 
                     }
                 }
-            }
+            
         }
 
         private void frmEmployer_Shown(object sender, EventArgs e)
@@ -442,27 +451,8 @@ namespace LockedIn
             tcEmployer.SelectedIndex = 0;
         }
 
-        //START OF LOGOUT AND BACK BUTTON
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                frmAdmin admin = new frmAdmin();
-                admin.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                frmPrisoner prisoner = new frmPrisoner();
-                prisoner.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                tcEmployer.SelectedIndex = 0;
-            }
+        
 
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -473,24 +463,24 @@ namespace LockedIn
 
         private void btnMEmpBack_Click_1(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
             PnlEmpInfo.Visible = false;
             pnlEmpPass.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -501,75 +491,84 @@ namespace LockedIn
 
         private void btnEmpDel_Click(object sender, EventArgs e)
         {
-            string employerId = EmpID;
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                conn.Open();
-
-                string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
-                using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
+                string employerId = EmpID;
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {
-                    cmd1.Parameters.AddWithValue("@ID", employerId);
-                    SqlDataReader reader = cmd1.ExecuteReader();
-                    List<int> jobIds = new List<int>();
-                    while (reader.Read())
+                    conn.Open();
+
+                    string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
+                    using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
                     {
-                        jobIds.Add(reader.GetInt32(0));
+                        cmd1.Parameters.AddWithValue("@ID", employerId);
+                        SqlDataReader reader = cmd1.ExecuteReader();
+                        List<int> jobIds = new List<int>();
+                        while (reader.Read())
+                        {
+                            jobIds.Add(reader.GetInt32(0));
+                        }
+                        reader.Close();
+                        // Delete associated records in PRISONER_ON_JOB for each job
+                        foreach (int jobId in jobIds)
+                        {
+                            string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
+                            using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                            {
+                                cmd2.Parameters.AddWithValue("@JobID", jobId);
+                                cmd2.ExecuteNonQuery();
+                            }
+
+                            string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
+                            using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
+                            {
+                                cmd3.Parameters.AddWithValue("@JobID", jobId);
+                                cmd3.ExecuteNonQuery();
+                            }
+                        }
                     }
-                    reader.Close();
-                    // Delete associated records in PRISONER_ON_JOB for each job
-                    foreach (int jobId in jobIds)
+                    string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
+                    using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
                     {
-                        string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
-                        using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
-                        {
-                            cmd2.Parameters.AddWithValue("@JobID", jobId);
-                            cmd2.ExecuteNonQuery();
-                        }
-
-                        string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
-                        using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
-                        {
-                            cmd3.Parameters.AddWithValue("@JobID", jobId);
-                            cmd3.ExecuteNonQuery();
-                        }
+                        cmd4.Parameters.AddWithValue("@ID", employerId);
+                        cmd4.ExecuteNonQuery();
                     }
-                }
-                string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
-                using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
-                {
-                    cmd4.Parameters.AddWithValue("@ID", employerId);
-                    cmd4.ExecuteNonQuery();
-                }
-                string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
-                using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
-                {
-                    cmd5.Parameters.AddWithValue("@ID", employerId);
+                    string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                    using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
+                    {
+                        cmd5.Parameters.AddWithValue("@ID", employerId);
 
-                    int rowsAffected = cmd5.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                        MessageBox.Show("Employer deleted successfully!");
-                    else
-                        MessageBox.Show("No matching employer found!");
-                }
-                conn.Close();
-                frmLogIn login = new frmLogIn();
-                login.logOut();
-                this.Hide();
+                        int rowsAffected = cmd5.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                            MessageBox.Show("Employer deleted successfully!");
+                        else
+                            MessageBox.Show("No matching employer found!");
+                    }
+                    conn.Close();
+                    frmLogIn login = new frmLogIn();
+                    login.logOut();
+                    this.Hide();
+                }  
             }
+            else
+            {
+                // User clicked No - cancel deletion
+                MessageBox.Show("Delete cancelled.");
+            }//delete employer
+
         }
 
-        private void panel6_VisibleChanged(object sender, EventArgs e)
-        {
-            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
-        }
+        
 
         private void tcEmployer_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             isPopulating = true;
-            if (tcEmployer.SelectedIndex == 2)
+            if (tcEmployer.SelectedIndex == 0)
             {
-                ComboBoxHelper.PopulateJobNames(cbxASJJobName);
+                ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
             }
             else if (tcEmployer.SelectedIndex == 1)
             {
@@ -585,6 +584,70 @@ namespace LockedIn
                 
                 ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
                 ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
+            else if (tcEmployer.SelectedIndex == 2)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+
+                        String query = "SELECT JobID ,JobName FROM JOB WHERE EmployerID = @employerID";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@employerID", SessionData.LoggedInEmployerID);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+
+                        adapter.Fill(ds, "JOB");
+
+                        cbxASJJobName.DataSource = ds.Tables["JOB"];
+                        cbxASJJobName.DisplayMember = "JobName";
+                        cbxASJJobName.ValueMember = "JobID";
+
+
+                        cbxASJJobName.SelectedIndex = -1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading skill names: " + ex.Message);
+                }
+            }
+            else if (tcEmployer.SelectedIndex == 4)
+            {
+                ARJcmbJobName.SelectedIndex = -1;
+                ARJcmbSelectApplication.SelectedIndex = -1;
+                ARJtxtPrisonerName.Text = "";
+                ARJlsbCurrentSkills.DataSource = null;
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+                        string sql = "SELECT JobID ,JobName FROM JOB WHERE EmployerID = @EmpID";
+                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        {
+                            comm.Parameters.AddWithValue("@EmpID", Convert.ToInt32(EmpID));
+
+
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataSet ds = new DataSet();
+                            adapter.Fill(ds, "JOB");
+
+                            ARJcmbJobName.DataSource = ds.Tables["JOB"];
+                            ARJcmbJobName.DisplayMember = "JobName";
+                            ARJcmbJobName.ValueMember = "JobID";
+
+                            ARJcmbJobName.SelectedIndex = -1;
+                        }
+
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading skill names: " + ex.Message);
+                }
             }
                 isPopulating = false;
         }
@@ -857,6 +920,19 @@ namespace LockedIn
         }
 
         private void MJpnlSkillDetails_Paint(object sender, PaintEventArgs e)
+        private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = false;
+            imgFMENewshow.Image = Properties.Resources.hide;
+        }
+
+        private void imgFMENewshow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = true;
+            imgFMENewshow.Image = Properties.Resources.view;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
         {
 
         }

@@ -46,8 +46,49 @@ namespace LockedIn
 
         private void btnAFJapply_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a job before applying.");
+                return;
+            }
 
-        }
+            int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+
+            // Check if already applied
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                string checkQuery = @"SELECT COUNT FROM WHERE PrisonerID = @PrisonerID AND JobID = @JobID";
+                SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                checkCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                checkCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                int alreadyApplied = (int)checkCmd.ExecuteScalar();
+
+                if (alreadyApplied > 0)
+                {
+                    MessageBox.Show("You have already applied for this job.");
+                    return;
+                }
+            }
+
+            // Insert application
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, [Accepted/Rejeced]) VALUES (@PrisonerID, @JobID, 0)"; 
+                SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                insertCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                insertCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                int rows = insertCmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                    MessageBox.Show("You have successfully applied for the job!", "Success");
+                else
+                    MessageBox.Show("Application failed. Please try again.", "Error");
+            }
+        } 
 
         private void panel16_Paint(object sender, PaintEventArgs e)
         {
@@ -56,7 +97,11 @@ namespace LockedIn
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcPrisoner.SelectedIndex == 1)
+            if (tcPrisoner.SelectedIndex == 0)
+            {
+                ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
+            }
+            else if (tcPrisoner.SelectedIndex == 1)
             {
 
                 pnlPInfo.Visible = false;
@@ -69,9 +114,9 @@ namespace LockedIn
 
         private void frmPrisoner_Load(object sender, EventArgs e)
         {
-            //frmLogIn loginForm = new frmLogIn();                                          //Unnessecary??
+            //frmLogIn loginForm = new frmLogIn();                                         
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
-
+            ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
             //Tab control 
             tcPrisoner.Appearance = TabAppearance.FlatButtons;
             tcPrisoner.ItemSize = new Size(0, 1);
@@ -122,7 +167,8 @@ namespace LockedIn
                 calHPactiveJobs.UpdateBoldedDates();
             }
 
-
+            // Populating the combobox for "Apply for jobs"
+            ComboBoxHelper.PopulateJobNames(comboBox1);
 
         }
 
@@ -221,7 +267,7 @@ namespace LockedIn
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
+                if (result == DialogResult.Yes)            
                 {
                     // User clicked Yes - proceed with deletion
                     if (PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
@@ -308,7 +354,7 @@ namespace LockedIn
         {
             DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
+            if (result == DialogResult.Yes)             //Change to tcPrisoner.SelectedIndex = 0
             {
                 this.ClearMaintainControls();
 
@@ -384,7 +430,6 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 2;
         }
 
-        //START OF LOGOUT AND BACK BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
             frmLogIn login = new frmLogIn();
@@ -397,47 +442,91 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 0;
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                frmAdmin admin = new frmAdmin();
-                admin.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                tcPrisoner.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
+        private void lstAFJskillsRequired_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void rtxjobDescription_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void txtAFJworkersNeeded_TextChanged(object sender, EventArgs e)
+        {
 
-        //END OF LOGOUT AND BACK BUTTON
+        }
+
+        private void txtAFJjobLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAFJjobDuration_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Uncomment when you work, dont leave with errors that stop the program from running!
+            /*   if (comboBox1.SelectedIndex == -1 || isPopulating) return;
+
+               int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+
+               using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+               {
+                   string query = @"SELECT JobLocation, PrisonersNeeded, JobDuration, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
+
+                   SqlCommand cmd = new SqlCommand(query, conn);
+                   cmd.Parameters.AddWithValue("@JobID", jobID);
+
+                   conn.Open();
+                   SqlDataReader reader = cmd.ExecuteReader();
+
+                   if (reader.Read())
+                   {
+                       txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
+                       txtAFJjobDuration.Text = reader["JobDuration"].ToString();
+                       txtAFJjobLocation.Text = reader["JobLocation"].ToString();
+                       rtxjobDescription.Text = reader["JobDescription"].ToString();
+                       lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
+                       lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
+                   }
+                   reader.Close();
+               }
+
+               // populating the list box with the skills required 
+               ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
+            */
+        }
+
+        private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = false;
+            imgMPpass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMPpass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = true;
+            imgMPpass.Image = Properties.Resources.view;
+        }
+         
     }
 }

@@ -166,7 +166,9 @@
       <DependentUpon>LockedInDB.mdf</DependentUpon>
     </Content>
     <Content Include="Pictures\back-arrow.png" />
+    <Content Include="Pictures\hide.png" />
     <Content Include="Pictures\profile-user.png" />
+    <Content Include="Pictures\view.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

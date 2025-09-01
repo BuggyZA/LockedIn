@@ -679,6 +679,7 @@ namespace LockedIn
                 txtEmpPass.Visible = false;
                 lblEmpPass.Visible = false;
                 btnEmpEdit.Visible = true;
+                imgMEPass.Visible = false;
 
 
             }
@@ -703,6 +704,7 @@ namespace LockedIn
             txtEmpLName.Enabled = true;
             lblEmpPass.Visible = true;
             txtEmpPass.Visible = true;
+            imgMEPass.Visible = true;
         }
 
         private void btnEditEmp_Click(object sender, EventArgs e)
@@ -842,6 +844,7 @@ namespace LockedIn
 
         private void btnReqReports_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmReports ReportForm = new frmReports();
             ReportForm.ShowDialog();
         }
@@ -871,76 +874,86 @@ namespace LockedIn
 
         private void btnEmpDel_Click(object sender, EventArgs e)
         {
-            //delete employer
-            if (cmbEmpDetails.SelectedIndex == -1)
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Please select an employer!");
-                return;
+                if (cmbEmpDetails.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select an employer!");
+                    return;
+                }
+
+                // Get EmployerID directly from ValueMember
+                int employerId = Convert.ToInt32(cmbEmpDetails.SelectedValue);
+
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    conn.Open();
+
+                    string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
+                    using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
+                    {
+                        cmd1.Parameters.AddWithValue("@ID", employerId);
+                        SqlDataReader reader = cmd1.ExecuteReader();
+                        List<int> jobIds = new List<int>();
+                        while (reader.Read())
+                        {
+                            jobIds.Add(reader.GetInt32(0));
+                        }
+                        reader.Close();
+                        // Delete associated records in PRISONER_ON_JOB for each job
+                        foreach (int jobId in jobIds)
+                        {
+                            string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
+                            using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                            {
+                                cmd2.Parameters.AddWithValue("@JobID", jobId);
+                                cmd2.ExecuteNonQuery();
+                            }
+
+                            string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
+                            using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
+                            {
+                                cmd3.Parameters.AddWithValue("@JobID", jobId);
+                                cmd3.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
+                    using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
+                    {
+                        cmd4.Parameters.AddWithValue("@ID", employerId);
+                        cmd4.ExecuteNonQuery();
+                    }
+                    string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
+                    using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
+                    {
+                        cmd5.Parameters.AddWithValue("@ID", employerId);
+
+                        int rowsAffected = cmd5.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                            MessageBox.Show("Employer deleted successfully!");
+                        else
+                            MessageBox.Show("No matching employer found!");
+                    }
+                }
+
+                // Refresh the ComboBox after deletion
+                ComboBoxHelper.PopulateEmployerNames(cmbEmpDetails);
+
+                cmbEmpDetails.SelectedIndex = -1;
+                btnEmpDel.Visible = false;
+                pnlEmpDetails.Visible = false;
+                pnlEmpMenu.Visible = true;
+                btnBackEmp.Visible = false;
             }
-
-            // Get EmployerID directly from ValueMember
-            int employerId = Convert.ToInt32(cmbEmpDetails.SelectedValue);
-
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            else
             {
-                conn.Open();
-                
-                string sql1 = "SELECT JobID FROM JOB WHERE EmployerID = @ID";
-                using (SqlCommand cmd1 = new SqlCommand(sql1, conn))
-                {
-                    cmd1.Parameters.AddWithValue("@ID", employerId);
-                    SqlDataReader reader = cmd1.ExecuteReader();
-                    List<int> jobIds = new List<int>();
-                    while (reader.Read())
-                    {
-                        jobIds.Add(reader.GetInt32(0));
-                    }
-                    reader.Close();
-                    // Delete associated records in PRISONER_ON_JOB for each job
-                    foreach (int jobId in jobIds)
-                    {
-                        string sql2 = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID";
-                        using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
-                        {
-                            cmd2.Parameters.AddWithValue("@JobID", jobId);
-                            cmd2.ExecuteNonQuery();
-                        }
-
-                        string sql3 = "DELETE FROM SKILL_OF_JOB WHERE JobID = @JobID";
-                        using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
-                        {
-                            cmd3.Parameters.AddWithValue("@JobID", jobId);
-                            cmd3.ExecuteNonQuery();
-                        }
-                    }
-                }
-                string sql4 = "DELETE FROM JOB Where EmployerID = @ID";
-                using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
-                {
-                    cmd4.Parameters.AddWithValue("@ID", employerId);
-                    cmd4.ExecuteNonQuery();
-                }
-                string sql5 = "DELETE FROM EMPLOYER WHERE EmployerID = @ID";
-                using (SqlCommand cmd5 = new SqlCommand(sql5, conn))
-                {
-                    cmd5.Parameters.AddWithValue("@ID", employerId);
-
-                    int rowsAffected = cmd5.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                        MessageBox.Show("Employer deleted successfully!");
-                    else
-                        MessageBox.Show("No matching employer found!");
-                }
-            }
-
-            // Refresh the ComboBox after deletion
-            ComboBoxHelper.PopulateEmployerNames(cmbEmpDetails);
-
-            cmbEmpDetails.SelectedIndex = -1;
-            btnEmpDel.Visible = false;
-            pnlEmpDetails.Visible = false;
-            pnlEmpMenu.Visible = true;
-            btnBackEmp.Visible = false;
+                // User clicked No - cancel deletion
+                MessageBox.Show("Delete cancelled.");
+            }//delete employer
+            
         }
 
 
@@ -948,16 +961,21 @@ namespace LockedIn
         private void btnAddNewEmp_Click(object sender, EventArgs e)
         {
             //Add new employer
-
+            if (txtEmpFName.Text == "" || txtEmpLName.Text == "" || txtEmpPass.Text == "")
+            {
+                MessageBox.Show("Please enter all the details for the employer!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (txtEmpPass.Text.Trim().Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string firstName = txtEmpFName.Text;
             string lastName = txtEmpLName.Text;
             string password = PasswordHasser.HashPassword(txtEmpPass.Text);
 
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please enter all the details for the employer!");
-                return;
-            }
+            
 
             SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr());
             conn.Open();
@@ -977,6 +995,8 @@ namespace LockedIn
             btnAddNewEmp.Visible = false;
             PnlEmpInfo.Visible = false;
             pnlEmpMenu.Visible = true;
+            btnBackEmp.Visible = false;
+            imgMEPass.Visible = false;
 
 
         }
@@ -1333,6 +1353,11 @@ namespace LockedIn
         private void btnEmpSave_Click(object sender, EventArgs e)
         {
             //Update employer details
+            if (txtEmpFName.Text == "" || txtEmpLName.Text == "" )
+            {
+                MessageBox.Show("Please enter all the details for the employer!");
+                return;
+            }
             string empId = txtEmpID.Text;
             string fName = txtEmpFName.Text;
             string lName = txtEmpLName.Text;
@@ -1358,7 +1383,7 @@ namespace LockedIn
                         pnlEmpDetails.Visible = false;
                         btnEmpEdit.Visible = false;
                         pnlEmpPass.Visible = false;
-                        //btnBackEmp.Visible = false;
+                        btnBackEmp.Visible = false;
                         btnEmpSave.Visible = false;
 
                     }
@@ -1380,8 +1405,12 @@ namespace LockedIn
                 MessageBox.Show("passwords do not match!");
                 return;
             }
-            else
+            else if (txtEmpPass.Text.Trim().Length < 6)
             {
+                MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
                 newPass = PasswordHasser.HashPassword(newPass);
                 MessageBox.Show(newPass);
 
@@ -1409,11 +1438,6 @@ namespace LockedIn
 
                     }
                 }
-            }
-
-
-
-
         }
 
         private void cbxJobName_SelectedIndexChanged(object sender, EventArgs e)
@@ -1448,64 +1472,43 @@ namespace LockedIn
             this.Hide();
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                tcAdmin.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                frmPrisoner prisoner = new frmPrisoner();
-                prisoner.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
         private void btnMEmpBack_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         //END OF LOGOUT & BACK BUTTONS
@@ -1599,6 +1602,40 @@ namespace LockedIn
             pnlAdDate.Visible = false;
             pnlAdSkills.Visible = false;
             
+        private void imgMEPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpPass.UseSystemPasswordChar = false;
+            imgMEPass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMEPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpPass.UseSystemPasswordChar = true;
+            imgMEPass.Image = Properties.Resources.view;
+        }
+
+        private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = false;
+            imgFMENewshow.Image = Properties.Resources.hide;
+        }
+
+        private void imgFMENewshow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = true;
+            imgFMENewshow.Image = Properties.Resources.view;
+        }
+
+        private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = false;
+            imgMPpass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMPpass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = true;
+            imgMPpass.Image = Properties.Resources.view;
         }
     }
 }

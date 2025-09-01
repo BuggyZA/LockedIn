@@ -39,6 +39,7 @@
             this.pnlLogIn = new System.Windows.Forms.Panel();
             this.btnLIBack = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.imgPass = new System.Windows.Forms.PictureBox();
             this.lblEmployerID = new System.Windows.Forms.Label();
             this.cbxEmployerID = new System.Windows.Forms.ComboBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             this.pnlSignUp = new System.Windows.Forms.Panel();
             this.btnSUBack = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.imgPass2 = new System.Windows.Forms.PictureBox();
             this.lblSUConPassError = new System.Windows.Forms.Label();
             this.lblSUPassError = new System.Windows.Forms.Label();
             this.lblSUIDError = new System.Windows.Forms.Label();
@@ -74,8 +76,10 @@
             this.panel3.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPass)).BeginInit();
             this.pnlSignUp.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPass2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -186,6 +190,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel5.Controls.Add(this.imgPass);
             this.panel5.Controls.Add(this.lblEmployerID);
             this.panel5.Controls.Add(this.cbxEmployerID);
             this.panel5.Controls.Add(this.txtPassword);
@@ -198,6 +203,19 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(335, 315);
             this.panel5.TabIndex = 5;
+            // 
+            // imgPass
+            // 
+            this.imgPass.Image = global::LockedIn.Properties.Resources.view;
+            this.imgPass.Location = new System.Drawing.Point(298, 82);
+            this.imgPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgPass.Name = "imgPass";
+            this.imgPass.Size = new System.Drawing.Size(32, 26);
+            this.imgPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPass.TabIndex = 36;
+            this.imgPass.TabStop = false;
+            this.imgPass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPass_MouseDown);
+            this.imgPass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgPass_MouseUp);
             // 
             // lblEmployerID
             // 
@@ -213,7 +231,7 @@
             // 
             this.cbxEmployerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.cbxEmployerID.FormattingEnabled = true;
-            this.cbxEmployerID.Location = new System.Drawing.Point(23, 30);
+            this.cbxEmployerID.Location = new System.Drawing.Point(27, 33);
             this.cbxEmployerID.Name = "cbxEmployerID";
             this.cbxEmployerID.Size = new System.Drawing.Size(284, 32);
             this.cbxEmployerID.TabIndex = 8;
@@ -222,19 +240,21 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtPassword.Location = new System.Drawing.Point(173, 79);
+            this.txtPassword.Location = new System.Drawing.Point(160, 80);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(134, 29);
+            this.txtPassword.Size = new System.Drawing.Size(172, 29);
             this.txtPassword.TabIndex = 9;
+            this.txtPassword.Text = "pass002";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtUsername.Location = new System.Drawing.Point(173, 33);
+            this.txtUsername.Location = new System.Drawing.Point(160, 32);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(134, 29);
+            this.txtUsername.Size = new System.Drawing.Size(170, 29);
             this.txtUsername.TabIndex = 7;
+            this.txtUsername.Text = "P002345678";
             // 
             // lblPassword
             // 
@@ -302,7 +322,7 @@
             this.pnlSignUp.Controls.Add(this.label7);
             this.pnlSignUp.Location = new System.Drawing.Point(903, 199);
             this.pnlSignUp.Name = "pnlSignUp";
-            this.pnlSignUp.Size = new System.Drawing.Size(350, 440);
+            this.pnlSignUp.Size = new System.Drawing.Size(376, 440);
             this.pnlSignUp.TabIndex = 9;
             // 
             // btnSUBack
@@ -320,6 +340,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel6.Controls.Add(this.imgPass2);
             this.panel6.Controls.Add(this.lblSUConPassError);
             this.panel6.Controls.Add(this.lblSUPassError);
             this.panel6.Controls.Add(this.lblSUIDError);
@@ -339,8 +360,21 @@
             this.panel6.Controls.Add(this.btnSignUp);
             this.panel6.Location = new System.Drawing.Point(8, 49);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(335, 377);
+            this.panel6.Size = new System.Drawing.Size(363, 377);
             this.panel6.TabIndex = 5;
+            // 
+            // imgPass2
+            // 
+            this.imgPass2.Image = global::LockedIn.Properties.Resources.view;
+            this.imgPass2.Location = new System.Drawing.Point(327, 177);
+            this.imgPass2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgPass2.Name = "imgPass2";
+            this.imgPass2.Size = new System.Drawing.Size(32, 26);
+            this.imgPass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPass2.TabIndex = 36;
+            this.imgPass2.TabStop = false;
+            this.imgPass2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgPass2_MouseDown);
+            this.imgPass2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgPass2_MouseUp);
             // 
             // lblSUConPassError
             // 
@@ -546,10 +580,12 @@
             this.pnlLogIn.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPass)).EndInit();
             this.pnlSignUp.ResumeLayout(false);
             this.pnlSignUp.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPass2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,6 +633,8 @@
         private System.Windows.Forms.Label lblSUIDError;
         private System.Windows.Forms.Label lblSULNError;
         private System.Windows.Forms.Label lblSUFNError;
+        private System.Windows.Forms.PictureBox imgPass;
+        private System.Windows.Forms.PictureBox imgPass2;
     }
 }
 
