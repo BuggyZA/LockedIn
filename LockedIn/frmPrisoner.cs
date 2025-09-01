@@ -46,8 +46,49 @@ namespace LockedIn
 
         private void btnAFJapply_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a job before applying.");
+                return;
+            }
 
-        }
+            int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+
+            // Check if already applied
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                string checkQuery = @"SELECT COUNT FROM WHERE PrisonerID = @PrisonerID AND JobID = @JobID";
+                SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                checkCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                checkCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                int alreadyApplied = (int)checkCmd.ExecuteScalar();
+
+                if (alreadyApplied > 0)
+                {
+                    MessageBox.Show("You have already applied for this job.");
+                    return;
+                }
+            }
+
+            // Insert application
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, [Accepted/Rejeced]) VALUES (@PrisonerID, @JobID, 0)"; 
+                SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                insertCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                insertCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                int rows = insertCmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                    MessageBox.Show("You have successfully applied for the job!", "Success");
+                else
+                    MessageBox.Show("Application failed. Please try again.", "Error");
+            }
+        } 
 
         private void panel16_Paint(object sender, PaintEventArgs e)
         {
@@ -69,7 +110,7 @@ namespace LockedIn
 
         private void frmPrisoner_Load(object sender, EventArgs e)
         {
-            //frmLogIn loginForm = new frmLogIn();                                          //Unnessecary??
+            //frmLogIn loginForm = new frmLogIn();                                         
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
 
             //Tab control 
@@ -122,7 +163,8 @@ namespace LockedIn
                 calHPactiveJobs.UpdateBoldedDates();
             }
 
-
+            // Populating the combobox for "Apply for jobs"
+            ComboBoxHelper.PopulateJobNames(comboBox1);
 
         }
 
@@ -460,7 +502,34 @@ namespace LockedIn
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == -1) return;
 
+            int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            {
+                string query = @"SELECT JobLocation, PrisonersNeeded, JobDuration, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
+                    txtAFJjobDuration.Text = reader["JobDuration"].ToString();
+                    txtAFJjobLocation.Text = reader["JobLocation"].ToString();
+                    rtxjobDescription.Text = reader["JobDescription"].ToString();
+                    lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
+                    lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
+                }
+                reader.Close();
+            }
+
+            // populating the list box with the skills required 
+            ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
         }
 
 
