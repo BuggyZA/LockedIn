@@ -46,6 +46,13 @@ namespace LockedIn
 
         private void btnAFJapply_Click(object sender, EventArgs e)
         {
+            // Validate that prisoner is cleared to work
+            if (!thisPrisoner.ClearedToWork)
+            {
+                MessageBox.Show("You are not cleared to work and cannot apply for jobs.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (comboBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a job before applying.");
@@ -65,9 +72,48 @@ namespace LockedIn
                 return;
             }
 
-
             try
             {
+                // Check if job is still available (not completed)
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    string jobStatusQuery = @"SELECT Completed, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
+                    SqlCommand jobStatusCmd = new SqlCommand(jobStatusQuery, conn);
+                    jobStatusCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                    conn.Open();
+                    SqlDataReader statusReader = jobStatusCmd.ExecuteReader();
+
+                    if (statusReader.Read())
+                    {
+                        bool isCompleted = Convert.ToBoolean(statusReader["Completed"] ?? false);
+                        DateTime startDate = Convert.ToDateTime(statusReader["StartDate"]);
+                        DateTime endDate = Convert.ToDateTime(statusReader["EndDate"]);
+
+                        if (isCompleted)
+                        {
+                            statusReader.Close();
+                            MessageBox.Show("This job has already been completed.", "Job Unavailable");
+                            return;
+                        }
+
+                        if (DateTime.Now > endDate)
+                        {
+                            statusReader.Close();
+                            MessageBox.Show("This job has already ended.", "Job Unavailable");
+                            return;
+                        }
+
+                        if (DateTime.Now > startDate.AddDays(-1)) // Allow applications until day before start
+                        {
+                            statusReader.Close();
+                            MessageBox.Show("Application deadline for this job has passed.", "Application Closed");
+                            return;
+                        }
+                    }
+                    statusReader.Close();
+                }
+
                 // Check if already applied
                 using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {
@@ -99,9 +145,20 @@ namespace LockedIn
                     int rows = insertCmd.ExecuteNonQuery();
 
                     if (rows > 0)
+                    {
                         MessageBox.Show("You have successfully applied for the job!", "Success");
+                        // Refresh the upcoming jobs display
+                        ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
+
+                        // 🔽 CLEAR LISTBOX SELECTIONS HERE 🔽
+                        lstAFJskillsRequired.ClearSelected();
+                        lstMPAllSkills.ClearSelected();
+                        lstMPCurrentSkills.ClearSelected();
+                    }
                     else
+                    {
                         MessageBox.Show("Application failed. Please try again.", "Error");
+                    }
                 }
             }
             catch (Exception ex)
@@ -132,10 +189,28 @@ namespace LockedIn
             }
         }
 
+        private void SetJobApplicationControls()
+        {
+            // Make job application fields read-only (populated by selection)
+            txtAFJworkersNeeded.ReadOnly = true;
+            txtAFJjobDuration.ReadOnly = true;
+            txtAFJjobLocation.ReadOnly = true;
+            rtxjobDescription.ReadOnly = true;
+
+            // Disable job application if not cleared to work
+            if (!thisPrisoner.ClearedToWork)
+            {
+                btnAFJapply.Enabled = false;
+                comboBox1.Enabled = false;
+                btnAFJapply.Text = "Not Cleared to Work";
+            }
+        }
+
         private void frmPrisoner_Load(object sender, EventArgs e)
         {
             //frmLogIn loginForm = new frmLogIn();                                         
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
+            SetJobApplicationControls();
             ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
             //Tab control 
             tcPrisoner.Appearance = TabAppearance.FlatButtons;
@@ -538,6 +613,9 @@ namespace LockedIn
 
                 // Populating the list box with the skills required 
                 ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
+
+                // 🔽 ADD THIS LINE HERE to stop the first skill from being auto-selected
+                lstAFJskillsRequired.ClearSelected();
             }
             catch (Exception ex)
             {
