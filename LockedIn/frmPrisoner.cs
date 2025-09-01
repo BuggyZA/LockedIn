@@ -267,7 +267,7 @@ namespace LockedIn
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
+                if (result == DialogResult.Yes)            
                 {
                     // User clicked Yes - proceed with deletion
                     if (PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
@@ -354,7 +354,7 @@ namespace LockedIn
         {
             DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
+            if (result == DialogResult.Yes)             //Change to tcPrisoner.SelectedIndex = 0
             {
                 this.ClearMaintainControls();
 
@@ -430,7 +430,6 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 2;
         }
 
-        //START OF LOGOUT AND BACK BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
             frmLogIn login = new frmLogIn();
@@ -485,34 +484,36 @@ namespace LockedIn
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == -1) return;
+            //Uncomment when you work, dont leave with errors that stop the program from running!
+            /*   if (comboBox1.SelectedIndex == -1 || isPopulating) return;
 
-            int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+               int jobID = Convert.ToInt32(comboBox1.SelectedValue);
 
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
-            {
-                string query = @"SELECT JobLocation, PrisonersNeeded, JobDuration, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
+               using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+               {
+                   string query = @"SELECT JobLocation, PrisonersNeeded, JobDuration, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@JobID", jobID);
+                   SqlCommand cmd = new SqlCommand(query, conn);
+                   cmd.Parameters.AddWithValue("@JobID", jobID);
 
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                   conn.Open();
+                   SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
-                    txtAFJjobDuration.Text = reader["JobDuration"].ToString();
-                    txtAFJjobLocation.Text = reader["JobLocation"].ToString();
-                    rtxjobDescription.Text = reader["JobDescription"].ToString();
-                    lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
-                    lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
-                }
-                reader.Close();
-            }
+                   if (reader.Read())
+                   {
+                       txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
+                       txtAFJjobDuration.Text = reader["JobDuration"].ToString();
+                       txtAFJjobLocation.Text = reader["JobLocation"].ToString();
+                       rtxjobDescription.Text = reader["JobDescription"].ToString();
+                       lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
+                       lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
+                   }
+                   reader.Close();
+               }
 
-            // populating the list box with the skills required 
-            ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
+               // populating the list box with the skills required 
+               ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
+            */
         }
 
         private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
@@ -526,5 +527,6 @@ namespace LockedIn
             txtNewPassword.UseSystemPasswordChar = true;
             imgMPpass.Image = Properties.Resources.view;
         }
+         
     }
 }
