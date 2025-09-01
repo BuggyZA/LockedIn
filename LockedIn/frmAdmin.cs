@@ -680,6 +680,7 @@ namespace LockedIn
                 txtEmpPass.Visible = false;
                 lblEmpPass.Visible = false;
                 btnEmpEdit.Visible = true;
+                imgMEPass.Visible = false;
 
 
             }
@@ -704,6 +705,7 @@ namespace LockedIn
             txtEmpLName.Enabled = true;
             lblEmpPass.Visible = true;
             txtEmpPass.Visible = true;
+            imgMEPass.Visible = true;
         }
 
         private void btnEditEmp_Click(object sender, EventArgs e)
@@ -843,6 +845,7 @@ namespace LockedIn
 
         private void btnReqReports_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmReports ReportForm = new frmReports();
             ReportForm.ShowDialog();
         }
@@ -994,6 +997,7 @@ namespace LockedIn
             PnlEmpInfo.Visible = false;
             pnlEmpMenu.Visible = true;
             btnBackEmp.Visible = false;
+            imgMEPass.Visible = false;
 
 
         }
@@ -1434,11 +1438,6 @@ namespace LockedIn
 
                     }
                 }
-            
-
-
-
-
         }
 
         private void cbxJobName_SelectedIndexChanged(object sender, EventArgs e)
@@ -1473,64 +1472,43 @@ namespace LockedIn
             this.Hide();
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                tcAdmin.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                frmPrisoner prisoner = new frmPrisoner();
-                prisoner.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
         private void btnMEmpBack_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcAdmin.SelectedIndex = 0;;
         }
 
         //END OF LOGOUT & BACK BUTTONS
@@ -1616,6 +1594,42 @@ namespace LockedIn
             skill = listBox2.SelectedItem.ToString();
             listBox1.Items.Add(skill);
             listBox2.SelectedItem = "";
+        }
+
+        private void imgMEPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpPass.UseSystemPasswordChar = false;
+            imgMEPass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMEPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpPass.UseSystemPasswordChar = true;
+            imgMEPass.Image = Properties.Resources.view;
+        }
+
+        private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = false;
+            imgFMENewshow.Image = Properties.Resources.hide;
+        }
+
+        private void imgFMENewshow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = true;
+            imgFMENewshow.Image = Properties.Resources.view;
+        }
+
+        private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = false;
+            imgMPpass.Image = Properties.Resources.hide;
+        }
+
+        private void imgMPpass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = true;
+            imgMPpass.Image = Properties.Resources.view;
         }
     }
 }

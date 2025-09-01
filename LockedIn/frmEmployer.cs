@@ -90,7 +90,8 @@ namespace LockedIn
             EmpID = SessionData.LoggedInEmployerID.ToString();
             MessageBox.Show(EmpID);
             //ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
-
+            tcEmployer.SelectedIndex = 0;
+            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
 
 
             ARJtxtPrisonerName.Text = "";
@@ -220,12 +221,6 @@ namespace LockedIn
             tcEmployer.SelectedIndex = 0;
         }
 
-
-
-
-
-
-
         private void ARJbtnApprove_Click(object sender, EventArgs e)
         {
             
@@ -277,7 +272,7 @@ namespace LockedIn
 
         private void btnMJBack_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void ASJbtnBack_Click(object sender, EventArgs e)
@@ -456,27 +451,8 @@ namespace LockedIn
             tcEmployer.SelectedIndex = 0;
         }
 
-        //START OF LOGOUT AND BACK BUTTON
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                frmAdmin admin = new frmAdmin();
-                admin.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                frmPrisoner prisoner = new frmPrisoner();
-                prisoner.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                tcEmployer.SelectedIndex = 0;
-            }
+        
 
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -487,24 +463,24 @@ namespace LockedIn
 
         private void btnMEmpBack_Click_1(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
             PnlEmpInfo.Visible = false;
             pnlEmpPass.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcEmployer.SelectedIndex = 0;;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -584,16 +560,17 @@ namespace LockedIn
 
         }
 
-        private void panel6_VisibleChanged(object sender, EventArgs e)
-        {
-            ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
-        }
+        
 
         private void tcEmployer_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             isPopulating = true;
-            if (tcEmployer.SelectedIndex == 2)
+            if (tcEmployer.SelectedIndex == 0)
+            {
+                ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
+            }
+            else if (tcEmployer.SelectedIndex == 2)
             {
                 try
                 {
@@ -618,11 +595,11 @@ namespace LockedIn
                     }
                 }
                 catch (Exception ex)
-                    {
-                        MessageBox.Show("Error loading skill names: " + ex.Message);
-                    }
+                {
+                    MessageBox.Show("Error loading skill names: " + ex.Message);
+                }
             }
-            else if(tcEmployer.SelectedIndex == 4)
+            else if (tcEmployer.SelectedIndex == 4)
             {
                 ARJcmbJobName.SelectedIndex = -1;
                 ARJcmbSelectApplication.SelectedIndex = -1;
@@ -930,8 +907,21 @@ namespace LockedIn
             }
         }
 
-        
+        private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = false;
+            imgFMENewshow.Image = Properties.Resources.hide;
+        }
 
-        
+        private void imgFMENewshow_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtEmpNew.UseSystemPasswordChar = true;
+            imgFMENewshow.Image = Properties.Resources.view;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

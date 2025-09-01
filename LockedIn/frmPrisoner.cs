@@ -97,7 +97,11 @@ namespace LockedIn
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcPrisoner.SelectedIndex == 1)
+            if (tcPrisoner.SelectedIndex == 0)
+            {
+                ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
+            }
+            else if (tcPrisoner.SelectedIndex == 1)
             {
 
                 pnlPInfo.Visible = false;
@@ -112,7 +116,7 @@ namespace LockedIn
         {
             //frmLogIn loginForm = new frmLogIn();                                         
             thisPrisoner = PrisonerManager.LoadPrisoner(SessionData.LoggedInPrisonerID);
-
+            ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
             //Tab control 
             tcPrisoner.Appearance = TabAppearance.FlatButtons;
             tcPrisoner.ItemSize = new Size(0, 1);
@@ -439,40 +443,19 @@ namespace LockedIn
             tcPrisoner.SelectedIndex = 0;
         }
 
-        private void BackButton()
-        {
-            if (SessionData.SelectedUser == 1)
-            {
-                frmAdmin admin = new frmAdmin();
-                admin.Show();
-                this.Hide();
-            }
-            else if (SessionData.SelectedUser == 2)
-            {
-                tcPrisoner.SelectedIndex = 0;
-            }
-            else if (SessionData.SelectedUser == 3)
-            {
-                frmEmployer employer = new frmEmployer();
-                employer.Show();
-                this.Hide();
-            }
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BackButton();
+            tcPrisoner.SelectedIndex = 0;
         }
 
         private void lstAFJskillsRequired_SelectedIndexChanged(object sender, EventArgs e)
@@ -532,11 +515,16 @@ namespace LockedIn
             ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
         }
 
+        private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = false;
+            imgMPpass.Image = Properties.Resources.hide;
+        }
 
-
-
-
-
-        //END OF LOGOUT AND BACK BUTTON
+        private void imgMPpass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar = true;
+            imgMPpass.Image = Properties.Resources.view;
+        }
     }
 }

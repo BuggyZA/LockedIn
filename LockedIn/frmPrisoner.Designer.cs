@@ -82,6 +82,7 @@
             this.btnEditP = new System.Windows.Forms.Button();
             this.btnDeleteP = new System.Windows.Forms.Button();
             this.pnlModifyPPassword = new System.Windows.Forms.Panel();
+            this.imgMPpass = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.btnSavePassword = new System.Windows.Forms.Button();
@@ -134,6 +135,7 @@
             this.panel52.SuspendLayout();
             this.pnlMPChoices.SuspendLayout();
             this.pnlModifyPPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMPpass)).BeginInit();
             this.pnlMPSkills.SuspendLayout();
             this.pnlPInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -393,7 +395,7 @@
             this.lstAFJskillsRequired.Location = new System.Drawing.Point(850, 47);
             this.lstAFJskillsRequired.Margin = new System.Windows.Forms.Padding(2);
             this.lstAFJskillsRequired.Name = "lstAFJskillsRequired";
-            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 284);
+            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 268);
             this.lstAFJskillsRequired.TabIndex = 7;
             this.lstAFJskillsRequired.SelectedIndexChanged += new System.EventHandler(this.lstAFJskillsRequired_SelectedIndexChanged);
             // 
@@ -531,7 +533,7 @@
             // 
             // redDisplay
             // 
-            this.redDisplay.Location = new System.Drawing.Point(521, 68);
+            this.redDisplay.Location = new System.Drawing.Point(515, 68);
             this.redDisplay.Name = "redDisplay";
             this.redDisplay.Size = new System.Drawing.Size(591, 317);
             this.redDisplay.TabIndex = 14;
@@ -731,6 +733,7 @@
             // pnlModifyPPassword
             // 
             this.pnlModifyPPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlModifyPPassword.Controls.Add(this.imgMPpass);
             this.pnlModifyPPassword.Controls.Add(this.btnCancel);
             this.pnlModifyPPassword.Controls.Add(this.label63);
             this.pnlModifyPPassword.Controls.Add(this.btnSavePassword);
@@ -746,6 +749,18 @@
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
             this.pnlModifyPPassword.Visible = false;
+            // 
+            // imgMPpass
+            // 
+            this.imgMPpass.Image = global::LockedIn.Properties.Resources.view;
+            this.imgMPpass.Location = new System.Drawing.Point(329, 99);
+            this.imgMPpass.Name = "imgMPpass";
+            this.imgMPpass.Size = new System.Drawing.Size(43, 32);
+            this.imgMPpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMPpass.TabIndex = 38;
+            this.imgMPpass.TabStop = false;
+            this.imgMPpass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseDown);
+            this.imgMPpass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseUp);
             // 
             // btnCancel
             // 
@@ -785,7 +800,7 @@
             // 
             this.txtCurrentPassword.Location = new System.Drawing.Point(156, 44);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.Size = new System.Drawing.Size(194, 36);
+            this.txtCurrentPassword.Size = new System.Drawing.Size(173, 30);
             this.txtCurrentPassword.TabIndex = 31;
             // 
             // label64
@@ -802,14 +817,14 @@
             // 
             this.txtNewPassword.Location = new System.Drawing.Point(156, 96);
             this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(194, 36);
+            this.txtNewPassword.Size = new System.Drawing.Size(173, 30);
             this.txtNewPassword.TabIndex = 26;
             // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(156, 143);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(194, 36);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(173, 30);
             this.txtConfirmPassword.TabIndex = 28;
             // 
             // label65
@@ -914,7 +929,7 @@
             this.lstMPAllSkills.ItemHeight = 29;
             this.lstMPAllSkills.Location = new System.Drawing.Point(24, 67);
             this.lstMPAllSkills.Name = "lstMPAllSkills";
-            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 265);
+            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 257);
             this.lstMPAllSkills.TabIndex = 1;
             this.lstMPAllSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPAllSkills_SelectedIndexChanged);
             // 
@@ -924,7 +939,7 @@
             this.lstMPCurrentSkills.ItemHeight = 29;
             this.lstMPCurrentSkills.Location = new System.Drawing.Point(401, 67);
             this.lstMPCurrentSkills.Name = "lstMPCurrentSkills";
-            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 265);
+            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 257);
             this.lstMPCurrentSkills.TabIndex = 0;
             this.lstMPCurrentSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPCurrentSkills_SelectedIndexChanged);
             // 
@@ -1130,6 +1145,7 @@
             this.pnlMPChoices.ResumeLayout(false);
             this.pnlModifyPPassword.ResumeLayout(false);
             this.pnlModifyPPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMPpass)).EndInit();
             this.pnlMPSkills.ResumeLayout(false);
             this.pnlMPSkills.PerformLayout();
             this.pnlPInfo.ResumeLayout(false);
@@ -1226,5 +1242,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.RichTextBox redDisplay;
+        private System.Windows.Forms.PictureBox imgMPpass;
     }
 }
