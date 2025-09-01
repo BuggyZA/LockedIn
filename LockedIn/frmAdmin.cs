@@ -1121,7 +1121,27 @@ namespace LockedIn
                 selectedJobID = -1;
                 action = "ADD";
 
+                string connStr = DatabaseConfig.GetConStr();
+                SqlConnection conn = new SqlConnection(connStr);
+                conn.Open();
 
+                string getSkillsSql = "SELECT SkillID, SkillName FROM SKILL ORDER BY SkillName";
+                SqlCommand comm = new SqlCommand(getSkillsSql, conn);
+
+                // Clear listbox
+                listBox1.Items.Clear();
+
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        string skillName = reader["SkillName"].ToString();
+                        listBox1.Items.Add(skillName);
+
+
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -1196,13 +1216,11 @@ namespace LockedIn
             try
             {
                 //setting values into variables
-                //string employer_name = ;
                 string job_name = txtMJJobName.Text;
                 string job_description = rtbJobDescription.Text;
                 string job_location = rtbJobLocation.Text;
                 DateTime startDate = calStartDate.SelectionStart;
                 DateTime endDate = calEndDate.SelectionStart;
-                string skills = listBox2.Text;
                 decimal duration = nudDuration.Value;
                 bool job_completed = cbJobCompleted.Checked;
                 decimal prisoners = numericUpDown1.Value;
@@ -1214,49 +1232,47 @@ namespace LockedIn
                     //add job
                     if (action == "ADD")
                     {
-                        //add job
-                        if (action == "ADD")
+
+                        string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay) SELECT SCOPE_IDENTITY()";
+
+                        using (SqlCommand comm = new SqlCommand(sql, conn))
                         {
-                            string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay) SELECT SCOPE_IDENTITY()";
+                            comm.Parameters.AddWithValue("@EmployerID", SessionEmployerID.EmployerID);
+                            comm.Parameters.AddWithValue("@JobName", job_name);
+                            comm.Parameters.AddWithValue("@JobDescription", job_description);
+                            comm.Parameters.AddWithValue("@JobLocation", job_location);
+                            comm.Parameters.AddWithValue("@StartDate", startDate);
+                            comm.Parameters.AddWithValue("@EndDate", endDate);
+                            comm.Parameters.AddWithValue("@PrisonersNeeded", prisoners);
+                            comm.Parameters.AddWithValue("@Completed", job_completed);
+                            comm.Parameters.AddWithValue("@DurationPerDay", duration);
 
-                            using (SqlCommand comm = new SqlCommand(sql, conn))
+                            //getting new job Id for the new job added
+                            int newJobId = Convert.ToInt32(comm.ExecuteScalar());
+
+                            // skills for job
+                            foreach (var item in listBox2.Items)
                             {
-                                comm.Parameters.AddWithValue("@EmployerID", SessionEmployerID.EmployerID);
-                                comm.Parameters.AddWithValue("@JobName", job_name);
-                                comm.Parameters.AddWithValue("@JobDescription", job_description);
-                                comm.Parameters.AddWithValue("@JobLocation", job_location);
-                                comm.Parameters.AddWithValue("@StartDate", startDate);
-                                comm.Parameters.AddWithValue("@EndDate", endDate);
-                                comm.Parameters.AddWithValue("@PrisonersNeeded", prisoners);
-                                comm.Parameters.AddWithValue("@Completed", job_completed);
-                                comm.Parameters.AddWithValue("@DurationPerDay", duration);
+                                string skillName = item.ToString();
 
-                                //getting new job Id for the new job added
-                                int newJobId = Convert.ToInt32(comm.ExecuteScalar());
+                                string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
+                                SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
+                                getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
+                                int skillId = (int)getSkillComm.ExecuteScalar();
 
-                                // skills for job
-                                foreach (var item in listBox2.Items)
-                                {
-                                    string skillName = item.ToString();
-
-                                    string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
-                                    SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
-                                    getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
-                                    int skillId = (int)getSkillComm.ExecuteScalar();
-
-                                    string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
-                                    SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
-                                    insertComm.Parameters.AddWithValue("@JobID", newJobId);
-                                    insertComm.Parameters.AddWithValue("@SkillID", skillId);
-                                    insertComm.ExecuteNonQuery();
-                                }
+                                string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
+                                SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
+                                insertComm.Parameters.AddWithValue("@JobID", newJobId);
+                                insertComm.Parameters.AddWithValue("@SkillID", skillId);
+                                insertComm.ExecuteNonQuery();
                             }
-
-                            MessageBox.Show("Job added successfully.");
                         }
 
-
+                        MessageBox.Show("Job added successfully.");
                     }
+
+
+
                     //edit job
                     else if (action == "EDIT")
                     {
@@ -1647,7 +1663,7 @@ namespace LockedIn
 
             skill = listBox1.SelectedItem.ToString();
             listBox2.Items.Add(skill);
-            listBox1.SelectedItem = "";
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -1655,7 +1671,7 @@ namespace LockedIn
             string skill = "";
             skill = listBox2.SelectedItem.ToString();
             listBox1.Items.Add(skill);
-            listBox2.SelectedItem = "";
+            listBox2.Items.RemoveAt(listBox2.SelectedIndex);
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
