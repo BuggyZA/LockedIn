@@ -1601,6 +1601,7 @@ namespace LockedIn
             pnladJobDetails.Visible = false;
             pnlAdDate.Visible = false;
             pnlAdSkills.Visible = false;
+        }
             
         private void imgMEPass_MouseDown(object sender, MouseEventArgs e)
         {

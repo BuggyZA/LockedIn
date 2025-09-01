@@ -572,18 +572,19 @@ namespace LockedIn
             }
             else if (tcEmployer.SelectedIndex == 1)
             {
-                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
+                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";              //sql made but never used?
                 string connStr = DatabaseConfig.GetConStr();
                 SqlConnection conn = new SqlConnection(connStr);
-               
+
                 conn.Open();
                 string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
                 SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
+                getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());                        //returns null on form load
                 int jobId = (int)getIdcomm.ExecuteScalar();
-                
+
                 ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
                 ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
+            }
             else if (tcEmployer.SelectedIndex == 2)
             {
                 try
@@ -718,9 +719,6 @@ namespace LockedIn
 
                         }
                     }
-
-
-
                 }
             }
             catch (Exception ex)
@@ -914,12 +912,11 @@ namespace LockedIn
             if (MJlstSkillsNeeded.SelectedItem != null)
             {
                 string skill = MJlstSkillsNeeded.SelectedItem.ToString();
-                MJcmbJobName.Items.Add(skill);
+                MJcmbJobName.Items.Add(skill);                                      //Does it add to the db??
                 MJlstSkillsNeeded.SelectedItem = null;
             }
         }
 
-        private void MJpnlSkillDetails_Paint(object sender, PaintEventArgs e)
         private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
         {
             txtEmpNew.UseSystemPasswordChar = false;
