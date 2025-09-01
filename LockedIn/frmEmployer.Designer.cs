@@ -556,7 +556,7 @@
             // 
             this.panel2.Controls.Add(this.MJbtnDelete);
             this.panel2.Controls.Add(this.MJpnlEMployerDetails);
-            this.panel2.Location = new System.Drawing.Point(14, 12);
+            this.panel2.Location = new System.Drawing.Point(24, 20);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(532, 259);
             this.panel2.TabIndex = 24;

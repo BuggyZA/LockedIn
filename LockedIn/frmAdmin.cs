@@ -858,11 +858,24 @@ namespace LockedIn
 
         private void btnASPAdd_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1 && thisPrisoner != null)
+            {
+                PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a new skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (thisPrisoner == null)
+            {
+                MessageBox.Show("Please select a prisoner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
 
@@ -1040,11 +1053,23 @@ namespace LockedIn
 
         private void btnASPRemove_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1 && thisPrisoner != null)
+            {
+                PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstASPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstASPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a new skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (thisPrisoner == null)
+            {
+                MessageBox.Show("Please select a prisoner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstASPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
