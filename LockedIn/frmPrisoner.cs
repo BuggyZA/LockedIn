@@ -42,7 +42,7 @@ namespace LockedIn
 
         private void panel14_Paint(object sender, PaintEventArgs e)
         {
-                    }
+        }
 
         private void btnAFJapply_Click(object sender, EventArgs e)
         {
@@ -52,45 +52,63 @@ namespace LockedIn
                 return;
             }
 
-            int jobID = Convert.ToInt32(comboBox1.SelectedValue);
-
-            // Check if already applied
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            if (comboBox1.SelectedValue == null)
             {
-                string checkQuery = @"SELECT COUNT FROM WHERE PrisonerID = @PrisonerID AND JobID = @JobID";
-                SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                checkCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
-                checkCmd.Parameters.AddWithValue("@JobID", jobID);
+                MessageBox.Show("Please select a valid job before applying.");
+                return;
+            }
 
-                conn.Open();
-                int alreadyApplied = (int)checkCmd.ExecuteScalar();
+            int jobID;
+            if (!int.TryParse(comboBox1.SelectedValue.ToString(), out jobID))
+            {
+                MessageBox.Show("Invalid job selection.", "Error");
+                return;
+            }
 
-                if (alreadyApplied > 0)
+
+            try
+            {
+                // Check if already applied
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {
-                    MessageBox.Show("You have already applied for this job.");
-                    return;
+                    string checkQuery = @"SELECT COUNT(*) FROM PRISONER_ON_JOB WHERE PrisonerID = @PrisonerID AND JobID = @JobID";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                    checkCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                    conn.Open();
+                    int alreadyApplied = (int)checkCmd.ExecuteScalar();
+
+                    if (alreadyApplied > 0)
+                    {
+                        MessageBox.Show("You have already applied for this job.");
+                        return;
+                    }
+                }
+
+                // Insert application
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, JobFinished, OnPremise) 
+                                   VALUES (@PrisonerID, @JobID, 0, 0)";
+                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                    insertCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
+                    insertCmd.Parameters.AddWithValue("@JobID", jobID);
+
+                    conn.Open();
+                    int rows = insertCmd.ExecuteNonQuery();
+
+                    if (rows > 0)
+                        MessageBox.Show("You have successfully applied for the job!", "Success");
+                    else
+                        MessageBox.Show("Application failed. Please try again.", "Error");
                 }
             }
-
-            // Insert application
-            // Insert application (Accepted/Rejeced left out → NULL, JobFinished + OnPremises = 0)
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+            catch (Exception ex)
             {
-                string insertQuery = @"INSERT INTO PRISONER_ON_JOB (PrisonerID, JobID, JobFinished, OnPremises) 
-                                       VALUES (@PrisonerID, @JobID, 0, 0)";
-                SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
-                insertCmd.Parameters.AddWithValue("@PrisonerID", thisPrisoner.PrisonerID);
-                insertCmd.Parameters.AddWithValue("@JobID", jobID);
-
-                conn.Open();
-                int rows = insertCmd.ExecuteNonQuery();
-
-                if (rows > 0)
-                    MessageBox.Show("You have successfully applied for the job!", "Success");
-                else
-                    MessageBox.Show("Application failed. Please try again.", "Error");
+                MessageBox.Show("An error occurred: " + ex.Message, "Error");
             }
-        } 
+        }
 
         private void panel16_Paint(object sender, PaintEventArgs e)
         {
@@ -127,7 +145,7 @@ namespace LockedIn
 
             //Calendar
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
-            {                                                                             
+            {
                 string query = @"SELECT j.JobID, j.StartDate, j.EndDate FROM JOB j INNER JOIN PRISONER_ON_JOB poj ON j.JobID = poj.JobID WHERE poj.PrisonerID = @PrisonerID AND poj.[Accepted/Rejeced] = 1;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -165,7 +183,9 @@ namespace LockedIn
             }
 
             // Populating the combobox for "Apply for jobs"
+            isPopulating = true;
             ComboBoxHelper.PopulateJobNames(comboBox1);
+            isPopulating = false;
 
         }
 
@@ -235,8 +255,8 @@ namespace LockedIn
             txtCurrentPassword.Enabled = true;
         }
 
-        
-      
+
+
 
         private void btnMPSave_Click(object sender, EventArgs e)
         {
@@ -264,7 +284,7 @@ namespace LockedIn
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this prisoner?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)            
+                if (result == DialogResult.Yes)
                 {
                     // User clicked Yes - proceed with deletion
                     if (PrisonerManager.DeletePrisoner(thisPrisoner.PrisonerID))
@@ -300,7 +320,7 @@ namespace LockedIn
             pnlMPChoices.Visible = true;
             pnlModifyPPassword.Visible = false;
 
-            
+
             isDeletingPrisoner = false;
             isUpdatingPrisoner = false;
 
@@ -481,36 +501,48 @@ namespace LockedIn
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Uncomment when you work, dont leave with errors that stop the program from running!
-            /*   if (comboBox1.SelectedIndex == -1 || isPopulating) return;
+            if (comboBox1.SelectedIndex == -1 || isPopulating) return;
 
-               int jobID = Convert.ToInt32(comboBox1.SelectedValue);
+            if (comboBox1.SelectedValue == null) return;
 
-               using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
-               {
-                   string query = @"SELECT JobLocation, PrisonersNeeded, JobDuration, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
+            int jobID;
+            if (!int.TryParse(comboBox1.SelectedValue.ToString(), out jobID))
+            {
+                MessageBox.Show("Invalid job selection.", "Error");
+                return;
+            }
 
-                   SqlCommand cmd = new SqlCommand(query, conn);
-                   cmd.Parameters.AddWithValue("@JobID", jobID);
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    string query = @"SELECT JobLocation, PrisonersNeeded, DurationPerDay, JobDescription, StartDate, EndDate FROM JOB WHERE JobID = @JobID";
 
-                   conn.Open();
-                   SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@JobID", jobID);
 
-                   if (reader.Read())
-                   {
-                       txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
-                       txtAFJjobDuration.Text = reader["JobDuration"].ToString();
-                       txtAFJjobLocation.Text = reader["JobLocation"].ToString();
-                       rtxjobDescription.Text = reader["JobDescription"].ToString();
-                       lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
-                       lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
-                   }
-                   reader.Close();
-               }
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-               // populating the list box with the skills required 
-               ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
-            */
+                    if (reader.Read())
+                    {
+                        txtAFJworkersNeeded.Text = reader["PrisonersNeeded"].ToString();
+                        txtAFJjobDuration.Text = reader["DurationPerDay"].ToString();
+                        txtAFJjobLocation.Text = reader["JobLocation"].ToString();
+                        rtxjobDescription.Text = reader["JobDescription"].ToString();
+                        lblAFJStartDate.Text = Convert.ToDateTime(reader["StartDate"]).ToShortDateString();
+                        lblAFJEndDate.Text = Convert.ToDateTime(reader["EndDate"]).ToShortDateString();
+                    }
+                    reader.Close();
+                }
+
+                // Populating the list box with the skills required 
+                ListboxHelper.PopulateCurrentJobSkills(lstAFJskillsRequired, jobID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading job details: " + ex.Message, "Error");
+            }
         }
 
         private void imgMPpass_MouseDown(object sender, MouseEventArgs e)
@@ -524,6 +556,6 @@ namespace LockedIn
             txtNewPassword.UseSystemPasswordChar = true;
             imgMPpass.Image = Properties.Resources.view;
         }
-         
+
     }
 }
