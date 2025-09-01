@@ -156,20 +156,44 @@ namespace LockedIn
 
         private void btnMPAdd_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1 && thisPrisoner != null)
+            {
+                PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (thisPrisoner == null)
+            {
+                MessageBox.Show("Please select a prisoner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnMPRemove_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1 && thisPrisoner != null)
+            {
+                PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (thisPrisoner == null)
+            {
+                MessageBox.Show("Please select a prisoner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstMPCurrentSkills_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,8 +338,8 @@ namespace LockedIn
                 MessageBox.Show("Prisoner data saved!!");
             }
 
-            lstASJAllSkills.DataSource = null;
-            lstASJAllSkills.Items.Clear();
+            lstMPAllSkills.DataSource = null;
+            lstMPAllSkills.Items.Clear();
             lstMPCurrentSkills.DataSource = null;
             lstMPCurrentSkills.Items.Clear();
 
@@ -869,13 +893,12 @@ namespace LockedIn
             }
             else if (skillID == -1)
             {
-                MessageBox.Show("Please select a new skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (thisPrisoner == null)
             {
                 MessageBox.Show("Please select a prisoner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            }            
         }
 
 
@@ -1030,12 +1053,22 @@ namespace LockedIn
                 txtNewPassword.Clear();
                 txtConfirmPassword.Clear();
 
+
+                btnMPSave.Visible = false;
+                btnMPBack.Visible = false;
+
                 cmbMPPrisonerNo.SelectedIndexChanged -= cmbMPPrisonerNo_SelectedIndexChanged;
                 cmbMPPrisonerNo.SelectedIndex = -1;
                 cmbMPPrisonerNo.SelectedIndexChanged += cmbMPPrisonerNo_SelectedIndexChanged;
+
                 pnlPInfo.Enabled = true;
                 pnlModifyPPassword.Enabled = true;
                 pnlMPSkills.Enabled = true;
+            }
+            else if (!pnlMPChoices.Visible)
+            {
+                btnMPSave.Visible = true;
+                btnMPBack.Visible = true; ;
             }
         }
 
@@ -1064,7 +1097,7 @@ namespace LockedIn
             }
             else if (skillID == -1)
             {
-                MessageBox.Show("Please select a new skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (thisPrisoner == null)
             {

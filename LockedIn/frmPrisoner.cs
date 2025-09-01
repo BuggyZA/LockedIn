@@ -18,7 +18,7 @@ namespace LockedIn
 {
     public partial class frmPrisoner : Form
     {
-        int skillID;
+        int skillID = -1;
         Prisoner thisPrisoner;
         bool isUpdatingPrisoner = false;
         bool isDeletingPrisoner = false;
@@ -385,20 +385,36 @@ namespace LockedIn
 
         private void btnAddSkill_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1)
+            {
+                PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRemoveSkill_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1)
+            {
+                PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstMPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
@@ -527,6 +543,19 @@ namespace LockedIn
             txtNewPassword.UseSystemPasswordChar = true;
             imgMPpass.Image = Properties.Resources.view;
         }
-         
+
+        private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlMPChoices.Visible)
+            {
+                btnMPSave.Visible = false;
+                btnMPBack.Visible = false;
+            }
+            else if (!pnlMPChoices.Visible)
+            {
+                btnMPSave.Visible = true;
+                btnMPBack.Visible = true; ;
+            }
+        }
     }
 }
