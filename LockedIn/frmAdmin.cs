@@ -31,6 +31,7 @@ namespace LockedIn
         int skillID;
         int prsnrID;
         int selectedSkillID; // this is for editing and deleting tracking of skills
+        string skillOperation = ""; // Track current skill operation: "EDIT", "DELETE", "ADD"
 
         string action = "";// this for maintain jobs to hold say if data needs to be edited, addded or deleted
         int selectedJobID = -1; // This will hold the selected JobID for Edit/Delete
@@ -70,6 +71,12 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 6) //Maintain skills page
             {
+                // Reset maintain skills panels when entering the page
+                panel19.Visible = false;
+                panel20.Visible = false;
+                skillOperation = "";
+                selectedSkillID = -1;
+
                 ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
             }
             else if (tcAdmin.SelectedIndex == 7)
@@ -409,8 +416,13 @@ namespace LockedIn
 
         private void btnMSEditExisSkil_Click(object sender, EventArgs e)
         {
-            // Displayng the relevant panel to edit skills
+            // Set operation mode and reset state
+            skillOperation = "EDIT";
+            selectedSkillID = -1;
+
+            // Show skill selection panel only
             panel19.Visible = true;
+            panel20.Visible = false;
 
             // preventing a skill to be automatically selected.
             isPopulating = true;
@@ -421,13 +433,23 @@ namespace LockedIn
             // keeping the fields clear until the user selects a skill
             txtMSSkillName.Clear();
             txtMSSkillDesc.Clear();
-            selectedSkillID = -1;
+
+            // Enable skill selection combobox for editing
+            cbxMSSkillName.Enabled = true;
         }
 
 
         private void cbxMSSkillName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isPopulating || cbxMSSkillName.SelectedIndex == -1) return;
+
+            // User crash prevention: Only allow skill loading if in EDIT or DELETE mode
+            if (skillOperation != "EDIT" && skillOperation != "DELETE")
+            {
+                MessageBox.Show("Please select an operation first (Edit or Delete).");
+                cbxMSSkillName.SelectedIndex = -1;
+                return;
+            }
 
             selectedSkillID = ComboBoxHelper.GetSelectedID(cbxMSSkillName);
 
@@ -446,6 +468,23 @@ namespace LockedIn
                     {
                         txtMSSkillName.Text = reader["SkillName"].ToString();
                         txtMSSkillDesc.Text = reader["SkillDescription"].ToString();
+
+                        // Show editing panel only after skill is loaded
+                        panel20.Visible = true;
+
+                        // Set field access based on operation
+                        if (skillOperation == "DELETE")
+                        {
+                            // Make fields read-only for delete operation
+                            txtMSSkillName.ReadOnly = true;
+                            txtMSSkillDesc.ReadOnly = true;
+                        }
+                        else if (skillOperation == "EDIT")
+                        {
+                            // Make fields editable for edit operation
+                            txtMSSkillName.ReadOnly = false;
+                            txtMSSkillDesc.ReadOnly = false;
+                        }
                     }
                     reader.Close();
                 }
@@ -454,13 +493,25 @@ namespace LockedIn
                     MessageBox.Show("Error receiving skill: " + ex.Message);
                 }
             }
-            panel20.Visible = true;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             string skillName = txtMSSkillName.Text.Trim();
             string skillDesc = txtMSSkillDesc.Text.Trim();
+
+
+
+            if (skillOperation == "DELETE")
+            {
+                if (selectedSkillID == -1)
+                {
+                    MessageBox.Show("Please select a skill to delete first.");
+                    return;
+                }
+                PerformSkillDeletion();
+                return;
+            }
 
             if (string.IsNullOrEmpty(skillName))
             {
@@ -491,6 +542,9 @@ namespace LockedIn
                         linkCmd.ExecuteNonQuery();
 
                         MessageBox.Show("Skill added successfully!");
+                        // Reset state after successful add
+                        ResetMaintainSkillsState();
+
 
                         // ensuring the textboxes are clear after a skill has been added.
                         txtMSSkillName.Clear();
@@ -520,6 +574,8 @@ namespace LockedIn
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Skill updated successfully!");
+                        // Reset state after successful update
+                        ResetMaintainSkillsState();
 
                         // clearing the textboxes after the skill has been updated.
                         txtMSSkillName.Clear();
@@ -542,79 +598,130 @@ namespace LockedIn
 
         private void btnMSDelExisSkill_Click(object sender, EventArgs e)
         {
-            // Show panels so the user can select a skill
+            // Set operation mode
+            skillOperation = "DELETE";
+
+            // Show skill selection panel
             panel19.Visible = true;
-            panel20.Visible = true;
+            panel20.Visible = false;
 
-            // If no skill is selected yet... population takes place
-            if (cbxMSSkillName.SelectedIndex == -1 || selectedSkillID == -1)
-            {
-                isPopulating = true;
-                ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
-                cbxMSSkillName.SelectedIndex = -1; // ensuring that there is no skill auto selected.
-                isPopulating = false;
+            // Populate combobox for skill selection
+            isPopulating = true;
+            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+            cbxMSSkillName.SelectedIndex = -1; // ensuring that there is no skill auto selected.
+            isPopulating = false;
 
-                // Clearing textboxes
-                txtMSSkillName.Clear();
-                txtMSSkillDesc.Clear();
-                selectedSkillID = -1;
-                return;
-            }
+            // Enable combobox for selection
+            cbxMSSkillName.Enabled = true;
 
-            using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
-            {
-                try
-                {
-                    conn.Open();
-
-                    // first deleting the skill from SKILL_OF_PRISONER
-                    SqlCommand linkCmd = new SqlCommand("DELETE FROM SKILL_OF_PRISONER WHERE SkillID = @SkillID", conn);
-                    linkCmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
-                    linkCmd.ExecuteNonQuery();
-
-                    // secondly deleting skill from SKILL_OF_JOB
-                    SqlCommand linkCmd2 = new SqlCommand("DELETE FROM SKILL_OF_JOB WHERE SkillID = @SkillID", conn);
-                    linkCmd2.Parameters.AddWithValue("@SkillID", selectedSkillID);
-                    linkCmd2.ExecuteNonQuery();
-
-                    // Delete from SKILL
-                    SqlCommand cmd = new SqlCommand("DELETE FROM SKILL WHERE SkillID = @SkillID", conn);
-                    cmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Skill deleted successfully!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error deleting skill: " + ex.Message);
-                }
-            }
-
-            // clearing textboxes after skill has been deleted.
+            // Clear textboxes and reset selected skill
             txtMSSkillName.Clear();
             txtMSSkillDesc.Clear();
             selectedSkillID = -1;
-
-            isPopulating = true;
-            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
-            cbxMSSkillName.SelectedIndex = -1; // ensuring that nothing is auto selected after the skill is deleted...
-            isPopulating = false;
         }
 
 
 
         private void btnMSNext_Click(object sender, EventArgs e)
         {
-            panel20.Visible = true;
+            // Only show panel20 if we're in ADD mode or have a skill selected for EDIT/DELETE
+            if (skillOperation == "ADD" || (selectedSkillID != -1 && (skillOperation == "EDIT" || skillOperation == "DELETE")))
+            {
+                panel20.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select an operation and skill first.");
+            }
         }
 
         private void btnMSAddNewSkill_Click(object sender, EventArgs e)
         {
+            // Set operation mode
+            skillOperation = "ADD";
+            selectedSkillID = -1;
+
+            // Hide skill selection panel, show editing panel
             panel19.Visible = false;
             panel20.Visible = true;
+
+            // Clear fields for new skill entry
+            txtMSSkillName.Clear();
+            txtMSSkillDesc.Clear();
+
+            // Make fields editable
+            txtMSSkillName.ReadOnly = false;
+            txtMSSkillDesc.ReadOnly = false;
+        }
+        private void PerformSkillDeletion()
+        {
+            if (selectedSkillID == -1)
+            {
+                MessageBox.Show("Please select a skill to delete.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this skill? This will also remove it from all prisoners and jobs.",
+                                                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        // first deleting the skill from SKILL_OF_PRISONER
+                        SqlCommand linkCmd = new SqlCommand("DELETE FROM SKILL_OF_PRISONER WHERE SkillID = @SkillID", conn);
+                        linkCmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                        linkCmd.ExecuteNonQuery();
+
+                        // secondly deleting skill from SKILL_OF_JOB
+                        SqlCommand linkCmd2 = new SqlCommand("DELETE FROM SKILL_OF_JOB WHERE SkillID = @SkillID", conn);
+                        linkCmd2.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                        linkCmd2.ExecuteNonQuery();
+
+                        // Delete from SKILL
+                        SqlCommand cmd = new SqlCommand("DELETE FROM SKILL WHERE SkillID = @SkillID", conn);
+                        cmd.Parameters.AddWithValue("@SkillID", selectedSkillID);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Skill deleted successfully!");
+
+                        // Reset state after successful deletion
+                        ResetMaintainSkillsState();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting skill: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        // Helper method to reset maintain skills state
+        private void ResetMaintainSkillsState()
+        {
+            // clearing textboxes
             txtMSSkillName.Clear();
             txtMSSkillDesc.Clear();
             selectedSkillID = -1;
+            skillOperation = "";
+
+            // Reset field access
+            txtMSSkillName.ReadOnly = false;
+            txtMSSkillDesc.ReadOnly = false;
+
+            // Hide panels
+            panel19.Visible = false;
+            panel20.Visible = false;
+
+            // Reset combobox
+            isPopulating = true;
+            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+            cbxMSSkillName.SelectedIndex = -1;
+            isPopulating = false;
         }
 
         private void btnEmployerDetails_Click(object sender, EventArgs e)
