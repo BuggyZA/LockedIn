@@ -12,6 +12,12 @@ namespace LockedIn.Data
         public static int LoggedInEmployerID { get; set; }
         public static int SelectedUser { get; set; }
 
+        public static class SessionEmployerID
+        {
+            public static int EmployerID { get; set; }
+            public static string FirstName { get; set; }
+        }
+
 
     }
 }

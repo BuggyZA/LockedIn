@@ -258,6 +258,17 @@
             this.btnEditP = new System.Windows.Forms.Button();
             this.btnDeleteP = new System.Windows.Forms.Button();
             this.btnAddP = new System.Windows.Forms.Button();
+            this.pnlModifyPPassword = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.label63 = new System.Windows.Forms.Label();
+            this.btnSavePassword = new System.Windows.Forms.Button();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.imgMPpass = new System.Windows.Forms.PictureBox();
             this.pnlMPSkills = new System.Windows.Forms.Panel();
             this.btnMPRemove = new System.Windows.Forms.Button();
             this.btnMPAdd = new System.Windows.Forms.Button();
@@ -270,17 +281,6 @@
             this.pnlPInfo = new System.Windows.Forms.Panel();
             this.cmbMPPrisonerNo = new System.Windows.Forms.ComboBox();
             this.txtPNo = new System.Windows.Forms.TextBox();
-            this.pnlModifyPPassword = new System.Windows.Forms.Panel();
-            this.imgMPpass = new System.Windows.Forms.PictureBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label63 = new System.Windows.Forms.Label();
-            this.btnSavePassword = new System.Windows.Forms.Button();
-            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
-            this.label64 = new System.Windows.Forms.Label();
-            this.txtNewPassword = new System.Windows.Forms.TextBox();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.ckbCleared = new System.Windows.Forms.CheckBox();
@@ -370,10 +370,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel52.SuspendLayout();
             this.pnlMPChoices.SuspendLayout();
-            this.pnlMPSkills.SuspendLayout();
-            this.pnlPInfo.SuspendLayout();
             this.pnlModifyPPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgMPpass)).BeginInit();
+            this.pnlMPSkills.SuspendLayout();
+            this.pnlPInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -796,7 +796,7 @@
             this.pnlEmpPass.Controls.Add(this.lblEmpNew);
             this.pnlEmpPass.Controls.Add(this.lblEmpConfirm);
             this.pnlEmpPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlEmpPass.Location = new System.Drawing.Point(688, 422);
+            this.pnlEmpPass.Location = new System.Drawing.Point(681, 206);
             this.pnlEmpPass.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEmpPass.Name = "pnlEmpPass";
             this.pnlEmpPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -857,19 +857,19 @@
             // 
             // txtEmpNew
             // 
-            this.txtEmpNew.Location = new System.Drawing.Point(257, 89);
+            this.txtEmpNew.Location = new System.Drawing.Point(276, 89);
             this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(203, 36);
+            this.txtEmpNew.Size = new System.Drawing.Size(231, 36);
             this.txtEmpNew.TabIndex = 1;
             this.txtEmpNew.UseSystemPasswordChar = true;
             // 
             // txtEmpConfirm
             // 
-            this.txtEmpConfirm.Location = new System.Drawing.Point(257, 161);
+            this.txtEmpConfirm.Location = new System.Drawing.Point(276, 161);
             this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(203, 36);
+            this.txtEmpConfirm.Size = new System.Drawing.Size(231, 36);
             this.txtEmpConfirm.TabIndex = 2;
             this.txtEmpConfirm.UseSystemPasswordChar = true;
             // 
@@ -877,7 +877,7 @@
             // 
             this.lblEmpNew.AutoSize = true;
             this.lblEmpNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpNew.Location = new System.Drawing.Point(24, 92);
+            this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
             this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpNew.Name = "lblEmpNew";
             this.lblEmpNew.Size = new System.Drawing.Size(174, 29);
@@ -888,7 +888,7 @@
             // 
             this.lblEmpConfirm.AutoSize = true;
             this.lblEmpConfirm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpConfirm.Location = new System.Drawing.Point(24, 161);
+            this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
             this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpConfirm.Name = "lblEmpConfirm";
             this.lblEmpConfirm.Size = new System.Drawing.Size(211, 29);
@@ -988,104 +988,6 @@
             this.lblEmpDetailName.Size = new System.Drawing.Size(142, 29);
             this.lblEmpDetailName.TabIndex = 0;
             this.lblEmpDetailName.Text = "Employer Name:";
-            // 
-            // pnlEmpPass
-            // 
-            this.pnlEmpPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlEmpPass.Controls.Add(this.btnEmpCancel);
-            this.pnlEmpPass.Controls.Add(this.lblModifyPass);
-            this.pnlEmpPass.Controls.Add(this.btnEmpSavePass);
-            this.pnlEmpPass.Controls.Add(this.txtEmpNew);
-            this.pnlEmpPass.Controls.Add(this.txtEmpConfirm);
-            this.pnlEmpPass.Controls.Add(this.lblEmpNew);
-            this.pnlEmpPass.Controls.Add(this.lblEmpConfirm);
-            this.pnlEmpPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlEmpPass.Location = new System.Drawing.Point(681, 206);
-            this.pnlEmpPass.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlEmpPass.Name = "pnlEmpPass";
-            this.pnlEmpPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pnlEmpPass.Size = new System.Drawing.Size(531, 309);
-            this.pnlEmpPass.TabIndex = 27;
-            this.pnlEmpPass.Visible = false;
-            // 
-            // btnEmpCancel
-            // 
-            this.btnEmpCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpCancel.ForeColor = System.Drawing.Color.White;
-            this.btnEmpCancel.Location = new System.Drawing.Point(391, 226);
-            this.btnEmpCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpCancel.Name = "btnEmpCancel";
-            this.btnEmpCancel.Size = new System.Drawing.Size(117, 54);
-            this.btnEmpCancel.TabIndex = 4;
-            this.btnEmpCancel.Text = "Cancel";
-            this.btnEmpCancel.UseVisualStyleBackColor = false;
-            this.btnEmpCancel.Click += new System.EventHandler(this.btnEmpCancel_Click);
-            // 
-            // lblModifyPass
-            // 
-            this.lblModifyPass.AutoSize = true;
-            this.lblModifyPass.Font = new System.Drawing.Font("Bahnschrift", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifyPass.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblModifyPass.Location = new System.Drawing.Point(19, 18);
-            this.lblModifyPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblModifyPass.Name = "lblModifyPass";
-            this.lblModifyPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblModifyPass.Size = new System.Drawing.Size(223, 33);
-            this.lblModifyPass.TabIndex = 34;
-            this.lblModifyPass.Text = "Modify Password";
-            // 
-            // btnEmpSavePass
-            // 
-            this.btnEmpSavePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnEmpSavePass.ForeColor = System.Drawing.Color.White;
-            this.btnEmpSavePass.Location = new System.Drawing.Point(40, 226);
-            this.btnEmpSavePass.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmpSavePass.Name = "btnEmpSavePass";
-            this.btnEmpSavePass.Size = new System.Drawing.Size(343, 54);
-            this.btnEmpSavePass.TabIndex = 3;
-            this.btnEmpSavePass.Text = "Save Password";
-            this.btnEmpSavePass.UseVisualStyleBackColor = false;
-            this.btnEmpSavePass.Click += new System.EventHandler(this.btnEmpSavePass_Click);
-            // 
-            // txtEmpNew
-            // 
-            this.txtEmpNew.Location = new System.Drawing.Point(276, 89);
-            this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(231, 36);
-            this.txtEmpNew.TabIndex = 1;
-            this.txtEmpNew.UseSystemPasswordChar = true;
-            // 
-            // txtEmpConfirm
-            // 
-            this.txtEmpConfirm.Location = new System.Drawing.Point(276, 161);
-            this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(231, 36);
-            this.txtEmpConfirm.TabIndex = 2;
-            this.txtEmpConfirm.UseSystemPasswordChar = true;
-            // 
-            // lblEmpNew
-            // 
-            this.lblEmpNew.AutoSize = true;
-            this.lblEmpNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
-            this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpNew.Name = "lblEmpNew";
-            this.lblEmpNew.Size = new System.Drawing.Size(174, 29);
-            this.lblEmpNew.TabIndex = 25;
-            this.lblEmpNew.Text = "New Password";
-            // 
-            // lblEmpConfirm
-            // 
-            this.lblEmpConfirm.AutoSize = true;
-            this.lblEmpConfirm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
-            this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpConfirm.Name = "lblEmpConfirm";
-            this.lblEmpConfirm.Size = new System.Drawing.Size(211, 29);
-            this.lblEmpConfirm.TabIndex = 27;
-            this.lblEmpConfirm.Text = "Confirm Password";
             // 
             // pnlEmpMenu
             // 
@@ -1718,6 +1620,7 @@
             // panel35
             // 
             this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel35.Controls.Add(this.pnlAdFunctions);
             this.panel35.Controls.Add(this.pnlAdDate);
             this.panel35.Controls.Add(this.pnladJobDetails);
             this.panel35.Controls.Add(this.button28);
@@ -1814,7 +1717,6 @@
             // pnladJobDetails
             // 
             this.pnladJobDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnladJobDetails.Controls.Add(this.pnlAdFunctions);
             this.pnladJobDetails.Controls.Add(this.numericUpDown1);
             this.pnladJobDetails.Controls.Add(this.label34);
             this.pnladJobDetails.Controls.Add(this.cmbJobNAme);
@@ -1837,7 +1739,7 @@
             this.pnlAdFunctions.Controls.Add(this.button30);
             this.pnlAdFunctions.Controls.Add(this.button31);
             this.pnlAdFunctions.Controls.Add(this.button32);
-            this.pnlAdFunctions.Location = new System.Drawing.Point(175, 24);
+            this.pnlAdFunctions.Location = new System.Drawing.Point(665, 2);
             this.pnlAdFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAdFunctions.Name = "pnlAdFunctions";
             this.pnlAdFunctions.Size = new System.Drawing.Size(459, 662);
@@ -1910,7 +1812,7 @@
             this.cmbJobNAme.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbJobNAme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbJobNAme.FormattingEnabled = true;
-            this.cmbJobNAme.Location = new System.Drawing.Point(127, 80);
+            this.cmbJobNAme.Location = new System.Drawing.Point(131, 80);
             this.cmbJobNAme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbJobNAme.Name = "cmbJobNAme";
             this.cmbJobNAme.Size = new System.Drawing.Size(308, 28);
@@ -3235,6 +3137,7 @@
             // pnlModifyPPassword
             // 
             this.pnlModifyPPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlModifyPPassword.Controls.Add(this.imgMPpass);
             this.pnlModifyPPassword.Controls.Add(this.btnCancel);
             this.pnlModifyPPassword.Controls.Add(this.label63);
             this.pnlModifyPPassword.Controls.Add(this.btnSavePassword);
@@ -3245,7 +3148,7 @@
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(147, 272);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(138, 283);
             this.pnlModifyPPassword.Margin = new System.Windows.Forms.Padding(4);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(500, 309);
@@ -3291,10 +3194,10 @@
             // 
             // txtCurrentPassword
             // 
-            this.txtCurrentPassword.Location = new System.Drawing.Point(208, 54);
+            this.txtCurrentPassword.Location = new System.Drawing.Point(182, 57);
             this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.Size = new System.Drawing.Size(257, 36);
+            this.txtCurrentPassword.Size = new System.Drawing.Size(227, 36);
             this.txtCurrentPassword.TabIndex = 31;
             // 
             // label64
@@ -3310,18 +3213,18 @@
             // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(208, 118);
+            this.txtNewPassword.Location = new System.Drawing.Point(182, 119);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(257, 36);
+            this.txtNewPassword.Size = new System.Drawing.Size(227, 36);
             this.txtNewPassword.TabIndex = 26;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(208, 176);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(182, 173);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(257, 36);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(227, 36);
             this.txtConfirmPassword.TabIndex = 28;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -3346,6 +3249,18 @@
             this.label66.Size = new System.Drawing.Size(104, 29);
             this.label66.TabIndex = 27;
             this.label66.Text = "Confirm:";
+            // 
+            // imgMPpass
+            // 
+            this.imgMPpass.Image = global::LockedIn.Properties.Resources.view;
+            this.imgMPpass.Location = new System.Drawing.Point(423, 123);
+            this.imgMPpass.Name = "imgMPpass";
+            this.imgMPpass.Size = new System.Drawing.Size(43, 32);
+            this.imgMPpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMPpass.TabIndex = 37;
+            this.imgMPpass.TabStop = false;
+            this.imgMPpass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseDown);
+            this.imgMPpass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseUp);
             // 
             // pnlMPSkills
             // 
@@ -3501,134 +3416,6 @@
             this.txtPNo.Name = "txtPNo";
             this.txtPNo.Size = new System.Drawing.Size(257, 36);
             this.txtPNo.TabIndex = 34;
-            // 
-            // pnlModifyPPassword
-            // 
-            this.pnlModifyPPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Controls.Add(this.imgMPpass);
-            this.pnlModifyPPassword.Controls.Add(this.btnCancel);
-            this.pnlModifyPPassword.Controls.Add(this.label63);
-            this.pnlModifyPPassword.Controls.Add(this.btnSavePassword);
-            this.pnlModifyPPassword.Controls.Add(this.txtCurrentPassword);
-            this.pnlModifyPPassword.Controls.Add(this.label64);
-            this.pnlModifyPPassword.Controls.Add(this.txtNewPassword);
-            this.pnlModifyPPassword.Controls.Add(this.txtConfirmPassword);
-            this.pnlModifyPPassword.Controls.Add(this.label65);
-            this.pnlModifyPPassword.Controls.Add(this.label66);
-            this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(138, 283);
-            this.pnlModifyPPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlModifyPPassword.Name = "pnlModifyPPassword";
-            this.pnlModifyPPassword.Size = new System.Drawing.Size(500, 309);
-            this.pnlModifyPPassword.TabIndex = 27;
-            this.pnlModifyPPassword.Visible = false;
-            // 
-            // imgMPpass
-            // 
-            this.imgMPpass.Image = global::LockedIn.Properties.Resources.view;
-            this.imgMPpass.Location = new System.Drawing.Point(423, 123);
-            this.imgMPpass.Name = "imgMPpass";
-            this.imgMPpass.Size = new System.Drawing.Size(43, 32);
-            this.imgMPpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgMPpass.TabIndex = 37;
-            this.imgMPpass.TabStop = false;
-            this.imgMPpass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseDown);
-            this.imgMPpass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgMPpass_MouseUp);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(349, 240);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(117, 54);
-            this.btnCancel.TabIndex = 36;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label63.Location = new System.Drawing.Point(16, 5);
-            this.label63.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(196, 29);
-            this.label63.TabIndex = 34;
-            this.label63.Text = "Modify Password";
-            // 
-            // btnSavePassword
-            // 
-            this.btnSavePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnSavePassword.ForeColor = System.Drawing.Color.White;
-            this.btnSavePassword.Location = new System.Drawing.Point(40, 240);
-            this.btnSavePassword.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSavePassword.Name = "btnSavePassword";
-            this.btnSavePassword.Size = new System.Drawing.Size(301, 54);
-            this.btnSavePassword.TabIndex = 35;
-            this.btnSavePassword.Text = "Save Password";
-            this.btnSavePassword.UseVisualStyleBackColor = false;
-            this.btnSavePassword.Click += new System.EventHandler(this.btnSavePassword_Click);
-            // 
-            // txtCurrentPassword
-            // 
-            this.txtCurrentPassword.Location = new System.Drawing.Point(182, 57);
-            this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.Size = new System.Drawing.Size(227, 36);
-            this.txtCurrentPassword.TabIndex = 31;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label64.Location = new System.Drawing.Point(35, 57);
-            this.label64.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(100, 29);
-            this.label64.TabIndex = 30;
-            this.label64.Text = "Current:";
-            // 
-            // txtNewPassword
-            // 
-            this.txtNewPassword.Location = new System.Drawing.Point(182, 119);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(227, 36);
-            this.txtNewPassword.TabIndex = 26;
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(182, 173);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(227, 36);
-            this.txtConfirmPassword.TabIndex = 28;
-            this.txtConfirmPassword.UseSystemPasswordChar = true;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label65.Location = new System.Drawing.Point(35, 122);
-            this.label65.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(66, 29);
-            this.label65.TabIndex = 25;
-            this.label65.Text = "New:";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label66.Location = new System.Drawing.Point(35, 180);
-            this.label66.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(104, 29);
-            this.label66.TabIndex = 27;
-            this.label66.Text = "Confirm:";
             // 
             // label70
             // 
@@ -3874,13 +3661,13 @@
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
             this.pnlMPChoices.ResumeLayout(false);
+            this.pnlModifyPPassword.ResumeLayout(false);
+            this.pnlModifyPPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMPpass)).EndInit();
             this.pnlMPSkills.ResumeLayout(false);
             this.pnlMPSkills.PerformLayout();
             this.pnlPInfo.ResumeLayout(false);
             this.pnlPInfo.PerformLayout();
-            this.pnlModifyPPassword.ResumeLayout(false);
-            this.pnlModifyPPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMPpass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 

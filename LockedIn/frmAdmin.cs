@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices.ComTypes;
 using System.Xml.Linq;
+using static System.Collections.Specialized.BitVector32;
+using static LockedIn.Data.SessionData;
 namespace LockedIn
 {
 
@@ -34,6 +36,7 @@ namespace LockedIn
 
         string action = "";// this for maintain jobs to hold say if data needs to be edited, addded or deleted
         int selectedJobID = -1; // This will hold the selected JobID for Edit/Delete
+        int CurrentEmployerID = 0;
 
 
         /*This flag checks if the comboboxes are currently busy populating (Because when they are, their indices change 
@@ -100,8 +103,9 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 3)
             {
-                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
-            
+                
+                pnlAdFunctions.Visible = true;
+
             }
 
 
@@ -1109,12 +1113,14 @@ namespace LockedIn
                 //making panels visible
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
-                pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
                 cmbJobNAme.Visible = false;
+                txtMJJobName.Visible = true;
 
                 selectedJobID = -1;
                 action = "ADD";
+
 
             }
             catch (Exception ex)
@@ -1132,10 +1138,12 @@ namespace LockedIn
                 //making panels visible
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
-                pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
+                cmbJobNAme.Visible = true;
                 txtMJJobName.Visible = false;
-                
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+
 
                 action = "EDIT";
 
@@ -1184,7 +1192,7 @@ namespace LockedIn
         private void button28_Click(object sender, EventArgs e)
         {
             //save button  
-
+     
             try
             {
                 //setting values into variables
@@ -1206,31 +1214,53 @@ namespace LockedIn
                     //add job
                     if (action == "ADD")
                     {
-                        string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay)";
-
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        //add job
+                        if (action == "ADD")
                         {
-                            comm.CommandType = CommandType.StoredProcedure;
+                            string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay) SELECT SCOPE_IDENTITY()";
 
-                            //cmd.Parameters.AddWithValue("@employerID", ); 
-                            comm.Parameters.AddWithValue("@jobName", job_name);
-                            comm.Parameters.AddWithValue("@jobDescription", job_description);
-                            comm.Parameters.AddWithValue("@jobLocation", job_location);
-                            comm.Parameters.AddWithValue("@startDate", startDate);
-                            comm.Parameters.AddWithValue("@endDate", endDate);
-                            comm.Parameters.AddWithValue("@prisonersNeeded", prisoners);
-                            comm.Parameters.AddWithValue("@completed", job_completed);
-                            comm.Parameters.AddWithValue("@durationPerDay", duration);
+                            using (SqlCommand comm = new SqlCommand(sql, conn))
+                            {
+                                comm.Parameters.AddWithValue("@EmployerID", SessionEmployerID.EmployerID);
+                                comm.Parameters.AddWithValue("@JobName", job_name);
+                                comm.Parameters.AddWithValue("@JobDescription", job_description);
+                                comm.Parameters.AddWithValue("@JobLocation", job_location);
+                                comm.Parameters.AddWithValue("@StartDate", startDate);
+                                comm.Parameters.AddWithValue("@EndDate", endDate);
+                                comm.Parameters.AddWithValue("@PrisonersNeeded", prisoners);
+                                comm.Parameters.AddWithValue("@Completed", job_completed);
+                                comm.Parameters.AddWithValue("@DurationPerDay", duration);
 
-                            comm.ExecuteNonQuery();
+                                //getting new job Id for the new job added
+                                int newJobId = Convert.ToInt32(comm.ExecuteScalar());
+
+                                // skills for job
+                                foreach (var item in listBox2.Items)
+                                {
+                                    string skillName = item.ToString();
+
+                                    string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
+                                    SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
+                                    getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
+                                    int skillId = (int)getSkillComm.ExecuteScalar();
+
+                                    string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
+                                    SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
+                                    insertComm.Parameters.AddWithValue("@JobID", newJobId);
+                                    insertComm.Parameters.AddWithValue("@SkillID", skillId);
+                                    insertComm.ExecuteNonQuery();
+                                }
+                            }
+
+                            MessageBox.Show("Job added successfully.");
                         }
 
-                        MessageBox.Show("Job added successfully.");
+
                     }
                     //edit job
                     else if (action == "EDIT")
                     {
-                        string sql = "UPDATE JOB SET JobName= @jobName, JobDescription= @jobDescription, JobLocation= @jobLocation, StartDate = @startDate, EndDate = @endDate, PrisonersNeeded = @prisonersNeeded, Completed = @completed, DurationPerDay = @durationPerDay WHERE JobID = @jobID";
+                        string sql = "UPDATE JOB SET JobName= @jobName, JobDescription= @jobDescription, JobLocation= @jobLocation,StartDate = @startDate, EndDate = @endDate, PrisonersNeeded = @prisonersNeeded,Completed = @completed, DurationPerDay = @durationPerDay WHERE JobID = @jobID";
 
                         using (SqlCommand comm = new SqlCommand(sql, conn))
                         {
@@ -1239,7 +1269,7 @@ namespace LockedIn
                             getIdcomm.Parameters.AddWithValue("@JobName", cmbJobNAme.Text);
                             int selectedJobId = (int)getIdcomm.ExecuteScalar();
 
-                            comm.Parameters.AddWithValue("@jobID", selectedJobID);
+                            comm.Parameters.AddWithValue("@jobID", selectedJobId);
                             comm.Parameters.AddWithValue("@jobName", cmbJobNAme.Text);
                             comm.Parameters.AddWithValue("@jobDescription", job_description);
                             comm.Parameters.AddWithValue("@jobLocation", job_location);
@@ -1249,8 +1279,30 @@ namespace LockedIn
                             comm.Parameters.AddWithValue("@completed", job_completed);
                             comm.Parameters.AddWithValue("@durationPerDay", duration);
 
-
                             comm.ExecuteNonQuery();
+
+                            // Delete old skills
+                            string deleteSkillsSql = "DELETE FROM JOB_SKILL WHERE JobID = @JobID";
+                            SqlCommand deleteComm = new SqlCommand(deleteSkillsSql, conn);
+                            deleteComm.Parameters.AddWithValue("@JobID", selectedJobId);
+                            deleteComm.ExecuteNonQuery();
+
+                            // Insert new skills
+                            foreach (var item in listBox2.Items)
+                            {
+                                string skillName = item.ToString();
+
+                                string getSkillSql = "SELECT SkillID FROM SKILL WHERE SkillName = @SkillName";
+                                SqlCommand getSkillComm = new SqlCommand(getSkillSql, conn);
+                                getSkillComm.Parameters.AddWithValue("@SkillName", skillName);
+                                int skillId = (int)getSkillComm.ExecuteScalar();
+
+                                string insertSkillSql = "INSERT INTO JOB_SKILL (JobID, SkillID) VALUES (@JobID, @SkillID)";
+                                SqlCommand insertComm = new SqlCommand(insertSkillSql, conn);
+                                insertComm.Parameters.AddWithValue("@JobID", selectedJobId);
+                                insertComm.Parameters.AddWithValue("@SkillID", skillId);
+                                insertComm.ExecuteNonQuery();
+                            }
                         }
 
                         MessageBox.Show("Job updated successfully.");
@@ -1258,22 +1310,31 @@ namespace LockedIn
                     //delete job
                     else if (action == "DELETE")
                     {
+                        string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
+                        SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
+                        getIdcomm.Parameters.AddWithValue("@JobName", cmbJobNAme.Text);
+                        int selectedJobID = (int)getIdcomm.ExecuteScalar();
+
+                        // Delete job skills first
+                        string deleteSkillsSql = "DELETE FROM JOB_SKILL WHERE JobID = @JobID";
+                        SqlCommand deleteSkillsComm = new SqlCommand(deleteSkillsSql, conn);
+                        deleteSkillsComm.Parameters.AddWithValue("@JobID", selectedJobID);
+                        deleteSkillsComm.ExecuteNonQuery();
+
+                        // Delete the job itself
                         string sql = "DELETE FROM JOB WHERE JobID = @jobID";
-
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
-                        {
-                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                            SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                            getIdcomm.Parameters.AddWithValue("@JobName", cmbJobNAme.Text);
-                            int selectedJobID = (int)getIdcomm.ExecuteScalar();
-
-                            comm.Parameters.AddWithValue("@jobID", selectedJobID);
-                            comm.ExecuteNonQuery();
-                        }
+                        SqlCommand comm = new SqlCommand(sql, conn);
+                        comm.Parameters.AddWithValue("@jobID", selectedJobID);
+                        comm.ExecuteNonQuery();
 
                         MessageBox.Show("Job deleted successfully.");
                     }
                 }
+                //making panels visible
+                pnladJobDetails.Visible = false;
+                pnlAdDate.Visible = false;
+                pnlAdFunctions.Visible = true;
+                pnlAdSkills.Visible = false;
                 ComboBoxHelper.PopulateJobNames(cmbJobNAme);
             }
             catch (Exception ex)
@@ -1290,10 +1351,11 @@ namespace LockedIn
                 //making panels visible
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
-                pnlAdSkills.Visible = true;
                 pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
+                cmbJobNAme.Visible = true;
                 txtMJJobName.Visible = false;
-                
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
 
                 action = "DELETE";
                 string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
