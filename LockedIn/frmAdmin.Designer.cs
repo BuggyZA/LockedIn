@@ -2220,6 +2220,7 @@
             this.btnASJRemove.TabIndex = 33;
             this.btnASJRemove.Text = "<   Remove";
             this.btnASJRemove.UseVisualStyleBackColor = false;
+            this.btnASJRemove.Click += new System.EventHandler(this.btnASJRemove_Click_1);
             // 
             // btnASJAdd
             // 
@@ -2232,6 +2233,7 @@
             this.btnASJAdd.TabIndex = 32;
             this.btnASJAdd.Text = "Add       >";
             this.btnASJAdd.UseVisualStyleBackColor = false;
+            this.btnASJAdd.Click += new System.EventHandler(this.btnASJAdd_Click_1);
             // 
             // label45
             // 

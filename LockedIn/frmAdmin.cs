@@ -111,7 +111,6 @@ namespace LockedIn
             else if (tcAdmin.SelectedIndex == 5)
             {
                 ComboBoxHelper.PopulateJobNames(cbxASJJobName);
-
             }
             else if (tcAdmin.SelectedIndex == 3)
             {
@@ -1982,6 +1981,26 @@ namespace LockedIn
         private void cbxMJEmpName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnASJAdd_Click_1(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void btnASJRemove_Click_1(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
         }
     }
 } 
