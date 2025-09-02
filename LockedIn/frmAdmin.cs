@@ -119,10 +119,6 @@ namespace LockedIn
                 pnladJobDetails.Visible = false;
                 pnlAdDate.Visible = false;
                 pnlAdSkills.Visible = false;
-
-
-
-
             }
 
 
@@ -1336,6 +1332,12 @@ namespace LockedIn
             try
             {
                 // Making panels visible
+                btnMJSave.Text = "Add";
+
+                cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+                ComboBoxHelper.PopulateEmployerNames(cbxMJEmpName);
+                cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
+
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
                 pnlAdFunctions.Visible = false;
@@ -1351,10 +1353,11 @@ namespace LockedIn
                 calEndDate.SelectionStart = DateTime.Today.AddDays(1);
                 nudDuration.Value = 8;
                 cbJobCompleted.Checked = false;
-                numericUpDown1.Value = 1;
+                sbxPNeeded.Value = 1;
 
                 selectedJobID = -1;
                 action = "ADD";
+
             }
             catch (Exception ex)
             {
@@ -1369,6 +1372,8 @@ namespace LockedIn
             try
             {
                 // Making panels visible
+                btnMJSave.Text = "Save";
+
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
                 pnlAdFunctions.Visible = false;
@@ -1401,7 +1406,7 @@ namespace LockedIn
                 DateTime endDate = calEndDate.SelectionStart;
                 decimal duration = nudDuration.Value;
                 bool job_completed = cbJobCompleted.Checked;
-                decimal prisoners = numericUpDown1.Value;
+                decimal prisoners = sbxPNeeded.Value;
 
                 // Validation
                 if (string.IsNullOrEmpty(job_name))
@@ -1432,7 +1437,7 @@ namespace LockedIn
                 if (action == "ADD")
                 {
                     
-                    int employerID = GetEmployerIDByName(); 
+                    int employerID = ComboBoxHelper.GetSelectedID(cbxMJEmpName); 
                     if (employerID <= 0)
                     {
                         MessageBox.Show("Invalid employer selected. Please check the employer name.");
@@ -1509,6 +1514,7 @@ namespace LockedIn
         }
         private void ResetJobForm()
         {
+            btnMJSave.Text = "Save";
             txtJobname.Clear();
             rtbJobDescription.Clear();
             rtbJobLocation.Clear();
@@ -1516,67 +1522,31 @@ namespace LockedIn
             calEndDate.SelectionStart = DateTime.Today.AddDays(1);
             nudDuration.Value = 8;
             cbJobCompleted.Checked = false;
-            numericUpDown1.Value = 1;
+            sbxPNeeded.Value = 1;
             selectedJobID = -1;
             action = "";
 
-            MJtxtEmployerName.Clear();
+            cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+            cbxMJEmpName.DataSource = null;
+            cbxMJEmpName.Items.Clear();
+            cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
 
             txtJobname.ReadOnly = false;
             rtbJobDescription.ReadOnly = false;
             rtbJobLocation.ReadOnly = false;
-            MJtxtEmployerName.ReadOnly = false;
 
             cmbJobNAme.SelectedIndex = -1;
         }
 
-        private int GetEmployerIDByName()
-        {
-            try
-            {
-                string employerName = MJtxtEmployerName.Text.Trim();
-
-                if (string.IsNullOrEmpty(employerName))
-                {
-                    MessageBox.Show("Please enter an employer name.");
-                    return -1;
-                }
-
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    string query = @"SELECT EmployerID FROM EMPLOYER WHERE CONCAT(FirstName, ' ', LastName) = @EmployerName OR FirstName = @EmployerName OR LastName = @EmployerName";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@EmployerName", employerName);
-                        conn.Open();
-
-                        object result = cmd.ExecuteScalar();
-                        if (result != null && result != DBNull.Value)
-                        {
-                            return Convert.ToInt32(result);
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Employer '{employerName}' not found in database.");
-                            return -1;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error retrieving employer ID: {ex.Message}");
-                return -1;
-            }
-        }
+        
         private void button31_Click(object sender, EventArgs e)
         {
             // Delete existing job
             try
             {
                 // Making panels visible
+                btnMJSave.Text = "Delete";
+
                 pnladJobDetails.Visible = true;
                 pnlAdDate.Visible = true;
                 pnlAdFunctions.Visible = false;
@@ -1591,7 +1561,7 @@ namespace LockedIn
                 calEndDate.SelectionStart = DateTime.Today.AddDays(1);
                 nudDuration.Value = 8;
                 cbJobCompleted.Checked = false;
-                numericUpDown1.Value = 1;
+                sbxPNeeded.Value = 1;
 
                 action = "DELETE";
             }
@@ -1949,23 +1919,30 @@ namespace LockedIn
                             calEndDate.SelectionStart = selectedJob.EndDate;
                             nudDuration.Value = selectedJob.DurationPerDay;
                             cbJobCompleted.Checked = selectedJob.Completed;
-                            numericUpDown1.Value = selectedJob.PrisonersNeeded;
+                            sbxPNeeded.Value = selectedJob.PrisonersNeeded;
 
                             // Populate employer name from EmployerID
                             string employerName = GetEmployerNameById(selectedJob.EmployerID);
                             if (!string.IsNullOrEmpty(employerName))
                             {
-                                MJtxtEmployerName.Text = employerName;
+                                cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+                                cbxMJEmpName.Items.Add(employerName);
+                                cbxMJEmpName.SelectedIndex = 0;
+                                cbxMJEmpName.Enabled = false;
+                                cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
                             }
 
                             if (action == "DELETE")
                             {
+                                sbxPNeeded.Enabled = false;
+                                pnlAdDate.Enabled = false;
                                 ListboxHelper.PopulateCurrentJobSkills(listBox1, selectedJobID);
                                 ListboxHelper.PopulateAvailablePSkills(listBox2, selectedJobID);
                                 txtJobname.ReadOnly = true;
                                 rtbJobDescription.ReadOnly = true;
                                 rtbJobLocation.ReadOnly = true;
                                 Job newJob = new Job();
+                                
                             }
                             else if (action == "EDIT")
                             {
@@ -1998,6 +1975,11 @@ namespace LockedIn
         }
 
         private void pnlAdFunctions_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbxMJEmpName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
