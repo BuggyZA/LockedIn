@@ -68,30 +68,6 @@ namespace LockedIn.Managers
         {
             try
             {
-                // Validate input before sending to database
-                if (job.EmployerID <= 0)
-                {
-                    MessageBox.Show("Invalid EmployerID");
-                    return -1;
-                }
-
-                // Check string lengths
-                if (!string.IsNullOrEmpty(job.JobName) && job.JobName.Length > 55)
-                {
-                    MessageBox.Show("Job name cannot exceed 55 characters");
-                    return -1;
-                }
-                if (!string.IsNullOrEmpty(job.JobDescription) && job.JobDescription.Length > 55)
-                {
-                    MessageBox.Show("Job description cannot exceed 55 characters");
-                    return -1;
-                }
-                if (!string.IsNullOrEmpty(job.JobLocation) && job.JobLocation.Length > 55)
-                {
-                    MessageBox.Show("Job location cannot exceed 55 characters");
-                    return -1;
-                }
-
                 using (conn = new SqlConnection(constr))
                 {
                     conn.Open();
@@ -147,31 +123,37 @@ namespace LockedIn.Managers
             }
         }
 
-        public static bool UpdateJob(int jobId, string jobName, string jobDescription, string jobLocation, DateTime startDate, DateTime endDate, decimal durationPerDay, bool completed, int prisonersNeeded)
+        public static bool UpdateJob(int jobId, int employerID, string jobName, string jobDescription, string jobLocation, DateTime startDate, DateTime endDate, decimal durationPerDay, bool completed, int prisonersNeeded)
         {
-            string query = @"UPDATE JOB SET JobName = @JobName, JobDescription = @JobDescription, JobLocation = @JobLocation, StartDate = @StartDate, EndDate = @EndDate, DurationPerDay = @DurationPerDay, Completed = @Completed, PrisonersNeeded = @PrisonersNeeded WHERE JobID = @JobID";
-
             try
             {
                 using (conn = new SqlConnection(constr))
                 {
-                    using (cmd = new SqlCommand(query, conn))
+                    conn.Open();
+                    using (cmd = new SqlCommand("dbo.UpdateJob", conn))
                     {
-                        cmd.Parameters.AddWithValue("@JobID", jobId);
-                        cmd.Parameters.AddWithValue("@JobName", jobName);
-                        cmd.Parameters.AddWithValue("@JobDescription", jobDescription);
-                        cmd.Parameters.AddWithValue("@JobLocation", jobLocation);
-                        cmd.Parameters.AddWithValue("@StartDate", startDate);
-                        cmd.Parameters.AddWithValue("@EndDate", endDate);
-                        cmd.Parameters.AddWithValue("@DurationPerDay", durationPerDay);
-                        cmd.Parameters.AddWithValue("@Completed", completed);
-                        cmd.Parameters.AddWithValue("@PrisonersNeeded", prisonersNeeded);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        conn.Open();
+                        cmd.Parameters.AddWithValue("@jobID", jobId);
+                        cmd.Parameters.AddWithValue("@employerID", employerID);
+                        cmd.Parameters.AddWithValue("@jobName", jobName ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@jobDescription", jobDescription ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@jobLocation", jobLocation ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@startDate", startDate);
+                        cmd.Parameters.AddWithValue("@endDate", endDate);
+                        cmd.Parameters.AddWithValue("@prisonersNeeded", prisonersNeeded);
+                        cmd.Parameters.AddWithValue("@completed", completed);
+                        cmd.Parameters.AddWithValue("@durationPerDay", (int)durationPerDay); // Cast decimal to int
+
                         int rowsAffected = cmd.ExecuteNonQuery();
                         return rowsAffected > 0; // True if a row was updated
                     }
                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error updating job with ID {jobId}: {ex.Message}");
+                return false;
             }
             catch (Exception ex)
             {
@@ -182,21 +164,26 @@ namespace LockedIn.Managers
 
         public static bool DeleteJob(int jobId)
         {
-            string query = "DELETE FROM JOB WHERE JobID = @JobID";
-
             try
             {
                 using (conn = new SqlConnection(constr))
                 {
-                    using (cmd = new SqlCommand(query, conn))
+                    conn.Open();
+                    using (cmd = new SqlCommand("dbo.DeleteJob", conn))
                     {
-                        cmd.Parameters.AddWithValue("@JobID", jobId);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        conn.Open();
+                        cmd.Parameters.AddWithValue("@jobID", jobId);
+
                         int rowsAffected = cmd.ExecuteNonQuery();
                         return rowsAffected > 0; // True if a row was deleted
                     }
                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error deleting job with ID {jobId}: {ex.Message}");
+                return false;
             }
             catch (Exception ex)
             {

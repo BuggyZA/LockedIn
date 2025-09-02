@@ -60,8 +60,19 @@ CREATE PROCEDURE dbo.DeleteJob
     @jobID INT
 AS
 BEGIN
+    SET NOCOUNT ON;
+
+    -- Delete from child tables first
+    DELETE FROM PRISONER_ON_JOB
+    WHERE JobID = @jobID;
+
+    DELETE FROM SKILL_OF_JOB
+    WHERE JobID = @jobID;
+
+    -- Finally delete the job itself
     DELETE FROM JOB
     WHERE JobID = @jobID;
 END
 GO
+
 

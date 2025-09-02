@@ -1606,6 +1606,7 @@
             // 
             this.cbxMJEmpName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxMJEmpName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxMJEmpName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMJEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMJEmpName.FormattingEnabled = true;
             this.cbxMJEmpName.Location = new System.Drawing.Point(139, 89);

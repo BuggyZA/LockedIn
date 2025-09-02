@@ -23,6 +23,7 @@ namespace LockedIn
     public partial class frmAdmin : Form
     {
         Prisoner thisPrisoner = null;
+        Job selectedJob;
 
         string Ppassword = "";
         bool isAddingPrisoner = false;
@@ -1371,6 +1372,11 @@ namespace LockedIn
             try
             {
                 // Making panels visible
+                cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+                cbxMJEmpName.DataSource = null;
+                cbxMJEmpName.Items.Clear();
+                cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
+
                 btnMJSave.Text = "Save";
 
                 pnladJobDetails.Visible = true;
@@ -1464,13 +1470,15 @@ namespace LockedIn
                 // Edit job
                 else if (action == "EDIT")
                 {
+                    int employerID = selectedJob.EmployerID;
+
                     if (selectedJobID <= 0)
                     {
                         MessageBox.Show("Please select a job to edit.");
                         return;
                     }
                    
-                    bool success = JobManager.UpdateJob(selectedJobID, job_name, job_description, job_location,startDate, endDate, duration, job_completed, prisoners);
+                    bool success = JobManager.UpdateJob(selectedJobID,employerID , job_name, job_description, job_location,startDate, endDate, duration, job_completed, prisoners);
 
                     if (success)
                     {
@@ -1493,6 +1501,7 @@ namespace LockedIn
                     else
                     {
                         JobManager.DeleteJob(selectedJobID);
+                        MessageBox.Show("Job successfully deleted");
                     }
                         
                    
@@ -1527,6 +1536,7 @@ namespace LockedIn
             action = "";
 
             cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+            cbxJobName.Enabled = true;
             cbxMJEmpName.DataSource = null;
             cbxMJEmpName.Items.Clear();
             cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
@@ -1907,11 +1917,10 @@ namespace LockedIn
                     if (selectedJobID > 0)
                     {
                         // Load job details using JobManager
-                        Job selectedJob = JobManager.LoadJob(selectedJobID);
+                        selectedJob = JobManager.LoadJob(selectedJobID);
 
                         if (selectedJob != null)
-                        {
-                            
+                        {                            
                             txtJobname.Text = selectedJob.JobName;
                             rtbJobDescription.Text = selectedJob.JobDescription;
                             rtbJobLocation.Text = selectedJob.JobLocation;
@@ -1922,10 +1931,14 @@ namespace LockedIn
                             sbxPNeeded.Value = selectedJob.PrisonersNeeded;
 
                             // Populate employer name from EmployerID
+
+                            cbxMJEmpName.Enabled = true;
                             string employerName = GetEmployerNameById(selectedJob.EmployerID);
                             if (!string.IsNullOrEmpty(employerName))
                             {
                                 cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
+                                cbxMJEmpName.DataSource = null;
+                                cbxMJEmpName.Items.Clear();
                                 cbxMJEmpName.Items.Add(employerName);
                                 cbxMJEmpName.SelectedIndex = 0;
                                 cbxMJEmpName.Enabled = false;
