@@ -85,7 +85,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-52, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(-113, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1385, 180);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -97,7 +97,7 @@
             this.pnlAPESelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlAPESelect.Controls.Add(this.panel3);
             this.pnlAPESelect.Controls.Add(this.label2);
-            this.pnlAPESelect.Location = new System.Drawing.Point(140, 199);
+            this.pnlAPESelect.Location = new System.Drawing.Point(58, 200);
             this.pnlAPESelect.Name = "pnlAPESelect";
             this.pnlAPESelect.Size = new System.Drawing.Size(350, 375);
             this.pnlAPESelect.TabIndex = 7;
@@ -170,7 +170,7 @@
             this.pnlLogIn.Controls.Add(this.btnLIBack);
             this.pnlLogIn.Controls.Add(this.panel5);
             this.pnlLogIn.Controls.Add(this.label3);
-            this.pnlLogIn.Location = new System.Drawing.Point(524, 199);
+            this.pnlLogIn.Location = new System.Drawing.Point(442, 200);
             this.pnlLogIn.Name = "pnlLogIn";
             this.pnlLogIn.Size = new System.Drawing.Size(350, 378);
             this.pnlLogIn.TabIndex = 8;
@@ -208,7 +208,7 @@
             // 
             this.imgPass.Image = global::LockedIn.Properties.Resources.view;
             this.imgPass.Location = new System.Drawing.Point(298, 82);
-            this.imgPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgPass.Margin = new System.Windows.Forms.Padding(2);
             this.imgPass.Name = "imgPass";
             this.imgPass.Size = new System.Drawing.Size(32, 26);
             this.imgPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -320,7 +320,7 @@
             this.pnlSignUp.Controls.Add(this.btnSUBack);
             this.pnlSignUp.Controls.Add(this.panel6);
             this.pnlSignUp.Controls.Add(this.label7);
-            this.pnlSignUp.Location = new System.Drawing.Point(903, 199);
+            this.pnlSignUp.Location = new System.Drawing.Point(821, 200);
             this.pnlSignUp.Name = "pnlSignUp";
             this.pnlSignUp.Size = new System.Drawing.Size(376, 440);
             this.pnlSignUp.TabIndex = 9;
@@ -367,7 +367,7 @@
             // 
             this.imgPass2.Image = global::LockedIn.Properties.Resources.view;
             this.imgPass2.Location = new System.Drawing.Point(327, 177);
-            this.imgPass2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgPass2.Margin = new System.Windows.Forms.Padding(2);
             this.imgPass2.Name = "imgPass2";
             this.imgPass2.Size = new System.Drawing.Size(32, 26);
             this.imgPass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -561,7 +561,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(1310, 729);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pnlSignUp);
             this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pnlAPESelect);
