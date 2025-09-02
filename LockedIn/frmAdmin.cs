@@ -455,6 +455,8 @@ namespace LockedIn
 
         private void btnMaintainSkills_Click(object sender, EventArgs e)
         {
+
+
             tcAdmin.SelectedIndex = 6;
         }
 
