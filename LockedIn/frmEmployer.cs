@@ -1,5 +1,6 @@
 ﻿using LockedIn.Data;
 using LockedIn.Helpers;
+using LockedIn.Managers;
 using LockedIn.Models;
 using System;
 using System.Collections;
@@ -15,6 +16,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static LockedIn.Data.SessionData;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LockedIn
@@ -667,48 +669,20 @@ namespace LockedIn
 
         private void MJbtnDelete2_Click(object sender, EventArgs e)
         {
-            //Delete existing job
+            // Delete existing job
             try
             {
+
                 ComboBoxHelper.PopulateJobNames(MJcmbJobName);
+                MJtxtJobDescription.Clear();
+                MJtxtJobLocation.Clear();
+                MJcalStartDate.SelectionStart = DateTime.Today;
+                MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                MJnudDuration.Value = 8;
+                MJcbxJobCompleted.Checked = false;
+                numericUpDown1.Value = 1;
 
                 action = "DELETE";
-                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                    SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
-                    int jobId = (int)getIdcomm.ExecuteScalar();
-                    ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
-                    using (SqlCommand comm = new SqlCommand(sql, conn))
-                    {
-                        comm.Parameters.AddWithValue("@JobID", jobId);
-
-                        SqlDataReader reader = comm.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            // Populating the form tools
-                            MJcmbJobName.Text = reader["JobName"].ToString();
-                            MJtxtJobDescription.Text = reader["JobDescription"].ToString();
-                            MJtxtJobLocation.Text = reader["JobLocation"].ToString();
-                            MJcalStartDate.SelectionStart = Convert.ToDateTime(reader["StartDate"]);
-                            MJcalEndDate.SelectionStart = Convert.ToDateTime(reader["EndDate"]);
-                            //.Value = Convert.ToDecimal(((TimeSpan)reader["DurationPerDay"]).TotalHours);
-                            //cbJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
-                            //numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
-
-
-                        }
-                    }
-
-
-
-                }
             }
             catch (Exception ex)
             {
@@ -718,49 +692,13 @@ namespace LockedIn
 
         private void MJbtnEdit_Click(object sender, EventArgs e)
         {
-            //Edit existing job
+            // Edit existing job
             try
             {
-                //making panels visible
+
                 ComboBoxHelper.PopulateJobNames(MJcmbJobName);
 
                 action = "EDIT";
-
-                string sql = "SELECT * FROM JOB WHERE JobID = @JobID";
-                string connStr = DatabaseConfig.GetConStr();
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                    SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                    getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.SelectedItem.ToString());
-                    int jobId = (int)getIdcomm.ExecuteScalar();
-                    ComboBoxHelper.PopulateSkillNames(MJcmbSkillName);
-                    ListboxHelper.PopulateCurrentJobSkills(MJlstSkillsNeeded, jobId);
-                    using (SqlCommand comm = new SqlCommand(sql, conn))
-                    {
-                        comm.Parameters.AddWithValue("@JobID", jobId);
-
-                        SqlDataReader reader = comm.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            // Populating the form tools
-                            MJcmbJobName.Text = reader["JobName"].ToString();
-                            MJtxtJobDescription.Text = reader["JobDescription"].ToString();
-                            MJtxtJobLocation.Text = reader["JobLocation"].ToString();
-                            MJcalStartDate.SelectionStart = Convert.ToDateTime(reader["StartDate"]);
-                            MJcalEndDate.SelectionStart = Convert.ToDateTime(reader["EndDate"]);
-                            //nudDuration.Value = Convert.ToDecimal(((TimeSpan)reader["DurationPerDay"]).TotalHours);
-                            //cbJobCompleted.Checked = Convert.ToBoolean(reader["Completed"]);
-                            //numericUpDown1.Value = Convert.ToDecimal(reader["PrisonersNeeded"]);
-
-
-                        }
-                    }
-                }
-
-
             }
             catch (Exception ex)
             {
@@ -770,141 +708,232 @@ namespace LockedIn
 
         private void MJbtnCreate_Click(object sender, EventArgs e)
         {
-            //Add job button
-
+            // Add job button
             try
             {
 
+                // Clear all fields for new job
+                txtJobName.Clear();
+                MJtxtJobDescription.Clear();
+                MJtxtJobLocation.Clear();
+                MJcalStartDate.SelectionStart = DateTime.Today;
+                MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                MJnudDuration.Value = 8;
+                MJcbxJobCompleted.Checked = false;
+                numericUpDown1.Value = 1;
+
                 selectedJobID = -1;
                 action = "ADD";
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-
-        private void MJbtnSave_Click(object sender, EventArgs e)
+        private void ResetJobForm()
         {
-            //save button  
+            txtJobName.Clear();
+            MJtxtJobDescription.Clear();
+            MJtxtJobLocation.Clear();
+            MJcalStartDate.SelectionStart = DateTime.Today;
+            MJcalEndDate.SelectionStart = DateTime.Today.AddDays(1);
+            MJnudDuration.Value = 8;
+            MJcbxJobCompleted.Checked = false;
+            numericUpDown1.Value = 1;
+            selectedJobID = -1;
+            action = "";
 
+            
+
+            txtJobName.ReadOnly = false;
+            MJtxtJobDescription.ReadOnly = false;
+            MJtxtJobLocation.ReadOnly = false;
+
+            MJcmbJobName.SelectedIndex = -1;
+        }
+        private int GetEmployerIDByName()
+        {
             try
             {
-                //setting values into variables
-                //string employer_name = ;
-                string job_name = MJcmbJobName.SelectedItem.ToString();
-                string job_description = MJtxtJobDescription.Text;
-                string job_location = MJtxtJobLocation.Text;
-                DateTime startDate = MJcalStartDate.SelectionStart;
-                DateTime endDate = MJcalEndDate.SelectionStart;
-                string skills = MJcmbSkillName.Text;
-                //decimal duration = nudDuration.Value;
-                //bool job_completed = cbJobCompleted.Checked;
-                //decimal prisoners = numericUpDown1.Value;
+                string employerName = MJcmbJobName.Text.Trim();
+
+                if (string.IsNullOrEmpty(employerName))
+                {
+                    MessageBox.Show("Please enter an employer name.");
+                    return -1;
+                }
 
                 string connStr = DatabaseConfig.GetConStr();
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
-                    conn.Open();
-                    //add job
-                    if (action == "ADD")
+                    string query = @"SELECT EmployerID FROM EMPLOYER WHERE CONCAT(FirstName, ' ', LastName) = @EmployerName OR FirstName = @EmployerName OR LastName = @EmployerName";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        string sql = "INSERT INTO JOB(EmployerID,JobName,JobDescription,JobLocation,StartDate,EndDate,PrisonersNeeded,Completed,DurationPerDay) VALUES(@EmployerID,@JobName,@JobDescription,@JobLocation,@StartDate,@EndDate,@PrisonersNeeded,@Completed,@DurationPerDay)";
+                        cmd.Parameters.AddWithValue("@EmployerName", employerName);
+                        conn.Open();
 
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
                         {
-                            comm.CommandType = CommandType.StoredProcedure;
-
-                            //cmd.Parameters.AddWithValue("@employerID", ); 
-                            comm.Parameters.AddWithValue("@jobName", job_name);
-                            comm.Parameters.AddWithValue("@jobDescription", job_description);
-                            comm.Parameters.AddWithValue("@jobLocation", job_location);
-                            comm.Parameters.AddWithValue("@startDate", startDate);
-                            comm.Parameters.AddWithValue("@endDate", endDate);
-                            //comm.Parameters.AddWithValue("@prisonersNeeded", prisoners);
-                            //comm.Parameters.AddWithValue("@completed", job_completed);
-                            //comm.Parameters.AddWithValue("@durationPerDay", duration);
-
-                            comm.ExecuteNonQuery();
+                            return Convert.ToInt32(result);
                         }
-
-                        MessageBox.Show("Job added successfully.");
-                    }
-                    //edit job
-                    else if (action == "EDIT")
-                    {
-                        string sql = "UPDATE JOB SET JobName= @jobName, JobDescription= @jobDescription, JobLocation= @jobLocation, StartDate = @startDate, EndDate = @endDate, PrisonersNeeded = @prisonersNeeded, Completed = @completed, DurationPerDay = @durationPerDay WHERE JobID = @jobID";
-
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        else
                         {
-                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                            SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                            getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.Text);
-                            int selectedJobId = (int)getIdcomm.ExecuteScalar();
-
-                            comm.Parameters.AddWithValue("@jobID", selectedJobID);
-                            comm.Parameters.AddWithValue("@jobName", MJcmbJobName.Text);
-                            comm.Parameters.AddWithValue("@jobDescription", job_description);
-                            comm.Parameters.AddWithValue("@jobLocation", job_location);
-                            comm.Parameters.AddWithValue("@startDate", startDate);
-                            comm.Parameters.AddWithValue("@endDate", endDate);
-                            //comm.Parameters.AddWithValue("@prisonersNeeded", prisoners);
-                            //comm.Parameters.AddWithValue("@completed", job_completed);
-                            //comm.Parameters.AddWithValue("@durationPerDay", duration);
-
-
-                            comm.ExecuteNonQuery();
+                            MessageBox.Show($"Employer '{employerName}' not found in database.");
+                            return -1;
                         }
-
-                        MessageBox.Show("Job updated successfully.");
-                    }
-                    //delete job
-                    else if (action == "DELETE")
-                    {
-                        string sql = "DELETE FROM JOB WHERE JobID = @jobID";
-
-                        using (SqlCommand comm = new SqlCommand(sql, conn))
-                        {
-                            string getIdSql = "SELECT JobID FROM JOB WHERE JobName = @JobName";
-                            SqlCommand getIdcomm = new SqlCommand(getIdSql, conn);
-                            getIdcomm.Parameters.AddWithValue("@JobName", MJcmbJobName.Text);
-                            int selectedJobID = (int)getIdcomm.ExecuteScalar();
-
-                            comm.Parameters.AddWithValue("@jobID", selectedJobID);
-                            comm.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Job deleted successfully.");
                     }
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Error retrieving employer ID: {ex.Message}");
+                return -1;
+            }
+        }
+        private void MJbtnSave_Click(object sender, EventArgs e)
+        {
+            // Save button  
+            try
+            {
+                // Setting values into variables
+                string job_name = txtJobName.Text.Trim();
+                string job_description = MJtxtJobDescription.Text.Trim();
+                string job_location = MJtxtJobLocation.Text.Trim();
+                DateTime startDate = MJcalStartDate.SelectionStart;
+                DateTime endDate = MJcalEndDate.SelectionStart;
+                decimal duration = MJnudDuration.Value;
+                bool job_completed = MJcbxJobCompleted.Checked;
+                decimal prisoners = numericUpDown1.Value;
+
+                // Validation
+                if (string.IsNullOrEmpty(job_name))
+                {
+                    MessageBox.Show("Job name is required.");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(job_description))
+                {
+                    MessageBox.Show("Job description is required.");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(job_location))
+                {
+                    MessageBox.Show("Job location is required.");
+                    return;
+                }
+
+                if (startDate >= endDate)
+                {
+                    MessageBox.Show("End date must be after start date.");
+                    return;
+                }
+
+                // Add job
+                if (action == "ADD")
+                {
+
+                    int employerID = GetEmployerIDByName();
+                    if (employerID <= 0)
+                    {
+                        MessageBox.Show("Invalid employer selected. Please check the employer name.");
+                        return;
+                    }
+                    Job newJob = new Job
+                    {
+                        EmployerID = employerID,
+                        JobName = job_name,
+                        JobDescription = job_description,
+                        JobLocation = job_location,
+                        StartDate = startDate,
+                        EndDate = endDate,
+                        PrisonersNeeded = (int)prisoners,
+                        Completed = job_completed,
+                        DurationPerDay = (int)duration
+                    };
+
+                    int newJobID = JobManager.AddJob(newJob);
+
+                    if (newJobID > 0)
+                    {
+                        MessageBox.Show($"Job added successfully with ID: {newJobID}");
+                        selectedJobID = newJobID;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add job.");
+                        return;
+                    }
+                }
+                // Edit job
+                else if (action == "EDIT")
+                {
+                    if (selectedJobID <= 0)
+                    {
+                        MessageBox.Show("Please select a job to edit.");
+                        return;
+                    }
+
+                    bool success = JobManager.UpdateJob(selectedJobID, job_name, job_description, job_location, startDate, endDate, duration, job_completed, (int)prisoners);
+
+                    if (success)
+                    {
+                        MessageBox.Show("Job updated successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update job.");
+                        return;
+                    }
+                }
+                // Delete job
+                else if (action == "DELETE")
+                {
+                    if (selectedJobID <= 0)
+                    {
+                        MessageBox.Show("Please select a job to delete.");
+                        return;
+                    }
+                    else
+                    {
+                        JobManager.DeleteJob(selectedJobID);
+                    }
+
+
+                }
+
+                ResetJobForm();
+
+                ComboBoxHelper.PopulateJobNames(MJcmbJobName);
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
         }
 
         private void MJbtnRemoveSkill_Click(object sender, EventArgs e)
         {
-            //removing skill from job
-            if (MJcmbSkillName.SelectedItem != null)
-            {
-                string skill = MJcmbSkillName.SelectedItem.ToString();
-                MJlstSkillsNeeded.Items.Add(skill);
-                MJcmbSkillName.SelectedItem = null;
-            }
+            string skill = "";
+
+            skill = MJlstSkillsNeeded.SelectedItem.ToString();
+            listBox1.Items.Add(skill);
+            MJlstSkillsNeeded.Items.RemoveAt(MJlstSkillsNeeded.SelectedIndex);
+            //JobSkillManager.RemoveJobSkill(JobID,skill);
         }
 
         private void MJbtnAddSkill_Click(object sender, EventArgs e)
         {
-            //adding skill to job
-            if (MJlstSkillsNeeded.SelectedItem != null)
-            {
-                string skill = MJlstSkillsNeeded.SelectedItem.ToString();
-                MJcmbJobName.Items.Add(skill);
-                MJlstSkillsNeeded.SelectedItem = null;
-            }
+            string skill = "";
+
+            skill = listBox1.SelectedItem.ToString();
+            MJlstSkillsNeeded.Items.Add(skill);
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            //JobSkillManager.AddJobSkill(JobID, skill);
         }
 
         private void imgFMENewshow_MouseDown(object sender, MouseEventArgs e)
@@ -920,6 +949,16 @@ namespace LockedIn
         }
 
         private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

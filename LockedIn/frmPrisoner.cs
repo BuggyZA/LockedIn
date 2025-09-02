@@ -18,7 +18,7 @@ namespace LockedIn
 {
     public partial class frmPrisoner : Form
     {
-        int skillID;
+        int skillID = -1;
         Prisoner thisPrisoner;
         bool isUpdatingPrisoner = false;
         bool isDeletingPrisoner = false;
@@ -266,6 +266,7 @@ namespace LockedIn
 
         private void btnEditP_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Save";
             isUpdatingPrisoner = true;
             this.PopulateMaintainControls();
 
@@ -319,6 +320,8 @@ namespace LockedIn
 
         private void btnDeleteP_Click(object sender, EventArgs e)
         {
+            btnMPSave.Text = "Delete";
+            
             isDeletingPrisoner = true;
             this.PopulateMaintainControls();
             this.DisableMaintainControls();
@@ -385,6 +388,8 @@ namespace LockedIn
                 }
             }
 
+            btnMPSave.Text = "Save";
+
             lstMPAllSkills.DataSource = null;
             lstMPAllSkills.Items.Clear();
             lstMPCurrentSkills.DataSource = null;
@@ -444,17 +449,9 @@ namespace LockedIn
 
         private void btnMPBack_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to return to the main menu?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to go back? Some changes will be lost", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)             //Change to tcPrisoner.SelectedIndex = 0
-            {
-                this.ClearMaintainControls();
-
-                frmLogIn myLoginform = new frmLogIn();
-                this.Close();
-                myLoginform.ShowDialog();
-            }
-            else
+            if (result == DialogResult.Yes)            
             {
                 this.ClearMaintainControls();
 
@@ -471,26 +468,41 @@ namespace LockedIn
 
                 isDeletingPrisoner = false;
                 isUpdatingPrisoner = false;
-
             }
         }
 
         private void btnAddSkill_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1)
+            {
+                PrisonerSkillManager.AddPrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRemoveSkill_Click(object sender, EventArgs e)
         {
-            PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
-            isPopulating = true;
-            ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
-            ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
-            isPopulating = false;
+            if (skillID != -1)
+            {
+                PrisonerSkillManager.RemovePrisonerSkill(thisPrisoner.PrisonerID, skillID);
+                skillID = -1;
+                isPopulating = true;
+                ListboxHelper.PopulateAvailablePSkills(lstMPAllSkills, thisPrisoner.PrisonerID);
+                ListboxHelper.PopulatePrisonerSkills(lstMPCurrentSkills, thisPrisoner.PrisonerID);
+                isPopulating = false;
+            }
+            else if (skillID == -1)
+            {
+                MessageBox.Show("Please select a skill", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstMPAllSkills_SelectedIndexChanged(object sender, EventArgs e)
@@ -635,5 +647,18 @@ namespace LockedIn
             imgMPpass.Image = Properties.Resources.view;
         }
 
+        private void pnlMPChoices_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlMPChoices.Visible)
+            {
+                btnMPSave.Visible = false;
+                btnMPBack.Visible = false;
+            }
+            else if (!pnlMPChoices.Visible)
+            {
+                btnMPSave.Visible = true;
+                btnMPBack.Visible = true; ;
+            }
+        }
     }
 }

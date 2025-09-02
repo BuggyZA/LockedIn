@@ -113,7 +113,35 @@ public static class ComboBoxHelper
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error loading skill names: " + ex.Message);
+            MessageBox.Show("Error loading job names: " + ex.Message);
+        }
+    }
+
+    public static void PopulateUncompletedJobNames(ComboBox comboBox)
+    {
+        try
+        {
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                conn.Open();
+
+                query = "SELECT JobID ,JobName FROM JOB WHERE Completed = 0";
+                adapter = new SqlDataAdapter(query, conn);
+                DataSet ds = new DataSet();
+
+                adapter.Fill(ds, "JOB");
+
+                comboBox.DataSource = ds.Tables["JOB"];
+                comboBox.DisplayMember = "JobName";
+                comboBox.ValueMember = "JobID";
+
+
+                comboBox.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error loading job names: " + ex.Message);
         }
     }
 

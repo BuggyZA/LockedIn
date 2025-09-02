@@ -11,7 +11,9 @@ using System.Linq;
 using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
+using static System.Collections.Specialized.BitVector32;
+using static LockedIn.Data.SessionData;
 /* To Do List:
  * Add Admin table to switch from const username and passwords
  * Migrate form navigation to login instead of APE panel
@@ -33,6 +35,7 @@ namespace LockedIn
         int SelectedUser;
         int PrisonerID, EmployerID;     //Variables of ID's to be used on other forms to fetch currently logged in ID
         bool validSignUp = false;
+        int CurrentEmployerID = 0;
 
         public frmLogIn()
         {
@@ -351,6 +354,19 @@ namespace LockedIn
                         // cmd = new SqlCommand("SELECT * FROM ADMINISTRATORS WHERE Username = @username AND Password = @password", conn);
                         // cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                         // cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                        string sql = "SELECT EmployerID FROM EMPLOYER WHERE FirstName = @FirstName AND Password = @Password";
+                        SqlCommand comm = new SqlCommand(sql, conn);
+                        comm.Parameters.AddWithValue("@FirstName", txtUsername.Text);
+                        comm.Parameters.AddWithValue("@Password", txtPassword.Text);
+
+
+                        var result = comm.ExecuteScalar();
+                        if (result != null)
+                        {
+                            int employerId = (int)result;
+                            SessionEmployerID.EmployerID = employerId;
+                        }
+
                     }
                     else if (SessionData.SelectedUser == 2) // Prisoner
                     {

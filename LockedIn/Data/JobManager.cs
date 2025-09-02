@@ -120,6 +120,38 @@ namespace LockedIn.Managers
             }
         }
 
+        public static bool UpdateJob(int jobId, string jobName, string jobDescription, string jobLocation, DateTime startDate, DateTime endDate, decimal durationPerDay, bool completed, int prisonersNeeded)
+        {
+            string query = @"UPDATE JOB SET JobName = @JobName, JobDescription = @JobDescription, JobLocation = @JobLocation, StartDate = @StartDate, EndDate = @EndDate, DurationPerDay = @DurationPerDay, Completed = @Completed, PrisonersNeeded = @PrisonersNeeded WHERE JobID = @JobID";
+
+            try
+            {
+                using (conn = new SqlConnection(constr))
+                {
+                    using (cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@JobID", jobId);
+                        cmd.Parameters.AddWithValue("@JobName", jobName);
+                        cmd.Parameters.AddWithValue("@JobDescription", jobDescription);
+                        cmd.Parameters.AddWithValue("@JobLocation", jobLocation);
+                        cmd.Parameters.AddWithValue("@StartDate", startDate);
+                        cmd.Parameters.AddWithValue("@EndDate", endDate);
+                        cmd.Parameters.AddWithValue("@DurationPerDay", durationPerDay);
+                        cmd.Parameters.AddWithValue("@Completed", completed);
+                        cmd.Parameters.AddWithValue("@PrisonersNeeded", prisonersNeeded);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0; // True if a row was updated
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating job with ID {jobId}: {ex.Message}");
+                return false;
+            }
+        }
 
         public static bool DeleteJob(int jobId)
         {
