@@ -546,7 +546,6 @@ namespace LockedIn
             string skillDesc = txtMSSkillDesc.Text.Trim();
 
 
-
             if (skillOperation == "DELETE")
             {
                 if (selectedSkillID == -1)
@@ -570,41 +569,49 @@ namespace LockedIn
 
                 if (selectedSkillID == -1) // new skills 
                 {
-                    cmd = new SqlCommand("INSERT INTO SKILL (SkillName, SkillDescription) OUTPUT INSERTED.SkillID VALUES (@Name, @Desc)", conn);
-                    cmd.Parameters.AddWithValue("@Name", skillName);
-                    cmd.Parameters.AddWithValue("@Desc", skillDesc);
-
-                    try
+                    // Ensuring that there is a skill name and description
+                    if (txtMSSkillName.Text == "" || txtMSSkillDesc.Text == "")
                     {
-                        conn.Open();
-                        int newSkillID = (int)cmd.ExecuteScalar();
-
-                        // optionally linking the skill to the prisoner.
-                        int defaultPrisonerID = prsnrID != 0 ? prsnrID : 1;
-                        SqlCommand linkCmd = new SqlCommand("INSERT INTO SKILL_OF_PRISONER (PrisonerID, SkillID) VALUES (@PrisonerID, @SkillID)", conn);
-                        linkCmd.Parameters.AddWithValue("@PrisonerID", defaultPrisonerID);
-                        linkCmd.Parameters.AddWithValue("@SkillID", newSkillID);
-                        linkCmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Skill added successfully!");
-                        // Reset state after successful add
-                        ResetMaintainSkillsState();
-
-
-                        // ensuring the textboxes are clear after a skill has been added.
-                        txtMSSkillName.Clear();
-                        txtMSSkillDesc.Clear();
-                        selectedSkillID = -1;
-
-                        // preventing the auto trigerring
-                        isPopulating = true;
-                        ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
-                        cbxMSSkillName.SelectedIndex = -1;
-                        isPopulating = false;
+                        MessageBox.Show("Please ensure that both the skill name and description are entered");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Error saving skill: " + ex.Message);
+                        cmd = new SqlCommand("INSERT INTO SKILL (SkillName, SkillDescription) OUTPUT INSERTED.SkillID VALUES (@Name, @Desc)", conn);
+                        cmd.Parameters.AddWithValue("@Name", skillName);
+                        cmd.Parameters.AddWithValue("@Desc", skillDesc);
+
+                        try
+                        {
+                            conn.Open();
+                            int newSkillID = (int)cmd.ExecuteScalar();
+
+                            // optionally linking the skill to the prisoner.
+                            int defaultPrisonerID = prsnrID != 0 ? prsnrID : 1;
+                            SqlCommand linkCmd = new SqlCommand("INSERT INTO SKILL_OF_PRISONER (PrisonerID, SkillID) VALUES (@PrisonerID, @SkillID)", conn);
+                            linkCmd.Parameters.AddWithValue("@PrisonerID", defaultPrisonerID);
+                            linkCmd.Parameters.AddWithValue("@SkillID", newSkillID);
+                            linkCmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Skill added successfully!");
+                            // Reset state after successful add
+                            ResetMaintainSkillsState();
+
+
+                            // ensuring the textboxes are clear after a skill has been added.
+                            txtMSSkillName.Clear();
+                            txtMSSkillDesc.Clear();
+                            selectedSkillID = -1;
+
+                            // preventing the auto trigerring
+                            isPopulating = true;
+                            ComboBoxHelper.PopulateSkillNames(cbxMSSkillName);
+                            cbxMSSkillName.SelectedIndex = -1;
+                            isPopulating = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error saving skill: " + ex.Message);
+                        }
                     }
                 }
                 else // updating the existing skill.
