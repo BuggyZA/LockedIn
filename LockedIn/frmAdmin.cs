@@ -119,6 +119,7 @@ namespace LockedIn
                 pnladJobDetails.Visible = false;
                 pnlAdDate.Visible = false;
                 pnlAdSkills.Visible = false;
+                ComboBoxHelper.PopulateJobNames(cbxMJJobName);
 
 
 
@@ -1807,31 +1808,10 @@ namespace LockedIn
 
         private void cbxASJJobName_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (isPopulating || cbxASJJobName.SelectedIndex == -1)
-                return;
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+           
 
         }
 
-        private void btnASJRemove_Click(object sender, EventArgs e)
-        {
-            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
-
-            isPopulating = true;
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            isPopulating = false;
-        }
-        private void btnASJAdd_Click(object sender, EventArgs e)
-        {
-            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
-
-            isPopulating = true;
-            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
-            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
-            isPopulating = false;
-        }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
@@ -2000,6 +1980,54 @@ namespace LockedIn
         private void pnlAdFunctions_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnASJAdd_Click_1(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void btnASJRemove_Click_1(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxASJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstASJCurrentSkillOfJob));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void cbxMJJobName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPopulating || cbxMJJobName.SelectedIndex == -1)
+                return;
+            ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, (int)cbxMJJobName.SelectedValue);
+            ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, (int)cbxMJJobName.SelectedValue);
+        }
+
+        private void btnMJAddSkillList_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill((int)cbxMJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstMJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, (int)cbxMJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, (int)cbxMJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void btnMJRemoveSkillList_Click(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill((int)cbxMJJobName.SelectedValue, ListboxHelper.GetSelectedSkillID(lstMJCurrentSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, (int)cbxMJJobName.SelectedValue);
+            ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, (int)cbxMJJobName.SelectedValue);
+            isPopulating = false;
         }
     }
 } 
