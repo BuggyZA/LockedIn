@@ -109,10 +109,11 @@ namespace LockedIn
             else if (tcAdmin.SelectedIndex == 3)
             {
 
-                pnlAdFunctions.Visible = true;
                 pnladJobDetails.Visible = false;
                 pnlAdDate.Visible = false;
                 pnlAdSkills.Visible = false;
+
+
 
 
             }

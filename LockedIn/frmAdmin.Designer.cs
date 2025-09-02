@@ -126,19 +126,12 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.pnladJobDetails = new System.Windows.Forms.Panel();
             this.pnlAdFunctions = new System.Windows.Forms.Panel();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
-            this.pnlAdDate = new System.Windows.Forms.Panel();
-            this.cbJobCompleted = new System.Windows.Forms.CheckBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.calEndDate = new System.Windows.Forms.MonthCalendar();
-            this.nudDuration = new System.Windows.Forms.NumericUpDown();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.calStartDate = new System.Windows.Forms.MonthCalendar();
-            this.pnladJobDetails = new System.Windows.Forms.Panel();
+            this.txtJobname = new System.Windows.Forms.TextBox();
             this.MJtxtEmployerName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -150,11 +143,19 @@
             this.rtbJobLocation = new System.Windows.Forms.RichTextBox();
             this.rtbJobDescription = new System.Windows.Forms.RichTextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.button28 = new System.Windows.Forms.Button();
+            this.pnlAdDate = new System.Windows.Forms.Panel();
+            this.cbJobCompleted = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.calEndDate = new System.Windows.Forms.MonthCalendar();
+            this.nudDuration = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.calStartDate = new System.Windows.Forms.MonthCalendar();
             this.pnlAdSkills = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button28 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -287,7 +288,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.txtJobname = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -322,11 +322,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
+            this.pnladJobDetails.SuspendLayout();
             this.pnlAdFunctions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.pnlAdDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
-            this.pnladJobDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.pnlAdSkills.SuspendLayout();
             this.tpGuards.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -1560,6 +1560,7 @@
             // panel35
             // 
             this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.panel35.Controls.Add(this.pnlAdFunctions);
             this.panel35.Controls.Add(this.pnladJobDetails);
             this.panel35.Controls.Add(this.pnlAdDate);
             this.panel35.Controls.Add(this.pnlAdSkills);
@@ -1569,13 +1570,34 @@
             this.panel35.Size = new System.Drawing.Size(1647, 731);
             this.panel35.TabIndex = 0;
             // 
+            // pnladJobDetails
+            // 
+            this.pnladJobDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnladJobDetails.Controls.Add(this.txtJobname);
+            this.pnladJobDetails.Controls.Add(this.MJtxtEmployerName);
+            this.pnladJobDetails.Controls.Add(this.label2);
+            this.pnladJobDetails.Controls.Add(this.numericUpDown1);
+            this.pnladJobDetails.Controls.Add(this.label34);
+            this.pnladJobDetails.Controls.Add(this.cmbJobNAme);
+            this.pnladJobDetails.Controls.Add(this.label44);
+            this.pnladJobDetails.Controls.Add(this.label39);
+            this.pnladJobDetails.Controls.Add(this.label42);
+            this.pnladJobDetails.Controls.Add(this.rtbJobLocation);
+            this.pnladJobDetails.Controls.Add(this.rtbJobDescription);
+            this.pnladJobDetails.Controls.Add(this.label43);
+            this.pnladJobDetails.Location = new System.Drawing.Point(20, 20);
+            this.pnladJobDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnladJobDetails.Name = "pnladJobDetails";
+            this.pnladJobDetails.Size = new System.Drawing.Size(487, 638);
+            this.pnladJobDetails.TabIndex = 18;
+            // 
             // pnlAdFunctions
             // 
             this.pnlAdFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.pnlAdFunctions.Controls.Add(this.button30);
             this.pnlAdFunctions.Controls.Add(this.button31);
             this.pnlAdFunctions.Controls.Add(this.button32);
-            this.pnlAdFunctions.Location = new System.Drawing.Point(330, 3);
+            this.pnlAdFunctions.Location = new System.Drawing.Point(516, 2);
             this.pnlAdFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAdFunctions.Name = "pnlAdFunctions";
             this.pnlAdFunctions.Size = new System.Drawing.Size(459, 547);
@@ -1624,110 +1646,13 @@
             this.button32.UseVisualStyleBackColor = false;
             this.button32.Click += new System.EventHandler(this.button32_Click_1);
             // 
-            // pnlAdDate
+            // txtJobname
             // 
-            this.pnlAdDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlAdDate.Controls.Add(this.cbJobCompleted);
-            this.pnlAdDate.Controls.Add(this.label40);
-            this.pnlAdDate.Controls.Add(this.calEndDate);
-            this.pnlAdDate.Controls.Add(this.nudDuration);
-            this.pnlAdDate.Controls.Add(this.label35);
-            this.pnlAdDate.Controls.Add(this.label41);
-            this.pnlAdDate.Controls.Add(this.calStartDate);
-            this.pnlAdDate.Location = new System.Drawing.Point(513, 21);
-            this.pnlAdDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlAdDate.Name = "pnlAdDate";
-            this.pnlAdDate.Size = new System.Drawing.Size(852, 311);
-            this.pnlAdDate.TabIndex = 17;
-            // 
-            // cbJobCompleted
-            // 
-            this.cbJobCompleted.AutoSize = true;
-            this.cbJobCompleted.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbJobCompleted.Location = new System.Drawing.Point(456, 267);
-            this.cbJobCompleted.Margin = new System.Windows.Forms.Padding(4);
-            this.cbJobCompleted.Name = "cbJobCompleted";
-            this.cbJobCompleted.Size = new System.Drawing.Size(151, 33);
-            this.cbJobCompleted.TabIndex = 14;
-            this.cbJobCompleted.Text = "Job Completed";
-            this.cbJobCompleted.UseVisualStyleBackColor = true;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(451, 4);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(97, 33);
-            this.label40.TabIndex = 11;
-            this.label40.Text = "End Date:";
-            // 
-            // calEndDate
-            // 
-            this.calEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calEndDate.Location = new System.Drawing.Point(456, 44);
-            this.calEndDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.calEndDate.Name = "calEndDate";
-            this.calEndDate.TabIndex = 10;
-            // 
-            // nudDuration
-            // 
-            this.nudDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudDuration.Location = new System.Drawing.Point(237, 274);
-            this.nudDuration.Margin = new System.Windows.Forms.Padding(4);
-            this.nudDuration.Name = "nudDuration";
-            this.nudDuration.Size = new System.Drawing.Size(75, 26);
-            this.nudDuration.TabIndex = 13;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(4, 268);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(214, 33);
-            this.label35.TabIndex = 12;
-            this.label35.Text = "Duration Per Day (hrs):";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(4, 6);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(110, 33);
-            this.label41.TabIndex = 9;
-            this.label41.Text = "Start Date:";
-            // 
-            // calStartDate
-            // 
-            this.calStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calStartDate.Location = new System.Drawing.Point(9, 46);
-            this.calStartDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.calStartDate.Name = "calStartDate";
-            this.calStartDate.TabIndex = 1;
-            // 
-            // pnladJobDetails
-            // 
-            this.pnladJobDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnladJobDetails.Controls.Add(this.pnlAdFunctions);
-            this.pnladJobDetails.Controls.Add(this.txtJobname);
-            this.pnladJobDetails.Controls.Add(this.MJtxtEmployerName);
-            this.pnladJobDetails.Controls.Add(this.label2);
-            this.pnladJobDetails.Controls.Add(this.numericUpDown1);
-            this.pnladJobDetails.Controls.Add(this.label34);
-            this.pnladJobDetails.Controls.Add(this.cmbJobNAme);
-            this.pnladJobDetails.Controls.Add(this.label44);
-            this.pnladJobDetails.Controls.Add(this.label39);
-            this.pnladJobDetails.Controls.Add(this.label42);
-            this.pnladJobDetails.Controls.Add(this.rtbJobLocation);
-            this.pnladJobDetails.Controls.Add(this.rtbJobDescription);
-            this.pnladJobDetails.Controls.Add(this.label43);
-            this.pnladJobDetails.Location = new System.Drawing.Point(20, 20);
-            this.pnladJobDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnladJobDetails.Name = "pnladJobDetails";
-            this.pnladJobDetails.Size = new System.Drawing.Size(487, 638);
-            this.pnladJobDetails.TabIndex = 18;
+            this.txtJobname.Location = new System.Drawing.Point(157, 120);
+            this.txtJobname.Name = "txtJobname";
+            this.txtJobname.Size = new System.Drawing.Size(305, 22);
+            this.txtJobname.TabIndex = 18;
+            this.txtJobname.TextChanged += new System.EventHandler(this.txtJobname_TextChanged);
             // 
             // MJtxtEmployerName
             // 
@@ -1838,19 +1763,88 @@
             this.label43.TabIndex = 9;
             this.label43.Text = "Job Details:";
             // 
-            // button28
+            // pnlAdDate
             // 
-            this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button28.ForeColor = System.Drawing.Color.White;
-            this.button28.Location = new System.Drawing.Point(586, 11);
-            this.button28.Margin = new System.Windows.Forms.Padding(4);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(141, 41);
-            this.button28.TabIndex = 15;
-            this.button28.Text = "Save";
-            this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.pnlAdDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlAdDate.Controls.Add(this.cbJobCompleted);
+            this.pnlAdDate.Controls.Add(this.label40);
+            this.pnlAdDate.Controls.Add(this.calEndDate);
+            this.pnlAdDate.Controls.Add(this.nudDuration);
+            this.pnlAdDate.Controls.Add(this.label35);
+            this.pnlAdDate.Controls.Add(this.label41);
+            this.pnlAdDate.Controls.Add(this.calStartDate);
+            this.pnlAdDate.Location = new System.Drawing.Point(513, 21);
+            this.pnlAdDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlAdDate.Name = "pnlAdDate";
+            this.pnlAdDate.Size = new System.Drawing.Size(852, 311);
+            this.pnlAdDate.TabIndex = 17;
+            // 
+            // cbJobCompleted
+            // 
+            this.cbJobCompleted.AutoSize = true;
+            this.cbJobCompleted.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbJobCompleted.Location = new System.Drawing.Point(456, 267);
+            this.cbJobCompleted.Margin = new System.Windows.Forms.Padding(4);
+            this.cbJobCompleted.Name = "cbJobCompleted";
+            this.cbJobCompleted.Size = new System.Drawing.Size(151, 33);
+            this.cbJobCompleted.TabIndex = 14;
+            this.cbJobCompleted.Text = "Job Completed";
+            this.cbJobCompleted.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(451, 4);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(97, 33);
+            this.label40.TabIndex = 11;
+            this.label40.Text = "End Date:";
+            // 
+            // calEndDate
+            // 
+            this.calEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calEndDate.Location = new System.Drawing.Point(456, 44);
+            this.calEndDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.calEndDate.Name = "calEndDate";
+            this.calEndDate.TabIndex = 10;
+            // 
+            // nudDuration
+            // 
+            this.nudDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDuration.Location = new System.Drawing.Point(237, 274);
+            this.nudDuration.Margin = new System.Windows.Forms.Padding(4);
+            this.nudDuration.Name = "nudDuration";
+            this.nudDuration.Size = new System.Drawing.Size(75, 26);
+            this.nudDuration.TabIndex = 13;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(4, 268);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(214, 33);
+            this.label35.TabIndex = 12;
+            this.label35.Text = "Duration Per Day (hrs):";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(4, 6);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(110, 33);
+            this.label41.TabIndex = 9;
+            this.label41.Text = "Start Date:";
+            // 
+            // calStartDate
+            // 
+            this.calStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calStartDate.Location = new System.Drawing.Point(9, 46);
+            this.calStartDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.calStartDate.Name = "calStartDate";
+            this.calStartDate.TabIndex = 1;
             // 
             // pnlAdSkills
             // 
@@ -1907,6 +1901,20 @@
             this.label3.Size = new System.Drawing.Size(91, 29);
             this.label3.TabIndex = 31;
             this.label3.Text = "All Skills:";
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button28.ForeColor = System.Drawing.Color.White;
+            this.button28.Location = new System.Drawing.Point(586, 11);
+            this.button28.Margin = new System.Windows.Forms.Padding(4);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(141, 41);
+            this.button28.TabIndex = 15;
+            this.button28.Text = "Save";
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // label5
             // 
@@ -3465,14 +3473,6 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
-            // txtJobname
-            // 
-            this.txtJobname.Location = new System.Drawing.Point(157, 120);
-            this.txtJobname.Name = "txtJobname";
-            this.txtJobname.Size = new System.Drawing.Size(305, 22);
-            this.txtJobname.TabIndex = 18;
-            this.txtJobname.TextChanged += new System.EventHandler(this.txtJobname_TextChanged);
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3534,13 +3534,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
+            this.pnladJobDetails.ResumeLayout(false);
+            this.pnladJobDetails.PerformLayout();
             this.pnlAdFunctions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.pnlAdDate.ResumeLayout(false);
             this.pnlAdDate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
-            this.pnladJobDetails.ResumeLayout(false);
-            this.pnladJobDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.pnlAdSkills.ResumeLayout(false);
             this.pnlAdSkills.PerformLayout();
             this.tpGuards.ResumeLayout(false);
