@@ -419,6 +419,7 @@ namespace LockedIn
             // Set operation mode and reset state
             skillOperation = "EDIT";
             selectedSkillID = -1;
+            btnMSSave.Text = "Save";
 
             // Show skill selection panel only
             panel19.Visible = true;
@@ -598,6 +599,7 @@ namespace LockedIn
 
         private void btnMSDelExisSkill_Click(object sender, EventArgs e)
         {
+            btnMSSave.Text = "Delete";
             // Set operation mode
             skillOperation = "DELETE";
 
@@ -618,6 +620,7 @@ namespace LockedIn
             txtMSSkillName.Clear();
             txtMSSkillDesc.Clear();
             selectedSkillID = -1;
+
         }
 
 
@@ -640,6 +643,7 @@ namespace LockedIn
             // Set operation mode
             skillOperation = "ADD";
             selectedSkillID = -1;
+            btnMSSave.Text = "Save";
 
             // Hide skill selection panel, show editing panel
             panel19.Visible = false;
