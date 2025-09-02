@@ -1542,6 +1542,7 @@ namespace LockedIn
         }
         private void ResetJobForm()
         {
+            cbxMJEmpName.Enabled = true;
             sbxPNeeded.Enabled = true;
             pnlAdDate.Enabled = true;
 
