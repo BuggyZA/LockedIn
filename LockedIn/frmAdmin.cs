@@ -1654,7 +1654,7 @@ namespace LockedIn
                 MessageBox.Show("passwords do not match!");
                 return;
             }
-            else if (txtEmpPass.Text.Trim().Length < 6)
+           if (txtEmpNew.Text.Trim().Length < 6)
             {
                 MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
