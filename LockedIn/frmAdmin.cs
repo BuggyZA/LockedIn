@@ -1405,7 +1405,7 @@ namespace LockedIn
                 DateTime endDate = calEndDate.SelectionStart;
                 decimal duration = nudDuration.Value;
                 bool job_completed = cbJobCompleted.Checked;
-                decimal prisoners = sbxPNeeded.Value;
+                int prisoners = (int)sbxPNeeded.Value;
 
                 // Validation
                 if (string.IsNullOrEmpty(job_name))
@@ -1442,6 +1442,7 @@ namespace LockedIn
                         MessageBox.Show("Invalid employer selected. Please check the employer name.");
                         return;
                     }
+
                     Job newJob = new Job
                     {
                         EmployerID = employerID,JobName = job_name, JobDescription = job_description,JobLocation = job_location,StartDate = startDate,EndDate = endDate,PrisonersNeeded = (int)prisoners,Completed = job_completed, DurationPerDay = (int)duration
@@ -1469,7 +1470,7 @@ namespace LockedIn
                         return;
                     }
                    
-                    bool success = JobManager.UpdateJob(selectedJobID, job_name, job_description, job_location,startDate, endDate, duration, job_completed, (int)prisoners);
+                    bool success = JobManager.UpdateJob(selectedJobID, job_name, job_description, job_location,startDate, endDate, duration, job_completed, prisoners);
 
                     if (success)
                     {

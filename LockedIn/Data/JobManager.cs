@@ -1,6 +1,7 @@
 ﻿using LockedIn.Data;
 using LockedIn.Models;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -65,57 +66,83 @@ namespace LockedIn.Managers
 
         public static int AddJob(Job job)
         {
-            string insertQuery = @"INSERT INTO JOB 
-                            (EmployerID, JobName, JobDescription, JobLocation, 
-                             StartDate, EndDate, Completed, DurationPerDay) 
-                           VALUES 
-                            (@EmployerID, @JobName, @JobDescription, @JobLocation, 
-                             @StartDate, @EndDate, @Completed, @DurationPerDay)";
-
-            string selectQuery = "SELECT CAST(@@IDENTITY AS INT)"; // Get last inserted JobID
-
             try
             {
+                // Validate input before sending to database
+                if (job.EmployerID <= 0)
+                {
+                    MessageBox.Show("Invalid EmployerID");
+                    return -1;
+                }
+
+                // Check string lengths
+                if (!string.IsNullOrEmpty(job.JobName) && job.JobName.Length > 55)
+                {
+                    MessageBox.Show("Job name cannot exceed 55 characters");
+                    return -1;
+                }
+                if (!string.IsNullOrEmpty(job.JobDescription) && job.JobDescription.Length > 55)
+                {
+                    MessageBox.Show("Job description cannot exceed 55 characters");
+                    return -1;
+                }
+                if (!string.IsNullOrEmpty(job.JobLocation) && job.JobLocation.Length > 55)
+                {
+                    MessageBox.Show("Job location cannot exceed 55 characters");
+                    return -1;
+                }
+
                 using (conn = new SqlConnection(constr))
                 {
                     conn.Open();
-
-                    // Insert the new job
-                    using (cmd = new SqlCommand(insertQuery, conn))
+                    using (cmd = new SqlCommand("dbo.AddJob", conn))
                     {
-                        cmd.Parameters.AddWithValue("@EmployerID", job.EmployerID);
-                        cmd.Parameters.AddWithValue("@JobName", job.JobName);
-                        cmd.Parameters.AddWithValue("@JobDescription", job.JobDescription);
-                        cmd.Parameters.AddWithValue("@JobLocation", job.JobLocation);
-                        cmd.Parameters.AddWithValue("@StartDate", job.StartDate);
-                        cmd.Parameters.AddWithValue("@EndDate", job.EndDate);
-                        cmd.Parameters.AddWithValue("@Completed", job.Completed);
-                        cmd.Parameters.AddWithValue("@DurationPerDay", job.DurationPerDay);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@employerID", job.EmployerID);
+                        cmd.Parameters.AddWithValue("@jobName", job.JobName ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@jobDescription", job.JobDescription ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@jobLocation", job.JobLocation ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@startDate", job.StartDate);
+                        cmd.Parameters.AddWithValue("@endDate", job.EndDate);
+                        cmd.Parameters.AddWithValue("@prisonersNeeded", job.PrisonersNeeded);
+                        cmd.Parameters.AddWithValue("@completed", job.Completed);
+                        cmd.Parameters.AddWithValue("@durationPerDay", job.DurationPerDay);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
+                        Console.WriteLine($"Rows affected by stored procedure: {rowsAffected}");
 
-                        if (rowsAffected == 0)
+                        if (rowsAffected > 0)
                         {
-                            return -1; // Insert failed
+                            // Get the newly inserted JobID using a separate query
+                            using (SqlCommand selectCmd = new SqlCommand("SELECT MAX(JobID) FROM JOB WHERE EmployerID = @employerID", conn))
+                            {
+                                selectCmd.Parameters.AddWithValue("@employerID", job.EmployerID);
+                                object result = selectCmd.ExecuteScalar();
+                                if (result != null && result != DBNull.Value)
+                                {
+                                    int jobId = Convert.ToInt32(result);
+                                    Console.WriteLine($"Successfully added job with ID: {jobId}");
+                                    return jobId;
+                                }
+                            }
                         }
-                    }
 
-                    // Fetch the new JobID
-                    using (cmd = new SqlCommand(selectQuery, conn))
-                    {
-                        object result = cmd.ExecuteScalar();
-                        if (result != null && result != DBNull.Value)
-                        {
-                            return Convert.ToInt32(result);
-                        }
+                        Console.WriteLine($"No rows affected. RowsAffected: {rowsAffected}");
+                        return -1;
                     }
-
-                    return -1;
                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}\nError Number: {ex.Number}");
+                Console.WriteLine($"SQL Exception: {ex.Message}, Number: {ex.Number}, Severity: {ex.Class}");
+                return -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding job: {ex.Message}");
+                Console.WriteLine($"General Exception: {ex.Message}\nStack Trace: {ex.StackTrace}");
                 return -1;
             }
         }

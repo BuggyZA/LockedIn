@@ -2,9 +2,9 @@
 -- AddJob, UpdateJob and DeleteJob
 CREATE PROCEDURE dbo.AddJob
     @employerID INT,
-    @jobName NVARCHAR(55),
-    @jobDescription NVARCHAR(55),
-    @jobLocation NVARCHAR(55),
+    @jobName VARCHAR(55),
+    @jobDescription VARCHAR(55),
+    @jobLocation VARCHAR(55),
     @startDate DATETIME,
     @endDate DATETIME,
     @prisonersNeeded INT,
@@ -30,9 +30,9 @@ GO
 CREATE PROCEDURE dbo.UpdateJob
     @jobID             INT,
     @employerID        INT,
-    @jobName           NVARCHAR(55),
-    @jobDescription    NVARCHAR(55),
-    @jobLocation       NVARCHAR(55),
+    @jobName           VARCHAR(55),
+    @jobDescription    VARCHAR(55),
+    @jobLocation       VARCHAR(55),
     @startDate         DATETIME,
     @endDate           DATETIME,
     @prisonersNeeded   INT,
