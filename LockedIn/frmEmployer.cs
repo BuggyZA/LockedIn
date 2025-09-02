@@ -24,6 +24,8 @@ namespace LockedIn
 
     public partial class frmEmployer : Form
     {
+        Job selectedJob = null;
+
         static String constr = DatabaseConfig.GetConStr();
         static String sql;
         bool isPopulating = false;
@@ -250,7 +252,7 @@ namespace LockedIn
 
         private void btnHpARJ_Click(object sender, EventArgs e)
         {
-            tcEmployer.SelectedIndex = 4;
+            tcEmployer.SelectedIndex = 3;
 
         }
 
@@ -484,7 +486,7 @@ namespace LockedIn
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            tcEmployer.SelectedIndex = 3;
+            tcEmployer.SelectedIndex = 2;
             PnlEmpInfo.Visible = true;
         }
 
@@ -569,6 +571,13 @@ namespace LockedIn
             {
                 ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
             }
+            else if (tcEmployer.SelectedIndex == 1)
+            {
+                // Populate employer name from EmployerID
+
+                string empName = "";
+                txtMJEmpName.Text = empName;
+            }/*
             else if (tcEmployer.SelectedIndex == 2)
             {
                 try
@@ -597,8 +606,8 @@ namespace LockedIn
                 {
                     MessageBox.Show("Error loading skill names: " + ex.Message);
                 }
-            }
-            else if (tcEmployer.SelectedIndex == 4)
+            }*/
+            else if (tcEmployer.SelectedIndex == 3)
             {
                 ARJcmbJobName.SelectedIndex = -1;
                 ARJcmbSelectApplication.SelectedIndex = -1;
@@ -691,5 +700,195 @@ namespace LockedIn
         {
 
         }
+
+        private void cmbJobNAme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbJobNAme.SelectedIndex != -1 && (action == "EDIT" || action == "DELETE"))
+                {
+                    selectedJobID = ComboBoxHelper.GetSelectedID(cmbJobNAme);
+
+                    if (selectedJobID > 0)
+                    {
+                        // Load job details using JobManager
+                        selectedJob = JobManager.LoadJob(selectedJobID);
+
+                        if (selectedJob != null)
+                        {
+                            txtJobname.Text = selectedJob.JobName;
+                            rtbJobDescription.Text = selectedJob.JobDescription;
+                            rtbJobLocation.Text = selectedJob.JobLocation;
+                            calStartDate.SelectionStart = selectedJob.StartDate;
+                            calEndDate.SelectionStart = selectedJob.EndDate;
+                            nudDuration.Value = selectedJob.DurationPerDay;
+                            cbJobCompleted.Checked = selectedJob.Completed;
+                            sbxPNeeded.Value = selectedJob.PrisonersNeeded;
+
+                            if (action == "DELETE")
+                            {
+                                sbxPNeeded.Enabled = false;
+                                pnlAdDate.Enabled = false;
+                                ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+                                ListboxHelper.PopulateAvailablePSkills(lstMJAllSkills, selectedJobID);
+                                pnlAdSkills.Enabled = false;
+                                txtJobname.ReadOnly = true;
+                                rtbJobDescription.ReadOnly = true;
+                                rtbJobLocation.ReadOnly = true;
+                                Job newJob = new Job();
+
+                            }
+                            else if (action == "EDIT")
+                            {
+                                ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+                                ListboxHelper.PopulateAvailablePSkills(lstMJAllSkills, selectedJobID);
+                                txtJobname.ReadOnly = false;
+                                rtbJobDescription.ReadOnly = false;
+                                rtbJobLocation.ReadOnly = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading job details: " + ex.Message);
+            }
+        }
+
+        private string GetEmployerNameById(int employerID)
+        {
+            try
+            {
+                string connStr = DatabaseConfig.GetConStr();
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    string query = @"SELECT CONCAT(FirstName, ' ', LastName) AS FullName FROM EMPLOYER WHERE EmployerID = @EmployerID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@EmployerID", employerID);
+                        conn.Open();
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return result.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Employer with ID {employerID} not found.");
+                            return string.Empty;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving employer name: {ex.Message}");
+                return string.Empty;
+            }
+        }
+
+        private void txtJobname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMJAddJob_Click(object sender, EventArgs e)
+        {
+            // Add job button
+            try
+            {
+                // Making panels visible
+                btnMJSave.Text = "Add";
+
+                pnlAdSkills.Enabled = false;
+
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
+                cmbJobNAme.Visible = false;
+                txtJobname.Visible = true;
+
+                // Clear all fields for new job
+                txtJobname.Clear();
+                rtbJobDescription.Clear();
+                rtbJobLocation.Clear();
+                calStartDate.SelectionStart = DateTime.Today;
+                calEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                nudDuration.Value = 8;
+                cbJobCompleted.Checked = false;
+                sbxPNeeded.Value = 1;
+
+                selectedJobID = -1;
+                action = "ADD";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void btnMJEditJob_Click(object sender, EventArgs e)
+        {
+            // Edit existing job
+            try
+            {
+                // Making panels visible
+
+                btnMJSave.Text = "Save";
+
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
+                cmbJobNAme.Visible = true;
+                txtJobname.Visible = false;
+
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+
+                action = "EDIT";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void btnMJDeleteJob_Click(object sender, EventArgs e)
+        {
+            // Delete existing job
+            try
+            {
+                // Making panels visible
+                btnMJSave.Text = "Delete";
+
+                pnladJobDetails.Visible = true;
+                pnlAdDate.Visible = true;
+                pnlAdFunctions.Visible = false;
+                pnlAdSkills.Visible = true;
+                cmbJobNAme.Visible = true;
+                txtJobname.Visible = false;
+
+                ComboBoxHelper.PopulateJobNames(cmbJobNAme);
+                rtbJobDescription.Clear();
+                rtbJobLocation.Clear();
+                calStartDate.SelectionStart = DateTime.Today;
+                calEndDate.SelectionStart = DateTime.Today.AddDays(1);
+                nudDuration.Value = 8;
+                cbJobCompleted.Checked = false;
+                sbxPNeeded.Value = 1;
+
+                action = "DELETE";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
     }
+    
 }
