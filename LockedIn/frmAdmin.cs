@@ -1334,6 +1334,7 @@ namespace LockedIn
                 // Making panels visible
                 btnMJSave.Text = "Add";
 
+                pnlAdSkills.Enabled = false;
                 cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
                 ComboBoxHelper.PopulateEmployerNames(cbxMJEmpName);
                 cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
@@ -1439,10 +1440,10 @@ namespace LockedIn
                 }
 
                 // Add job
-                if (action == "ADD")
+                if (action == "ADD" && !pnlAdSkills.Enabled)
                 {
-                    
-                    int employerID = ComboBoxHelper.GetSelectedID(cbxMJEmpName); 
+
+                    int employerID = ComboBoxHelper.GetSelectedID(cbxMJEmpName);
                     if (employerID <= 0)
                     {
                         MessageBox.Show("Invalid employer selected. Please check the employer name.");
@@ -1451,21 +1452,32 @@ namespace LockedIn
 
                     Job newJob = new Job
                     {
-                        EmployerID = employerID,JobName = job_name, JobDescription = job_description,JobLocation = job_location,StartDate = startDate,EndDate = endDate,PrisonersNeeded = (int)prisoners,Completed = job_completed, DurationPerDay = (int)duration
+                        EmployerID = employerID, JobName = job_name, JobDescription = job_description, JobLocation = job_location, StartDate = startDate, EndDate = endDate, PrisonersNeeded = (int)prisoners, Completed = job_completed, DurationPerDay = (int)duration
                     };
 
                     int newJobID = JobManager.AddJob(newJob);
 
                     if (newJobID > 0)
                     {
-                        MessageBox.Show($"Job added successfully with ID: {newJobID}");
+                        MessageBox.Show($"Job added successfully with ID: {newJobID}. Now you can assign skills to the job");
                         selectedJobID = newJobID;
+                        pnlAdSkills.Enabled = true;
+
+                        ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+                        ListboxHelper.PopulateAvailablePSkills(lstMJAllSkills, selectedJobID);
+
+                        return;
                     }
                     else
                     {
                         MessageBox.Show("Failed to add job.");
                         return;
                     }
+                }
+                else if(action == "ADD" && pnlAdSkills.Enabled) 
+                {
+                    MessageBox.Show($"Job added successfully.");
+
                 }
                 // Edit job
                 else if (action == "EDIT")
@@ -1477,8 +1489,8 @@ namespace LockedIn
                         MessageBox.Show("Please select a job to edit.");
                         return;
                     }
-                   
-                    bool success = JobManager.UpdateJob(selectedJobID,employerID , job_name, job_description, job_location,startDate, endDate, duration, job_completed, prisoners);
+
+                    bool success = JobManager.UpdateJob(selectedJobID, employerID, job_name, job_description, job_location, startDate, endDate, duration, job_completed, prisoners);
 
                     if (success)
                     {
@@ -1503,8 +1515,8 @@ namespace LockedIn
                         JobManager.DeleteJob(selectedJobID);
                         MessageBox.Show("Job successfully deleted");
                     }
-                        
-                   
+
+
                 }
 
                 ResetJobForm();
@@ -1523,6 +1535,15 @@ namespace LockedIn
         }
         private void ResetJobForm()
         {
+            sbxPNeeded.Enabled = true;
+            pnlAdDate.Enabled = true;
+
+            lstMJAllSkills.DataSource = null;
+            lstMJAllSkills.Items.Clear();
+            lstMJCurrentSkills.DataSource = null;
+            lstMJCurrentSkills.Items.Clear();
+
+            pnlAdSkills.Enabled = true;
             btnMJSave.Text = "Save";
             txtJobname.Clear();
             rtbJobDescription.Clear();
@@ -1544,6 +1565,7 @@ namespace LockedIn
             txtJobname.ReadOnly = false;
             rtbJobDescription.ReadOnly = false;
             rtbJobLocation.ReadOnly = false;
+
 
             cmbJobNAme.SelectedIndex = -1;
         }
@@ -1846,9 +1868,9 @@ namespace LockedIn
         {
             string skill = "";
 
-            skill = listBox1.SelectedItem.ToString();
-            listBox2.Items.Add(skill);
-            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            skill = lstMJAllSkills.SelectedItem.ToString();
+            lstMJCurrentSkills.Items.Add(skill);
+            lstMJAllSkills.Items.RemoveAt(lstMJAllSkills.SelectedIndex);
             //JobSkillManager.AddJobSkill(JobID, skill);
 
         }
@@ -1857,9 +1879,9 @@ namespace LockedIn
         {
             string skill = "";
 
-            skill = listBox2.SelectedItem.ToString();
-            listBox1.Items.Add(skill);
-            listBox2.Items.RemoveAt(listBox2.SelectedIndex);
+            skill = lstMJCurrentSkills.SelectedItem.ToString();
+            lstMJAllSkills.Items.Add(skill);
+            lstMJCurrentSkills.Items.RemoveAt(lstMJCurrentSkills.SelectedIndex);
             //JobSkillManager.RemoveJobSkill(JobID,skill);
         }
 
@@ -1949,8 +1971,9 @@ namespace LockedIn
                             {
                                 sbxPNeeded.Enabled = false;
                                 pnlAdDate.Enabled = false;
-                                ListboxHelper.PopulateCurrentJobSkills(listBox1, selectedJobID);
-                                ListboxHelper.PopulateAvailablePSkills(listBox2, selectedJobID);
+                                ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+                                ListboxHelper.PopulateAvailablePSkills(lstMJAllSkills, selectedJobID);
+                                pnlAdSkills.Enabled = false;
                                 txtJobname.ReadOnly = true;
                                 rtbJobDescription.ReadOnly = true;
                                 rtbJobLocation.ReadOnly = true;
@@ -1959,8 +1982,8 @@ namespace LockedIn
                             }
                             else if (action == "EDIT")
                             {
-                                ListboxHelper.PopulateCurrentJobSkills(listBox1, selectedJobID);
-                                ListboxHelper.PopulateAvailablePSkills(listBox2, selectedJobID);
+                                ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+                                ListboxHelper.PopulateAvailablePSkills(lstMJAllSkills, selectedJobID);
                                 txtJobname.ReadOnly = false;
                                 rtbJobDescription.ReadOnly = false;
                                 rtbJobLocation.ReadOnly = false;
@@ -2014,6 +2037,26 @@ namespace LockedIn
             isPopulating = true;
             ListboxHelper.PopulatAvailableJobSkills(lstASJAllSkills, (int)cbxASJJobName.SelectedValue);
             ListboxHelper.PopulateCurrentJobSkills(lstASJCurrentSkillOfJob, (int)cbxASJJobName.SelectedValue);
+            isPopulating = false;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            JobSkillManager.AddJobSkill(selectedJobID, ListboxHelper.GetSelectedSkillID(lstMJAllSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, selectedJobID);
+            ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
+            isPopulating = false;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            JobSkillManager.RemoveJobSkill(selectedJobID, ListboxHelper.GetSelectedSkillID(lstMJCurrentSkills));
+
+            isPopulating = true;
+            ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, selectedJobID);
+            ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
             isPopulating = false;
         }
     }

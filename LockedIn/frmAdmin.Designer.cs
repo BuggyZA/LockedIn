@@ -130,6 +130,14 @@
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
+            this.pnlAdSkills = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lstMJAllSkills = new System.Windows.Forms.ListBox();
+            this.lstMJCurrentSkills = new System.Windows.Forms.ListBox();
             this.pnladJobDetails = new System.Windows.Forms.Panel();
             this.cbxMJEmpName = new System.Windows.Forms.ComboBox();
             this.txtJobname = new System.Windows.Forms.TextBox();
@@ -152,14 +160,6 @@
             this.label41 = new System.Windows.Forms.Label();
             this.calStartDate = new System.Windows.Forms.MonthCalendar();
             this.btnMJSave = new System.Windows.Forms.Button();
-            this.pnlAdSkills = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.tpGuards = new System.Windows.Forms.TabPage();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
@@ -323,11 +323,11 @@
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
             this.pnlAdFunctions.SuspendLayout();
+            this.pnlAdSkills.SuspendLayout();
             this.pnladJobDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sbxPNeeded)).BeginInit();
             this.pnlAdDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
-            this.pnlAdSkills.SuspendLayout();
             this.tpGuards.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -1519,10 +1519,10 @@
             // 
             this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.panel35.Controls.Add(this.pnlAdFunctions);
+            this.panel35.Controls.Add(this.pnlAdSkills);
             this.panel35.Controls.Add(this.pnladJobDetails);
             this.panel35.Controls.Add(this.pnlAdDate);
             this.panel35.Controls.Add(this.btnMJSave);
-            this.panel35.Controls.Add(this.pnlAdSkills);
             this.panel35.Location = new System.Drawing.Point(12, 59);
             this.panel35.Margin = new System.Windows.Forms.Padding(2);
             this.panel35.Name = "panel35";
@@ -1535,7 +1535,7 @@
             this.pnlAdFunctions.Controls.Add(this.button30);
             this.pnlAdFunctions.Controls.Add(this.button31);
             this.pnlAdFunctions.Controls.Add(this.button32);
-            this.pnlAdFunctions.Location = new System.Drawing.Point(446, 36);
+            this.pnlAdFunctions.Location = new System.Drawing.Point(446, 18);
             this.pnlAdFunctions.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAdFunctions.Name = "pnlAdFunctions";
             this.pnlAdFunctions.Size = new System.Drawing.Size(344, 444);
@@ -1581,6 +1581,101 @@
             this.button32.UseVisualStyleBackColor = false;
             this.button32.Click += new System.EventHandler(this.button32_Click_1);
             // 
+            // pnlAdSkills
+            // 
+            this.pnlAdSkills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlAdSkills.Controls.Add(this.button1);
+            this.pnlAdSkills.Controls.Add(this.button2);
+            this.pnlAdSkills.Controls.Add(this.label3);
+            this.pnlAdSkills.Controls.Add(this.label5);
+            this.pnlAdSkills.Controls.Add(this.label6);
+            this.pnlAdSkills.Controls.Add(this.lstMJAllSkills);
+            this.pnlAdSkills.Controls.Add(this.lstMJCurrentSkills);
+            this.pnlAdSkills.ForeColor = System.Drawing.Color.Black;
+            this.pnlAdSkills.Location = new System.Drawing.Point(444, 295);
+            this.pnlAdSkills.Name = "pnlAdSkills";
+            this.pnlAdSkills.Size = new System.Drawing.Size(639, 259);
+            this.pnlAdSkills.TabIndex = 28;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(254, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 33);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "<   Remove";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(254, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 33);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "Add       >";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 43);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 23);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "All Skills:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(400, 43);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 23);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Current Skills of Job";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(2, 3);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 27);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Skill Details:";
+            // 
+            // lstMJAllSkills
+            // 
+            this.lstMJAllSkills.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
+            this.lstMJAllSkills.FormattingEnabled = true;
+            this.lstMJAllSkills.ItemHeight = 19;
+            this.lstMJAllSkills.Location = new System.Drawing.Point(18, 69);
+            this.lstMJAllSkills.Name = "lstMJAllSkills";
+            this.lstMJAllSkills.Size = new System.Drawing.Size(216, 156);
+            this.lstMJAllSkills.TabIndex = 1;
+            // 
+            // lstMJCurrentSkills
+            // 
+            this.lstMJCurrentSkills.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
+            this.lstMJCurrentSkills.FormattingEnabled = true;
+            this.lstMJCurrentSkills.ItemHeight = 19;
+            this.lstMJCurrentSkills.Location = new System.Drawing.Point(404, 69);
+            this.lstMJCurrentSkills.Name = "lstMJCurrentSkills";
+            this.lstMJCurrentSkills.Size = new System.Drawing.Size(216, 156);
+            this.lstMJCurrentSkills.TabIndex = 0;
+            // 
             // pnladJobDetails
             // 
             this.pnladJobDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
@@ -1619,7 +1714,7 @@
             // txtJobname
             // 
             this.txtJobname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobname.Location = new System.Drawing.Point(139, 15);
+            this.txtJobname.Location = new System.Drawing.Point(139, 43);
             this.txtJobname.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobname.Name = "txtJobname";
             this.txtJobname.Size = new System.Drawing.Size(211, 24);
@@ -1827,97 +1922,6 @@
             this.btnMJSave.Text = "Save";
             this.btnMJSave.UseVisualStyleBackColor = false;
             this.btnMJSave.Click += new System.EventHandler(this.button28_Click);
-            // 
-            // pnlAdSkills
-            // 
-            this.pnlAdSkills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlAdSkills.Controls.Add(this.button1);
-            this.pnlAdSkills.Controls.Add(this.button2);
-            this.pnlAdSkills.Controls.Add(this.label3);
-            this.pnlAdSkills.Controls.Add(this.label5);
-            this.pnlAdSkills.Controls.Add(this.label25);
-            this.pnlAdSkills.Controls.Add(this.listBox1);
-            this.pnlAdSkills.Controls.Add(this.listBox2);
-            this.pnlAdSkills.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.pnlAdSkills.Location = new System.Drawing.Point(451, 297);
-            this.pnlAdSkills.Name = "pnlAdSkills";
-            this.pnlAdSkills.Size = new System.Drawing.Size(639, 257);
-            this.pnlAdSkills.TabIndex = 27;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(164, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 33);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "<  Remove";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(164, 62);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 33);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Add  >";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 36);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 23);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "All Skills:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(298, 36);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Current Skills of Job:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(2, 3);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(102, 27);
-            this.label25.TabIndex = 29;
-            this.label25.Text = "Skill Details:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(19, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(126, 108);
-            this.listBox1.TabIndex = 1;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(300, 62);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(135, 108);
-            this.listBox2.TabIndex = 0;
             // 
             // tpGuards
             // 
@@ -3452,14 +3456,14 @@
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
             this.pnlAdFunctions.ResumeLayout(false);
+            this.pnlAdSkills.ResumeLayout(false);
+            this.pnlAdSkills.PerformLayout();
             this.pnladJobDetails.ResumeLayout(false);
             this.pnladJobDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sbxPNeeded)).EndInit();
             this.pnlAdDate.ResumeLayout(false);
             this.pnlAdDate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
-            this.pnlAdSkills.ResumeLayout(false);
-            this.pnlAdSkills.PerformLayout();
             this.tpGuards.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
@@ -3659,14 +3663,6 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.ListBox lstMPAllSkills;
         private System.Windows.Forms.ListBox lstMPCurrentSkills;
-        private System.Windows.Forms.Panel pnlAdSkills;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox txtPNo;
         private System.Windows.Forms.Panel panel60;
         private System.Windows.Forms.Panel panel61;
@@ -3782,5 +3778,13 @@
         private System.Windows.Forms.ListBox lstASJAllSkills;
         private System.Windows.Forms.ListBox lstASJCurrentSkillOfJob;
         private System.Windows.Forms.ComboBox cbxMJEmpName;
+        private System.Windows.Forms.Panel pnlAdSkills;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lstMJAllSkills;
+        private System.Windows.Forms.ListBox lstMJCurrentSkills;
     }
 }
