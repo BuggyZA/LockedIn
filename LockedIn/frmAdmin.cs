@@ -1992,7 +1992,9 @@ namespace LockedIn
 
         private void frmAdmin_Load_1(object sender, EventArgs e)
         {
-
+            tcAdmin.Appearance = TabAppearance.FlatButtons;
+            tcAdmin.ItemSize = new Size(0, 1);
+            tcAdmin.SizeMode = TabSizeMode.Fixed;
         }
 
         private void pnlAdFunctions_Paint(object sender, PaintEventArgs e)

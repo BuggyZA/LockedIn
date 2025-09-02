@@ -78,30 +78,27 @@ namespace LockedIn
                     ARJcmbSelectApplication.DisplayMember = "PrisonerNum";
                     ARJcmbSelectApplication.SelectedIndex = -1;
 
-
                 }
 
                 conn.Close();
             }
         }
 
-
-
         private void frmEmployer_Load(object sender, EventArgs e)
         {
             EmpID = SessionData.LoggedInEmployerID.ToString();
-            MessageBox.Show(EmpID);
-            //ComboBoxHelper.PopulateJobNames(ARJcmbJobName);
+
             tcEmployer.SelectedIndex = 0;
             ListboxHelper.PopulateUpcomingJobs(redDisplay, EmpID);
-
 
             ARJtxtPrisonerName.Text = "";
             ARJlsbCurrentSkills.DataSource = null;
 
-
             ARJcmbSelectApplication.SelectedIndex = -1;
-           
+
+            tcEmployer.Appearance = TabAppearance.FlatButtons;
+            tcEmployer.ItemSize = new Size(0, 1);
+            tcEmployer.SizeMode = TabSizeMode.Fixed;
 
         }
 
