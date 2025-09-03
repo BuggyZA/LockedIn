@@ -44,7 +44,8 @@ namespace LockedIn
 
         private void ARJcmbJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (isPopulating)
+                return;
             ARJcmbSelectApplication.DataSource = null;
             ARJtxtPrisonerName.Text = "";
 
@@ -57,18 +58,22 @@ namespace LockedIn
             if (ARJcmbJobName.SelectedItem is DataRowView selectedJob)
             {
                 selectedJobId = Convert.ToInt32(selectedJob["JobID"]);
+
             }
             else
             {
                 return;
             }
 
+            RefreshPrisoners(selectedJobID);
 
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 conn.Open();
 
-                string sql = "SELECT p.PrisonerID, p.PrisonerNum FROM PRISONER p INNER JOIN PRISONER_ON_JOB poj ON p.PrisonerID = poj.PrisonerID WHERE poj.JobID = @JobID";
+                
+               
+               string sql = "SELECT p.PrisonerID, p.PrisonerNum FROM PRISONER p INNER JOIN PRISONER_ON_JOB poj ON p.PrisonerID = poj.PrisonerID WHERE poj.JobID = @JobID AND poj.[Accepted/Rejeced] IS NULL";
 
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
@@ -84,17 +89,17 @@ namespace LockedIn
                     ARJcmbSelectApplication.DisplayMember = "PrisonerNum";
                     ARJcmbSelectApplication.SelectedIndex = -1;
 
+
                 }
 
                 conn.Close();
             }
         }
 
+        
+
         private void frmEmployer_Load(object sender, EventArgs e)
         {
-            loginForm = new frmLogIn();
-            empID = SessionData.LoggedInEmployerID;
-
             EmpID = SessionData.LoggedInEmployerID.ToString();
 
             tcEmployer.SelectedIndex = 0;
@@ -108,6 +113,7 @@ namespace LockedIn
             tcEmployer.Appearance = TabAppearance.FlatButtons;
             tcEmployer.ItemSize = new Size(0, 1);
             tcEmployer.SizeMode = TabSizeMode.Fixed;
+
 
         }
 
@@ -142,6 +148,7 @@ namespace LockedIn
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+
         }
 
         private void ARJcmbSelectApplication_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,7 +156,7 @@ namespace LockedIn
             ARJtxtPrisonerName.Text = "";
             ARJlsbCurrentSkills.DataSource = null;
 
-            if (ARJcmbJobName.SelectedIndex == -1 || ARJcmbJobName.SelectedItem == null)
+            if (ARJcmbJobName.SelectedIndex == -1 || ARJcmbJobName.SelectedItem == null || isPopulating)
                 return;
 
 
@@ -157,12 +164,14 @@ namespace LockedIn
             {
                 conn.Open();
 
-                int prisonerId;
+                int prisonerId = 0;
                 string sql = "SELECT FirstName FROM PRISONER WHERE PrisonerID = @PrisonerID";
-                DataRowView drv = (DataRowView)ARJcmbSelectApplication.SelectedItem;
-                if (drv != null)
+              
+                prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
+
+                if (prisonerId != 0)
                 {
-                    prisonerId = Convert.ToInt32(drv["PrisonerID"]);
+                    
                     using (SqlCommand comm = new SqlCommand(sql, conn))
                     {
 
@@ -183,46 +192,195 @@ namespace LockedIn
                     }
                 }
 
-
-
-
-
                 conn.Close();
             }
+
         }
 
 
         private void UpdateApplicationStatus(int jobId, int prisonerId, bool isApproved)
         {
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(constr))
+                {
+
+                    conn.Open();
+                    string updatesql = "UPDATE PRISONER_ON_JOB SET [Accepted/Rejeced] = @IsApproved WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
+
+                    using (SqlCommand comm = new SqlCommand(updatesql, conn))
+                    {
+                        comm.Parameters.AddWithValue("@IsApproved", isApproved);
+                        comm.Parameters.AddWithValue("@JobID", jobId);
+                        comm.Parameters.AddWithValue("@PrisonerID", prisonerId);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+
+
+                if (isApproved)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(constr))
+                    {
+                        conn.Open();
+                        string sql = "UPDATE JOB SET PrisonersNeeded = PrisonersNeeded - 1 WHERE JobID = @JobID";
+
+                        using (SqlCommand comm = new SqlCommand(sql, conn))
+                        {
+                            comm.Parameters.AddWithValue("@JobID", jobId);
+                            comm.ExecuteNonQuery();
+                            MessageBox.Show("Approved");
+                        }
+                    }
+                }
+                if(!isApproved)
+                {
+                    MessageBox.Show("Rejected!");
+                }
+
+
+                ARJcmbJobName.SelectedValue = -1;
+                
+                updatePrisonersLabel();
+                
+
+                
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating application status: {ex.Message}");
+            }
+
+
+        }
+
+        public void updatePrisonersLabel()
+        {
+
+            if (ARJcmbJobName.SelectedValue != null)
+            {
+
+               
+                int selectedJobID = Convert.ToInt32(ARJcmbJobName.SelectedValue);
+
+                string sql = "SELECT PrisonersNeeded FROM JOB WHERE JobID = @JobID";
+
+                using (SqlConnection conn = new SqlConnection(constr))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@JobID", selectedJobID);
+                        ;
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+
+                            int prisonersNeeded = Convert.ToInt32(result);
+                            ARJlblPeopleNeeded.Text = "Prisoners Needed: " + prisonersNeeded;
+
+
+                            if (prisonersNeeded <= 0)
+                            {
+                                ARJlblPeopleNeeded.ForeColor = Color.Red;
+                                ARJlblPeopleNeeded.Text = "Job is fully staffed";
+                            }
+                            else if (prisonersNeeded <= 2)
+                            {
+                                ARJlblPeopleNeeded.ForeColor = Color.Orange;
+                            }
+                            else
+                            {
+                                ARJlblPeopleNeeded.ForeColor = Color.Black;
+                            }
+                        }
+                        else
+                        {
+                            ARJlblPeopleNeeded.Text = "No job selected";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                ARJlblPeopleNeeded.Text = "Select a job";
+            }
+        }
+
+
+        private void RefreshPrisoners(int jobId)
+        {
+
+            isPopulating = true;
+            ARJtxtPrisonerName.Text = "";
+            ARJcmbSelectApplication.SelectedIndex = -1;
+           
+            string sql = "SELECT p.PrisonerID, p.PrisonerNum FROM PRISONER p INNER JOIN PRISONER_ON_JOB poj ON p.PrisonerID = poj.PrisonerID WHERE poj.JobID = @JobID AND poj.[Accepted/Rejeced] IS NULL";
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 conn.Open();
-                string sql;
-                if(isApproved == true)
-                {
-                     sql = "UPDATE JOB SET PrisonersNeeded = PrisonersNeeded - 1 WHERE JobID = @JobID";
-                }
-                else
-                {
-                     sql = "DELETE FROM PRISONER_ON_JOB WHERE JobID = @JobID AND PrisonerID = @PrisonerID";
-                }
-                   
-
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
 
+                    SqlDataAdapter adapter = new SqlDataAdapter(comm);
                     comm.Parameters.AddWithValue("@JobID", jobId);
-                    comm.Parameters.AddWithValue("@PrisonerID", prisonerId);
-                    comm.ExecuteNonQuery();
+                    DataSet ds = new DataSet();
 
-                    tcEmployer.SelectedIndex = 4;
+                    adapter.Fill(ds, "PRISONER");
 
 
+                    ARJcmbSelectApplication.DataSource = ds.Tables["PRISONER"];
+                    ARJcmbSelectApplication.DisplayMember = "PrisonerNum";
+                    ARJcmbSelectApplication.ValueMember = "PrisonerID";
+                    ARJcmbSelectApplication.SelectedIndex = -1;
 
                 }
-    
             }
+            isPopulating = false;
         }
+
+        private void RefreshcmbJobs()
+        {
+
+            // Store current selection
+            var currentSelection = ARJcmbJobName.SelectedValue;
+
+            string sql = "SELECT JobID, JobName FROM JOB WHERE PrisonersNeeded > 0 AND Completed = 0";
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sql, conn))
+                {
+                    SqlDataAdapter adapt = new SqlDataAdapter(comm);
+                    DataSet ds = new DataSet();
+                    adapt.Fill(ds);
+
+                    
+                    ARJcmbJobName.DataSource = null;
+                    ARJcmbJobName.DataSource = ds.Tables[0];
+                    ARJcmbJobName.DisplayMember = "JobName";
+                    ARJcmbJobName.ValueMember = "JobID";
+
+                    if (currentSelection != null)
+                    {
+                        ARJcmbJobName.SelectedValue = currentSelection;
+                    }
+
+                    
+                    updatePrisonersLabel();
+                }
+            }
+
+        }
+
+        
+
 
         private void ARJbtnBack_Click(object sender, EventArgs e)
         {
@@ -231,19 +389,55 @@ namespace LockedIn
 
         private void ARJbtnApprove_Click(object sender, EventArgs e)
         {
-            
 
-            int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
-            int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
-            UpdateApplicationStatus(jobId, prisonerId, true);
+            try
+            {
+                if (ARJcmbJobName.SelectedValue == null || ARJcmbSelectApplication.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select both a job and a prisoner.");
+                    return;
+                }
+
+                int jobID = Convert.ToInt32(ARJcmbJobName.SelectedValue);
+                int prisonerID = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
+
+                UpdateApplicationStatus(jobID, prisonerID, true);//true = accepted
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
+
+
+           
+            RefreshPrisoners(selectedJobID);
+            RefreshcmbJobs();
+
+
         }
 
         private void ARJbtnReject_Click(object sender, EventArgs e)
         {
-            
-            int jobId = Convert.ToInt32(ARJcmbJobName.SelectedValue);
-            int prisonerId = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
-            UpdateApplicationStatus(jobId, prisonerId, false);
+            try
+            {
+                if (ARJcmbJobName.SelectedValue == null || ARJcmbSelectApplication.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select both a job and a prisoner.");
+                    return;
+                }
+
+                int jobID = Convert.ToInt32(ARJcmbJobName.SelectedValue);
+                int prisonerID = Convert.ToInt32(ARJcmbSelectApplication.SelectedValue);
+
+                UpdateApplicationStatus(jobID, prisonerID, false); // false = rejected
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
+            RefreshPrisoners(selectedJobID); 
+            RefreshcmbJobs();
+
         }
 
         private void btnHpMJ_Click(object sender, EventArgs e)
@@ -632,6 +826,7 @@ namespace LockedIn
                     {
                         conn.Open();
                         string sql = "SELECT JobID ,JobName FROM JOB WHERE EmployerID = @EmpID";
+                       
                         using (SqlCommand comm = new SqlCommand(sql, conn))
                         {
                             comm.Parameters.AddWithValue("@EmpID", Convert.ToInt32(EmpID));
