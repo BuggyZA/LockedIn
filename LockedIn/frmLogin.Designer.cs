@@ -97,7 +97,7 @@
             this.pnlAPESelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlAPESelect.Controls.Add(this.panel3);
             this.pnlAPESelect.Controls.Add(this.label2);
-            this.pnlAPESelect.Location = new System.Drawing.Point(58, 200);
+            this.pnlAPESelect.Location = new System.Drawing.Point(439, 220);
             this.pnlAPESelect.Name = "pnlAPESelect";
             this.pnlAPESelect.Size = new System.Drawing.Size(350, 375);
             this.pnlAPESelect.TabIndex = 7;
@@ -170,7 +170,7 @@
             this.pnlLogIn.Controls.Add(this.btnLIBack);
             this.pnlLogIn.Controls.Add(this.panel5);
             this.pnlLogIn.Controls.Add(this.label3);
-            this.pnlLogIn.Location = new System.Drawing.Point(442, 200);
+            this.pnlLogIn.Location = new System.Drawing.Point(442, 243);
             this.pnlLogIn.Name = "pnlLogIn";
             this.pnlLogIn.Size = new System.Drawing.Size(350, 378);
             this.pnlLogIn.TabIndex = 8;
@@ -320,7 +320,7 @@
             this.pnlSignUp.Controls.Add(this.btnSUBack);
             this.pnlSignUp.Controls.Add(this.panel6);
             this.pnlSignUp.Controls.Add(this.label7);
-            this.pnlSignUp.Location = new System.Drawing.Point(821, 200);
+            this.pnlSignUp.Location = new System.Drawing.Point(447, 209);
             this.pnlSignUp.Name = "pnlSignUp";
             this.pnlSignUp.Size = new System.Drawing.Size(376, 440);
             this.pnlSignUp.TabIndex = 9;
@@ -563,8 +563,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pnlSignUp);
-            this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pnlAPESelect);
+            this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
