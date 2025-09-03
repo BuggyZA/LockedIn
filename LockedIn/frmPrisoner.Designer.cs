@@ -742,7 +742,7 @@
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(113, 224);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 220);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
@@ -1002,6 +1002,7 @@
             // ckbCleared
             // 
             this.ckbCleared.AutoSize = true;
+            this.ckbCleared.Enabled = false;
             this.ckbCleared.Location = new System.Drawing.Point(26, 243);
             this.ckbCleared.Name = "ckbCleared";
             this.ckbCleared.Size = new System.Drawing.Size(166, 27);
