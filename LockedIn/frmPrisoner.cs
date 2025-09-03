@@ -151,8 +151,6 @@ namespace LockedIn
                         comboBox1.SelectedIndexChanged -= comboBox1_SelectedIndexChanged;
                         comboBox1.SelectedIndex = -1;
                         comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-
-                        MessageBox.Show("You have successfully applied for the job!", "Success");
                         txtAFJjobLocation.Text = "";
                         txtAFJjobDuration.Text = "";
                         lblAFJStartDate.Text = "[Start Date]";
@@ -160,6 +158,9 @@ namespace LockedIn
                         txtAFJworkersNeeded.Text = "";
                         rtxjobDescription.Text = "";
                         lstAFJskillsRequired.DataSource = null;
+
+                        MessageBox.Show("You have successfully applied for the job!", "Success");
+                        
 
                         // Refresh the upcoming jobs display
                         ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
