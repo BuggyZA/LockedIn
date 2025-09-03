@@ -233,7 +233,7 @@
             this.cbxEmployerID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxEmployerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.cbxEmployerID.FormattingEnabled = true;
-            this.cbxEmployerID.Location = new System.Drawing.Point(132, 32);
+            this.cbxEmployerID.Location = new System.Drawing.Point(132, 29);
             this.cbxEmployerID.Name = "cbxEmployerID";
             this.cbxEmployerID.Size = new System.Drawing.Size(198, 32);
             this.cbxEmployerID.TabIndex = 8;
@@ -246,7 +246,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 29);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.Text = "pass002";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
@@ -256,7 +255,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(198, 29);
             this.txtUsername.TabIndex = 7;
-            this.txtUsername.Text = "P002345678";
             // 
             // lblPassword
             // 
