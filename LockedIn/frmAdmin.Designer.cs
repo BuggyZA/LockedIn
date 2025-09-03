@@ -211,12 +211,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.pnlMSChoices = new System.Windows.Forms.Panel();
             this.btnMSEditExisSkil = new System.Windows.Forms.Button();
             this.btnMSDelExisSkill = new System.Windows.Forms.Button();
             this.btnMSAddNewSkill = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.btnMSNext = new System.Windows.Forms.Button();
             this.cbxMSSkillName = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -348,7 +347,7 @@
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.panel18.SuspendLayout();
+            this.pnlMSChoices.SuspendLayout();
             this.panel19.SuspendLayout();
             this.tpPSkills.SuspendLayout();
             this.panel48.SuspendLayout();
@@ -1701,7 +1700,6 @@
             // 
             this.cbxMJEmpName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxMJEmpName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxMJEmpName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMJEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMJEmpName.FormattingEnabled = true;
             this.cbxMJEmpName.Location = new System.Drawing.Point(139, 89);
@@ -2421,9 +2419,9 @@
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.panel17.Controls.Add(this.panel20);
-            this.panel17.Controls.Add(this.panel18);
             this.panel17.Controls.Add(this.panel19);
+            this.panel17.Controls.Add(this.panel20);
+            this.panel17.Controls.Add(this.pnlMSChoices);
             this.panel17.Location = new System.Drawing.Point(15, 58);
             this.panel17.Margin = new System.Windows.Forms.Padding(2);
             this.panel17.Name = "panel17";
@@ -2439,7 +2437,7 @@
             this.panel20.Controls.Add(this.label18);
             this.panel20.Controls.Add(this.label19);
             this.panel20.Controls.Add(this.label20);
-            this.panel20.Location = new System.Drawing.Point(820, 233);
+            this.panel20.Location = new System.Drawing.Point(440, 230);
             this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(423, 201);
@@ -2507,17 +2505,17 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "Skill Description:";
             // 
-            // panel18
+            // pnlMSChoices
             // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel18.Controls.Add(this.btnMSEditExisSkil);
-            this.panel18.Controls.Add(this.btnMSDelExisSkill);
-            this.panel18.Controls.Add(this.btnMSAddNewSkill);
-            this.panel18.Location = new System.Drawing.Point(472, 23);
-            this.panel18.Margin = new System.Windows.Forms.Padding(2);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(344, 538);
-            this.panel18.TabIndex = 9;
+            this.pnlMSChoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlMSChoices.Controls.Add(this.btnMSEditExisSkil);
+            this.pnlMSChoices.Controls.Add(this.btnMSDelExisSkill);
+            this.pnlMSChoices.Controls.Add(this.btnMSAddNewSkill);
+            this.pnlMSChoices.Location = new System.Drawing.Point(472, 23);
+            this.pnlMSChoices.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMSChoices.Name = "pnlMSChoices";
+            this.pnlMSChoices.Size = new System.Drawing.Size(344, 538);
+            this.pnlMSChoices.TabIndex = 9;
             // 
             // btnMSEditExisSkil
             // 
@@ -2561,28 +2559,14 @@
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panel19.Controls.Add(this.btnMSNext);
             this.panel19.Controls.Add(this.cbxMSSkillName);
             this.panel19.Controls.Add(this.label14);
             this.panel19.Controls.Add(this.label17);
-            this.panel19.Location = new System.Drawing.Point(117, 230);
+            this.panel19.Location = new System.Drawing.Point(439, 116);
             this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(340, 167);
+            this.panel19.Size = new System.Drawing.Size(340, 110);
             this.panel19.TabIndex = 1;
-            // 
-            // btnMSNext
-            // 
-            this.btnMSNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnMSNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnMSNext.ForeColor = System.Drawing.Color.White;
-            this.btnMSNext.Location = new System.Drawing.Point(26, 88);
-            this.btnMSNext.Name = "btnMSNext";
-            this.btnMSNext.Size = new System.Drawing.Size(280, 54);
-            this.btnMSNext.TabIndex = 12;
-            this.btnMSNext.Text = "Next";
-            this.btnMSNext.UseVisualStyleBackColor = false;
-            this.btnMSNext.Click += new System.EventHandler(this.btnMSNext_Click);
             // 
             // cbxMSSkillName
             // 
@@ -3492,7 +3476,7 @@
             this.panel17.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
-            this.panel18.ResumeLayout(false);
+            this.pnlMSChoices.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.tpPSkills.ResumeLayout(false);
@@ -3560,7 +3544,7 @@
         private System.Windows.Forms.Button btnAssignSkillToPris;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel pnlMSChoices;
         private System.Windows.Forms.Button btnMSEditExisSkil;
         private System.Windows.Forms.Button btnMSDelExisSkill;
         private System.Windows.Forms.Button btnMSAddNewSkill;
@@ -3575,7 +3559,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnMSSave;
-        private System.Windows.Forms.Button btnMSNext;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel pnlJobDetails;

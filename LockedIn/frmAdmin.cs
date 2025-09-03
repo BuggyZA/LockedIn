@@ -71,7 +71,7 @@ namespace LockedIn
             if (tcAdmin.SelectedIndex == 4)
             {
                 cbxJobName.SelectedIndexChanged -= cbxJobName_SelectedIndexChanged;
-                ComboBoxHelper.PopulateJobNames(cbxJobName);
+                ComboBoxHelper.PopulateNonCompletedJobNames(cbxJobName);
                 cbxJobName.SelectedIndexChanged += cbxJobName_SelectedIndexChanged;
 
 
@@ -81,6 +81,7 @@ namespace LockedIn
             else if (tcAdmin.SelectedIndex == 6) //Maintain skills page
             {
                 // Reset maintain skills panels when entering the page
+                pnlMSChoices.Visible = true;
                 panel19.Visible = false;
                 panel20.Visible = false;
                 skillOperation = "";
@@ -460,6 +461,7 @@ namespace LockedIn
         private void btnMSEditExisSkil_Click(object sender, EventArgs e)
         {
             // Set operation mode and reset state
+            pnlMSChoices.Visible = false;
             skillOperation = "EDIT";
             selectedSkillID = -1;
             btnMSSave.Text = "Save";
@@ -553,6 +555,7 @@ namespace LockedIn
                     return;
                 }
                 PerformSkillDeletion();
+                pnlMSChoices.Visible = true;
                 return;
             }
 
@@ -592,6 +595,7 @@ namespace LockedIn
                             linkCmd.ExecuteNonQuery();
 
                             MessageBox.Show("Skill added successfully!");
+                            pnlMSChoices.Visible = true;
                             // Reset state after successful add
                             ResetMaintainSkillsState();
 
@@ -626,6 +630,7 @@ namespace LockedIn
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Skill updated successfully!");
                         // Reset state after successful update
+                        pnlMSChoices.Visible = true;
                         ResetMaintainSkillsState();
 
                         // clearing the textboxes after the skill has been updated.
@@ -649,6 +654,7 @@ namespace LockedIn
 
         private void btnMSDelExisSkill_Click(object sender, EventArgs e)
         {
+            pnlMSChoices.Visible = false;
             btnMSSave.Text = "Delete";
             // Set operation mode
             skillOperation = "DELETE";
@@ -677,7 +683,7 @@ namespace LockedIn
 
         private void btnMSNext_Click(object sender, EventArgs e)
         {
-            // Only show panel20 if we're in ADD mode or have a skill selected for EDIT/DELETE
+            /*// Only show panel20 if we're in ADD mode or have a skill selected for EDIT/DELETE
             if (skillOperation == "ADD" || (selectedSkillID != -1 && (skillOperation == "EDIT" || skillOperation == "DELETE")))
             {
                 panel20.Visible = true;
@@ -685,12 +691,14 @@ namespace LockedIn
             else
             {
                 MessageBox.Show("Please select an operation and skill first.");
-            }
+            }*/
         }
 
         private void btnMSAddNewSkill_Click(object sender, EventArgs e)
         {
             // Set operation mode
+            pnlMSChoices.Visible = false;
+
             skillOperation = "ADD";
             selectedSkillID = -1;
             btnMSSave.Text = "Save";
@@ -1387,6 +1395,7 @@ namespace LockedIn
                 cbxMJEmpName.SelectedIndexChanged -= cbxMJEmpName_SelectedIndexChanged;
                 cbxMJEmpName.DataSource = null;
                 cbxMJEmpName.Items.Clear();
+                cbxMJEmpName.SelectedIndex = -1;
                 cbxMJEmpName.SelectedIndexChanged += cbxMJEmpName_SelectedIndexChanged;
 
                 btnMJSave.Text = "Save";
@@ -1771,6 +1780,11 @@ namespace LockedIn
         private void button10_Click(object sender, EventArgs e)
         {
             tcAdmin.SelectedIndex = 0; ;
+            lstASJAllSkills.DataSource = null;
+            lstASJAllSkills.Items.Clear();
+            lstASJCurrentSkillOfJob.DataSource = null;
+            lstASJCurrentSkillOfJob.Items.Clear();
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -1781,6 +1795,10 @@ namespace LockedIn
         private void button12_Click(object sender, EventArgs e)
         {
             tcAdmin.SelectedIndex = 0; ;
+            lstASPAllSkills.DataSource = null;
+            lstASPAllSkills.Items.Clear();
+            lstASPCurrentSkills.DataSource = null;
+            lstASPCurrentSkills.Items.Clear();
         }
 
         private void button13_Click(object sender, EventArgs e)
