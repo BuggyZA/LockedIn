@@ -86,8 +86,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label63 = new System.Windows.Forms.Label();
             this.btnSavePassword = new System.Windows.Forms.Button();
-            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
-            this.label64 = new System.Windows.Forms.Label();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
@@ -269,7 +267,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(158, 41);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 30);
+            this.comboBox1.Size = new System.Drawing.Size(192, 30);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -323,7 +321,7 @@
             // 
             // rtxjobDescription
             // 
-            this.rtxjobDescription.Location = new System.Drawing.Point(484, 99);
+            this.rtxjobDescription.Location = new System.Drawing.Point(531, 96);
             this.rtxjobDescription.Margin = new System.Windows.Forms.Padding(2);
             this.rtxjobDescription.Name = "rtxjobDescription";
             this.rtxjobDescription.Size = new System.Drawing.Size(281, 101);
@@ -334,7 +332,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(331, 99);
+            this.label26.Location = new System.Drawing.Point(382, 102);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(139, 23);
@@ -343,17 +341,17 @@
             // 
             // txtAFJjobLocation
             // 
-            this.txtAFJjobLocation.Location = new System.Drawing.Point(158, 158);
+            this.txtAFJjobLocation.Location = new System.Drawing.Point(158, 96);
             this.txtAFJjobLocation.Margin = new System.Windows.Forms.Padding(2);
             this.txtAFJjobLocation.Name = "txtAFJjobLocation";
-            this.txtAFJjobLocation.Size = new System.Drawing.Size(128, 30);
+            this.txtAFJjobLocation.Size = new System.Drawing.Size(192, 30);
             this.txtAFJjobLocation.TabIndex = 8;
             this.txtAFJjobLocation.TextChanged += new System.EventHandler(this.txtAFJjobLocation_TextChanged);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(26, 161);
+            this.label25.Location = new System.Drawing.Point(26, 99);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(112, 23);
@@ -362,7 +360,7 @@
             // 
             // txtAFJworkersNeeded
             // 
-            this.txtAFJworkersNeeded.Location = new System.Drawing.Point(487, 44);
+            this.txtAFJworkersNeeded.Location = new System.Drawing.Point(531, 44);
             this.txtAFJworkersNeeded.Margin = new System.Windows.Forms.Padding(2);
             this.txtAFJworkersNeeded.Name = "txtAFJworkersNeeded";
             this.txtAFJworkersNeeded.Size = new System.Drawing.Size(52, 30);
@@ -371,17 +369,17 @@
             // 
             // txtAFJjobDuration
             // 
-            this.txtAFJjobDuration.Location = new System.Drawing.Point(158, 99);
+            this.txtAFJjobDuration.Location = new System.Drawing.Point(183, 152);
             this.txtAFJjobDuration.Margin = new System.Windows.Forms.Padding(2);
             this.txtAFJjobDuration.Name = "txtAFJjobDuration";
-            this.txtAFJjobDuration.Size = new System.Drawing.Size(128, 30);
+            this.txtAFJjobDuration.Size = new System.Drawing.Size(49, 30);
             this.txtAFJjobDuration.TabIndex = 6;
             this.txtAFJjobDuration.TextChanged += new System.EventHandler(this.txtAFJjobDuration_TextChanged);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(331, 47);
+            this.label21.Location = new System.Drawing.Point(370, 47);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(152, 23);
@@ -395,7 +393,7 @@
             this.lstAFJskillsRequired.Location = new System.Drawing.Point(850, 47);
             this.lstAFJskillsRequired.Margin = new System.Windows.Forms.Padding(2);
             this.lstAFJskillsRequired.Name = "lstAFJskillsRequired";
-            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 268);
+            this.lstAFJskillsRequired.Size = new System.Drawing.Size(269, 246);
             this.lstAFJskillsRequired.TabIndex = 7;
             this.lstAFJskillsRequired.SelectedIndexChanged += new System.EventHandler(this.lstAFJskillsRequired_SelectedIndexChanged);
             // 
@@ -412,12 +410,12 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(26, 99);
+            this.label23.Location = new System.Drawing.Point(26, 152);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(118, 23);
+            this.label23.Size = new System.Drawing.Size(153, 23);
             this.label23.TabIndex = 4;
-            this.label23.Text = "Job Duration";
+            this.label23.Text = "Duration Per Day";
             // 
             // label19
             // 
@@ -738,14 +736,12 @@
             this.pnlModifyPPassword.Controls.Add(this.btnCancel);
             this.pnlModifyPPassword.Controls.Add(this.label63);
             this.pnlModifyPPassword.Controls.Add(this.btnSavePassword);
-            this.pnlModifyPPassword.Controls.Add(this.txtCurrentPassword);
-            this.pnlModifyPPassword.Controls.Add(this.label64);
             this.pnlModifyPPassword.Controls.Add(this.txtNewPassword);
             this.pnlModifyPPassword.Controls.Add(this.txtConfirmPassword);
             this.pnlModifyPPassword.Controls.Add(this.label65);
             this.pnlModifyPPassword.Controls.Add(this.label66);
             this.pnlModifyPPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlModifyPPassword.Location = new System.Drawing.Point(110, 224);
+            this.pnlModifyPPassword.Location = new System.Drawing.Point(113, 224);
             this.pnlModifyPPassword.Name = "pnlModifyPPassword";
             this.pnlModifyPPassword.Size = new System.Drawing.Size(375, 251);
             this.pnlModifyPPassword.TabIndex = 27;
@@ -754,7 +750,7 @@
             // imgMPpass
             // 
             this.imgMPpass.Image = global::LockedIn.Properties.Resources.view;
-            this.imgMPpass.Location = new System.Drawing.Point(329, 99);
+            this.imgMPpass.Location = new System.Drawing.Point(329, 65);
             this.imgMPpass.Name = "imgMPpass";
             this.imgMPpass.Size = new System.Drawing.Size(43, 32);
             this.imgMPpass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -797,33 +793,16 @@
             this.btnSavePassword.UseVisualStyleBackColor = false;
             this.btnSavePassword.Click += new System.EventHandler(this.btnSavePassword_Click);
             // 
-            // txtCurrentPassword
-            // 
-            this.txtCurrentPassword.Location = new System.Drawing.Point(156, 44);
-            this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.Size = new System.Drawing.Size(173, 30);
-            this.txtCurrentPassword.TabIndex = 31;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label64.Location = new System.Drawing.Point(26, 46);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(80, 23);
-            this.label64.TabIndex = 30;
-            this.label64.Text = "Current:";
-            // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(156, 96);
+            this.txtNewPassword.Location = new System.Drawing.Point(156, 62);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(173, 30);
             this.txtNewPassword.TabIndex = 26;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(156, 143);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(156, 109);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(173, 30);
             this.txtConfirmPassword.TabIndex = 28;
@@ -832,7 +811,7 @@
             // 
             this.label65.AutoSize = true;
             this.label65.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label65.Location = new System.Drawing.Point(26, 99);
+            this.label65.Location = new System.Drawing.Point(26, 65);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(51, 23);
             this.label65.TabIndex = 25;
@@ -842,7 +821,7 @@
             // 
             this.label66.AutoSize = true;
             this.label66.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label66.Location = new System.Drawing.Point(26, 146);
+            this.label66.Location = new System.Drawing.Point(26, 112);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(82, 23);
             this.label66.TabIndex = 27;
@@ -930,7 +909,7 @@
             this.lstMPAllSkills.ItemHeight = 23;
             this.lstMPAllSkills.Location = new System.Drawing.Point(24, 67);
             this.lstMPAllSkills.Name = "lstMPAllSkills";
-            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 257);
+            this.lstMPAllSkills.Size = new System.Drawing.Size(216, 234);
             this.lstMPAllSkills.TabIndex = 1;
             this.lstMPAllSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPAllSkills_SelectedIndexChanged);
             // 
@@ -940,7 +919,7 @@
             this.lstMPCurrentSkills.ItemHeight = 23;
             this.lstMPCurrentSkills.Location = new System.Drawing.Point(401, 67);
             this.lstMPCurrentSkills.Name = "lstMPCurrentSkills";
-            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 257);
+            this.lstMPCurrentSkills.Size = new System.Drawing.Size(216, 234);
             this.lstMPCurrentSkills.TabIndex = 0;
             this.lstMPCurrentSkills.SelectedIndexChanged += new System.EventHandler(this.lstMPCurrentSkills_SelectedIndexChanged);
             // 
@@ -992,6 +971,7 @@
             // 
             // txtPrisonerNo
             // 
+            this.txtPrisonerNo.Enabled = false;
             this.txtPrisonerNo.Location = new System.Drawing.Point(156, 54);
             this.txtPrisonerNo.Name = "txtPrisonerNo";
             this.txtPrisonerNo.Size = new System.Drawing.Size(194, 30);
@@ -1202,8 +1182,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Button btnSavePassword;
-        private System.Windows.Forms.TextBox txtCurrentPassword;
-        private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label65;
