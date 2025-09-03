@@ -275,7 +275,10 @@ namespace LockedIn
             pnlMPSkills.Visible = true;
             txtPrisonerNo.Visible = true;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled = true;
+            
+            pnlPInfo.Enabled = true;
+            pnlMPSkills.Enabled = true;
+            
         }
 
         private void PopulateMaintainControls()
@@ -330,7 +333,6 @@ namespace LockedIn
             pnlMPSkills.Visible = true;
             txtPrisonerNo.Visible = true;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled = true;
         }
 
 
@@ -408,34 +410,24 @@ namespace LockedIn
 
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
-            if (txtCurrentPassword.Text.Trim() == thisPrisoner.Password)
+            if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
             {
-                if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
+                if (txtNewPassword.Text.Trim().Length < 6)
                 {
-                    if (txtNewPassword.Text.Trim().Length < 6)
-                    {
-                        MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    MessageBox.Show("Saving new password");
-                    Ppassword = txtNewPassword.Text;
-                    txtCurrentPassword.Text = "";
-                    txtConfirmPassword.Text = "";
-                    txtNewPassword.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                MessageBox.Show("Saving new password");
+                Ppassword = txtNewPassword.Text;
+                txtConfirmPassword.Text = "";
+                txtNewPassword.Text = "";
             }
             else
             {
-                MessageBox.Show("Wrong password. Password Change denied", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
 
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
@@ -524,7 +516,6 @@ namespace LockedIn
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
 
-            txtCurrentPassword.Text = "";
             txtConfirmPassword.Text = "";
             txtNewPassword.Text = "";
         }
@@ -559,6 +550,10 @@ namespace LockedIn
         private void button4_Click(object sender, EventArgs e)
         {
             tcPrisoner.SelectedIndex = 0;
+            pnlPInfo.Hide();
+            pnlModifyPPassword.Hide();
+            pnlMPSkills.Hide();
+            pnlMPChoices.Show();
         }
 
         private void lstAFJskillsRequired_SelectedIndexChanged(object sender, EventArgs e)
