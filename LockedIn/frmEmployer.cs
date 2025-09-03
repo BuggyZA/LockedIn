@@ -101,6 +101,9 @@ namespace LockedIn
 
         private void frmEmployer_Load(object sender, EventArgs e)
         {
+            loginForm = new frmLogIn();
+            empID = SessionData.LoggedInEmployerID;
+
             EmpID = SessionData.LoggedInEmployerID.ToString();
 
             tcEmployer.SelectedIndex = 0;
