@@ -117,7 +117,7 @@ namespace LockedIn
         {
             SessionData.SelectedUser = 2;
 
-            lblUsername.Text = "Prisoner Number: ";
+            lblUsername.Text = "Prisoner No: ";
             lblUsername.Visible = true;
             txtUsername.Visible = true;
             btnLISignUp.Visible = true;
@@ -411,7 +411,7 @@ namespace LockedIn
                             else if (SessionData.SelectedUser == 3)
                             {
                                 cmd = new SqlCommand("SELECT EmployerID FROM EMPLOYER WHERE EmployerID = @employerID", conn);
-                                cmd.Parameters.AddWithValue("@employerID", cbxEmployerID.SelectedValue);
+                                cmd.Parameters.AddWithValue("@employerID", ComboBoxHelper.GetSelectedID(cbxEmployerID));
                                 EmployerID = (int)cmd.ExecuteScalar();
                                 SessionData.LoggedInEmployerID = EmployerID;
 

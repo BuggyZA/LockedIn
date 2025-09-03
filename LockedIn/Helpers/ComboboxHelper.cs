@@ -117,6 +117,30 @@ public static class ComboBoxHelper
         }
     }
 
+    public static void PopulateEmpsJobNames(ComboBox comboBox, int empID)
+    {
+        try
+        {
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                conn.Open();
+                query = "SELECT JobID, JobName FROM JOB WHERE EmployerID = @empID";
+                adapter = new SqlDataAdapter(query, conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@empID", empID);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "JOB");
+                comboBox.DataSource = ds.Tables["JOB"];
+                comboBox.DisplayMember = "JobName";
+                comboBox.ValueMember = "JobID";
+                comboBox.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error loading job names: " + ex.Message);
+        }
+    }
+
     public static void PopulateUncompletedJobNames(ComboBox comboBox)
     {
         try
