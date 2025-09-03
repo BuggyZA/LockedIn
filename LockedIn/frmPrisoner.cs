@@ -259,7 +259,9 @@ namespace LockedIn
 
             // Populating the combobox for "Apply for jobs"
             isPopulating = true;
+
             ComboBoxHelper.PopulateJobNames(comboBox1);
+
             isPopulating = false;
 
         }

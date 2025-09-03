@@ -533,6 +533,7 @@
             // 
             this.redDisplay.Location = new System.Drawing.Point(515, 68);
             this.redDisplay.Name = "redDisplay";
+            this.redDisplay.ReadOnly = true;
             this.redDisplay.Size = new System.Drawing.Size(591, 317);
             this.redDisplay.TabIndex = 14;
             this.redDisplay.Text = "";
