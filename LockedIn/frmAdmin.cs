@@ -1778,6 +1778,11 @@ namespace LockedIn
         private void button10_Click(object sender, EventArgs e)
         {
             tcAdmin.SelectedIndex = 0; ;
+            lstASJAllSkills.DataSource = null;
+            lstASJAllSkills.Items.Clear();
+            lstASJCurrentSkillOfJob.DataSource = null;
+            lstASJCurrentSkillOfJob.Items.Clear();
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -1788,6 +1793,10 @@ namespace LockedIn
         private void button12_Click(object sender, EventArgs e)
         {
             tcAdmin.SelectedIndex = 0; ;
+            lstASPAllSkills.DataSource = null;
+            lstASPAllSkills.Items.Clear();
+            lstASPCurrentSkills.DataSource = null;
+            lstASPCurrentSkills.Items.Clear();
         }
 
         private void button13_Click(object sender, EventArgs e)
