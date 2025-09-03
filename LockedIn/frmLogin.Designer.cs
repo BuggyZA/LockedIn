@@ -97,7 +97,7 @@
             this.pnlAPESelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.pnlAPESelect.Controls.Add(this.panel3);
             this.pnlAPESelect.Controls.Add(this.label2);
-            this.pnlAPESelect.Location = new System.Drawing.Point(58, 200);
+            this.pnlAPESelect.Location = new System.Drawing.Point(442, 191);
             this.pnlAPESelect.Name = "pnlAPESelect";
             this.pnlAPESelect.Size = new System.Drawing.Size(350, 375);
             this.pnlAPESelect.TabIndex = 7;
@@ -320,7 +320,7 @@
             this.pnlSignUp.Controls.Add(this.btnSUBack);
             this.pnlSignUp.Controls.Add(this.panel6);
             this.pnlSignUp.Controls.Add(this.label7);
-            this.pnlSignUp.Location = new System.Drawing.Point(821, 200);
+            this.pnlSignUp.Location = new System.Drawing.Point(430, 206);
             this.pnlSignUp.Name = "pnlSignUp";
             this.pnlSignUp.Size = new System.Drawing.Size(376, 440);
             this.pnlSignUp.TabIndex = 9;

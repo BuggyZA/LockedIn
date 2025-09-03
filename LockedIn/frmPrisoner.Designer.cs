@@ -114,6 +114,9 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnHelpHPage = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -155,6 +158,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
@@ -442,6 +446,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel1.Controls.Add(this.btnHelpHPage);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -620,6 +625,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label37);
@@ -800,6 +806,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(173, 30);
             this.txtNewPassword.TabIndex = 26;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtConfirmPassword
             // 
@@ -807,6 +814,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(173, 30);
             this.txtConfirmPassword.TabIndex = 28;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label65
             // 
@@ -1089,6 +1097,39 @@
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
+            // btnHelpHPage
+            // 
+            this.btnHelpHPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnHelpHPage.ForeColor = System.Drawing.Color.White;
+            this.btnHelpHPage.Location = new System.Drawing.Point(1133, 23);
+            this.btnHelpHPage.Name = "btnHelpHPage";
+            this.btnHelpHPage.Size = new System.Drawing.Size(104, 43);
+            this.btnHelpHPage.TabIndex = 13;
+            this.btnHelpHPage.Text = "Help";
+            this.btnHelpHPage.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1176, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 31);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Help";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1177, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 31);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "Help";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // frmPrisoner
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1224,5 +1265,8 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.RichTextBox redDisplay;
         private System.Windows.Forms.PictureBox imgMPpass;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnHelpHPage;
+        private System.Windows.Forms.Button button2;
     }
 }
