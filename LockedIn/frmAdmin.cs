@@ -115,7 +115,8 @@ namespace LockedIn
             }
             else if (tcAdmin.SelectedIndex == 3)
             {
-
+                ResetJobForm();
+                pnlAdFunctions.Visible = true;
                 pnladJobDetails.Visible = false;
                 pnlAdDate.Visible = false;
                 pnlAdSkills.Visible = false;
@@ -1339,6 +1340,7 @@ namespace LockedIn
             try
             {
                 // Making panels visible
+                cbJobCompleted.Visible = false;
                 btnMJSave.Text = "Add";
 
                 pnlAdSkills.Enabled = false;
@@ -1542,6 +1544,7 @@ namespace LockedIn
         }
         private void ResetJobForm()
         {
+            cbJobCompleted.Visible = true;
             cbxMJEmpName.Enabled = true;
             sbxPNeeded.Enabled = true;
             pnlAdDate.Enabled = true;
@@ -1677,7 +1680,7 @@ namespace LockedIn
                 MessageBox.Show("passwords do not match!");
                 return;
             }
-            else if (txtEmpPass.Text.Trim().Length < 6)
+           if (txtEmpNew.Text.Trim().Length < 6)
             {
                 MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

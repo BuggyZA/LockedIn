@@ -221,28 +221,30 @@
             // 
             this.lblEmployerID.AutoSize = true;
             this.lblEmployerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblEmployerID.Location = new System.Drawing.Point(84, 6);
+            this.lblEmployerID.Location = new System.Drawing.Point(3, 34);
             this.lblEmployerID.Name = "lblEmployerID";
-            this.lblEmployerID.Size = new System.Drawing.Size(161, 24);
+            this.lblEmployerID.Size = new System.Drawing.Size(66, 24);
             this.lblEmployerID.TabIndex = 9;
-            this.lblEmployerID.Text = "Employer Names:";
+            this.lblEmployerID.Text = "Name:";
             // 
             // cbxEmployerID
             // 
+            this.cbxEmployerID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxEmployerID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxEmployerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.cbxEmployerID.FormattingEnabled = true;
-            this.cbxEmployerID.Location = new System.Drawing.Point(27, 33);
+            this.cbxEmployerID.Location = new System.Drawing.Point(132, 32);
             this.cbxEmployerID.Name = "cbxEmployerID";
-            this.cbxEmployerID.Size = new System.Drawing.Size(284, 32);
+            this.cbxEmployerID.Size = new System.Drawing.Size(198, 32);
             this.cbxEmployerID.TabIndex = 8;
             this.cbxEmployerID.TextChanged += new System.EventHandler(this.cbxEmployerID_TextChanged);
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtPassword.Location = new System.Drawing.Point(160, 80);
+            this.txtPassword.Location = new System.Drawing.Point(132, 80);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(172, 29);
+            this.txtPassword.Size = new System.Drawing.Size(200, 29);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.Text = "pass002";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -250,9 +252,9 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtUsername.Location = new System.Drawing.Point(160, 32);
+            this.txtUsername.Location = new System.Drawing.Point(132, 32);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(170, 29);
+            this.txtUsername.Size = new System.Drawing.Size(198, 29);
             this.txtUsername.TabIndex = 7;
             this.txtUsername.Text = "P002345678";
             // 

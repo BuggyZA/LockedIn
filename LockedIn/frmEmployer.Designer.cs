@@ -295,6 +295,7 @@
             this.btnMJRemoveSkill.TabIndex = 33;
             this.btnMJRemoveSkill.Text = "<   Remove";
             this.btnMJRemoveSkill.UseVisualStyleBackColor = false;
+            this.btnMJRemoveSkill.Click += new System.EventHandler(this.btnMJRemoveSkill_Click);
             // 
             // btnMJAddSkill
             // 
@@ -307,6 +308,7 @@
             this.btnMJAddSkill.TabIndex = 32;
             this.btnMJAddSkill.Text = "Add       >";
             this.btnMJAddSkill.UseVisualStyleBackColor = false;
+            this.btnMJAddSkill.Click += new System.EventHandler(this.btnMJAddSkill_Click);
             // 
             // label3
             // 
@@ -395,7 +397,7 @@
             // txtJobname
             // 
             this.txtJobname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobname.Location = new System.Drawing.Point(139, 15);
+            this.txtJobname.Location = new System.Drawing.Point(139, 43);
             this.txtJobname.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobname.Name = "txtJobname";
             this.txtJobname.Size = new System.Drawing.Size(211, 24);
@@ -602,6 +604,7 @@
             this.btnMJSave.TabIndex = 15;
             this.btnMJSave.Text = "Save";
             this.btnMJSave.UseVisualStyleBackColor = false;
+            this.btnMJSave.Click += new System.EventHandler(this.btnMJSave_Click);
             // 
             // pnlEmpHeading
             // 
