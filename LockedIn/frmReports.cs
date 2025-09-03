@@ -489,9 +489,19 @@ namespace LockedIn
 
         private void btnMEmpBack_Click(object sender, EventArgs e)
         {
+            frmEmployer EMP = new frmEmployer();
+            this.Hide();
+            EMP.Show();
+            btnMEmpBack.Visible = false;
+        }
+
+        private void btnbackAdmin_Click(object sender, EventArgs e)
+        {
             frmAdmin admin = new frmAdmin();
             this.Hide();
             admin.Show();
+            btnbackAdmin.Visible = false;
+
         }
     }
 }

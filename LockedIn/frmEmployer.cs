@@ -248,12 +248,7 @@ namespace LockedIn
                 ARJcmbJobName.SelectedValue = -1;
                 
                // updatePrisonersLabel();
-                
-
-                
-
-
-
+              
             }
             catch (Exception ex)
             {
@@ -625,7 +620,7 @@ namespace LockedIn
                 return;
             }
 
-                newPass = PasswordHasser.HashPassword(newPass);
+                
 
                 using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
                 {
@@ -1295,6 +1290,15 @@ namespace LockedIn
             ListboxHelper.PopulatAvailableJobSkills(lstMJAllSkills, selectedJobID);
             ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
             isPopulating = false;
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmReports ReportForm = new frmReports();
+            ReportForm.btnMEmpBack.Visible = true;
+            ReportForm.ShowDialog();
+            
         }
     }
     

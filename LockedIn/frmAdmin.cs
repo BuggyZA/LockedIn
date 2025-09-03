@@ -235,7 +235,7 @@ namespace LockedIn
             cmbMPPrisonerNo.Visible = true;
             txtPNo.Visible = false;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled = true;
+            
         }
 
         //Delete Prisoner
@@ -251,7 +251,7 @@ namespace LockedIn
             cmbMPPrisonerNo.Visible = true;
             txtPNo.Visible = false;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled = true;
+            
         }
 
         //Add Prisoner
@@ -267,7 +267,6 @@ namespace LockedIn
             cmbMPPrisonerNo.Visible = false;
             txtPNo.Visible = true;
             pnlMPChoices.Visible = false;
-            txtCurrentPassword.Enabled = false;
 
             isPopulating = true;
             ListboxHelper.PopulateAllPSkills(lstMPAllSkills);
@@ -392,7 +391,30 @@ namespace LockedIn
 
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
-            if (isAddingPrisoner)
+            if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
+            {
+                if (txtNewPassword.Text.Trim().Length < 6)
+                {
+                    MessageBox.Show("Password must be at least 6 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                MessageBox.Show("Saving new password");
+                Ppassword = txtNewPassword.Text;
+                txtConfirmPassword.Text = "";
+                txtNewPassword.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            pnlModifyPPassword.Visible = false;
+            pnlPInfo.Visible = true;
+
+
+            /*if (isAddingPrisoner)
             {
                 if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
                 {
@@ -413,8 +435,7 @@ namespace LockedIn
             }
             else if (isupdatingPrisoner)
             {
-                if (txtCurrentPassword.Text.Trim() == thisPrisoner.Password)
-                {
+               
                     if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "")
                     {
                         if (txtNewPassword.Text.Trim().Length < 6)
@@ -431,19 +452,14 @@ namespace LockedIn
                         MessageBox.Show("Please enter the same password in both open spaces", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Wrong password. Password Change denied", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+             
 
             }
 
             pnlModifyPPassword.Visible = false;
             pnlPInfo.Visible = true;
 
-
+           */
         }
 
         private void btnCompleteJobs_Click(object sender, EventArgs e)
@@ -1023,7 +1039,9 @@ namespace LockedIn
         {
             this.Hide();
             frmReports ReportForm = new frmReports();
+            ReportForm.btnbackAdmin.Visible = true;
             ReportForm.ShowDialog();
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -1162,7 +1180,7 @@ namespace LockedIn
             }
             string firstName = txtEmpFName.Text;
             string lastName = txtEmpLName.Text;
-            string password = PasswordHasser.HashPassword(txtEmpPass.Text);
+            string password = txtEmpPass.Text;
 
 
 
@@ -1201,7 +1219,6 @@ namespace LockedIn
                 ckbCleared.Checked = false;
                 lstMPCurrentSkills.ClearSelected();
                 lstMPAllSkills.ClearSelected();
-                txtCurrentPassword.Clear();
                 txtNewPassword.Clear();
                 txtConfirmPassword.Clear();
 
@@ -1697,8 +1714,6 @@ namespace LockedIn
                 return;
             }
 
-            newPass = PasswordHasser.HashPassword(newPass);
-            MessageBox.Show(newPass);
 
             using (SqlConnection conn = new SqlConnection(DatabaseConfig.GetConStr()))
             {
@@ -2090,6 +2105,8 @@ namespace LockedIn
             ListboxHelper.PopulateCurrentJobSkills(lstMJCurrentSkills, selectedJobID);
             isPopulating = false;
         }
+
+        
     }
 } 
 

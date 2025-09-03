@@ -154,6 +154,7 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             this.tabMaintainJobs.SuspendLayout();
             this.panel35.SuspendLayout();
             this.pnlAdFunctions.SuspendLayout();
@@ -195,11 +196,11 @@
             this.tabMaintainJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.tabMaintainJobs.Controls.Add(this.panel35);
             this.tabMaintainJobs.Controls.Add(this.pnlEmpHeading);
-            this.tabMaintainJobs.Location = new System.Drawing.Point(4, 28);
+            this.tabMaintainJobs.Location = new System.Drawing.Point(4, 33);
             this.tabMaintainJobs.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabMaintainJobs.Name = "tabMaintainJobs";
             this.tabMaintainJobs.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 657);
+            this.tabMaintainJobs.Size = new System.Drawing.Size(1266, 652);
             this.tabMaintainJobs.TabIndex = 1;
             this.tabMaintainJobs.Text = "MaintainJobs";
             // 
@@ -317,7 +318,7 @@
             this.label3.Location = new System.Drawing.Point(17, 43);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 23);
+            this.label3.Size = new System.Drawing.Size(91, 29);
             this.label3.TabIndex = 31;
             this.label3.Text = "All Skills:";
             // 
@@ -328,7 +329,7 @@
             this.label2.Location = new System.Drawing.Point(400, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 23);
+            this.label2.Size = new System.Drawing.Size(177, 29);
             this.label2.TabIndex = 30;
             this.label2.Text = "Current Skills of Job";
             // 
@@ -339,7 +340,7 @@
             this.label8.Location = new System.Drawing.Point(2, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 27);
+            this.label8.Size = new System.Drawing.Size(127, 33);
             this.label8.TabIndex = 29;
             this.label8.Text = "Skill Details:";
             // 
@@ -347,20 +348,20 @@
             // 
             this.lstMJAllSkills.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.lstMJAllSkills.FormattingEnabled = true;
-            this.lstMJAllSkills.ItemHeight = 19;
+            this.lstMJAllSkills.ItemHeight = 24;
             this.lstMJAllSkills.Location = new System.Drawing.Point(18, 69);
             this.lstMJAllSkills.Name = "lstMJAllSkills";
-            this.lstMJAllSkills.Size = new System.Drawing.Size(216, 156);
+            this.lstMJAllSkills.Size = new System.Drawing.Size(216, 148);
             this.lstMJAllSkills.TabIndex = 1;
             // 
             // lstMJCurrentSkills
             // 
             this.lstMJCurrentSkills.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.lstMJCurrentSkills.FormattingEnabled = true;
-            this.lstMJCurrentSkills.ItemHeight = 19;
+            this.lstMJCurrentSkills.ItemHeight = 24;
             this.lstMJCurrentSkills.Location = new System.Drawing.Point(404, 69);
             this.lstMJCurrentSkills.Name = "lstMJCurrentSkills";
-            this.lstMJCurrentSkills.Size = new System.Drawing.Size(216, 156);
+            this.lstMJCurrentSkills.Size = new System.Drawing.Size(216, 148);
             this.lstMJCurrentSkills.TabIndex = 0;
             // 
             // pnladJobDetails
@@ -391,7 +392,7 @@
             this.txtMJEmpName.Location = new System.Drawing.Point(139, 94);
             this.txtMJEmpName.Margin = new System.Windows.Forms.Padding(2);
             this.txtMJEmpName.Name = "txtMJEmpName";
-            this.txtMJEmpName.Size = new System.Drawing.Size(211, 24);
+            this.txtMJEmpName.Size = new System.Drawing.Size(211, 29);
             this.txtMJEmpName.TabIndex = 19;
             // 
             // txtJobname
@@ -400,7 +401,7 @@
             this.txtJobname.Location = new System.Drawing.Point(139, 43);
             this.txtJobname.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobname.Name = "txtJobname";
-            this.txtJobname.Size = new System.Drawing.Size(211, 24);
+            this.txtJobname.Size = new System.Drawing.Size(211, 29);
             this.txtJobname.TabIndex = 18;
             this.txtJobname.TextChanged += new System.EventHandler(this.txtJobname_TextChanged);
             // 
@@ -411,7 +412,7 @@
             this.label10.Location = new System.Drawing.Point(17, 93);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 23);
+            this.label10.Size = new System.Drawing.Size(142, 29);
             this.label10.TabIndex = 16;
             this.label10.Text = "Employer Name:";
             // 
@@ -420,7 +421,7 @@
             this.sbxPNeeded.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sbxPNeeded.Location = new System.Drawing.Point(144, 464);
             this.sbxPNeeded.Name = "sbxPNeeded";
-            this.sbxPNeeded.Size = new System.Drawing.Size(56, 24);
+            this.sbxPNeeded.Size = new System.Drawing.Size(56, 29);
             this.sbxPNeeded.TabIndex = 15;
             // 
             // label34
@@ -430,7 +431,7 @@
             this.label34.Location = new System.Drawing.Point(17, 467);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(122, 23);
+            this.label34.Size = new System.Drawing.Size(155, 29);
             this.label34.TabIndex = 14;
             this.label34.Text = "Prisoners needed:";
             // 
@@ -443,7 +444,7 @@
             this.cmbJobNAme.Location = new System.Drawing.Point(139, 43);
             this.cmbJobNAme.Margin = new System.Windows.Forms.Padding(2);
             this.cmbJobNAme.Name = "cmbJobNAme";
-            this.cmbJobNAme.Size = new System.Drawing.Size(211, 26);
+            this.cmbJobNAme.Size = new System.Drawing.Size(211, 32);
             this.cmbJobNAme.TabIndex = 4;
             this.cmbJobNAme.SelectedIndexChanged += new System.EventHandler(this.cmbJobNAme_SelectedIndexChanged);
             // 
@@ -454,7 +455,7 @@
             this.label44.Location = new System.Drawing.Point(17, 297);
             this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(92, 23);
+            this.label44.Size = new System.Drawing.Size(116, 29);
             this.label44.TabIndex = 12;
             this.label44.Text = "Job Location:";
             // 
@@ -465,7 +466,7 @@
             this.label39.Location = new System.Drawing.Point(17, 144);
             this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(110, 23);
+            this.label39.Size = new System.Drawing.Size(139, 29);
             this.label39.TabIndex = 5;
             this.label39.Text = "Job Description:";
             // 
@@ -476,7 +477,7 @@
             this.label42.Location = new System.Drawing.Point(17, 51);
             this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(74, 23);
+            this.label42.Size = new System.Drawing.Size(94, 29);
             this.label42.TabIndex = 6;
             this.label42.Text = "Job Name:";
             // 
@@ -505,7 +506,7 @@
             this.label43.Location = new System.Drawing.Point(2, 4);
             this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(95, 27);
+            this.label43.Size = new System.Drawing.Size(118, 33);
             this.label43.TabIndex = 9;
             this.label43.Text = "Job Details:";
             // 
@@ -531,7 +532,7 @@
             this.cbJobCompleted.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbJobCompleted.Location = new System.Drawing.Point(342, 217);
             this.cbJobCompleted.Name = "cbJobCompleted";
-            this.cbJobCompleted.Size = new System.Drawing.Size(121, 27);
+            this.cbJobCompleted.Size = new System.Drawing.Size(151, 33);
             this.cbJobCompleted.TabIndex = 14;
             this.cbJobCompleted.Text = "Job Completed";
             this.cbJobCompleted.UseVisualStyleBackColor = true;
@@ -543,7 +544,7 @@
             this.label40.Location = new System.Drawing.Point(338, 3);
             this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(79, 27);
+            this.label40.Size = new System.Drawing.Size(97, 33);
             this.label40.TabIndex = 11;
             this.label40.Text = "End Date:";
             // 
@@ -560,7 +561,7 @@
             this.nudDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudDuration.Location = new System.Drawing.Point(178, 223);
             this.nudDuration.Name = "nudDuration";
-            this.nudDuration.Size = new System.Drawing.Size(56, 23);
+            this.nudDuration.Size = new System.Drawing.Size(56, 26);
             this.nudDuration.TabIndex = 13;
             // 
             // label35
@@ -570,7 +571,7 @@
             this.label35.Location = new System.Drawing.Point(3, 218);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(174, 27);
+            this.label35.Size = new System.Drawing.Size(214, 33);
             this.label35.TabIndex = 12;
             this.label35.Text = "Duration Per Day (hrs):";
             // 
@@ -581,7 +582,7 @@
             this.label41.Location = new System.Drawing.Point(3, 5);
             this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(90, 27);
+            this.label41.Size = new System.Drawing.Size(110, 33);
             this.label41.TabIndex = 9;
             this.label41.Text = "Start Date:";
             // 
@@ -640,7 +641,7 @@
             this.label1.Location = new System.Drawing.Point(520, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 39);
+            this.label1.Size = new System.Drawing.Size(202, 48);
             this.label1.TabIndex = 13;
             this.label1.Text = "Maintain Jobs";
             // 
@@ -649,7 +650,7 @@
             this.label91.AutoSize = true;
             this.label91.Location = new System.Drawing.Point(1699, 86);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(159, 23);
+            this.label91.Size = new System.Drawing.Size(200, 29);
             this.label91.TabIndex = 12;
             this.label91.Text = "First + Last name";
             // 
@@ -669,11 +670,11 @@
             this.EmpHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.EmpHome.Controls.Add(this.panel5);
             this.EmpHome.Controls.Add(this.panel6);
-            this.EmpHome.Location = new System.Drawing.Point(4, 28);
+            this.EmpHome.Location = new System.Drawing.Point(4, 33);
             this.EmpHome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.EmpHome.Name = "EmpHome";
             this.EmpHome.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.EmpHome.Size = new System.Drawing.Size(1266, 657);
+            this.EmpHome.Size = new System.Drawing.Size(1266, 652);
             this.EmpHome.TabIndex = 0;
             this.EmpHome.Text = "HomePage";
             // 
@@ -730,7 +731,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1699, 86);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 23);
+            this.label9.Size = new System.Drawing.Size(200, 29);
             this.label9.TabIndex = 12;
             this.label9.Text = "First + Last name";
             // 
@@ -783,9 +784,9 @@
             // 
             // redDisplay
             // 
-            this.redDisplay.Enabled = false;
             this.redDisplay.Location = new System.Drawing.Point(40, 58);
             this.redDisplay.Name = "redDisplay";
+            this.redDisplay.ReadOnly = true;
             this.redDisplay.Size = new System.Drawing.Size(1124, 260);
             this.redDisplay.TabIndex = 2;
             this.redDisplay.Text = "";
@@ -797,7 +798,7 @@
             this.lblLstOutput.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblLstOutput.Location = new System.Drawing.Point(543, 12);
             this.lblLstOutput.Name = "lblLstOutput";
-            this.lblLstOutput.Size = new System.Drawing.Size(113, 24);
+            this.lblLstOutput.Size = new System.Drawing.Size(142, 30);
             this.lblLstOutput.TabIndex = 0;
             this.lblLstOutput.Text = "Active Jobs";
             // 
@@ -805,6 +806,7 @@
             // 
             this.pnlNavigate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.pnlNavigate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlNavigate.Controls.Add(this.btnReports);
             this.pnlNavigate.Controls.Add(this.btnHpARJ);
             this.pnlNavigate.Controls.Add(this.btnHpMJ);
             this.pnlNavigate.Location = new System.Drawing.Point(8, 34);
@@ -857,10 +859,10 @@
             this.tpProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tpProfile.Controls.Add(this.panel3);
             this.tpProfile.Controls.Add(this.EPpnl1);
-            this.tpProfile.Location = new System.Drawing.Point(4, 28);
+            this.tpProfile.Location = new System.Drawing.Point(4, 33);
             this.tpProfile.Name = "tpProfile";
             this.tpProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProfile.Size = new System.Drawing.Size(1266, 657);
+            this.tpProfile.Size = new System.Drawing.Size(1266, 652);
             this.tpProfile.TabIndex = 5;
             this.tpProfile.Text = "EmpProfile";
             // 
@@ -898,7 +900,7 @@
             this.label4.Location = new System.Drawing.Point(520, 5);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 39);
+            this.label4.Size = new System.Drawing.Size(280, 48);
             this.label4.TabIndex = 13;
             this.label4.Text = "Maintain Employers";
             // 
@@ -907,7 +909,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1699, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 23);
+            this.label5.Size = new System.Drawing.Size(200, 29);
             this.label5.TabIndex = 12;
             this.label5.Text = "First + Last name";
             // 
@@ -997,7 +999,7 @@
             this.lblModifyPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblModifyPass.Name = "lblModifyPass";
             this.lblModifyPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblModifyPass.Size = new System.Drawing.Size(180, 27);
+            this.lblModifyPass.Size = new System.Drawing.Size(223, 33);
             this.lblModifyPass.TabIndex = 34;
             this.lblModifyPass.Text = "Modify Password";
             // 
@@ -1019,7 +1021,7 @@
             this.txtEmpNew.Location = new System.Drawing.Point(241, 88);
             this.txtEmpNew.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpNew.Name = "txtEmpNew";
-            this.txtEmpNew.Size = new System.Drawing.Size(217, 27);
+            this.txtEmpNew.Size = new System.Drawing.Size(217, 32);
             this.txtEmpNew.TabIndex = 1;
             this.txtEmpNew.UseSystemPasswordChar = true;
             // 
@@ -1028,7 +1030,7 @@
             this.txtEmpConfirm.Location = new System.Drawing.Point(241, 161);
             this.txtEmpConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpConfirm.Name = "txtEmpConfirm";
-            this.txtEmpConfirm.Size = new System.Drawing.Size(217, 27);
+            this.txtEmpConfirm.Size = new System.Drawing.Size(217, 32);
             this.txtEmpConfirm.TabIndex = 2;
             this.txtEmpConfirm.UseSystemPasswordChar = true;
             // 
@@ -1039,7 +1041,7 @@
             this.lblEmpNew.Location = new System.Drawing.Point(40, 91);
             this.lblEmpNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpNew.Name = "lblEmpNew";
-            this.lblEmpNew.Size = new System.Drawing.Size(121, 19);
+            this.lblEmpNew.Size = new System.Drawing.Size(149, 24);
             this.lblEmpNew.TabIndex = 25;
             this.lblEmpNew.Text = "New Password:";
             // 
@@ -1050,7 +1052,7 @@
             this.lblEmpConfirm.Location = new System.Drawing.Point(40, 164);
             this.lblEmpConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpConfirm.Name = "lblEmpConfirm";
-            this.lblEmpConfirm.Size = new System.Drawing.Size(147, 19);
+            this.lblEmpConfirm.Size = new System.Drawing.Size(180, 24);
             this.lblEmpConfirm.TabIndex = 27;
             this.lblEmpConfirm.Text = "Confirm Password:";
             // 
@@ -1137,7 +1139,7 @@
             this.lblEmpInfo.Location = new System.Drawing.Point(7, 5);
             this.lblEmpInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpInfo.Name = "lblEmpInfo";
-            this.lblEmpInfo.Size = new System.Drawing.Size(168, 19);
+            this.lblEmpInfo.Size = new System.Drawing.Size(207, 24);
             this.lblEmpInfo.TabIndex = 24;
             this.lblEmpInfo.Text = "Employer Information";
             // 
@@ -1147,7 +1149,7 @@
             this.txtEmpID.Location = new System.Drawing.Point(277, 66);
             this.txtEmpID.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmpID.Name = "txtEmpID";
-            this.txtEmpID.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpID.Size = new System.Drawing.Size(257, 32);
             this.txtEmpID.TabIndex = 1;
             // 
             // lblEmpFName
@@ -1156,7 +1158,7 @@
             this.lblEmpFName.Location = new System.Drawing.Point(29, 142);
             this.lblEmpFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpFName.Name = "lblEmpFName";
-            this.lblEmpFName.Size = new System.Drawing.Size(93, 19);
+            this.lblEmpFName.Size = new System.Drawing.Size(115, 24);
             this.lblEmpFName.TabIndex = 15;
             this.lblEmpFName.Text = "First Name:";
             // 
@@ -1166,7 +1168,7 @@
             this.txtEmpFName.Location = new System.Drawing.Point(277, 139);
             this.txtEmpFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpFName.Name = "txtEmpFName";
-            this.txtEmpFName.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpFName.Size = new System.Drawing.Size(257, 32);
             this.txtEmpFName.TabIndex = 2;
             // 
             // lblEmpLName
@@ -1176,7 +1178,7 @@
             this.lblEmpLName.Location = new System.Drawing.Point(29, 218);
             this.lblEmpLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpLName.Name = "lblEmpLName";
-            this.lblEmpLName.Size = new System.Drawing.Size(91, 19);
+            this.lblEmpLName.Size = new System.Drawing.Size(112, 24);
             this.lblEmpLName.TabIndex = 17;
             this.lblEmpLName.Text = "Last Name:";
             // 
@@ -1187,7 +1189,7 @@
             this.txtEmpLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpLName.MaxLength = 13;
             this.txtEmpLName.Name = "txtEmpLName";
-            this.txtEmpLName.Size = new System.Drawing.Size(257, 27);
+            this.txtEmpLName.Size = new System.Drawing.Size(257, 32);
             this.txtEmpLName.TabIndex = 3;
             // 
             // lblEmpID
@@ -1196,7 +1198,7 @@
             this.lblEmpID.Location = new System.Drawing.Point(29, 69);
             this.lblEmpID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpID.Name = "lblEmpID";
-            this.lblEmpID.Size = new System.Drawing.Size(103, 19);
+            this.lblEmpID.Size = new System.Drawing.Size(125, 24);
             this.lblEmpID.TabIndex = 19;
             this.lblEmpID.Text = "Employer ID:";
             // 
@@ -1205,10 +1207,10 @@
             this.tabpage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.tabpage4.Controls.Add(this.panel4);
             this.tabpage4.Controls.Add(this.ARJpbl1);
-            this.tabpage4.Location = new System.Drawing.Point(4, 28);
+            this.tabpage4.Location = new System.Drawing.Point(4, 33);
             this.tabpage4.Name = "tabpage4";
             this.tabpage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage4.Size = new System.Drawing.Size(1266, 657);
+            this.tabpage4.Size = new System.Drawing.Size(1266, 652);
             this.tabpage4.TabIndex = 6;
             this.tabpage4.Text = "Approve/Reject Job";
             // 
@@ -1246,7 +1248,7 @@
             this.label6.Location = new System.Drawing.Point(520, 5);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 39);
+            this.label6.Size = new System.Drawing.Size(276, 48);
             this.label6.TabIndex = 13;
             this.label6.Text = "Approve/Reject Job";
             // 
@@ -1255,7 +1257,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1699, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 23);
+            this.label7.Size = new System.Drawing.Size(200, 29);
             this.label7.TabIndex = 12;
             this.label7.Text = "First + Last name";
             // 
@@ -1316,17 +1318,17 @@
             this.ARJlblPeopleNeeded.AutoSize = true;
             this.ARJlblPeopleNeeded.Location = new System.Drawing.Point(69, 290);
             this.ARJlblPeopleNeeded.Name = "ARJlblPeopleNeeded";
-            this.ARJlblPeopleNeeded.Size = new System.Drawing.Size(189, 19);
+            this.ARJlblPeopleNeeded.Size = new System.Drawing.Size(232, 24);
             this.ARJlblPeopleNeeded.TabIndex = 16;
             this.ARJlblPeopleNeeded.Text = "Prisoners needed for job";
             // 
             // ARJlsbCurrentSkills
             // 
             this.ARJlsbCurrentSkills.FormattingEnabled = true;
-            this.ARJlsbCurrentSkills.ItemHeight = 19;
+            this.ARJlsbCurrentSkills.ItemHeight = 24;
             this.ARJlsbCurrentSkills.Location = new System.Drawing.Point(308, 77);
             this.ARJlsbCurrentSkills.Name = "ARJlsbCurrentSkills";
-            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(187, 194);
+            this.ARJlsbCurrentSkills.Size = new System.Drawing.Size(187, 172);
             this.ARJlsbCurrentSkills.TabIndex = 15;
             // 
             // ARJbtnReject
@@ -1364,7 +1366,7 @@
             this.ARJcmbSelectApplication.FormattingEnabled = true;
             this.ARJcmbSelectApplication.Location = new System.Drawing.Point(73, 161);
             this.ARJcmbSelectApplication.Name = "ARJcmbSelectApplication";
-            this.ARJcmbSelectApplication.Size = new System.Drawing.Size(163, 27);
+            this.ARJcmbSelectApplication.Size = new System.Drawing.Size(163, 32);
             this.ARJcmbSelectApplication.TabIndex = 9;
             this.ARJcmbSelectApplication.SelectedIndexChanged += new System.EventHandler(this.ARJcmbSelectApplication_SelectedIndexChanged);
             // 
@@ -1375,7 +1377,7 @@
             this.ARJcmbJobName.FormattingEnabled = true;
             this.ARJcmbJobName.Location = new System.Drawing.Point(73, 77);
             this.ARJcmbJobName.Name = "ARJcmbJobName";
-            this.ARJcmbJobName.Size = new System.Drawing.Size(163, 27);
+            this.ARJcmbJobName.Size = new System.Drawing.Size(163, 32);
             this.ARJcmbJobName.TabIndex = 8;
             this.ARJcmbJobName.SelectedIndexChanged += new System.EventHandler(this.ARJcmbJobName_SelectedIndexChanged);
             // 
@@ -1384,7 +1386,7 @@
             this.ARJlblPrisonerSkill1.AutoSize = true;
             this.ARJlblPrisonerSkill1.Location = new System.Drawing.Point(304, 50);
             this.ARJlblPrisonerSkill1.Name = "ARJlblPrisonerSkill1";
-            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(191, 19);
+            this.ARJlblPrisonerSkill1.Size = new System.Drawing.Size(237, 24);
             this.ARJlblPrisonerSkill1.TabIndex = 6;
             this.ARJlblPrisonerSkill1.Text = "Current skills of prisoner";
             // 
@@ -1393,7 +1395,7 @@
             this.ARJtxtPrisonerName.Enabled = false;
             this.ARJtxtPrisonerName.Location = new System.Drawing.Point(73, 248);
             this.ARJtxtPrisonerName.Name = "ARJtxtPrisonerName";
-            this.ARJtxtPrisonerName.Size = new System.Drawing.Size(168, 27);
+            this.ARJtxtPrisonerName.Size = new System.Drawing.Size(168, 32);
             this.ARJtxtPrisonerName.TabIndex = 5;
             // 
             // ARJlblPrisonerName
@@ -1401,7 +1403,7 @@
             this.ARJlblPrisonerName.AutoSize = true;
             this.ARJlblPrisonerName.Location = new System.Drawing.Point(69, 211);
             this.ARJlblPrisonerName.Name = "ARJlblPrisonerName";
-            this.ARJlblPrisonerName.Size = new System.Drawing.Size(127, 19);
+            this.ARJlblPrisonerName.Size = new System.Drawing.Size(156, 24);
             this.ARJlblPrisonerName.TabIndex = 2;
             this.ARJlblPrisonerName.Text = "Prisoners Name";
             // 
@@ -1410,7 +1412,7 @@
             this.ARJlblPrisonerApplication.AutoSize = true;
             this.ARJlblPrisonerApplication.Location = new System.Drawing.Point(69, 134);
             this.ARJlblPrisonerApplication.Name = "ARJlblPrisonerApplication";
-            this.ARJlblPrisonerApplication.Size = new System.Drawing.Size(215, 19);
+            this.ARJlblPrisonerApplication.Size = new System.Drawing.Size(266, 24);
             this.ARJlblPrisonerApplication.TabIndex = 1;
             this.ARJlblPrisonerApplication.Text = "Select Prisoners Application";
             // 
@@ -1419,7 +1421,7 @@
             this.ARJlblJobName.AutoSize = true;
             this.ARJlblJobName.Location = new System.Drawing.Point(69, 50);
             this.ARJlblJobName.Name = "ARJlblJobName";
-            this.ARJlblJobName.Size = new System.Drawing.Size(136, 19);
+            this.ARJlblJobName.Size = new System.Drawing.Size(167, 24);
             this.ARJlblJobName.TabIndex = 0;
             this.ARJlblJobName.Text = "Select Job Name:";
             // 
@@ -1484,7 +1486,7 @@
             this.cbxASJJobName.Location = new System.Drawing.Point(132, 47);
             this.cbxASJJobName.Margin = new System.Windows.Forms.Padding(2);
             this.cbxASJJobName.Name = "cbxASJJobName";
-            this.cbxASJJobName.Size = new System.Drawing.Size(220, 25);
+            this.cbxASJJobName.Size = new System.Drawing.Size(220, 28);
             this.cbxASJJobName.TabIndex = 13;
             this.cbxASJJobName.SelectedIndexChanged += new System.EventHandler(this.cbxASJJobName_SelectedIndexChanged);
             // 
@@ -1623,9 +1625,22 @@
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // btnReports
+            // 
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnReports.ForeColor = System.Drawing.Color.White;
+            this.btnReports.Location = new System.Drawing.Point(326, 102);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(559, 46);
+            this.btnReports.TabIndex = 3;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
             // frmEmployer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
@@ -1814,5 +1829,6 @@
         private System.Windows.Forms.MonthCalendar calStartDate;
         private System.Windows.Forms.Button btnMJSave;
         private System.Windows.Forms.TextBox txtMJEmpName;
+        private System.Windows.Forms.Button btnReports;
     }
 }
