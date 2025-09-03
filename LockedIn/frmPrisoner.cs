@@ -160,6 +160,15 @@ namespace LockedIn
                         MessageBox.Show("Application failed. Please try again.", "Error");
                     }
                 }
+
+                txtAFJjobLocation.Clear();
+                txtAFJjobDuration.Clear();
+                lblAFJStartDate.Text = "[Start Date]";
+                lblAFJEndDate.Text = "[End Date]";
+                txtAFJworkersNeeded.Clear();
+                rtxjobDescription.Clear();
+                lstAFJskillsRequired.DataSource = null;
+
             }
             catch (Exception ex)
             {
@@ -547,6 +556,13 @@ namespace LockedIn
         private void button1_Click_1(object sender, EventArgs e)
         {
             tcPrisoner.SelectedIndex = 0;
+            txtAFJjobLocation.Clear();
+            txtAFJjobDuration.Clear();
+            lblAFJStartDate.Text = "[Start Date]";
+            lblAFJEndDate.Text = "[End Date]";
+            txtAFJworkersNeeded.Clear();
+            rtxjobDescription.Clear();
+            lstAFJskillsRequired.DataSource = null;
         }
 
         private void button4_Click(object sender, EventArgs e)
