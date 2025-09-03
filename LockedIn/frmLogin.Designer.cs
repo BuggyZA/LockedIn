@@ -170,7 +170,7 @@
             this.pnlLogIn.Controls.Add(this.btnLIBack);
             this.pnlLogIn.Controls.Add(this.panel5);
             this.pnlLogIn.Controls.Add(this.label3);
-            this.pnlLogIn.Location = new System.Drawing.Point(442, 200);
+            this.pnlLogIn.Location = new System.Drawing.Point(442, 243);
             this.pnlLogIn.Name = "pnlLogIn";
             this.pnlLogIn.Size = new System.Drawing.Size(350, 378);
             this.pnlLogIn.TabIndex = 8;
@@ -563,8 +563,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pnlSignUp);
-            this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pnlAPESelect);
+            this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
