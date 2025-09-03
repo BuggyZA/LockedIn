@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrisoner));
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHelpHPage = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -73,6 +75,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -114,9 +117,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnHelpHPage = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -168,6 +168,18 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1269, 47);
             this.panel5.TabIndex = 16;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1177, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 31);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "Help";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -457,6 +469,18 @@
             this.panel1.Size = new System.Drawing.Size(1269, 80);
             this.panel1.TabIndex = 0;
             // 
+            // btnHelpHPage
+            // 
+            this.btnHelpHPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.btnHelpHPage.ForeColor = System.Drawing.Color.White;
+            this.btnHelpHPage.Location = new System.Drawing.Point(1133, 23);
+            this.btnHelpHPage.Name = "btnHelpHPage";
+            this.btnHelpHPage.Size = new System.Drawing.Size(104, 43);
+            this.btnHelpHPage.TabIndex = 13;
+            this.btnHelpHPage.Text = "Help";
+            this.btnHelpHPage.UseVisualStyleBackColor = false;
+            this.btnHelpHPage.Click += new System.EventHandler(this.btnHelpHPage_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -635,6 +659,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1269, 47);
             this.panel4.TabIndex = 34;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1176, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 31);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Help";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button4
             // 
@@ -1096,39 +1132,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
-            // 
-            // btnHelpHPage
-            // 
-            this.btnHelpHPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.btnHelpHPage.ForeColor = System.Drawing.Color.White;
-            this.btnHelpHPage.Location = new System.Drawing.Point(1133, 23);
-            this.btnHelpHPage.Name = "btnHelpHPage";
-            this.btnHelpHPage.Size = new System.Drawing.Size(104, 43);
-            this.btnHelpHPage.TabIndex = 13;
-            this.btnHelpHPage.Text = "Help";
-            this.btnHelpHPage.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1176, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 31);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "Help";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(71)))), ((int)(((byte)(3)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1177, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 31);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "Help";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // frmPrisoner
             // 

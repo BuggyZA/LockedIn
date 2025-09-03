@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -713,6 +714,40 @@ namespace LockedIn
                 btnMPSave.Visible = true;
                 btnMPBack.Visible = true; ;
             }
+        }
+
+        private void HelpFeature()
+        {
+            string url = "https://youtu.be/gGruKpDPlfM";
+
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not open link: " + ex.Message);
+            }
+        }
+
+        private void btnHelpHPage_Click(object sender, EventArgs e)
+        {
+            HelpFeature();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            HelpFeature();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HelpFeature();
         }
     }
 }
