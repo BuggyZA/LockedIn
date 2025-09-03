@@ -146,7 +146,21 @@ namespace LockedIn
 
                     if (rows > 0)
                     {
+                        ComboBoxHelper.PopulateAvailableJobNames(comboBox1, thisPrisoner.PrisonerID);
+
+                        comboBox1.SelectedIndexChanged -= comboBox1_SelectedIndexChanged;
+                        comboBox1.SelectedIndex = -1;
+                        comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
                         MessageBox.Show("You have successfully applied for the job!", "Success");
+                        txtAFJjobLocation.Text = "";
+                        txtAFJjobDuration.Text = "";
+                        lblAFJStartDate.Text = "[Start Date]";
+                        lblAFJEndDate.Text = "[End Date]";
+                        txtAFJworkersNeeded.Text = "";
+                        rtxjobDescription.Text = "";
+                        lstAFJskillsRequired.DataSource = null;
+
                         // Refresh the upcoming jobs display
                         ListboxHelper.PopulatePrisonersUpcomingJobs(redDisplay);
 
@@ -161,13 +175,7 @@ namespace LockedIn
                     }
                 }
 
-                txtAFJjobLocation.Clear();
-                txtAFJjobDuration.Clear();
-                lblAFJStartDate.Text = "[Start Date]";
-                lblAFJEndDate.Text = "[End Date]";
-                txtAFJworkersNeeded.Clear();
-                rtxjobDescription.Clear();
-                lstAFJskillsRequired.DataSource = null;
+                
 
             }
             catch (Exception ex)
@@ -189,12 +197,15 @@ namespace LockedIn
             }
             else if (tcPrisoner.SelectedIndex == 1)
             {
-
                 pnlPInfo.Visible = false;
                 pnlMPSkills.Visible = false;
                 txtPrisonerNo.Visible = false;
                 pnlMPChoices.Visible = true;
                 pnlModifyPPassword.Visible = false;
+            }
+            else if(tcPrisoner.SelectedIndex == 2)
+            {
+                ComboBoxHelper.PopulateAvailableJobNames(comboBox1, thisPrisoner.PrisonerID);
             }
         }
 
@@ -269,7 +280,7 @@ namespace LockedIn
             // Populating the combobox for "Apply for jobs"
             isPopulating = true;
 
-            ComboBoxHelper.PopulateJobNames(comboBox1);
+            ComboBoxHelper.PopulateAvailableJobNames(comboBox1, thisPrisoner.PrisonerID);
 
             isPopulating = false;
 
@@ -534,6 +545,20 @@ namespace LockedIn
         private void btnHPapplyForJobs_Click(object sender, EventArgs e)
         {
             tcPrisoner.SelectedIndex = 2;
+            ComboBoxHelper.PopulateAvailableJobNames(comboBox1, thisPrisoner.PrisonerID);
+
+            comboBox1.SelectedIndexChanged -= comboBox1_SelectedIndexChanged;
+            comboBox1.SelectedIndex = -1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
+            txtAFJjobLocation.Clear();
+            txtAFJjobDuration.Clear();
+            lblAFJStartDate.Text = "[Start Date]";
+            lblAFJEndDate.Text = "[End Date]";
+            txtAFJworkersNeeded.Clear();
+            rtxjobDescription.Clear();
+            lstAFJskillsRequired.DataSource = null;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -555,6 +580,12 @@ namespace LockedIn
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            ComboBoxHelper.PopulateAvailableJobNames(comboBox1, thisPrisoner.PrisonerID);
+
+            comboBox1.SelectedIndexChanged -= comboBox1_SelectedIndexChanged;
+            comboBox1.SelectedIndex = -1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
             tcPrisoner.SelectedIndex = 0;
             txtAFJjobLocation.Clear();
             txtAFJjobDuration.Clear();
@@ -562,7 +593,7 @@ namespace LockedIn
             lblAFJEndDate.Text = "[End Date]";
             txtAFJworkersNeeded.Clear();
             rtxjobDescription.Clear();
-            lstAFJskillsRequired.DataSource = null;
+            lstAFJskillsRequired.DataSource = null;            
         }
 
         private void button4_Click(object sender, EventArgs e)

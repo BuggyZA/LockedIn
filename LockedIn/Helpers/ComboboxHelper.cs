@@ -1,4 +1,5 @@
 ﻿using LockedIn.Data;
+using LockedIn.Models;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -108,6 +109,38 @@ public static class ComboBoxHelper
                 comboBox.ValueMember = "JobID";
                 
                 
+                comboBox.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error loading job names: " + ex.Message);
+        }
+    }
+
+    public static void PopulateAvailableJobNames(ComboBox comboBox, int prisonerID)
+    {
+        try
+        {
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                conn.Open();
+                query = @"SELECT JobID, JobName 
+                     FROM JOB 
+                     WHERE Completed = 0 
+                     AND EndDate > GETDATE() 
+                     AND StartDate >= DATEADD(day, 1, GETDATE())
+                     AND JobID NOT IN (SELECT JobID FROM PRISONER_ON_JOB WHERE PrisonerID = @PrisonerID)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@PrisonerID", prisonerID);
+
+                adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "JOB");
+                comboBox.DataSource = ds.Tables["JOB"];
+                comboBox.DisplayMember = "JobName";
+                comboBox.ValueMember = "JobID";
                 comboBox.SelectedIndex = -1;
             }
         }
