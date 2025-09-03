@@ -93,6 +93,7 @@ namespace LockedIn
                 }
 
                 conn.Close();
+                updatePrisonersLabel();
             }
         }
 
@@ -243,7 +244,7 @@ namespace LockedIn
 
                 ARJcmbJobName.SelectedValue = -1;
                 
-                updatePrisonersLabel();
+               // updatePrisonersLabel();
                 
 
                 
@@ -347,21 +348,24 @@ namespace LockedIn
 
         private void RefreshcmbJobs()
         {
-
-            // Store current selection
+            
             var currentSelection = ARJcmbJobName.SelectedValue;
 
-            string sql = "SELECT JobID, JobName FROM JOB WHERE PrisonersNeeded > 0 AND Completed = 0";
+           
+            string sql = "SELECT JobID, JobName FROM JOB WHERE PrisonersNeeded > 0 AND Completed = 0 AND EmployerID = @EmployerID";
+
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
+                    
+                    comm.Parameters.AddWithValue("@EmployerID", Convert.ToInt32(EmpID));
+
                     SqlDataAdapter adapt = new SqlDataAdapter(comm);
                     DataSet ds = new DataSet();
                     adapt.Fill(ds);
 
-                    
                     ARJcmbJobName.DataSource = null;
                     ARJcmbJobName.DataSource = ds.Tables[0];
                     ARJcmbJobName.DisplayMember = "JobName";
@@ -371,9 +375,6 @@ namespace LockedIn
                     {
                         ARJcmbJobName.SelectedValue = currentSelection;
                     }
-
-                    
-                    updatePrisonersLabel();
                 }
             }
 
@@ -409,7 +410,7 @@ namespace LockedIn
             }
 
 
-           
+            ARJcmbJobName.SelectedValue = -1;
             RefreshPrisoners(selectedJobID);
             RefreshcmbJobs();
 
@@ -435,6 +436,8 @@ namespace LockedIn
             {
                 MessageBox.Show("Error: " + ex);
             }
+
+            ARJcmbJobName.SelectedValue = -1;
             RefreshPrisoners(selectedJobID); 
             RefreshcmbJobs();
 
